@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Patrón</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Expires" content="0">
+	<link rel="stylesheet" type="text/css" href="./style/css.css">
+	<script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<div class="contain">
+		<div class="init">
+			<img src="./img/gload.gif" style="display: none;" id="gli" height="100px">
+			<div class="contini">
+				<div class="headerinit">
+					<span class="loinan">E</span>
+					<span class="loinan">k</span>
+					<span class="loinan">a</span>
+					<span class="loinan">s</span>
+					<span class="loinan">i</span>
+					<span class="loinan">s</span>
+					<span class="loinan">t</span>
+					<span class="loinan">e</span>
+					<span class="loinan">n</span>
+					<span class="loinan">t</span>
+				</div>
+				<div class="log">
+					<img class="loginit" id="edif" src="./img/edif7.png">
+					<!-- <img class="loginit" src="loginitarc.png"> -->
+				</div>
+				<div>
+					<button class="log-btninit">Iniciar Sesión</button>
+					<button class="sig-btninit">Registro</button>
+				</div>
+			</div>
+			<script type="text/javascript" src="./js/banderplan.js"></script>
+		</div>	
+		<div class="concen" style="display: none;">
+			<div id="root"> <!--Pattern-->
+				<div id="usermain"></div> <!--Aquí se cargara informacion de la base de datos cuando se haga login-->
+			</div>
+			<div id="rootright">
+				<div class="header">
+					<div> Asistente </div>
+					<div class="menulog">
+						<button class="login-btn btn-ml">Iniciar Sesión</button>
+						<button class="signup-btn btn-ml">Registrar</button>
+					</div>
+				</div>
+				<div class="buacc">
+					<div id="lab">Ingresar usando</div>
+					<div class="menbuac">
+						<button class="wayforaccess-btn tap">Tap</button>
+						<button class="wayforaccess-btn normal">Formulario</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="./js/alerts.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+	<script type="text/javascript" src="./js/manager.js"></script>
+	<script type="text/javascript" src="./js/config.js"></script>
+
+	<div id="tobo"></div>
+	<script type="text/javascript">
+		window.onload = () => {
+			document.querySelector(".concen").style.display = "none"
+
+			document.getElementsByClassName("log-btninit")[0].onclick = () => {
+					
+					document.querySelector("#gli").style.display = "block"
+					document.querySelector("#gli").style.position = "fixed"
+					document.querySelector("#gli").style.margin =" auto"
+					document.querySelector("#gli").style.top = "0"
+					document.querySelector("#gli").style.right = "0"
+
+					setTimeout(()=>{
+
+						document.querySelector(".concen").style.display = "flex"
+						document.querySelector(".concen").style.background = "#f2f2f2"
+						document.querySelector(".concen").animate([{
+							opacity:0
+						},{
+							opacity:1
+						}],{duration:400, iterations:1})
+						
+					},400)
+						document.querySelector(".init").style.opacity = "0"
+						document.querySelector(".init").animate([{
+							opacity:1,
+						},{
+							opacity:0,
+						}],{duration:500, iterations:1})
+
+					
+					setTimeout(()=>document.querySelector(".init").style.display = "none", 500)
+			
+			}
+			
+
+
+			//Log Intro
+			document.getElementsByClassName("headerinit")[0].style.opacity = "0"
+			setTimeout(()=>{
+				document.getElementsByClassName("headerinit")[0].style.opacity = "1"
+				document.getElementsByClassName("headerinit")[0].animate([{
+					transform:"scale(0)"
+				},{
+					transform:"scale(1)"
+				}],{duration:400, iterations:1})
+				for (let x = 0; x < document.getElementsByClassName("loinan").length; x++){
+					document.getElementsByClassName("loinan")[x].animate([{
+						opacity:Math.random(),
+						margin:"14px",
+						transform:`scale(${Math.random()}) rotate(${ Math.random()* -150 }deg) translate(${x % 2? Math.random()* -150 : 150}%, ${x % 2? Math.random()* -150 : 150}%)`
+					},{
+						opacity:1,
+						margin:"1px",
+						transform:`scaleX(${1})`
+					}],{duration:3000, iterations:1})
+				}
+			},1000)
+
+			//img
+
+			document.querySelector("#edif").style.opacity = "0"
+			setTimeout(()=>{
+				document.querySelector("#edif").style.opacity = "1"
+				document.querySelector("#edif").animate([{
+					opacity:0,
+					transform:"translateY(50%)"
+
+				},{
+					opacity:1,
+					transform:"translateY(0%)"
+				}],{duration:1000, iterations:1})
+
+				document.querySelector(".log-btninit").animate([{
+					opacity:0,
+					transform:"translateX(-100%)"
+				},{
+					opacity:1,
+					transform:"translateX(0%)"
+				}],{duration:1000, iterations:1})
+
+
+				document.querySelector(".sig-btninit").animate([{
+					opacity:0,
+					transform:"translateX(100%)"
+				},{
+					opacity:1,
+					transform:"translateX(0%)"
+				}],{duration:1000, iterations:1})
+
+			},0)
+		}
+	</script>
+
+
+	
+</body>
+</html>
