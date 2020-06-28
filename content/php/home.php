@@ -1,4 +1,4 @@
-
+<?php include 'content/php/navbar.php' ?>
 
 
 <?php include 'content/php/modulos.php'; ?>

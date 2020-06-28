@@ -12,7 +12,7 @@
 */
 <?php
 
-    include_once 'php/conexion.php';
+    include_once 'php/conexion.php'
     include_once 'php/MetodoIngresos.php';
 
     $objeto = new MetodoIngresos();

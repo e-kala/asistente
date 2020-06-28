@@ -86,7 +86,9 @@ background-color: #1d485e;
           <h4 class="">Cuentas</h4>
           <div class="btn-group" role="group" aria-label="Basic example">
             <!--<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ingresoModal">Cuentas</button>-->
-            <a class="btn btn-primary" href="?action=cuentas" role="button">Cuentas</a>
+            <button type="button" class="btn btn-secondary">
+               Cuentas
+             </button>
             <button type="button" class="btn btn-secondary">Ahorros</button>
             <button type="button" class="btn btn-secondary">Apartados</button>
           </div>

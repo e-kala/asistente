@@ -7,10 +7,10 @@
    </head>
    <body style="background-color: black; color: white;">
       <div class="container">
+
          <?php  
             if (isset($_SESSION['login'])) {
                if (isset($_GET['action'])) {
-                  include 'content/php/navbar.php';
                   $action = $_GET['action'];
                }else{
                   $action = "home";
@@ -31,13 +31,9 @@
                    include 'modalGasto.php';
                break;
 
-               case 'cuentas':
-                  include 'content/php/cuentas.php';
-               break;
-
                case 'cerrar_sesion':
                   if (isset($_SESSION['login'])) {
-                     unset ($SESSION ['login']);
+                     unset ($_SESSION ['login']);
                      session_destroy();
                      echo "<script>window.location.reload(false);</script>";
                   }else{
