@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Jun 14, 2020 at 04:13 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.2.29
+-- Servidor: localhost
+-- Tiempo de generación: 29-06-2020 a las 06:11:24
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `u599230971_asistente`
+-- Base de datos: `u599230971_asistente`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cuentas`
+-- Estructura de tabla para la tabla `cuentas`
 --
 
 CREATE TABLE `cuentas` (
@@ -37,7 +36,7 @@ CREATE TABLE `cuentas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gastos`
+-- Estructura de tabla para la tabla `gastos`
 --
 
 CREATE TABLE `gastos` (
@@ -50,7 +49,7 @@ CREATE TABLE `gastos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `gastos`
+-- Volcado de datos para la tabla `gastos`
 --
 
 INSERT INTO `gastos` (`id_gasto`, `cantidad_gasto`, `categoria_gasto`, `descripcion_gasto`, `cuenta_gasto`, `fecha_gasto`) VALUES
@@ -77,7 +76,7 @@ INSERT INTO `gastos` (`id_gasto`, `cantidad_gasto`, `categoria_gasto`, `descripc
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ideas`
+-- Estructura de tabla para la tabla `ideas`
 --
 
 CREATE TABLE `ideas` (
@@ -88,7 +87,7 @@ CREATE TABLE `ideas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ideas`
+-- Volcado de datos para la tabla `ideas`
 --
 
 INSERT INTO `ideas` (`id_idea`, `titulo_idea`, `contenido_idea`, `idea_fecha_creada`) VALUES
@@ -104,7 +103,7 @@ INSERT INTO `ideas` (`id_idea`, `titulo_idea`, `contenido_idea`, `idea_fecha_cre
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ingresos`
+-- Estructura de tabla para la tabla `ingresos`
 --
 
 CREATE TABLE `ingresos` (
@@ -117,7 +116,7 @@ CREATE TABLE `ingresos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ingresos`
+-- Volcado de datos para la tabla `ingresos`
 --
 
 INSERT INTO `ingresos` (`id_ingreso`, `cantidad_ingreso`, `fecha_ingreso`, `cuenta_ingreso`, `categoria_ingreso`, `descripcion_ingreso`) VALUES
@@ -130,12 +129,36 @@ INSERT INTO `ingresos` (`id_ingreso`, `cantidad_ingreso`, `fecha_ingreso`, `cuen
 (76, '600.00', '2020-06-02', 'Efectivo', 'Nómina', 'Reselco'),
 (77, '1000.00', '2020-06-04', 'Efectivo', 'Nómina', 'Reselco, adelanto semana'),
 (78, '300.00', '2020-06-12', 'Bancomer', 'Nómina', 'Reselco'),
-(79, '1300.00', '2020-06-13', 'Bancomer', 'Nómina', 'Reselco');
+(79, '1300.00', '2020-06-13', 'Bancomer', 'Nómina', 'Reselco'),
+(80, '100.00', '2020-06-29', 'Efectivo', 'prueba', '124');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transferencias`
+-- Estructura de tabla para la tabla `pagos`
+--
+
+CREATE TABLE `pagos` (
+  `id_pagos` int(11) NOT NULL,
+  `nombre_pagos` varchar(50) NOT NULL,
+  `monto_pagos` varchar(50) NOT NULL,
+  `fecha_a_pagar` date NOT NULL,
+  `fecha_pagado` date NOT NULL,
+  `Estado` varchar(100) NOT NULL,
+  `frecuencia_pago` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `pagos`
+--
+
+INSERT INTO `pagos` (`id_pagos`, `nombre_pagos`, `monto_pagos`, `fecha_a_pagar`, `fecha_pagado`, `Estado`, `frecuencia_pago`) VALUES
+(1, 'Tia Semana', '200', '2020-06-13', '0000-00-00', 'Pendiente', 'Semanal');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `transferencias`
 --
 
 CREATE TABLE `transferencias` (
@@ -146,73 +169,119 @@ CREATE TABLE `transferencias` (
   `fecha_transferencia` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Indexes for dumped tables
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id_usuario` int(11) NOT NULL,
+  `nombre_usuario` varchar(150) NOT NULL,
+  `correo_usuario` varchar(100) NOT NULL,
+  `pass_usuario` varchar(50) NOT NULL,
+  `privilegios` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo_usuario`, `pass_usuario`, `privilegios`) VALUES
+(1, 'Eka', 'caiman.mistico@gmail.com', '12345', 'admin'),
+(2, 'admin', 'admin@demo.com', 'root', 'admin');
+
+--
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `cuentas`
+-- Indices de la tabla `cuentas`
 --
 ALTER TABLE `cuentas`
   ADD PRIMARY KEY (`id_cuenta`);
 
 --
--- Indexes for table `gastos`
+-- Indices de la tabla `gastos`
 --
 ALTER TABLE `gastos`
   ADD PRIMARY KEY (`id_gasto`);
 
 --
--- Indexes for table `ideas`
+-- Indices de la tabla `ideas`
 --
 ALTER TABLE `ideas`
   ADD PRIMARY KEY (`id_idea`);
 
 --
--- Indexes for table `ingresos`
+-- Indices de la tabla `ingresos`
 --
 ALTER TABLE `ingresos`
   ADD PRIMARY KEY (`id_ingreso`);
 
 --
--- Indexes for table `transferencias`
+-- Indices de la tabla `pagos`
+--
+ALTER TABLE `pagos`
+  ADD PRIMARY KEY (`id_pagos`);
+
+--
+-- Indices de la tabla `transferencias`
 --
 ALTER TABLE `transferencias`
   ADD PRIMARY KEY (`id_transferencia`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `cuentas`
+-- AUTO_INCREMENT de la tabla `cuentas`
 --
 ALTER TABLE `cuentas`
   MODIFY `id_cuenta` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `gastos`
+-- AUTO_INCREMENT de la tabla `gastos`
 --
 ALTER TABLE `gastos`
   MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT for table `ideas`
+-- AUTO_INCREMENT de la tabla `ideas`
 --
 ALTER TABLE `ideas`
   MODIFY `id_idea` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `ingresos`
+-- AUTO_INCREMENT de la tabla `ingresos`
 --
 ALTER TABLE `ingresos`
-  MODIFY `id_ingreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id_ingreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
--- AUTO_INCREMENT for table `transferencias`
+-- AUTO_INCREMENT de la tabla `pagos`
+--
+ALTER TABLE `pagos`
+  MODIFY `id_pagos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `transferencias`
 --
 ALTER TABLE `transferencias`
   MODIFY `id_transferencia` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
