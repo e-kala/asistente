@@ -29,6 +29,7 @@
 	}
 
 
+			
 	class mostrar{
 		public function mostrarDatos(){
 			$conectar = new conectar();
