@@ -11,7 +11,10 @@
 			<div class="form-group">
 				<input type="password" class="form-control" id="pass" placeholder="Contraseña" name="pass">
 			</div>
-			<button type="submit" class="btn btn-primary">Entrar</button>
+			<div class="form-gourp d-flex">
+				<button type="submit" class="btn btn-primary">Entrar</button>
+				<a class="btn btn-primary ml-auto" href="?action=registro" role="button">Registrarse</a>
+			</div>
 		</form>
 	</div>
 </div>
