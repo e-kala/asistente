@@ -1,0 +1,78 @@
+/*Login Panel*/
+#fr{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+#root{
+	/*background: blue;*/
+	border-radius: 20px;
+	/*margin:auto;*/
+	float: right;
+	right: 0;
+	padding: 20px;
+
+	top: 30px;
+
+}
+
+
+#username{
+	width: 200px;
+	text-align: center;
+	border-radius: 15px;
+	box-shadow: 2px 2px 5px rgb(20,20,20,0.40);
+	border: none;
+	padding: 20px;
+	margin:10px;
+	color: #000;
+	background: #fff;
+	outline: none;
+	z-index: 5;
+}
+input{
+	flex: 1 1 auto;
+	padding: 10px;
+	z-index: 5;
+}
+
+#pattern{
+	/*background: #dbdbdb;*/
+	/*background-image: linear-gradient(to right top, #4b367c, #493370, #463165, #422e5a, #3e2c4f);*/
+	float: right;
+	right: 0;
+	border-radius: 20px;
+	margin:auto;
+	width: 250px; height: 250px;
+	padding: 20px;
+	display: flex;
+	flex-flow: wrap row;
+	justify-content: center;
+	/*border: 1px solid #bbbbbb;*/
+	box-shadow: 2px 2px 10px rgb(10,10,10, 0.50);
+	touch-action: none;
+}
+
+.box-rounded{
+	touch-action: none;
+	flex-grow: 1;
+	/*background: red;*/
+	width: 55px; height: auto;
+	padding: 10px;
+	margin: 3px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20px;
+	transition: ease all 0.3s;
+}
+
+.box-rounded:hover{
+	transition: ease all 0.3s;
+}
+
+ 
+
+

@@ -5,9 +5,9 @@
    <head>
       <?php include("content/php/head.php"); ?>
    </head>
-   <body style="background-color: black; color: white;">
-      <div class="container">
+   <body>
 
+      <div class="contain">
          <?php  
             if (isset($_SESSION['login'])) {
                if (isset($_GET['action'])) {
@@ -33,9 +33,9 @@
 
                case 'cerrar_sesion':
                   if (isset($_SESSION['login'])) {
+                     echo "<script>window.location.href = 'index.php';</script>";
                      unset ($_SESSION ['login']);
                      session_destroy();
-                     echo "<script>window.location.reload(false);</script>";
                   }else{
                      //header('location: ./');
                      echo "<script>window.location.reload(false);</script>";
@@ -49,7 +49,9 @@
          ?>
          
             <?php include 'content/php/footer.php'; ?>
-
+holas
+as
       </div>
+      
    </body>
 </html>

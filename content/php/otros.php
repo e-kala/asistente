@@ -1,10 +1,10 @@
 
 
-<div class="accordion" id="accordionExample">
+<div class="accordion pl-4 pr-4 pb-4" id="accordionExample">
  <div class="card bg-blue">
    <div class="card-header" id="headingFour">
      <h2 class="mb-0">
-       <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+       <button class="btn btn-link font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
          Pagos Pendientes semana
        </button>
      </h2>
