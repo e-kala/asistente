@@ -49,8 +49,6 @@
          ?>
          
             <?php include 'content/php/footer.php'; ?>
-holas
-as
       </div>
       
    </body>

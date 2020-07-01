@@ -1,6 +1,10 @@
 
 <div class=" inicio-container">
 	<div>
+		<div class="panel-log-reg">
+			<a class="btn btn-success float-right registro-btn" href="index.php" role="button">Iniciar Sesión</a>
+			<a class="btn btn-primary mr-2 float-right login-btn" href="?action=registro" role="button">Registrarse</a>
+		</div>
 		<div class="headerinit">
 			<span class="loinan">E</span>
 			<span class="loinan">k</span>
@@ -12,6 +16,7 @@
 			<span class="loinan">e</span>
 			<span class="loinan">n</span>
 			<span class="loinan">t</span>
+
 		</div>
 		<!-- <form method="POST" action="content/php/login.php">
 
@@ -26,5 +31,6 @@
 		</form> -->
 		<div id="root" class="col mt-5" > 
 		</div>
+			
 	</div>
 </div>

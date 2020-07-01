@@ -35,6 +35,13 @@ body{
 	margin: auto;
 }
 
+.panel-log-reg{
+	position: fixed;
+	right: 0;
+	top: 0;
+	margin: 15px;
+}
+
 .login-change-way{
 	position: fixed;
 	float: right;
