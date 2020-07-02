@@ -28,6 +28,7 @@
                  <button type="submit" value="siguiente" class="btn btn-primary registrarse-btn">Siguiente</button>
             </div>
             <script type="text/javascript">
+    
                 let state_btn = "next"
                 let email = document.getElementsByName("mail")[0]
                 let usuario = document.getElementsByName("usuario")[0]
@@ -38,6 +39,7 @@
                 let btn_registrarse = document.getElementsByClassName("registrarse-btn")[0]
 
                 btn_registrarse.onclick = () => {
+                
                     if (email.value !== "" && usuario.value !==""){
                         window.scrollTo(0,0)
                         email_div.style.display = "none"
@@ -50,6 +52,7 @@
                     let ver_pass = {}
                     if (state_btn === "acept"){
                         btn_registrarse.onclick = () => {
+
                             let div = document.getElementsByClassName("box-rounded")
                             for (let x=0; x < 9; x++){
                                 if (div[x] !== undefined){

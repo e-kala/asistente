@@ -869,6 +869,7 @@ Pattmo = (container, config) => {
 			}
 			
 			// ------------------------- END FOR DESKTOP ------------------------------
+
 			
 
 		} else { //Pan
