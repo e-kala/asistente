@@ -9,7 +9,8 @@
 		$conectar = new conexion();
 		$conexion = $conectar->conectar();
 
-		$consulta = "SELECT * FROM usuarios WHERE nombre_usuario ='$usuario' AND pass_usuario='$pass'";
+		$consulta = "SELECT * FROM usuarios WHERE nombre_usuario ='$usuario' OR correo_usuario = '$usuario' AND pass_usuario='$pass'";
+
 		$resultado = $conexion->query($consulta);
 
 		if ($resultado->num_rows>0) {

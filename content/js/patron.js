@@ -502,8 +502,10 @@ Pattmo = (container, config) => {
 					if (userValue !== "" && bfixAnActiveInput){ //Requerir nombre de usuario
 						// console.log(pass, tryNumber, "try")
 						if (tryNumber > 230 && pass !== config.login.passwordReference) { 
-						 errorUserPage(config, itext); //Demasiados intentos, accede a pagina de error, ayuda/soporte
-						}
+							// errorUserPage(config, itext); //Demasiados intentos, accede a pagina de error, ayuda/soporte
+							alert("Muchos intentos")
+							window.location.reload(false)
+						}	
 
 						// ------------------------ Validation-----------------------------
 						
@@ -523,6 +525,7 @@ Pattmo = (container, config) => {
 							}	
 
 							pass = "" //Reinicio de variable password para nuevo intento
+							first_char_pass = ""
 							bfixAnActiveInput = false
 						  });
 					} else {
