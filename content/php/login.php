@@ -19,6 +19,8 @@
 		}else{
 			// header('location: ../../index.php?pass=error');
 			echo '<script type="text/javascript"> document.body.innerHTML = ""</script>';
+			echo $usuario;
+			echo $pass;
 		}
 	}
 ?>

@@ -2,9 +2,10 @@
 <div class=" inicio-container">
 	<div>
 		<div class="panel-log-reg">
-			<a class="btn btn-success float-right registro-btn" href="index.php" role="button">Iniciar Sesión</a>
-			<a class="btn btn-primary mr-2 float-right login-btn" href="?action=registro" role="button">Registrarse</a>
+			<a class="btn btn-success float-right login-btn" href="index.php" role="button">Iniciar Sesión</a>
+			<a class="btn btn-primary mr-2 float-right registro-btn" href="?action=registro" role="button">Registrarse</a>
 		</div>
+		
 		<div class="headerinit">
 			<span class="loinan">E</span>
 			<span class="loinan">k</span>
