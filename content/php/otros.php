@@ -41,7 +41,7 @@
  <div class="card bg-blue">
    <div class="card-header" id="headingTwo">
      <h2 class="mb-0">
-       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+       <button class="btn btn-link collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
          Recordatorios
        </button>
      </h2>
@@ -55,7 +55,7 @@
  <div class="card bg-blue">
    <div class="card-header" id="headingThree">
      <h2 class="mb-0">
-       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+       <button class="btn btn-link collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
          Ideas
        </button>
      </h2>
