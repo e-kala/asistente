@@ -15,10 +15,15 @@
                }else{
                   $action = "home";
                }
+            }elseif (isset($_GET['action'])){
+               if ($_GET['action']=="registro") {
+                  $action = "registro";
+               }else{
+                  $action = "inicio";
+               }
             }else{
                $action = "inicio";
             }
-
             switch ($action) {
 
                case 'inicio':
@@ -30,6 +35,11 @@
                    include 'modalIngreso.php';
                    include 'modalGasto.php';
                break;
+
+               case 'registro':
+                  include 'content/php/registro/registro_form.php';
+               break;
+
 
                case 'cerrar_sesion':
                   if (isset($_SESSION['login'])) {

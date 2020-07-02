@@ -3,7 +3,7 @@ body{
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center center;
-	height: 100vh;
+	
 }
 
 .headerinit{
@@ -12,17 +12,19 @@ body{
 	font-weight: bold;
 	font-size: 30px;
 	padding: 30px;
-	position: fixed;
+	/*position: fixed;*/
+
 	left: 0;
 	top:0;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	text-align: center;
 }
 .loinan{
 	margin: 1px;
 }
 .contain{
+	min-height: 100vh;
 }
 
 
@@ -43,10 +45,6 @@ body{
 }
 
 .login-change-way{
-	position: fixed;
-	float: right;
-	right: 0;
-	bottom: 0px;
 	padding: 20px;
 	margin: 10px;
 	outline: none;
@@ -63,6 +61,14 @@ body{
 	transition: ease all 0.3s;
 	background: #78f46e;
 	color: #193e15;
+}
+
+.init-wayses{ /*Div container => login-change-way button*/
+	
+	position: fixed;
+	bottom: 0;
+	right: 0;
+
 }
 
 .tapbtn, .panbtn{

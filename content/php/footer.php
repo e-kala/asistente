@@ -1,4 +1,4 @@
-<button class="login-change-way   text-light font-weight-bold">Iniciar Sesión de otra manera</button>
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -235,10 +235,10 @@ function agregarDatosGasto(cantidadGasto,cuenta,categoriaGasto,descripcionGasto,
 }
 </script>
 
-<script type="text/javascript" src="./content/js/animations.js"></script>
-<script type="text/javascript" src="./content/js/mode_login.js"></script>
-
 <script type="text/javascript" src="./content/js/patron.js"></script>
+
+<script type="text/javascript" src="./content/js/animations.js"></script>
+
 <script type="text/javascript" src="./content/js/manager_patron.js"></script>
 
 <script type="text/javascript" src="./content/js/redesign_responsive.js"></script>
