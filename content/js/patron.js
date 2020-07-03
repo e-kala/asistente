@@ -43,8 +43,8 @@ errorUserPage = (config, valueinputform) =>{
 	//En esta función se invocará el componente hacia la pagina de error
 	let errorPage = config.components.access_ErrorLoginPage
 
-	window.location.href = errorPage; //Access
-	alert("Demasiados intentos")
+	// window.location.href = errorPage; //Access
+	// alert("Demasiados intentos")
 	//Change state and access
 }
 
@@ -69,7 +69,7 @@ accessToUserPage = (config, formAndSys, valueinputform, pass) => { //Acceso a la
 	valueinputform.value = ""  //Se limpia formulario de login
 
 	// window.location.href = userPage; //Access
-	alert(`Bienvenid@ ${config.login.userReference}`)
+	// alert(`Bienvenid@ ${config.login.userReference}`)
 }
 
 Pattmo = (container, config) => {
@@ -294,7 +294,10 @@ Pattmo = (container, config) => {
 					if (userValue !== "" && bfixAnActiveInput){ //Requerir nombre de usuario
 						// console.log(pass, tryNumber, "try")
 						if (tryNumber > 230 && pass !== config.login.passwordReference) { 
-						 errorUserPage(config, itext); //Demasiados intentos, accede a pagina de error, ayuda/soporte
+						 // errorUserPage(config, itext); //Demasiados intentos, accede a pagina de error, ayuda/soporte
+							// errorUserPage(config, itext); //Demasiados intentos, accede a pagina de error, ayuda/soporte
+							alert("Muchos intentos")
+							window.location.reload(false)
 						}
 
 						// ------------------------ Validation-----------------------------
@@ -871,7 +874,6 @@ Pattmo = (container, config) => {
 			// ------------------------- END FOR DESKTOP ------------------------------
 
 			
-
 		} else { //Pan
 
 			if (btn_mode_loginn !== undefined){
@@ -997,7 +999,9 @@ Pattmo = (container, config) => {
 					if (bfixAnActiveInput){ //Requerir nombre de usuario
 						// console.log(pass, tryNumber, "try")
 						if (tryNumber > 230 && pass !== config.login.passwordReference) { 
-						 errorUserPage(config); //Demasiados intentos, accede a pagina de error, ayuda/soporte
+						 	// errorUserPage(config, itext); //Demasiados intentos, accede a pagina de error, ayuda/soporte
+							alert("Muchos intentos")
+							window.location.reload(false)
 						}
 
 						// ------------------------ Validation-----------------------------
@@ -1275,15 +1279,14 @@ Pattmo = (container, config) => {
 			// --------------------- END MOVIL --------------------------------
 		}
 	}
-	
+	 
 	if (window.location.href.match(/action\=registro/gim)){
 		change_tap_pan_signup()
-	} else if (window.location.href.match(/index\.php\b/gim)) {
+	} else {
 		change_tap_pan_login()
 	}
 	
 }
-
 
 managerPassword = db => {
 	return {
