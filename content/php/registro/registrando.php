@@ -17,8 +17,8 @@
         //echo $result;
 
         if ($conexion->query($sql) === TRUE) {
-            echo "New record created successfully";
-            header('location: ../../../');
+            echo "New record created <successfully>";
+            // header('location: ../../../');
         } else {
             echo "Error: " . $sql . "<br>" . $conexion->error;
         }

@@ -2,7 +2,7 @@
 <!-- <h3 class="text-center text-dark">Información</h3>-->
 
 <div class="card-group">
-  <div class="card bg-dark">
+  <div class="card bg-ligth">
     <!-- <img src="..." class="card-img-top" alt="...">-->
     <div class="card-body">
       <h5 class="card-title" >Balance</h5>
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div class="card bg-dark">
+  <div class="card bg-ligth">
     <!-- <img src="..." class="card-img-top" alt="..."> -->
     <div class="card-body">
       <h5 class="card-title">Último ingreso</h5>
@@ -28,7 +28,7 @@
     </div>
   </div>
 
-  <div class="card bg-dark">
+  <div class="card bg-ligth">
     <!-- <img src="..." class="card-img-top" alt="..."> -->
     <div class="card-body">
       <h5 class="card-title">Último Gasto</h5>

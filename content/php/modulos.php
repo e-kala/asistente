@@ -2,15 +2,15 @@
 <style type="text/css">
 .bg-blue{
 
-background-color: #1d485e;
+background-color: #f2f2f2;
 }
 </style>
- <div class="accordion" id="accordionExample">
+ <div class="accordion pl-4 pr-4 pb-4 modulos" id="accordionExample">
   <!--información in-->
    <div class="card bg-blue">
      <div class="card-header" id="headingOne">
        <h2 class="mb-0">
-         <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+         <button class="btn btn-link btn-block text-left font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
            Información
          </button>
        </h2>
@@ -29,7 +29,7 @@ background-color: #1d485e;
    <div class="card bg-blue">
      <div class="card-header" id="headingTwo">
        <h2 class="mb-0">
-         <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+         <button class="btn btn-link btn-block text-left collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
            Movimientos
          </button>
        </h2>
@@ -38,7 +38,7 @@ background-color: #1d485e;
      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
        <div class="card-body">
         <!-- opciones-->
-       <div class="row">
+       <div class="row p-4">
         <!-- Sección de movimientos In -->
          <div class="col-xs-4">
             <h4 class="">Movimientos</h4>
@@ -143,7 +143,7 @@ background-color: #1d485e;
    <div class="card bg-blue ">
      <div class="card-header" id="headingThree">
        <h2 class="mb-0">
-         <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+         <button class="btn btn-link btn-block text-left collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
            Collapsible Group Item #3
          </button>
        </h2>

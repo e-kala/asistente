@@ -1,0 +1,196 @@
+body{
+	background: url(../img/bggpur2.png);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center;
+	
+}
+
+.headerinit{
+	/*background: #000000;*/
+	color: #fff;
+	font-weight: bold;
+	font-size: 30px;
+	padding: 30px;
+	/*position: fixed;*/
+
+	left: 0;
+	top:0;
+	display: flex;
+	justify-content: flex-start;
+	text-align: center;
+}
+.loinan{
+	margin: 1px;
+}
+.contain{
+	min-height: 100vh;
+}
+
+
+.header-home-asistent{
+	background: #fff;
+	color: #303030;
+}
+
+.accordion{
+	margin: auto;
+}
+
+.panel-log-reg{
+	position: fixed;
+	right: 0;
+	top: 0;
+	margin: 15px;
+}
+
+.login-change-way{
+	padding: 20px;
+	margin: 10px;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	background: #2eb4f2;
+	font-weight: bold;
+	color: #fff;
+	border-radius: 14px;
+	transition: ease all 0.3s;
+}	
+
+.login-change-way:hover{
+	transition: ease all 0.3s;
+	background: #78f46e;
+	color: #193e15;
+}
+
+.init-wayses{ /*Div container => login-change-way button*/
+	
+	position: fixed;
+	bottom: 0;
+	right: 0;
+
+}
+
+.tapbtn, .panbtn{
+	padding: 23px;
+	outline: none;
+	cursor: pointer;
+	background: #fff;
+	outline: none;
+	border:none;
+	border-radius: 14px;
+	color: #303030;
+
+}
+
+.tapbtn{
+	margin: 4px;
+}
+
+.panbtn{
+	margin-top: 4px;
+	margin-bottom: 4px;
+	margin-right: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /*-----------------------------------------------------*/
+@media all and (min-width: 50px){
+	#pattern{
+		width: 70px;
+		height: 70px;
+		padding: 10px;
+	}
+}
+
+@media all and (min-width: 130px){
+	#pattern{
+		width: 130px;
+		height: 130px;
+		padding: 10px;
+	}
+}
+
+@media all and (min-width: 150px){
+	#pattern{
+		width: 140px;
+		height: 140px;
+		padding: 10px;
+	}
+	.box-rounded{
+		width: 25px; height: auto;
+	}
+}
+
+@media all and (min-width: 280px){
+	#pattern{
+		width: 250px;
+		height: 250px;
+		padding: 10px;
+	}
+
+	.box-rounded{
+		width: 60px; height: auto;
+	}
+
+}
+
+
+@media all and (min-width: 450px){
+	#pattern{
+		width: 350px;
+		height: 350px;
+		padding: 20px;
+	}
+	
+	.box-rounded{
+		width: 80px; height: auto;
+	}
+}
+
+@media all and (min-width: 600px){
+	#pattern{
+		width: 400px;
+		height: 400px;
+		padding: 20px;
+	}
+	#root{
+		flex: 1 1 auto;
+	}
+	.box-rounded{
+		width: 105px; height: auto;
+	}
+
+
+}
+
+
+
+@media all and (min-width: 700px){
+	#pattern{
+		width: 300px; height: 300px;
+		padding: 20px;
+	}
+
+	#root{
+		flex:3 0;
+	}
+	.box-rounded{
+		width: 80px; height: auto;
+	}
+
+}
