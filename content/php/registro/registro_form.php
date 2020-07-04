@@ -5,7 +5,7 @@
             <form class="pt-4" class="formureg ">
                 <div class="froot">
                     <div class="text-center">
-                            <label for="inputPassword3" class="text-light font-weight-bold text-center"><h5>Clave</h5></label>
+                            <label for="inputPassword3" class="text-light font-weight-bold text-center label_state"><h5>Clave</h5></label>
                     </div>
                    
                         <div id="root"></div>
@@ -38,8 +38,13 @@
 
                 let btn_registrarse = document.getElementsByClassName("registrarse-btn")[0]
 
+                window.onkeypress = e => {
+                    if (e.key === "Enter"){
+                        alert("ja")
+                    }
+                }
+
                 btn_registrarse.onclick = () => {
-                
                     if (email.value !== "" && usuario.value !==""){
                         window.scrollTo(0,0)
                         email_div.style.display = "none"
