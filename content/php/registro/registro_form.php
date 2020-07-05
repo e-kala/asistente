@@ -16,13 +16,13 @@
                 <div class="mailc text-center" align="center">
                     <label for="inputEmail3" class=" col-form-label text-light" placeholder="Tu Correo">Email</label>
                     <div class="m-2">
-                    <input type="email" class="input-reg-text ml-2 mt-2" id="inputEmail3" name="mail">
+                    <input type="email" class="input-reg-text ml-2 mt-2" id="inputEmail3" name="mail" required>
                     </div>
                 </div>
                 <div class=" usuarioc text-center pt-2">
                     <label for="inputEmail3" class=" col-form-label text-light" placeholder="Tu Correo">Usuario</label>
                     <div class="m-2">
-                    <input type="text" class=" ml-2 mt-2 input-reg-text" id="inputEmail3" name="usuario">
+                    <input type="text" class=" ml-2 mt-2 input-reg-text" id="inputEmail3" name="usuario" required>
                     </div>
                 </div>
             </form>
@@ -51,6 +51,7 @@
 
                 const repeal_post_gen = () => {
                     if (email.value !== "" && usuario.value !==""){
+                       
                         window.scrollTo(0,0)
                        
                         document.getElementsByClassName("init-wayses")[0].style.display = "block"
@@ -149,11 +150,7 @@
                         transform: "scale(1)"
                     }],{duration:1000, iterations:1})
 
-                    btn_registrarse.animate([{
-                        opacity:0
-                    },{
-                        opacity:1
-                    }],{duration:1000, iterations:1})
+                    
 
                     repva()
 
@@ -232,7 +229,7 @@
 
                 config_dev : { //Para el desarrollador
                     letters : false, //Quitar o poner letras 
-                    showPassword : true // Mostrar password
+                    showPassword : false // Mostrar password
                 }
             }))
         </script>

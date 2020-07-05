@@ -108,7 +108,7 @@ Pattmo = (container, config) => {
 			bolshowhide = !bolshowhide
 			if (window.location.href.match(/action\=registro/gim)){
 				change_tap_pan_signup()
-			} else if (window.location.href.match(/index\.php\b/gim)) {
+			} else {
 				change_tap_pan_login()
 			}
 		}
@@ -396,7 +396,6 @@ Pattmo = (container, config) => {
 			})
 			// ------------------------- END FOR DESKTOP ------------------------------
 		} else { //Pan
-
 			if (btn_mode_loginn !== undefined){
 				btn_mode_loginn.innerHTML = "Pan"
 				btn_mode_loginn.value ="Pan"
@@ -495,8 +494,6 @@ Pattmo = (container, config) => {
 			}
 
 
-		
-
 			let bool = false; let boolMouseOver = false; //Don't touch
 			let pass = "";  let bfixAnActiveInput = false;
 
@@ -505,6 +502,7 @@ Pattmo = (container, config) => {
 				if (userValue !== ""){
 					btn_next.style.display = "none"
 					btn_volver.style.display = "block"
+					btn_volver.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
 					pattern.style.opacity = "1"
 					pattern.animate([
 						{opacity:0},
@@ -1420,7 +1418,6 @@ Pattmo = (container, config) => {
 	 
 	if (window.location.href.match(/action\=registro/gim)){
 		change_tap_pan_signup()
-
 	} else {
 		change_tap_pan_login()
 	}
