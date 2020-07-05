@@ -1,5 +1,10 @@
 const modulos = document.getElementsByClassName("accordion")
 
+const readjust_pattern = () => {
+	const root_pattern = document.getElementById("root")
+	root_pattern.style.marginTop = "0px"
+}
+
 const resize_modulos = () => {
 	if (window.screen.width >= 800){
 		if(modulos[0] !== undefined){

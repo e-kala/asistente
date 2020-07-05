@@ -33,7 +33,7 @@ const banplan = destiny => {
 	img.style.position = "fixed"
 	img.style.margin = "auto"
 	img.style.opacity = "0.2"
-	img.style.left = "0"
+	img.style.right = "0"
 	img.style.bottom = "-30%"
 	img.style.zIndex = "-3"
 	img.ondragstart = () => false;

@@ -50,13 +50,14 @@
   background: rgba(255, 255, 255, 0.95);
   color: #000;
   text-align: center;
-  border: solid 1px #ddd;
-  border-radius: 2px;
+  border: solid 2px #fff;
+  border-radius: 8px;
 }
+
 .alertify-notifier .ajs-message.ajs-success {
   color: #fff;
-  background: rgba(91, 189, 114, 0.95);
-  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5);
+  background: #31F024;
+  font-weight: bold;
 }
 .alertify-notifier .ajs-message.ajs-error {
   color: #fff;

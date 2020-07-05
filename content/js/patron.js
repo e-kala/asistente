@@ -117,6 +117,7 @@ Pattmo = (container, config) => {
 	function change_tap_pan_login(){ // FOR LOGIN
 		if (bolshowhide){ //Tap
 			btn_mode_loginn.innerHTML = "Tap"
+			btn_mode_loginn.value ="Tap"
 			container.innerHTML = ""
 
 			if (container !== null){
@@ -162,10 +163,12 @@ Pattmo = (container, config) => {
 
 
 
+
+
 			//------------------ Acceder Luego de ingresar todos los taps ---------------
 			const btn_accept_init = document.createElement("button")
 			btn_accept_init.innerHTML = "Aceptar"
-			btn_accept_init.className += " btn btn-primary btn-lg "
+			btn_accept_init.className += " btn btn-primary btn-lg btn-acept-log-tap"
 			btn_accept_init.animate([{
 				opacity:0,
 				transform:"scale(0.8)"
@@ -176,21 +179,74 @@ Pattmo = (container, config) => {
 
 			btn_accept_init.style.position = "absolute"
 			btn_accept_init.style.margin = "auto"
-			btn_accept_init.style.bottom = "0"
+			btn_accept_init.style.bottom = "-90px"
+			btn_accept_init.style.display = "none"
 			container.style.position = "relative"
 			container.style.justifyContent = "center"
 			container.style.alignItems = "center"
 			container.appendChild(btn_accept_init)
 
+			const btn_next = document.createElement("button")
+			btn_next.innerHTML = "Siguiente"
+			btn_next.style.position = "absolute"
+			btn_next.style.margin = "auto"
+			btn_next.style.bottom = "0px"
+			btn_next.style.zIndex = "30"
+			container.appendChild(btn_next)
+			btn_next.className += "btn btn-primary btn-lg btn-next-log-tap"
+			btn_next.onclick = () => {
+				if (document.getElementById("username").value !== ""){
+					pattern.style.opacity = "1"
+					pattern.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+					document.getElementById("username").style.display = "none"
+					btn_next.style.display = "none"
+					document.getElementById("username").animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+					btn_volver.style.display = "block"
+					btn_volver.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+				
+					btn_accept_init.style.display = "block"
+					btn_accept_init.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+				
+				} else {
+					alertify.error("Escribe nombre de usuario o email")
+				}
+			}
+
+			const btn_volver = document.createElement("button")
+			btn_volver.innerHTML = "Volver"
+			btn_volver.style.position = "absolute"
+			btn_volver.style.margin = "auto"
+			btn_volver.style.bottom = "-150px"
+			btn_volver.classList += "btn btn-light btn-lg btn-volver-log-tap"
+			btn_volver.style.display = "none"
+			container.appendChild(btn_volver)
+			btn_volver.onclick = () => {
+				btn_next.style.display = "block"
+				btn_next.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+				btn_volver.style.display = "none"
+				btn_accept_init.style.display = "none"
+				// pattern.style.display = "none"
+				pattern.style.opacity = "0"
+				document.getElementById("username").style.display = "block"
+				document.getElementById("username").style.opacity = "1"
+				form.style.display = "block"
+				form.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+			}
+
+
+			
+
 			//----------------------------------------------------------
 		
-
 			let bool = false; let boolMouseOver = false; //Don't touch
 			let pass = "";  let bfixAnActiveInput = false;
 
 			document.querySelector("form").addEventListener("submit",(e)=> {
 				e.preventDefault()
 				if (userValue !== ""){
+					btn_next.style.display = "none"
+					btn_accept_init.style.display = "block"
+					btn_volver.style.display = "block"
 					pattern.style.opacity = "1"
 					pattern.animate([
 						{opacity:0},
@@ -206,8 +262,13 @@ Pattmo = (container, config) => {
 						}],{duration:1000, iterations:1})
 					}
 				}else {
+					alertify.error("Escribe nombre de usuario o email")
 					pattern.style.opacity = "0"
-					
+					btn_next.style.display = "block"
+					document.getElementById("username").style.display = "block"
+					document.getElementById("username").style.opacity = "1"
+					btn_accept_init.style.display = "none"
+					btn_volver.style.display = "none"
 					form.animate([{opacity:1},{opacity:0}],{duration:1000, iterations:1})
 					form.style.display = "block"
 				}
@@ -239,9 +300,11 @@ Pattmo = (container, config) => {
 				// ---------------------- FOR DESKTOP ------------------------------
 
 				pattern.addEventListener("pointerdown",()=>{
-					bool = true; 
-					boolMouseOver = true;
-					bfixAnActiveInput = true;
+					if (pattern.style.opacity !== "0"){
+						bool = true; 
+						boolMouseOver = true;
+						bfixAnActiveInput = true;
+					}
 
 					// document.querySelector("html").addEventListener("pointerup",()=>{
 					// 	tryNumber += 1;
@@ -263,7 +326,9 @@ Pattmo = (container, config) => {
 			for (let x=0; x < 9; x++){
 				if (div[x] !== undefined){
 					div[x].onpointerdown = () => {
-						if (bool){
+						if (pattern.style.opacity !== "0"){
+							console.log("tap")
+
 							pass += div[x].getAttribute("name")
 							div[x].style.background = "rgb(125,27,233,0.40)"
 							div[x].animate([
@@ -274,7 +339,8 @@ Pattmo = (container, config) => {
 								}
 							],{duration:350, iterations:1})
 							console.log(pass,":..")
-						} 
+						}
+						
 					}
 				}
 			}
@@ -305,7 +371,7 @@ Pattmo = (container, config) => {
 
 						$.post( "./content/php/login.php", { usuario: userValue, pass: pass})
 						  .done( dat => {
-						  	console.log(dat)
+						  	// console.log(dat)
 						  	if (dat.match(/\<welcome\>/gim)){
 						  		window.location.reload(false);
 						  		accessToUserPage(config, { form: form, sys: pattern}, itext, pass)
@@ -313,8 +379,9 @@ Pattmo = (container, config) => {
 								boolMouseOver = false
 								tryNumber = 0
 						  	} else {
-								alert(`Datos inválidos ${userValue}`)
-								console.log("Datos inválidos", userValue	)
+								// alert(`Datos inválidos ${userValue}`)
+								alertify.error(`Datos inválidos ${userValue}`)
+								// console.log("Datos inválidos", userValue	)
 							}	
 
 							pass = "" //Reinicio de variable password para nuevo intento
@@ -329,8 +396,10 @@ Pattmo = (container, config) => {
 			})
 			// ------------------------- END FOR DESKTOP ------------------------------
 		} else { //Pan
+
 			if (btn_mode_loginn !== undefined){
 				btn_mode_loginn.innerHTML = "Pan"
+				btn_mode_loginn.value ="Pan"
 			}
 			if (container !== null){
 
@@ -378,6 +447,54 @@ Pattmo = (container, config) => {
 				transform: "rotate(0deg) scale(1)"
 			}],{duration:700, iterations:1})
 
+			const btn_next = document.createElement("button")
+			btn_next.innerHTML = "Siguiente"
+			btn_next.style.position = "absolute"
+			btn_next.style.margin = "auto"
+			btn_next.style.bottom = "0px"
+			btn_next.style.zIndex = "30"
+			if (container !== null){
+				container.appendChild(btn_next)
+			}
+			btn_next.className += "btn btn-primary btn-lg btn-next-log-tap"
+			btn_next.onclick = () => {
+				if (document.getElementById("username").value !== ""){
+					pattern.style.opacity = "1"
+					pattern.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+					document.getElementById("username").style.display = "none"
+					btn_next.style.display = "none"
+					document.getElementById("username").animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+					btn_volver.style.display = "block"
+					btn_volver.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+				
+					
+				} else {
+					alertify.error("Escribe un nombre de usuario o email")
+				}
+			}
+
+			const btn_volver = document.createElement("button")
+			btn_volver.innerHTML = "Volver"
+			btn_volver.style.position = "absolute"
+			btn_volver.style.margin = "auto"
+			btn_volver.style.bottom = "-120px"
+			btn_volver.classList += "btn btn-light btn-lg btn-volver-log-tap"
+			btn_volver.style.display = "none"
+			if (container !== null){
+				container.appendChild(btn_volver)
+			}
+			btn_volver.onclick = () => {
+				btn_next.style.display = "block"
+				btn_next.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+				btn_volver.style.display = "none"
+				// pattern.style.display = "none"
+				pattern.style.opacity = "0"
+				document.getElementById("username").style.display = "block"
+				form.style.display = "block"
+				form.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+			}
+
+
 		
 
 			let bool = false; let boolMouseOver = false; //Don't touch
@@ -386,6 +503,8 @@ Pattmo = (container, config) => {
 			document.querySelector("form").addEventListener("submit",(e)=> {
 				e.preventDefault()
 				if (userValue !== ""){
+					btn_next.style.display = "none"
+					btn_volver.style.display = "block"
 					pattern.style.opacity = "1"
 					pattern.animate([
 						{opacity:0},
@@ -402,9 +521,9 @@ Pattmo = (container, config) => {
 					}
 				}else {
 					pattern.style.opacity = "0"
-					
 					form.animate([{opacity:1},{opacity:0}],{duration:1000, iterations:1})
 					form.style.display = "block"
+					alertify.error("Escribe un nombre de usuario o email")
 				}
 			})
 
@@ -434,9 +553,11 @@ Pattmo = (container, config) => {
 				// ---------------------- FOR DESKTOP ------------------------------
 
 				pattern.addEventListener("pointerdown",()=>{
-					bool = true; 
-					boolMouseOver = true;
-					bfixAnActiveInput = true;
+					if (pattern.style.opacity !== "0"){
+						bool = true; 
+						boolMouseOver = true;
+						bfixAnActiveInput = true;
+					}
 
 					div.addEventListener("pointermove", ()=>{
 						if (bool){
@@ -485,10 +606,13 @@ Pattmo = (container, config) => {
 				if (div[x] !== undefined){
 					div[x].addEventListener("pointerdown",(e) => {
 						// if (boolMouseOver){
-							first_char_pass += div[x].getAttribute("name");
-							first_char_pass = first_char_pass.replace("undefined", "")
+							if (pattern.style.opacity !== "0"){
+
+								first_char_pass += div[x].getAttribute("name");
+								first_char_pass = first_char_pass.replace("undefined", "")
+							}
 							// console.log(first_char_pass)
-							console.log(first_char_pass)
+							// console.log(first_char_pass)
 							// console.log(pass, tryNumber, "try")
 						// }
 					})
@@ -523,8 +647,9 @@ Pattmo = (container, config) => {
 								boolMouseOver = false
 								tryNumber = 0
 						  	} else {
-								alert(`Datos inválidos ${userValue}`)
-								console.log("Datos inválidos", userValue	)
+								// alert(`Datos inválidos ${userValue}`)
+								alertify.error(`Datos inválidos ${userValue}`)
+								// console.log("Datos inválidos", userValue	)
 							}	
 
 							pass = "" //Reinicio de variable password para nuevo intento
@@ -543,51 +668,54 @@ Pattmo = (container, config) => {
 			// --------------------- FOR MÓVIL ------------------------------------
 
 			let boxes = document.getElementsByClassName("box-rounded")
-
+					
 			if (navigator.userAgent.match(/chrome/gim) !== null){
-				pattern.onpointermove = e => {
-					// if (chantap === false){ //Mode pan
+				pattern.ontouchmove = () => {
+					pattern.onpointermove = e => {
 
-					// 	window.scrollTo(0,0)
-					// }
+						// if (chantap === false){ //Mode pan
 
-					let x = e.touches ? e.touches[0].pageX : e.pageX
-					let y = e.touches ? e.touches[0].pageY : e.pageY
+						// 	window.scrollTo(0,0)
+						// }
 
-					// get element in coordinates:
-					var targetElement = document.elementFromPoint(x, y);
+						let x = e.touches ? e.touches[0].pageX : e.pageX
+						let y = e.touches ? e.touches[0].pageY : e.pageY
 
-					let letter = targetElement !== null ? targetElement.getAttribute("name") : null
+						// get element in coordinates:
+						var targetElement = document.elementFromPoint(x, y);
 
-					if (letter !== null && letter !== undefined){
-					  if (letter === "a"){
-					  	boxes[0].setPointerCapture(e.pointerId)
-					  } 
-					  if (letter === "b"){
-					  	boxes[1].setPointerCapture(e.pointerId)
-					  } 
-					  if (letter === "c"){
-					  	boxes[2].setPointerCapture(e.pointerId)
-					  } 
-					  if (letter === "d"){
-					  	boxes[3].setPointerCapture(e.pointerId)
-					  }
-					  if (letter === "e"){
-					  	boxes[4].setPointerCapture(e.pointerId)
-					  } 
-					  if (letter === "f"){
-					  	boxes[5].setPointerCapture(e.pointerId)
-					  } 
-					  if (letter === "g"){
-					  	boxes[6].setPointerCapture(e.pointerId)
-					  } 
-					  if (letter === "h"){
-					  	boxes[7].setPointerCapture(e.pointerId)
-					  } 
-					  if (letter === "i"){
-					  	boxes[8].setPointerCapture(e.pointerId)
-					  }
+						let letter = targetElement !== null ? targetElement.getAttribute("name") : null
 
+						if (letter !== null && letter !== undefined){
+						  if (letter === "a"){
+						  	boxes[0].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "b"){
+						  	boxes[1].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "c"){
+						  	boxes[2].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "d"){
+						  	boxes[3].setPointerCapture(e.pointerId)
+						  }
+						  if (letter === "e"){
+						  	boxes[4].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "f"){
+						  	boxes[5].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "g"){
+						  	boxes[6].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "h"){
+						  	boxes[7].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "i"){
+						  	boxes[8].setPointerCapture(e.pointerId)
+						  }
+
+						}
 					}
 				}
 			} else {
@@ -606,6 +734,7 @@ Pattmo = (container, config) => {
 					const del_first = () => {
 						let pro = get_to_pass.split("")
 						pro = pro.filter((e,i)=>{
+
 							if (i !== 0) return e;
 						})
 						pro = pro.toString().replace(/,/gim, "")
@@ -755,10 +884,12 @@ Pattmo = (container, config) => {
 
 	function change_tap_pan_signup(){ // FOR SIGN UP
 		if (bolshowhide){ //Tap
+
 			let btn_registrarse = document.getElementsByClassName("registrarse-btn")[0]
 			btn_registrarse.style.display = "block"
 			if (btn_mode_loginn !== undefined){
 				btn_mode_loginn.innerHTML = "Tap"
+				btn_mode_loginn.value = "Tap"
 			}
 			if (container !== null){
 
@@ -875,12 +1006,16 @@ Pattmo = (container, config) => {
 
 			
 		} else { //Pan
+			let btn_registrarse = document.getElementsByClassName("registrarse-btn")[0]
+			if (btn_registrarse.value !== "Siguiente"){
+				btn_registrarse.style.display = "none"
+			}
 
 			if (btn_mode_loginn !== undefined){
 				btn_mode_loginn.innerHTML = "Pan"
+				btn_mode_loginn.value ="Pan"
 			}
 			if (container !== null){
-
 				container.innerHTML = ""
 			}
 
@@ -1008,13 +1143,13 @@ Pattmo = (container, config) => {
 						
 						count_try_for_signup += 1
 
-						console.log(first_char_pass, "maaaaaaaaaaaaaa")
-
 						if (count_try_for_signup === 1){
 							ver_pass.first_char_pass = first_char_pass
 							ver_pass.tryone = pass
 							pass = ""
-							alert("Repita password por favor")
+							document.getElementsByClassName("label_state")[0].style.color = "white"
+							document.getElementsByClassName("label_state")[0].innerHTML =  "* Repita clave por favor"
+							
 						} else if (count_try_for_signup === 2){
 							ver_pass.first_char_pass = first_char_pass
 							ver_pass.trytwo = pass
@@ -1024,25 +1159,26 @@ Pattmo = (container, config) => {
 						if (count_try_for_signup === 2){
 							if (ver_pass.tryone === ver_pass.trytwo){
 
-								console.log(ver_pass)
-
 								$.post( "./content/php/registro/registrando.php", { mail: dat_post.email, usuario: dat_post.usuario, pass: ver_pass.first_char_pass + ver_pass.trytwo})
 								  .done( dat => {
-								  	console.log(dat)
 								  	if (dat.match(/\<successfully\>/gim)){
-								  		alert("Registro satisfactorio")
-										window.location.href = "index.php"
+								  		document.getElementsByClassName("label_state")[0].style.color = "#fff"
+								  		alertify.success("Registro satisfactorio")
+								  		setTimeout(()=>{
+											window.location.href = "index.php"
+								  		},1600)
 										boolMouseOver = false
 										tryNumber = 0
 								  	}
-
+								  		
 									pass = "" //Reinicio de variable password para nuevo intento
 									// first_char_pass = ""
 									bfixAnActiveInput = false
 								  });
 							} else {
-								alert(`Error de coincidencia, vuelva a intentar`)
-								console.log(ver_pass, count_try_for_signup,"...")
+								document.getElementsByClassName("label_state")[0].style.color = "red"
+								document.getElementsByClassName("label_state")[0].innerHTML =  `* Error de coincidencia, vuelva a intentar`
+								//Reinicio de oportunidad
 								count_try_for_signup = 0
 								ver_pass= {}
 								pass = ""
@@ -1072,49 +1208,51 @@ Pattmo = (container, config) => {
 			let boxes = document.getElementsByClassName("box-rounded")
 
 			if (navigator.userAgent.match(/chrome/gim) !== null){
-				pattern.onpointermove = e => {
-					// if (chantap === false){ //Mode pan
+				pattern.ontouchmove = () => {
+					pattern.onpointermove = e => {
+						// if (chantap === false){ //Mode pan
 
-					// 	window.scrollTo(0,0)
-					// }
+						// 	window.scrollTo(0,0)
+						// }
 
-					let x = e.touches ? e.touches[0].pageX : e.pageX
-					let y = e.touches ? e.touches[0].pageY : e.pageY
+						let x = e.touches ? e.touches[0].pageX : e.pageX
+						let y = e.touches ? e.touches[0].pageY : e.pageY
 
-					// get element in coordinates:
-					var targetElement = document.elementFromPoint(x, y);
+						// get element in coordinates:
+						var targetElement = document.elementFromPoint(x, y);
 
-					let letter = targetElement !== null ? targetElement.getAttribute("name") : null
+						let letter = targetElement !== null ? targetElement.getAttribute("name") : null
 
-					if (letter !== null && letter !== undefined){
-					  if (letter === "a"){
-					  	boxes[0].setPointerCapture(e.pointerId)
-					  } 
-					  if (letter === "b"){
-					  	boxes[1].setPointerCapture(e.pointerId)
-					  } 
-					  if (letter === "c"){
-					  	boxes[2].setPointerCapture(e.pointerId)
-					  } 
-					  if (letter === "d"){
-					  	boxes[3].setPointerCapture(e.pointerId)
-					  }
-					  if (letter === "e"){
-					  	boxes[4].setPointerCapture(e.pointerId)
-					  } 
-					  if (letter === "f"){
-					  	boxes[5].setPointerCapture(e.pointerId)
-					  } 
-					  if (letter === "g"){
-					  	boxes[6].setPointerCapture(e.pointerId)
-					  } 
-					  if (letter === "h"){
-					  	boxes[7].setPointerCapture(e.pointerId)
-					  } 
-					  if (letter === "i"){
-					  	boxes[8].setPointerCapture(e.pointerId)
-					  }
+						if (letter !== null && letter !== undefined){
+						  if (letter === "a"){
+						  	boxes[0].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "b"){
+						  	boxes[1].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "c"){
+						  	boxes[2].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "d"){
+						  	boxes[3].setPointerCapture(e.pointerId)
+						  }
+						  if (letter === "e"){
+						  	boxes[4].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "f"){
+						  	boxes[5].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "g"){
+						  	boxes[6].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "h"){
+						  	boxes[7].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "i"){
+						  	boxes[8].setPointerCapture(e.pointerId)
+						  }
 
+						}
 					}
 				}
 			} else {
@@ -1282,6 +1420,7 @@ Pattmo = (container, config) => {
 	 
 	if (window.location.href.match(/action\=registro/gim)){
 		change_tap_pan_signup()
+
 	} else {
 		change_tap_pan_login()
 	}

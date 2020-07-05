@@ -33,7 +33,7 @@
 		<div class=" text-center text-light">
 			<h2>Iniciar Sesión</h2>
 		</div>
-		<div id="root" class="col mt-5 text-center" > 
+		<div id="root" class="col text-center" > 
 		</div>
 		<div class="init-wayses d-flex justify-content-end">
 		    <button class="login-change-way   text-light font-weight-bold">Pan</button>

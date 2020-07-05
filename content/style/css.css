@@ -50,9 +50,10 @@ body{
 	outline: none;
 	border: none;
 	cursor: pointer;
-	background: #2eb4f2;
+	background: #37D0F5;
 	font-weight: bold;
 	color: #fff;
+	text-shadow: 1px 1px 0px #303030;
 	border-radius: 14px;
 	transition: ease all 0.3s;
 }	
@@ -67,7 +68,6 @@ body{
 	
 	position: fixed;
 	bottom: 0;
-	right: 0;
 
 }
 
@@ -94,8 +94,23 @@ body{
 }
 
 
+.label_state{
+	color: #fff;
+}
 
+.input-reg-text{
+	padding: 14px;
+	border-radius: 4px;
+	outline: none;
+	border: none;
+}
 
+.bg-col{
+	/*background: #261243;*/
+}
+
+.gen-form{
+}
 
 
 
