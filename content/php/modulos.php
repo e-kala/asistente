@@ -1,13 +1,12 @@
 <!--módulos-->
 <style type="text/css">
 .bg-blue{
-
-background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 </style>
- <div class="accordion pl-4 pr-4 pb-4 modulos" id="accordionExample">
+ <div class="accordion modulos" id="accordionExample">
   <!--información in-->
-   <div class="card bg-blue">
+   <div class="card bg-blue modsco">
      <div class="card-header" id="headingOne">
        <h2 class="mb-0">
          <button class="btn btn-link btn-block text-left font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -26,7 +25,7 @@ background-color: #f2f2f2;
   <!--información End-->
 
   <!--Módulos In -->
-   <div class="card bg-blue">
+   <div class="card bg-blue modsco">
      <div class="card-header" id="headingTwo">
        <h2 class="mb-0">
          <button class="btn btn-link btn-block text-left collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -40,7 +39,7 @@ background-color: #f2f2f2;
         <!-- opciones-->
        <div class="row p-4">
         <!-- Sección de movimientos In -->
-         <div class="col-xs-4">
+         <div class="col-xs-12">
             <h4 class="">Movimientos</h4>
             <div class="btn-group" role="group" aria-label="Basic example">
               <!-- Ingreso/egreso/transferencia -->
@@ -96,7 +95,7 @@ background-color: #f2f2f2;
 
          </div>
 
-         <div class="col-xs-4">
+         <div class="col-xs-12">
           <h4 class="">Deudas</h4>
           <div class="btn-group" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ingresoModal">Deudas</button>
@@ -114,7 +113,7 @@ background-color: #f2f2f2;
           
          </div>
 
-         <div class="col-xs-4">
+         <div class="col-xs-12">
            <h4>Otros</h4>
           <div class="btn-group" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ingresoModal">Registros</button>
@@ -140,7 +139,7 @@ background-color: #f2f2f2;
   <!--Módulos END -->
 
 
-   <div class="card bg-blue ">
+   <div class="card bg-blue modsco ">
      <div class="card-header" id="headingThree">
        <h2 class="mb-0">
          <button class="btn btn-link btn-block text-left collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">

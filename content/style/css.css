@@ -28,9 +28,59 @@ body{
 }
 
 
-.header-home-asistent{
+.header-home-asistent{ /* Change to modo light*/
 	background: #fff;
 	color: #303030;
+	
+}
+.header-home-light{
+	background: #fff;
+	animation: tolighthea linear 1 0.2s;
+}
+@keyframes tolighthea{
+	from{
+		background: #343445;
+	}
+	to{
+		background: #fff;
+	}
+}
+.header-home-asistent-dark{/* Change to modo Dark*/
+	background: #343445;
+	animation: todarkhea linear 1 0.2s;
+}
+@keyframes todarkhea{
+	from{
+		background: #fff;
+	}
+	to{
+		background: #343445;
+	}
+}
+
+.light{
+	background: #f2f2f2;
+	animation: tolight linear 1 0.2s;
+}
+@keyframes tolight{
+	from{
+		background: #343445;
+	}
+	to{
+		background: #f2f2f2;
+	}
+}
+.dark{
+	background: #343445;
+	animation: todark linear 1 0.2s;
+}
+@keyframes todark{
+	from{
+		background: #f2f2f2;
+	}
+	to{
+		background: #343445;
+	}
 }
 
 .accordion{

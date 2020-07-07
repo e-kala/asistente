@@ -1,7 +1,7 @@
 
 
-<div class="accordion pl-4 pr-4 pb-4" id="accordionExample">
- <div class="card bg-blue">
+<div class="accordion pl-4 pr-4 pb-4 modulos modscodown" id="accordionExample">
+ <div class="card boxes-in bg-blue rounded-0">
    <div class="card-header" id="headingFour">
      <h2 class="mb-0">
        <button class="btn btn-link font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
@@ -38,7 +38,7 @@
      </div>
    </div>
  </div>
- <div class="card bg-blue">
+ <div class="card boxes-in bg-blue rounded-0">
    <div class="card-header" id="headingTwo">
      <h2 class="mb-0">
        <button class="btn btn-link collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -52,7 +52,7 @@
      </div>
    </div>
  </div>
- <div class="card bg-blue">
+ <div class="card boxes-in bg-blue rounded-0">
    <div class="card-header" id="headingThree">
      <h2 class="mb-0">
        <button class="btn btn-link collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
@@ -69,3 +69,6 @@
 </div>
 
 </div>
+
+<script type="text/javascript" src="./content/js/windows/asistent_menu.js">
+</script>
