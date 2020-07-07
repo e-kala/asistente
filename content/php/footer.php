@@ -12,7 +12,8 @@
     <script src="https://cdn.jsdelivr.net/gh/alyssaxuu/flowy/flowy.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
+    <!-- menú desplegable -->
+    <script src="content/js/windows/asistent_menu.js"></script>
     <!--Obtener Fecha-->
     <script>
         $(function(){

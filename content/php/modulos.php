@@ -116,7 +116,8 @@
          <div class="col-xs-12">
            <h4>Otros</h4>
           <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ingresoModal">Registros</button>
+            <a class="btn btn-primary" href="?action=registros" role="button">Registros</a>
+            
             <button type="button" class="btn btn-secondary">pendientes</button>
             <button type="button" class="btn btn-secondary">Gráficas</button>
           </div>

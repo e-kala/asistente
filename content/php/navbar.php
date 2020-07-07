@@ -1,6 +1,6 @@
 <!-- Image and text -->
 <nav class="navbar mb-4 p-4 header-home-asistent ">
-	<a class="navbar-brand text-dark text-he font-weight-bold" href="#">
+	<a class="navbar-brand text-dark text-he font-weight-bold" href="?action=home">
 		<img src="content/img/isolated-3021541_640.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
 		Asistente
 	</a>

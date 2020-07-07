@@ -16,7 +16,9 @@ const text_he = document.getElementsByClassName("text-he")[0]
 let mode_light_dark = false // Mode light
 let check = true //Evitar repeticiones innecesarias
 
-const options = ["Inicio", "Configuración", "Modo Dark", "Cerrar Sesión"]
+let logo = '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-circle-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 15V1a7 7 0 1 1 0 14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/> </svg>'
+
+const options = ["Inicio", "Configuración", logo, "Cerrar Sesión"]
 
 const functions = [
   () =>{ // ---------------- Inicio
@@ -49,7 +51,7 @@ const functions = [
     mode_light_dark = !mode_light_dark
     const btn_mode_men = document.getElementById("btn_3")
     
-    btn_mode_men.innerHTML = !mode_light_dark ? "Modo Dark" : "Modo Light"
+    btn_mode_men.innerHTML = !mode_light_dark ? logo : logo
     
     const iters = (modss, boxes_inn) => {
       for (let x = 0; x < mods.length; x++){

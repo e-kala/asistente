@@ -4,10 +4,12 @@
 <html lang="es">
    <head>
       <?php include("content/php/head.php"); ?>
+      
    </head>
    <body>
 
       <div class="contain">
+         <?php include 'content/php/navbar.php' ?>
          <?php  
             if (isset($_SESSION['login'])) {
                if (isset($_GET['action'])) {
@@ -36,8 +38,16 @@
                    include 'modalGasto.php';
                break;
 
-               case 'registro':
+               case 'registro'://registro de usuarios
                   include 'content/php/registro/registro_form.php';
+               break;
+
+               case 'registros':
+                  include 'content/php/registros.php';
+               break;
+
+               case 'configuracion':
+                  include 'content/php/registro/user_config.php';
                break;
 
 
