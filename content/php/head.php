@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alyssaxuu/flowy/flowy.min.css">
-    <link rel="stylesheet" type="text/css" href="">
+    <link rel="stylesheet" type="text/css" href="./content/style/otros.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet">
 	
 	<link rel="stylesheet" type="text/css" href="./content/style/patron.css">
     <link rel="stylesheet" type="text/css" href="./content/style/css.css">

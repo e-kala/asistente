@@ -497,33 +497,35 @@ Pattmo = (container, config) => {
 			let bool = false; let boolMouseOver = false; //Don't touch
 			let pass = "";  let bfixAnActiveInput = false;
 
-			document.querySelector("form").addEventListener("submit",(e)=> {
-				e.preventDefault()
-				if (userValue !== ""){
-					btn_next.style.display = "none"
-					btn_volver.style.display = "block"
-					btn_volver.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
-					pattern.style.opacity = "1"
-					pattern.animate([
-						{opacity:0},
-						{opacity:1}],
-						{duration:1000, iterations:1})
-					form.style.display = "none"
+			if (document.querySelector("form") !== null){
+				document.querySelector("form").addEventListener("submit",(e)=> {
+					e.preventDefault()
+					if (userValue !== ""){
+						btn_next.style.display = "none"
+						btn_volver.style.display = "block"
+						btn_volver.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+						pattern.style.opacity = "1"
+						pattern.animate([
+							{opacity:0},
+							{opacity:1}],
+							{duration:1000, iterations:1})
+						form.style.display = "none"
 
-					for (let x = 0; x < 9; x++){
-						document.getElementsByClassName("box-rounded")[x].animate([{
-							transform: `scale(${0.14* -x})`, background: "#4B367C"
-						},{
-							transform: `scale(1)`, background: "#f2f2f2"
-						}],{duration:1000, iterations:1})
+						for (let x = 0; x < 9; x++){
+							document.getElementsByClassName("box-rounded")[x].animate([{
+								transform: `scale(${0.14* -x})`, background: "#4B367C"
+							},{
+								transform: `scale(1)`, background: "#f2f2f2"
+							}],{duration:1000, iterations:1})
+						}
+					}else {
+						pattern.style.opacity = "0"
+						form.animate([{opacity:1},{opacity:0}],{duration:1000, iterations:1})
+						form.style.display = "block"
+						alertify.error("Escribe un nombre de usuario o email")
 					}
-				}else {
-					pattern.style.opacity = "0"
-					form.animate([{opacity:1},{opacity:0}],{duration:1000, iterations:1})
-					form.style.display = "block"
-					alertify.error("Escribe un nombre de usuario o email")
-				}
-			})
+				})
+			}
 
 			
 			pattern.style.opacity = userValue === "" ? "0" : "1" // Hide - Show initial
@@ -1005,8 +1007,10 @@ Pattmo = (container, config) => {
 			
 		} else { //Pan
 			let btn_registrarse = document.getElementsByClassName("registrarse-btn")[0]
-			if (btn_registrarse.value !== "Siguiente"){
-				btn_registrarse.style.display = "none"
+			if (btn_registrarse !== undefined){
+				if (btn_registrarse.value !== "Siguiente"){
+					btn_registrarse.style.display = "none"
+				}
 			}
 
 			if (btn_mode_loginn !== undefined){

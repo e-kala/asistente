@@ -1,0 +1,28 @@
+.cont-gen-login{
+	background: rgb(0,0,0,0.60);
+	margin: auto;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.registromodsco{
+	background: rgb(57,47,82,0.95);
+}
+
+.men_data_registros{
+
+	display: flex;
+	flex-direction: column;
+	z-index: 10;
+	padding: 20px;
+	position: fixed;
+	left: 0;
+	top: 100px;
+	background: #fff;
+	border-bottom-right-radius: 25px;
+	border-top-right-radius: 25px;
+
+}

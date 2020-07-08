@@ -1,26 +1,26 @@
-let bool = false
-const menu_btn = document.getElementById("menu_btn")
-menu_btn.classList.add("menu_btn")
+boolam = false
+menu_btn = document.getElementById("menu_btn")
+if (menu_btn !== null) menu_btn.classList.add("menu_btn");
 
-const div_men = document.createElement("div")
+div_men = document.createElement("div")
 div_men.classList.add("menu_container")
 div_men.style.display = "none"
 
-const mods = document.getElementsByClassName("modsco")
-const modscodown = document.getElementsByClassName("modscodown")[0]
-const boxes_in = document.getElementsByClassName("boxes-in")
+mods = document.getElementsByClassName("modsco")
+modscodown = document.getElementsByClassName("modscodown")[0]
+boxes_in = document.getElementsByClassName("boxes-in")
 
-const header_session = document.getElementsByClassName("header-home-asistent")[0]
-const text_he = document.getElementsByClassName("text-he")[0]
+header_session = document.getElementsByClassName("header-home-asistent")[0]
+text_he = document.getElementsByClassName("text-he")[0]
 
-let mode_light_dark = false // Mode light
-let check = true //Evitar repeticiones innecesarias
+mode_light_dark = false // Mode light
+check = true //Evitar repeticiones innecesarias
 
-let logo = '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-circle-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 15V1a7 7 0 1 1 0 14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/> </svg>'
+logo = '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-circle-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M8 15V1a7 7 0 1 1 0 14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/> </svg>'
 
-const options = ["Inicio", "Configuración", logo, "Cerrar Sesión"]
+options = ["Inicio", "Configuración", logo, "Cerrar Sesión"]
 
-const functions = [
+functions = [
   () =>{ // ---------------- Inicio
     if (!check){
       check = true
@@ -32,7 +32,7 @@ const functions = [
         modscodown.style.display = "block"
         modscodown.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
       }
-      bool = false
+      boolam = false
       div_men.style.display = "none"
     } 
   },
@@ -43,7 +43,7 @@ const functions = [
     }
     if (modscodown !== undefined) modscodown.style.display = "none";
 
-    bool = false
+    boolam = false
     div_men.style.display = "none"
 
   }, 
@@ -83,53 +83,63 @@ const functions = [
         "card boxes-in light text-dark"
         )
     }
-    bool = false
+    boolam = false
     div_men.style.display = "none"
   },
   () =>{ //----------------- Cerrar Sesión
-    window.location.href +=  "?action=cerrar_sesion"
-    bool = false
+    // window.location.href +=  "?action=cerrar_sesion"
+    boolam = false
     div_men.style.display = "none"
   }
 ]
 for (let x=0; x < options.length; x++){
-  const optdiv = document.createElement("div")
-  optdiv.innerHTML = options[x]
-  optdiv.classList.add("options_men")
-  optdiv.setAttribute("name", options[x])
-  optdiv.setAttribute("id", "btn_"+(x+1))
-  optdiv.addEventListener("click",functions[x])
-  div_men.appendChild(optdiv)
-}
-menu_btn.appendChild(div_men)
-
-const btn_img_men = document.getElementById("btn_img_men")
-btn_img_men.onclick = () => {
-  bool = !bool
-  if (bool){
-    div_men.style.display = "block"
-    div_men.style.opacity = "1"
-    div_men.animate([{
-      opacity:0,
-      transform:"translateY(-10%)"
-    },{
-      opacity:1,
-      transform:"translateY(0%)"
-    }],{duration:400, iterations:1})
+  if ( x !== 3){
+    const optdiv = document.createElement("div")
+    optdiv.innerHTML = options[x]
+    optdiv.classList.add("options_men")
+    optdiv.setAttribute("name", options[x])
+    optdiv.setAttribute("id", "btn_"+(x+1))
+    optdiv.addEventListener("click",functions[x])
+    div_men.appendChild(optdiv)
   } else {
-    setTimeout(()=>{
-      div_men.style.display = "none"
-    },380)
-    div_men.style.opacity = "1"
-
-    div_men.animate([{
-      opacity:1,
-      transform:"translateY(0%)"
-    },{
-      opacity:0,
-      transform:"translateY(-10%)"
-    }],{duration:400, iterations:1})
-
+    const optdiv = document.createElement("a")
+    optdiv.innerHTML = options[x]
+    optdiv.classList.add("options_men")
+    optdiv.setAttribute("href", "?action=cerrar_sesion")
+    optdiv.setAttribute("name", options[x])
+    optdiv.setAttribute("id", "btn_"+(x+1))
+    optdiv.addEventListener("click",functions[x])
+    div_men.appendChild(optdiv)
   }
 }
+if (menu_btn !== null) menu_btn.appendChild(div_men);
 
+btn_img_men = document.getElementById("btn_img_men")
+if (btn_img_men !== null){
+    btn_img_men.onclick = () => {
+      boolam = !boolam
+      if (boolam){
+        div_men.style.display = "block"
+        div_men.style.opacity = "1"
+        div_men.animate([{
+          opacity:0,
+          transform:"translateY(-10%)"
+        },{
+          opacity:1,
+          transform:"translateY(0%)"
+        }],{duration:400, iterations:1})
+      } else {
+        setTimeout(()=>{
+          div_men.style.display = "none"
+        },380)
+        div_men.style.opacity = "1"
+
+        div_men.animate([{
+          opacity:1,
+          transform:"translateY(0%)"
+        },{
+          opacity:0,
+          transform:"translateY(-10%)"
+        }],{duration:400, iterations:1})
+
+      }     } }

@@ -9,7 +9,6 @@
    <body>
 
       <div class="contain">
-         <?php include 'content/php/navbar.php' ?>
          <?php  
             if (isset($_SESSION['login'])) {
                if (isset($_GET['action'])) {
@@ -33,6 +32,7 @@
                break;
 
                case 'home':
+                   include 'content/php/navbar.php';
                    include 'content/php/home.php';
                    include 'modalIngreso.php';
                    include 'modalGasto.php';
@@ -43,6 +43,7 @@
                break;
 
                case 'registros':
+                  include 'content/php/navbar.php';
                   include 'content/php/registros.php';
                break;
 

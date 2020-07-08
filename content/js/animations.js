@@ -10,11 +10,11 @@ if (document.getElementsByClassName("headerinit")[0] !== undefined && document.g
 		for (let x = 0; x < document.getElementsByClassName("loinan").length; x++){
 			document.getElementsByClassName("loinan")[x].animate([{
 				opacity:Math.random(),
-				margin:"14px",
+				marginLeft:"14px",
 				transform:`scale(${Math.random()}) rotate(${ Math.random()* -150 }deg) translate(${x % 2? Math.random()* -150 : 150}%, ${x % 2? Math.random()* -150 : 150}%)`
 			},{
 				opacity:1,
-				margin:"1px",
+				marginLeft:"1px",
 				transform:`scaleX(${1})`
 			}],{duration:3000, iterations:1})
 		}
@@ -49,3 +49,4 @@ const banplan = destiny => {
 }
 
 banplan("body")
+
