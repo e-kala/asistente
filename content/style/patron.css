@@ -1,5 +1,5 @@
 body{
-	position: relative;
+	/*position: relative;*/
 }
 /*Login Panel*/
 #fr{
@@ -10,17 +10,13 @@ body{
 }
 
 #root{
-	/*position: fixed;*/
-	/*background: blue;*/
+	position: fixed;
 	border-radius: 20px;
-	/*margin:auto;*/
-	top:80%;
-	transform: translateY(40%);
+	margin:auto;
+	top:40px;
+	left: 0;
+	right: 0;
 	/*padding: 20px;*/
-
-	margin: auto;
-
-
 }
 
 
@@ -35,7 +31,7 @@ body{
 	color: #000;
 	background: #fff;
 	outline: none;
-	z-index: 5;
+	z-index: 10;
 }
 input{
 	flex: 1 1 auto;

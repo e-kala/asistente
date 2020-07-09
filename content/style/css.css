@@ -1,5 +1,6 @@
 body{
-	background: url(../img/bggpur4.png);
+	position: relative;
+	background: url(../img/bgg.png);
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center center;
@@ -8,14 +9,14 @@ body{
 .header_inicio{
 	position: relative;
 	background: #fff;
-	/*background: url(../img/bgheader4.png);*/
+	background: url(../img/bgheader2.png);
 	background-size: cover;
 	/*background-repeat: no-repeat;*/
 	background-attachment: fixed;
 	background-position: center center;	
 	/*border-bottom: 2px solid #fff;*/
 	/*background: linear-gradient(to  left, #452F67, #593B8D);*/
-	/*box-shadow: inset -10px -50px 80px -10px #20242c;*/
+	/*box-shadow: inset -10px -50px 80px -10px #3b4660;*/
 	display: flex;
 	flex-flow: wrap row;
 	justify-content: space-between;
@@ -38,7 +39,7 @@ body{
 .headerinit{
 	flex-grow: 1;
 	background: transparent;
-	color: #20242c;
+	color: #fff;
 	font-weight: bold;
 	font-size: 30px;
 	width: 255px;

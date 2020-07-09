@@ -1,5 +1,6 @@
 const modulos = document.getElementsByClassName("accordion")
 const modsdown = document.getElementsByClassName("modscodown")[0]
+const divmestype = document.getElementsByClassName("divmestype")[0]
 
 const readjust_pattern = () => {
 	const root_pattern = document.getElementById("root")
@@ -17,14 +18,6 @@ const resize_modulos = () => {
 			modulos[1].className = "accordion pl-4 pr-4 pb-4 modulos"
 		}
 
-		const devip = getDevicePixelRatio()
-
-		if (devip.toString() === "1"){
-		} else if (devip.toString().match(/0\.5/gim)){
-		} else if (devip.toString().match(/0\.25/gim)){
-		} else if (devip.toString().match(/0\.33/gim)){
-		} else {
-		}
 
 	} else {
 		if (modulos[0] !== undefined){
@@ -44,7 +37,27 @@ window.onload = () => {
 
 window.onresize = () => {
 	resize_modulos()
+	const devip = getDevicePixelRatio()
+	if (devip.toString() === "1"){
+		divmestype.style.top = "150px"
+		divmestype.style.fontSize = "300%"
+	} else if (devip.toString().match(/0\.5/gim)){
+		divmestype.style.marginLeft = "80px"
+		divmestype.style.fontSize = "500%"
+		divmestype.style.top = "300px"
+	} else if (devip.toString().match(/0\.25/gim)){
+		divmestype.style.marginLeft = "120px"
+		divmestype.style.fontSize = "500%"
+
+	} else if (devip.toString().match(/0\.33/gim)){
+		divmestype.style.marginLeft = "100px"
+		divmestype.style.fontSize = "500%"
+	} else {
+		divmestype.style.top = "200px"
+		divmestype.style.fontSize = "500%"
+	}
 }
+
 
 
 

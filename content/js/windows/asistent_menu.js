@@ -93,7 +93,7 @@ functions = [
   }
 ]
 for (let x=0; x < options.length; x++){
-  if ( x !== 3){
+  if (x === 0){
     const optdiv = document.createElement("div")
     optdiv.innerHTML = options[x]
     optdiv.classList.add("options_men")
@@ -101,7 +101,24 @@ for (let x=0; x < options.length; x++){
     optdiv.setAttribute("id", "btn_"+(x+1))
     optdiv.addEventListener("click",functions[x])
     div_men.appendChild(optdiv)
-  } else {
+  } else if (x === 1){ //Configuración
+    const optdiv = document.createElement("a")
+    optdiv.innerHTML = options[x]
+    optdiv.classList.add("options_men")
+    optdiv.setAttribute("href", "?action=configuracion")
+    optdiv.setAttribute("name", options[x])
+    optdiv.setAttribute("id", "btn_"+(x+1))
+    optdiv.addEventListener("click",functions[x])
+    div_men.appendChild(optdiv)
+  } else if (x === 2){ //Mode Dark / light
+    const optdiv = document.createElement("div")
+    optdiv.innerHTML = options[x]
+    optdiv.classList.add("options_men")
+    optdiv.setAttribute("name", options[x])
+    optdiv.setAttribute("id", "btn_"+(x+1))
+    optdiv.addEventListener("click",functions[x])
+    div_men.appendChild(optdiv)
+  } else if (x === 3) { // Cerrar Sesion
     const optdiv = document.createElement("a")
     optdiv.innerHTML = options[x]
     optdiv.classList.add("options_men")

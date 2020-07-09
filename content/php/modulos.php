@@ -1,10 +1,11 @@
 <!--módulos-->
 <style type="text/css">
 .bg-blue{
-  background-color: #f2f2f2;
+
+background-color: #f2f2f2;
 }
 </style>
- <div class="accordion modulos" id="accordionExample">
+ <div class="accordion pl-4 pr-4 pb-4 modulos" id="accordionExample">
   <!--información in-->
    <div class="card bg-blue modsco">
      <div class="card-header" id="headingOne">

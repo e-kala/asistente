@@ -65,7 +65,7 @@
        <?php include 'content/php/ideas.php' ?>
      </div>
    </div>
- </div>
+ </div> 
 </div>
 
 </div>
