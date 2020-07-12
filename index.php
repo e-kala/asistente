@@ -53,7 +53,8 @@
                break;
 
                case 'configuracion':
-                  include 'content/php/registro/user_config.php';
+                  include 'content/php/navbar.php';
+                  include 'content/php/user_config.php';
                break;
 
 

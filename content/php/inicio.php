@@ -22,8 +22,8 @@
 				<a class="btn btn-primary text-light mr-2 float-right registro-btn" href="?action=registro" role="button">Registrarse</a>
 			</div>
 		</div>
-		<div id="logpan" style="display: none;">
-			<div id="root" class=" p-3 text-center" > 
+		<div id="logpan" style="display: none;" align="center">
+			<div id="root" class=" p-3 text-center" align="center" > 
 			</div>
 			<div class="init-wayses d-flex justify-content-end">
 			    <button class="login-change-way   text-light font-weight-bold">Pan</button>
@@ -40,27 +40,14 @@
 						opacity:0
 					},{
 						opacity:1
-					}],{duration:1000, iterations:1})
-
-
-					
+					}],{duration:1000, iterations:1})	
 				}
 				logpan.ondblclick = () => logpan.style.display = "none"
-			</script>
+		</script>
 		
-		<!-- <form method="POST" action="content/php/login.php">
-
-			<div class="form-group">
-				<input type="text" class="form-control" id="inputEmail3" placeholder="Correo o Usuario" name="usuario">
-			</div>
-			
-			<div class="form-group">
-				<input type="password" class="form-control" id="pass" placeholder="Contraseña" name="pass">
-			</div>
-			<button type="submit" class="btn btn-primary">Entrar</button>
-		</form> -->
 		<script type="text/javascript">
 			publici = destiny => {
+
 				destiny = document.querySelector(destiny)
 
 				let div = document.createElement("div")
@@ -79,27 +66,54 @@
 				div.style.padding = "50px"
 				div.style.margin = "40px"
 				div.style.zIndex = "0"
-				div.style.fontSize = "270%"
+
+
 				const devip = getDevicePixelRatio()
 				if (devip.toString() === "1"){
-					div.style.top = "150px"
+					div.style.top = "80px"
 					div.style.fontSize = "300%"
 				} else if (devip.toString().match(/0\.5/gim)){
 					div.style.marginLeft = "80px"
-					div.style.fontSize = "500%"
-					div.style.top = "300px"
+					div.style.fontSize = "600%"
+					div.style.top = "180px"
 				} else if (devip.toString().match(/0\.25/gim)){
 					div.style.marginLeft = "120px"
-					div.style.fontSize = "500%"
-
+					div.style.fontSize = "1000%"
 				} else if (devip.toString().match(/0\.33/gim)){
 					div.style.marginLeft = "100px"
-					div.style.fontSize = "500%"
+					div.style.fontSize = "900%"
+				} else if (devip.toString().match(/0\.6/gim)){
+					div.style.top = "130px"
+					div.style.marginLeft = "100px"
+					div.style.fontSize = "400%"
+				} else if (devip.toString().match(/0\.7/gim)){
+					div.style.top = "130px"
+					div.style.marginLeft = "100px"
+					div.style.fontSize = "400%"
+				} else if (devip.toString().match(/0\.80/gim)){
+					div.style.top = "60px"
+					div.style.marginLeft = "30px"
+					div.style.fontSize = "400%"
+				} else if (devip.toString().match(/0\.89/gim)){
+					div.style.top = "60px"
+					div.style.marginLeft = "30px"
+					div.style.fontSize = "350%"
+				} else if (devip.toString().match(/0\.89/gim)){
+					div.style.top = "60px"
+					div.style.marginLeft = "30px"
+					div.style.fontSize = "350%"
+				} else if (devip.toString().match(/1\.10/gim)){
+					div.style.top = "60px"
+					div.style.marginLeft = "30px"
+					div.style.fontSize = "250%"
+				} else if (devip.toString().match(/1\.25/gim)){
+					div.style.top = "60px"
+					div.style.marginLeft = "30px"
+					div.style.fontSize = "250%"
 				} else {
-					div.style.top = "200px"
-					div.style.fontSize = "500%"
+					div.style.top = "50px"
+					div.style.fontSize = "200%"
 				}
-
 				// div.style.textAlign = "center"
 				div.style.color = "#fff"
 
@@ -162,6 +176,8 @@
 			}
 
 		</script>
+
+		<script type="text/javascript" src="./content/js/movil.js"></script>
 			
 	</div>
 </div>

@@ -15,17 +15,70 @@
 	background: rgb(57,47,82,0.95);
 }
 
-.men_data_registros{
+.menu-reg-top{
+	position: absolute;
+	left: 0px;
+	top:-100px;
+	padding: 18px;
+	width: 140px;
+	background: #f2f2f2;
+	background: linear-gradient(to left top, #7765fa, #5243c3);
+	border-top: 4px solid #fff;
+	border-bottom-right-radius: 7px;
+	border-bottom-left-radius: 7px;
+	font-size: 150%;
 
+	font-family: monospace;
+}
+.backs{
+
+}
+.men_data_registros{
 	display: flex;
 	flex-direction: column;
 	z-index: 10;
-	padding: 20px;
 	position: fixed;
 	left: 0;
-	top: 100px;
-	background: #fff;
+	bottom: 0;
 	border-bottom-right-radius: 25px;
 	border-top-right-radius: 25px;
-
 }
+
+.option-menu-registro{
+	padding: 4px;
+	margin: 3px;
+	transition: ease all 0.3s;
+}
+
+.option-menu-registro:hover{
+	transition: ease all 0.3s;
+	background: #f2f2f2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------ COLORS --------------------*/
+
+.co1{ background: #5243c3; }
+.co2{ background: #49c343; }
