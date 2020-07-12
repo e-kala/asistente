@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 29-06-2020 a las 06:11:24
+-- Tiempo de generación: 12-07-2020 a las 03:52:44
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -180,16 +180,17 @@ CREATE TABLE `usuarios` (
   `nombre_usuario` varchar(150) NOT NULL,
   `correo_usuario` varchar(100) NOT NULL,
   `pass_usuario` varchar(50) NOT NULL,
-  `privilegios` varchar(50) NOT NULL
+  `privilegios` varchar(50) NOT NULL,
+  `usr_config` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`usr_config`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo_usuario`, `pass_usuario`, `privilegios`) VALUES
-(1, 'Eka', 'caiman.mistico@gmail.com', '12345', 'admin'),
-(2, 'admin', 'admin@demo.com', 'root', 'admin');
+INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo_usuario`, `pass_usuario`, `privilegios`, `usr_config`) VALUES
+(2, 'admin', 'admin@demo.com', 'root', 'admin', '0'),
+(4, 'Eka', 'caiman.mistico@gmail.com', 'abcfedghi', 'normal', '{\"mode\" : \"dark\"}');
 
 --
 -- Índices para tablas volcadas
@@ -281,7 +282,7 @@ ALTER TABLE `transferencias`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
