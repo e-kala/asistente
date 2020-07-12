@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 12-07-2020 a las 03:52:44
+-- Tiempo de generación: 12-07-2020 a las 04:58:48
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -135,6 +135,17 @@ INSERT INTO `ingresos` (`id_ingreso`, `cantidad_ingreso`, `fecha_ingreso`, `cuen
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `logger`
+--
+
+CREATE TABLE `logger` (
+  `id_logs` int(11) NOT NULL,
+  `logs` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`logs`))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `pagos`
 --
 
@@ -181,6 +192,7 @@ CREATE TABLE `usuarios` (
   `correo_usuario` varchar(100) NOT NULL,
   `pass_usuario` varchar(50) NOT NULL,
   `privilegios` varchar(50) NOT NULL,
+  `hola` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`hola`)),
   `usr_config` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`usr_config`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -188,9 +200,9 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo_usuario`, `pass_usuario`, `privilegios`, `usr_config`) VALUES
-(2, 'admin', 'admin@demo.com', 'root', 'admin', '0'),
-(4, 'Eka', 'caiman.mistico@gmail.com', 'abcfedghi', 'normal', '{\"mode\" : \"dark\"}');
+INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo_usuario`, `pass_usuario`, `privilegios`, `hola`, `usr_config`) VALUES
+(2, 'admin', 'admin@demo.com', 'root', 'admin', '', '0'),
+(4, 'Eka', 'caiman.mistico@gmail.com', 'abcfedghi', 'normal', '', '{\"mode\" : \"dark\"}');
 
 --
 -- Índices para tablas volcadas
@@ -219,6 +231,12 @@ ALTER TABLE `ideas`
 --
 ALTER TABLE `ingresos`
   ADD PRIMARY KEY (`id_ingreso`);
+
+--
+-- Indices de la tabla `logger`
+--
+ALTER TABLE `logger`
+  ADD PRIMARY KEY (`id_logs`);
 
 --
 -- Indices de la tabla `pagos`
@@ -265,6 +283,12 @@ ALTER TABLE `ideas`
 --
 ALTER TABLE `ingresos`
   MODIFY `id_ingreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+
+--
+-- AUTO_INCREMENT de la tabla `logger`
+--
+ALTER TABLE `logger`
+  MODIFY `id_logs` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos`
