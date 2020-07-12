@@ -1,4 +1,4 @@
-<?
+<?php
 //cargar configuración del usuario
 /*
  * cuando el usuario inicie sesión->ejecutará la consulta automaticamente
