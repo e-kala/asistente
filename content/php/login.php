@@ -22,13 +22,6 @@
 			$_SESSION['login'] = TRUE;
 			$_SESSION['user'] = $usuario;
 
-
-			
-			$log_data = ["usuario" => $usuario, "fecha" => $];
-
-			$sql_log = "INSERT INTO logger(logs) VALUES ('$')"
-
-
 			// header('location: ../../index.php');
 			echo "<welcome>";
 		}else{
