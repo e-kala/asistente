@@ -57,13 +57,17 @@
 
 
 
+#formreg{
+	display: flex;
+	flex-direction: column;
+}
 
-
-
-
-
-
-
+.flexgrow{
+	flex-grow: 1;
+	padding: 4px;
+	margin: 3px;
+	flex-basis: 100%;
+}
 
 
 

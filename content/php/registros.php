@@ -7,47 +7,97 @@
     $resultadoIngresos = $conexion->query($consultaIngresos);
     $consultaGastos = $conexion->query("SELECT * FROM gastos");
 
-
 ?>
 
 
-<div class="bg-primary p-4 font-weight-bold text-light tado" style="display: none;">
-    <form>
-        <input type="text" name="find" placeholder="Escribe aquí!"/>
-        <button></button>
+<!-- Movil -->
+
+<div class=" p-4 font-weight-bold text-light tado" style="display: none;">
+    <form id="formreg">
+        <h3 class="flexgrow">Selecciona lo que deseas buscar</h3>
+        <select id="menreg" value="Ingresos"  class="flexgrow">
+            <option selected>Ingresos</option>
+            <option>Gastos</option>
+        </select>
+        <h3 class="flexgrow">Buscar por</h3>
+        <select id="menreg2"  class="flexgrow">
+            <option>Nombre</option>
+            <option>Fecha</option>
+        </select>
+
+        <input type="text" class="mt-3 p-3" id="find" placeholder="Escribe aquí!"/>
+        <button id="find-" class="mt-3 p-3 btn btn-dark">Buscar</button>
     </form>
-    <?php
-        if ($consultaGastos->num_rows > 0) {
-        
-            while ($filas = $consultaGastos->fetch_object()) {
+    <div id="tadores"></div>
+
+    <script type="text/javascript">
+        const tadores = document.getElementById("tadores")
+        const menreg = document.getElementById("menreg")
+        const find = document.getElementById("find")
+        const formreg = document.getElementById("formreg")
+
+        let selected = "ingresos"
+        menreg.addEventListener("click", (e)=>{
+            selected = e.target.options[e.target.selectedIndex].text
+            faun()
+        })
+
+
+        const faun = () => {
+            formreg.onsubmit = e => {
+                e.preventDefault()
+                let word = find.value
+                if (word !== ""){
+                    $.post("./content/php/consults_info/consults.php",
+                        { 
+                            name:word,
+                            category: selected.toLowerCase() !== "" ? selected.toLowerCase() : "ingresos"
+                        }).done(data =>{
+                            data = JSON.parse(data)
+                            console.log(data)
+                            let length = Object.values(data.infogen).length
+                            if (selected === "ingresos"){
+                                tadores.innerHTML = `   
+
+                                <div class="bg-dark p-4">
+                                   <div>Id:  ${data.infogen.id_ingreso}</div>
+                                   <div>Nombre:  ${data.infogen.categoria_ingreso}</div>
+                                   <div>Descripción:  ${data.infogen.descripcion_ingreso}</div>
+                                   <div>Cuenta:  ${data.infogen.cuenta_ingreso}</div>
+                                   <div>Fecha:  ${data.infogen.fecha_ingreso}</div>
+                                   <div>Cantidad:  ${data.infogen.cantidad_ingreso}</div>
+                                </div>
+                                `
+                            } else {
+                                tadores.innerHTML = `   
+
+                                <div class="bg-dark p-4">
+                                   <div>Id:  ${data.infogen.id_gasto}</div>
+                                   <div>Nombre:  ${data.infogen.categoria_gasto}</div>
+                                   <div>Descripción:  ${data.infogen.descripcion_gasto}</div>
+                                   <div>Cuenta:  ${data.infogen.cuenta_gasto}</div>
+                                   <div>Fecha:  ${data.infogen.fecha_gasto}</div>
+                                   <div>Cantidad:  ${data.infogen.cantidad_gasto}</div>
+                                </div>
+                                `
+                            }
+                    })
+                } else {
+                    tadores.innerHTML = ""
+                }
                 
-                echo '<ul class=""> Nombre';
-                echo '<li class="bg-dark text-center">' . $filas->categoria_gasto . '</li>';
-                echo '</ul>';
-
-                echo '<ul class=""> Descripción';
-                echo '<li class="bg-dark text-center">' . $filas->descripcion_gasto . '</li>';
-                echo '</ul>';
-
-                echo '<ul class=""> Cuenta';
-                echo '<li class="bg-dark text-center">' . $filas->cuenta_gasto . '</li>';
-                echo '</ul>';
-
-                echo '<ul class=""> Fecha';
-                echo '<li class="bg-dark text-center">' . $filas->fecha_gasto . '</li>';
-                echo '</ul>';
-
-                echo '<ul class=""> Cantidad';
-                echo '<li class="bg-dark text-center">' . $filas->cantidad_gasto . '</li>';
-                echo '</ul>';
-
-
-
             }
         }
-    ?>
-    <!-- Usar js y definir condicion de resolucion que ejecute este php solo en resolucion movil -->
+        faun()
+        
+    </script>
 </div>
+
+
+
+
+
+<!-- Escritorio -->
 
 <div class="registromodsco p-4 m-4 text-white tered">
 <h1 class="text-center text-white mb-4 tered">Registros</h1>
@@ -182,8 +232,9 @@
         </div>
     </div>
    <script type="text/javascript">
-        const tered = document.getElementsByClassName("tered")[0]
         const tado = document.getElementsByClassName("tado")[0]
+        const tered = document.getElementsByClassName("tered")[0]
+        
         if (window.screen.width >= 580){
             tered.style.display = "block"
             tado.style.display = "none"
