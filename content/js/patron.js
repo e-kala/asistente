@@ -3,10 +3,10 @@ first_char_pass = ""; //Firts char pass
 passg = ""; //Pass g
 
 dat_post = {}
+
 import_data_signup = (dat) => {
 	dat_post.email = dat.email
 	dat_post.usuario = dat.usuario
-
 }
 
 fetchConsult = (configdb, user, pass) => { 
@@ -144,7 +144,8 @@ Pattmo = (container, config) => {
 
 			let userValue =""
 			itext.addEventListener("change",(e)=>{ //Read username
-				userValue = e.target.value	
+				userValue = e.target.value
+				usuariop = e.target.value	
 			})
 
 			form.appendChild(itext)
@@ -429,7 +430,8 @@ Pattmo = (container, config) => {
 
 			let userValue =""
 			itext.addEventListener("change",(e)=>{ //Read username
-				userValue = e.target.value	
+				userValue = e.target.value
+				usuariop = e.target.value	
 			})
 
 			form.appendChild(itext)

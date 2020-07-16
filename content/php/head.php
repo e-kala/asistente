@@ -21,6 +21,7 @@
 
     <link rel="stylesheet" type="text/css" href="./content/js/alertifyjs/alertify.js">
     <script type="text/javascript">
+        let usuariop = ""
         function getDevicePixelRatio() {
             var mediaQuery;
             var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;

@@ -244,12 +244,46 @@ function agregarDatosGasto(cantidadGasto,cuenta,categoriaGasto,descripcionGasto,
 
 <script type="text/javascript" src="./content/js/redesign_responsive.js"></script>
 
+<script type="text/javascript" src="./content/js/windows/asistent_menu.js">
+</script>
+
+
+
+
 <script type="text/javascript">
-    $.post( "./content/php/usr/usr_cnfg.php")
-          .done( dat => {
-            console.log(dat);
-            if (dat.match(/\<welcome\>/gim)){
-                window.location.reload(false);
-            }
-          });
+    
+
+postso = () => {
+  $.post( "./content/php/usr/usr_cnfg.php")
+    .done( dat => {
+      dat = JSON.parse(dat)
+      console.log(dat, usuariop)
+      if (dat[1].mode === "dark"){ // ----------------- Dark
+          header_session.className = "navbar mb-4 p-4 header-home-asistent-dark"
+          text_he.className = "navbar-brand text-light text-he font-weight-bold"
+     
+        if (modscodown !== undefined){
+          modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow text-dark";
+        }
+        iters(
+          "card modsco dark text-light", 
+          "card boxes-in dark text-light"
+          )
+      } else { // ----------------------------- Light
+          header_session.className = "navbar mb-4 p-4 header-home-asistent header-home-light"
+          text_he.className = "navbar-brand text-dark text-he font-weight-bold"
+        if (modscodown !== undefined){
+          modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow  text-dark";
+        }
+        iters(
+          "card modsco light text-dark", 
+          "card boxes-in light text-dark"
+          )
+      }
+      
+    });
+}
+
+postso()
+
 </script>

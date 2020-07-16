@@ -20,6 +20,15 @@ logo = '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-circle-ha
 
 options = ["Inicio", "Configuración", logo, "Cerrar Sesión"]
 
+iters = (modss, boxes_inn) => {
+    for (let x = 0; x < mods.length; x++){
+      mods[x].className = modss
+    }
+    for (let x = 0; x < boxes_in.length; x++){
+      boxes_in[x].className = boxes_inn
+    }
+  }
+
 functions = [
   () =>{ // ---------------- Inicio
     if (!check){
@@ -53,14 +62,6 @@ functions = [
     
     btn_mode_men.innerHTML = !mode_light_dark ? logo : logo
     
-    const iters = (modss, boxes_inn) => {
-      for (let x = 0; x < mods.length; x++){
-        mods[x].className = modss
-      }
-      for (let x = 0; x < boxes_in.length; x++){
-        boxes_in[x].className = boxes_inn
-      }
-    }
     if (mode_light_dark){ // ----------------- Dark
         header_session.className = "navbar mb-4 p-4 header-home-asistent-dark"
         text_he.className = "navbar-brand text-light text-he font-weight-bold"
@@ -160,3 +161,4 @@ if (btn_img_men !== null){
         }],{duration:400, iterations:1})
 
       }     } }
+
