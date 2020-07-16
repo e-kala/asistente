@@ -22,6 +22,8 @@ if (document.getElementsByClassName("headerinit")[0] !== undefined && document.g
 }
 
 
+
+
 const banplan = destiny => {
 	destiny = document.querySelector(destiny)
 

@@ -12,21 +12,22 @@
 }
 
 .registromodsco{
-	background: rgb(57,47,82,0.95);
+	background: rgb(41,49,67,0.95);
+	/*background: #293143;*/
+	position: relative;
 }
 
 .menu-reg-top{
-	position: absolute;
-	left: 0px;
-	top:-100px;
-	padding: 18px;
-	width: 140px;
+	padding: 10px;
+	float: right;
 	background: #f2f2f2;
 	background: linear-gradient(to left top, #7765fa, #5243c3);
+	background: transparent;
+	border: 3px solid white;
 	border-top: 4px solid #fff;
-	border-bottom-right-radius: 7px;
-	border-bottom-left-radius: 7px;
+	border-radius: 7px;
 	font-size: 150%;
+	text-align: center;
 
 	font-family: monospace;
 }
@@ -62,13 +63,34 @@
 	flex-direction: column;
 }
 
+#formregdesk{
+	display: flex;
+	flex-flow: wrap row;
+
+}
+.flexgregdesk{
+	flex-grow: 1;
+	/*flex-basis: 80%;*/
+	margin: 3px;
+
+}
+
 .flexgrow{
 	flex-grow: 1;
-	padding: 4px;
-	margin: 3px;
+	/*padding: 4px;*/
+	margin-top: 3px;
 	flex-basis: 100%;
 }
 
+.center-flex{
+	align-items: center;
+	align-content: center;
+}
+
+.closedata{
+	cursor: pointer;
+
+}
 
 
 
@@ -86,3 +108,35 @@
 
 .co1{ background: #5243c3; }
 .co2{ background: #49c343; }
+
+
+/* .................. bg ....................*/
+
+.bg-darkblue0{ background: #34323A; }
+.bg-darkblue1{ background: #2A2831; }
+.bg-borderwhite{ 
+	border-radius: 14px;
+	border: 3px solid #fff; 
+	/*background: rgb(84,67,124,0.50); */	
+	text-align: center;
+}
+
+.bg-darkblue3{ 
+	background: #3B3F69; 
+	padding: 10px;
+	outline: none;
+	border: none;
+	color: #fff;
+}
+
+.bg-alertemer{ border: 3px solid #fff; background: #B3CAFF; color: #4A389D;}
+.bg-alertemerdanger{ border: 3px solid #fff; background: #FFA3A5; color: #982225;}
+
+.bg-inputtextdark1 { 
+	background: #3B3F69;
+	color: #fff;
+	padding: 10px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+}
