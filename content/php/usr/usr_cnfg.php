@@ -41,7 +41,7 @@
                 //array_push($array, $json);
                 $json_user = json_encode($array, TRUE); //convierte el array con el usuario a json
                 
-                echo $json_user . $data_cnf;
+                echo "[".$json_user ."," . $data_cnf . "]";
             }
 
         }
