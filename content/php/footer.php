@@ -247,7 +247,7 @@ function agregarDatosGasto(cantidadGasto,cuenta,categoriaGasto,descripcionGasto,
 <script type="text/javascript">
     $.post( "./content/php/usr/usr_cnfg.php")
           .done( dat => {
-            console.log(dat)
+            console.log(dat);
             if (dat.match(/\<welcome\>/gim)){
                 window.location.reload(false);
             }

@@ -13,6 +13,8 @@
  * 
 */
 
+    //include '../php/conexion.php';
+
     class usr_cnfg{
         public $usuario;
 
@@ -22,6 +24,7 @@
 
             $conectar = new conexion();
             $conexion = $conectar->conectar();
+
             if(isset($_SESSION['user'])){
                 $usuario = $_SESSION['user'];
                 $consulta_cnf = "SELECT * FROM usuarios WHERE nombre_usuario = '$usuario'";
