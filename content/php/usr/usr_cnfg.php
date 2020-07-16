@@ -13,17 +13,20 @@
  * 
 */
 
-    //include '../php/conexion.php';
+    include '../conexion.php';
 
+    
     class usr_cnfg{
         public $usuario;
-
+        
         
 
         public function configuracion(){
-
+            session_start();
+            
             $conectar = new conexion();
-            $conexion = $conectar->conectar();
+			$conexion = $conectar->conectar();
+            
 
             if(isset($_SESSION['user'])){
                 $usuario = $_SESSION['user'];
@@ -36,17 +39,15 @@
                 
                 $array = ["usuario" => $usuario]; //crea un array con el usuario
                 //array_push($array, $json);
-                $json_user = json_encode($array); //convierte el array con el usuario a json
+                $json_user = json_encode($array, TRUE); //convierte el array con el usuario a json
                 
-                return $json_user . $data_cnf;
+                echo $json_user . $data_cnf;
             }
-
-            
 
         }
     }
 
     $usr_cnfg = new usr_cnfg();
-    echo "<script>console.log('".$usr_cnfg->configuracion()."')</script>"
+    $usr_cnfg->configuracion();
 
 ?>

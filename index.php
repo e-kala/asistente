@@ -1,7 +1,7 @@
 <?php session_start(); 
    include 'content/php/conexion.php';
    //echo "<script>console.log('".$_SESSION['user']."')</script>";
-   include 'content/php/usr/usr_cnfg.php';
+   //include 'content/php/usr/usr_cnfg.php';
 
 ?>
 
