@@ -2,7 +2,6 @@
 
     $conectar = new conexion();
     $conexion = $conectar->conectar();
-
     $consultaIngresos = "SELECT * FROM ingresos";
     $resultadoIngresos = $conexion->query($consultaIngresos);
     $consultaGastos = $conexion->query("SELECT * FROM gastos");
@@ -15,7 +14,6 @@
 
 
 <!-- Escritorio -->
-
 <div class="registromodsco p-4 m-4 text-white tered">
     <div class="menu-reg-top">
         <a href="index.php" class="backs text-light font-weight-bold">Atrás</a>
@@ -44,72 +42,8 @@
         <div class="tadoress"></div>
         <button class="btn btn-danger" id="load_all_reg">Mostrar menos</button>
     </div>
-    <script type="text/javascript">
-        let formregdesktop = document.getElementsByClassName("frguss")[0] 
-        let tadoresdesktop = document.getElementsByClassName("tadoress")[0] 
-        let menregdesktop = document.getElementsByClassName("menrego")[0]
-        let finddesktop = document.getElementsByClassName("findd")[0]
 
-        search(formregdesktop, tadoresdesktop, menregdesktop, finddesktop, { mode : "desktop"}) //t => m, f => d
-
-        const load_all_reg_btn = document.getElementById("load_all_reg")
-        let show = true 
-        load_all_reg.onclick = () => {
-            show = !show
-            if (show){
-                load_all_reg.innerHTML = "Mostrar menos"
-                load_all_reg.className = "btn btn-danger"
-                document.getElementsByClassName("tab")[0].style.display = "flex"
-                document.getElementsByClassName("tab")[0].animate([{
-                    opacity:0
-                },{
-                    opacity:1
-                }],{duration:400, iterations:1})
-                document.getElementsByClassName("tab")[0].style.opacity = "1"
-            } else {
-                if (!window.location.href.match(/\#gastos/gim)){
-                    window.location.href = window.location.href + "#gastos"
-                } 
-                load_all_reg.innerHTML = "Mostrar más"
-                load_all_reg.className = "btn btn-success"
-                setTimeout(()=>{
-                    document.getElementsByClassName("tab")[0].style.display = "none"
-                },450)
-                document.getElementsByClassName("tab")[0].style.opacity = "0"
-                document.getElementsByClassName("tab")[0].animate([{
-                    opacity:1
-                },{
-                    opacity:0
-                }],{duration:400, iterations:1})
-            }
-        }
-
-        const registros_men_respon = document.getElementsByClassName("men_data_registros")[0]
-        const show_men = () => {
-            const devipo = getDevicePixelRatio()
-            if (devipo.toString() === "1" && window.screen.width >= 1024){
-            } else if (devipo.toString().match(/0\.5/gim)){
-                registros_men_respon.style.display = "none"
-            } else if (devipo.toString().match(/0\.25/gim)){
-                registros_men_respon.style.display = "none"
-            } else if (devipo.toString().match(/0\.33/gim)){
-                registros_men_respon.style.display = "none"
-            } else if (devipo.toString().match(/0\.6/gim)){
-                registros_men_respon.style.display = "none"
-            } else if (devipo.toString().match(/0\.7/gim)){
-                registros_men_respon.style.display = "none"
-            } else if (devipo.toString().match(/0\.80/gim)){
-                registros_men_respon.style.display = "none"
-            } else if (devipo.toString().match(/0\.89/gim)){
-                registros_men_respon.style.display = "flex"
-            } 
-
-            if (window.screen.width <= 400){
-                registros_men_respon.style.display = "flex"
-            }
-        }
-        show_men()
-    </script>
+    <script type="text/javascript" src="./content/js/order_js_general/show_more_less_registros_and_gastos.js"></script>
 
     <div class=" row position-relative tered tab pl-4 pr-4" align="center" id="gastos">  
         <div class="col-lg-12 col-xl-6">
@@ -133,7 +67,7 @@
                             $x=0;
                             $totalIngresos = 0;
                             $totalGastos = 0;
-                        
+
                             while ($fila = $consultaGastos->fetch_object()) {
                                 $x++;
                                 
@@ -219,22 +153,6 @@
             tered.style.display = "none"
             tado.style.display = "block"
         }
-
     </script>
 
 </div>
-
-
-
-<!-- 
-MEJORAR ASPECTO DE REGISTROS.PHP
-Hacer filtro en registros.php tanto para movil como version escritorio
-CORREGIR ERRORES DE CONSOLA POR CADA SECCION
-HACER FUNCIONAR EL JSON DE LA CONFIGURACION PARA QUE SE APLIQUEN Y MANTENGAN CAMBIOS (DARK / LIGHT MODE)
-TRABAJAR MAS LA VENTANA DE REGISTRO DE USUARIO -->
-
-
-1.- Mejorar aspecto de registros.php
-2.- Hacer filtro en registros.php tanto para móvil como para versión escritorio, para filtrar busquedas de gastos e ingresos
-3.- Adicion de íconos y detalles menores
-4.- El modo móvil está en el directorio ./content/php/consults_info/consults_movil_registro.php y lo invoco en registros.php con un include, lo hice aparte para que no se hiciera tan largo todo el código dentro de registros.php

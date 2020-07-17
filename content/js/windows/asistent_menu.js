@@ -29,6 +29,7 @@ iters = (modss, boxes_inn) => {
     }
   }
 
+let once_config = false
 functions = [
   () =>{ // ---------------- Inicio
     if (!check){
@@ -57,33 +58,51 @@ functions = [
 
   }, 
   () => { // ------------------- Mode light / dark
-    mode_light_dark = !mode_light_dark
     const btn_mode_men = document.getElementById("btn_3")
     
     btn_mode_men.innerHTML = !mode_light_dark ? logo : logo
-    
-    if (mode_light_dark){ // ----------------- Dark
-        header_session.className = "navbar mb-4 p-4 header-home-asistent-dark"
-        text_he.className = "navbar-brand text-light text-he font-weight-bold"
-   
-      if (modscodown !== undefined){
-        modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow text-dark";
-      }
-      iters(
-        "card modsco dark text-light", 
-        "card boxes-in dark text-light"
-        )
-    } else { // ----------------------------- Light
-        header_session.className = "navbar mb-4 p-4 header-home-asistent header-home-light"
-        text_he.className = "navbar-brand text-dark text-he font-weight-bold"
-      if (modscodown !== undefined){
-        modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow  text-dark";
-      }
-      iters(
-        "card modsco light text-dark", 
-        "card boxes-in light text-dark"
-        )
+
+    const impo = (im, om) => {
+      mode_light_dark = im
     }
+
+    if (!once_config){
+      $.post( "./content/php/usr/usr_cnfg.php")
+      .done( dat => {
+        dat = JSON.parse(dat)
+        let reschange = dat[1].mode === "dark" ? true : false;
+        impo(reschange)
+      });
+      once_config = true
+    }
+
+    mode_light_dark = !mode_light_dark
+
+    // CORREGIR
+ 
+    if (mode_light_dark){ // ----------------- Dark
+          header_session.className = "navbar mb-4 p-4 header-home-asistent-dark"
+          text_he.className = "navbar-brand text-light text-he font-weight-bold"
+     
+        if (modscodown !== undefined){
+          modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow text-dark";
+        }
+        iters(
+          "card modsco dark text-light", 
+          "card boxes-in dark text-light"
+          )
+      } else { // ----------------------------- Light
+          header_session.className = "navbar mb-4 p-4 header-home-asistent header-home-light"
+          text_he.className = "navbar-brand text-dark text-he font-weight-bold"
+        if (modscodown !== undefined){
+          modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow  text-dark";
+        }
+        iters(
+          "card modsco light text-dark", 
+          "card boxes-in light text-dark"
+          )
+      }
+
     boolam = false
     div_men.style.display = "none"
   },
@@ -161,4 +180,5 @@ if (btn_img_men !== null){
         }],{duration:400, iterations:1})
 
       }     } }
+
 
