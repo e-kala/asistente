@@ -212,35 +212,61 @@ function agregarDatosGasto(cantidadGasto,cuenta,categoriaGasto,descripcionGasto,
 
 
 
-// Iniciar configuración de la sesión
-init_config = () => {
-      $.post( "./content/php/usr/usr_cnfg.php")
-        .done( dat => {
-          dat = JSON.parse(dat)
-          if (dat[1].mode === "dark"){ // ----------------- Dark
-              header_session.className = "navbar mb-4 p-4 header-home-asistent-darkinit"
-              text_he.className = "navbar-brand text-light text-he font-weight-bold"
-         
-            if (modscodown !== undefined){
-              modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow text-dark";
-            }
-            iters(
-              "card modsco darkinit text-light", 
-              "card boxes-in darkinit text-light"
-              )
-          } else { // ----------------------------- Light
-              header_session.className = "navbar mb-4 p-4 header-home-asistentinit header-home-lightinit"
-              text_he.className = "navbar-brand text-dark text-he font-weight-bold"
-            if (modscodown !== undefined){
-              modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow  text-dark";
-            }
-            iters(
-              "card modsco lightinit text-dark", 
-              "card boxes-in lightinit text-dark"
-              )
-          }
-          
-        });
+const dark = () => {
+    header_session.className = "navbar mb-4 p-4 header-home-asistent-darkinit"
+      text_he.className = "navbar-brand text-light text-he font-weight-bold"
+ 
+    if (modscodown !== undefined){
+      modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow text-dark";
+    }
+    iters(
+      "card modsco darkinit text-light", 
+      "card boxes-in darkinit text-light"
+      )
 }
-init_config()
+
+const light = () => {
+    header_session.className = "navbar mb-4 p-4 header-home-asistentinit header-home-lightinit"
+      text_he.className = "navbar-brand text-dark text-he font-weight-bold"
+    if (modscodown !== undefined){
+      modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow  text-dark";
+    }
+    iters(
+      "card modsco lightinit text-dark", 
+      "card boxes-in lightinit text-dark"
+      )
+}
+
+
+// Iniciar configuración de la sesión
+// init_config = () => {
+//       $.post( "./content/php/usr/usr_cnfg.php")
+//         .done( dat => {
+//           dat = JSON.parse(dat)
+//           if (dat[1].mode === "dark"){ // ----------------- Dark
+//               header_session.className = "navbar mb-4 p-4 header-home-asistent-darkinit"
+//               text_he.className = "navbar-brand text-light text-he font-weight-bold"
+         
+//             if (modscodown !== undefined){
+//               modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow text-dark";
+//             }
+//             iters(
+//               "card modsco darkinit text-light", 
+//               "card boxes-in darkinit text-light"
+//               )
+//           } else { // ----------------------------- Light
+//               header_session.className = "navbar mb-4 p-4 header-home-asistentinit header-home-lightinit"
+//               text_he.className = "navbar-brand text-dark text-he font-weight-bold"
+//             if (modscodown !== undefined){
+//               modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow  text-dark";
+//             }
+//             iters(
+//               "card modsco lightinit text-dark", 
+//               "card boxes-in lightinit text-dark"
+//               )
+//           }
+//         });
+// }
+
+// init_config()
 // ----------------------------------------------------------------------------------------------------------------

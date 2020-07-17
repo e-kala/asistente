@@ -5,7 +5,7 @@ const menu_registros = document.getElementsByClassName("men_data_registros")[0]
 
 const readjust_pattern = () => {
 	const root_pattern = document.getElementById("root")
-	root_pattern.style.marginTop = "0px"
+	if (root_pattern !== undefined) root_pattern.style.marginTop = "0px";
 }
 
 const resize_modulos = () => {
@@ -23,7 +23,7 @@ const resize_modulos = () => {
 			modulos[0].style.width = "100%"
 			modulos[0].className = "accordion modulos"
 		}
-		if (modulos[1] !== undefined){
+		if (modulos[1] !== undefined){x
 			modulos[1].style.width = "100%"	
 			modulos[1].className = "accordion modulos"
 		}
@@ -39,6 +39,7 @@ window.onload = () => {
 window.onresize = () => {
 	resize_modulos()
 	const devip = getDevicePixelRatio()
+
 	if (divmestype !== undefined && divmestype !== null){
 		if (devip.toString() === "1"){
 			divmestype.style.top = "80px"
@@ -108,8 +109,7 @@ window.onresize = () => {
 			menu_registros.style.display = "flex"
 		} 
 		if (window.screen.width <= 400){
-            registros_men_respon.style.display = "flex"
-            
+			if (registros_men_respon !== undefined) registros_men_respon.style.display = "flex";
         }
 		
 	}
@@ -119,26 +119,10 @@ window.onresize = () => {
 	const tered = document.getElementsByClassName("tered")[0]
     const tado = document.getElementsByClassName("tado")[0]
     if (window.screen.width >= 580){
-        tered.style.display = "block"
-        tado.style.display = "none"
+    	if (tered !== undefined) tered.style.display = "block";
+    	if (tado !== undefined) tado.style.display = "none";
     } else {
-        console.log(tered,"mamamamama")
-        tered.style.display = "none"
-        tado.style.display = "block"
+    	if (tered !== undefined) tered.style.display = "none";
+    	if (tado !== undefined) tado.style.display = "block";
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
