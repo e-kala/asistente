@@ -37,6 +37,7 @@
                break;
 
                case 'home':
+                   echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
                    include 'content/php/navbar.php';
                    include 'content/php/home.php';
                    include 'modalIngreso.php';
@@ -48,11 +49,13 @@
                break;
 
                case 'registros':
+                  echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
                   include 'content/php/registros.php';
                break;
 
                case 'configuracion':
+                  echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
                   include 'content/php/user_config.php';
                break;
@@ -73,9 +76,11 @@
                   # code...
                   break;
             }
+             
          ?>
          
             <?php include 'content/php/footer.php'; ?>
+
       </div>
       
    </body>

@@ -1,3 +1,11 @@
+#loadingg{
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	margin: auto;
+}
 #logpan{
 	background: rgb(0,0,0,0.80);
 	/*background: red;*/
@@ -12,8 +20,8 @@
 }
 
 .registromodsco{
-	background: rgb(41,49,67,0.95);
-	/*background: #293143;*/
+	/*background: rgb(41,49,67,0.95);*/
+	background: rgb(52,52,69);
 	position: relative;
 }
 
@@ -106,9 +114,13 @@
 
 /* ------------------ COLORS --------------------*/
 
-.co1{ background: #5243c3; }
+.co1{ background: #4A4AC4; }
 .co2{ background: #49c343; }
 
+
+/*----------------- Text Color --------------------*/
+.cotxtlight { color: #fff; }
+.cotxtdark { color: #303030; }
 
 /* .................. bg ....................*/
 
@@ -116,10 +128,11 @@
 .bg-darkblue1{ background: #2A2831; }
 .bg-borderwhite{ 
 	border-radius: 14px;
-	border: 3px solid #fff; 
+	border: 3px solid #f3f3f3; 
 	/*background: rgb(84,67,124,0.50); */	
 	text-align: center;
 }
+.bg-transparent{ background: transparent; }
 
 .bg-darkblue3{ 
 	background: #3B3F69; 

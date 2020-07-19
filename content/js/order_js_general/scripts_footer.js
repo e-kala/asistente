@@ -221,8 +221,13 @@ const dark = () => {
     }
     iters(
       "card modsco darkinit text-light", 
-      "card boxes-in darkinit text-light"
+      "card boxes-in darkinit text-light",
+      "p-4 m-4 text-white tered registrosgasin darkinit text-light text-white cotxtlight",
+      'text-center colorchangetxt text-light'
       )
+    for (let x = 0; x < colorchangetxt.length; x++){
+        colorchangetxt[x].className = 'text-center colorchangetxt text-light'
+    }
 }
 
 const light = () => {
@@ -233,12 +238,20 @@ const light = () => {
     }
     iters(
       "card modsco lightinit text-dark", 
-      "card boxes-in lightinit text-dark"
+      "card boxes-in lightinit text-dark",
+      "p-4 m-4 text-white tered registrosgasin lightinit text-dark cotxtdark",
+      'text-center colorchangetxt text-dark'
       )
+    for (let x = 0; x < colorchangetxt.length; x++){
+        colorchangetxt[x].className = 'text-center colorchangetxt text-darks p-4'
+    }
+
 }
 
 
 // Iniciar configuración de la sesión
+
+//hacer un innerHTML y probar insertando php para aplicar modo dar lyght en modo embebido
 // init_config = () => {
 //       $.post( "./content/php/usr/usr_cnfg.php")
 //         .done( dat => {

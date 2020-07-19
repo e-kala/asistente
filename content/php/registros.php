@@ -14,11 +14,11 @@
 
 
 <!-- Escritorio -->
-<div class="registromodsco p-4 m-4 text-white tered">
+<div class="registromodsco p-4 m-4  tered registrosgasin">
     <div class="menu-reg-top">
-        <a href="index.php" class="backs text-light font-weight-bold">Atrás</a>
+        <a href="index.php" class="backs colorchange font-weight-bold">Atrás</a>
     </div>
-    <h1 class="text-white p-4 tered">Registros</h1>
+    <h1 class=" p-4 tered">Registros</h1>
     <div class="men_data_registros tered">
         <a href="#gastos" class="option-menu-registro"><img src="./content/img/íconos/mengasto.png" width="70px" ></a>
         <a href="#ingresos" class="option-menu-registro"><img src="./content/img/íconos/meningreso.png" width="70px" ></a>
@@ -27,14 +27,14 @@
         <h3 class="ml-2 mb-4 text-center">Buscador <img src="./content/img/íconos/lupa.png" width="50px"></h3>
         <form id="formregdesk" class="frguss">
             <div class="mt-3 flexgregdesk d-flex center-flex">
-                <h4 class="mb-3 text-center">Selecciona lo que deseas buscar</h4>
+                <h4 class="colorchange mb-3 text-center">Selecciona lo que deseas buscar</h4>
                 <select  value="Ingresos"  class="menrego w-100 p-3 ml-4 bg-darkblue3">
                     <option selected>Ingresos</option>
                     <option>Gastos</option>
                 </select>
             </div>
             <div class="d-flex center-flex w-100" align="center">
-                <h4 class="mb-3  text-center ">Escribe aquí!</h4>
+                <h4 class="mb-3  text-center colorchange">Escribe aquí!</h4>
                 <input type="text" class="mt-3 p-3 findd flexgregdesk w-100 bg-inputtextdark1" />
                 <button  class="find- ml-1 mt-3 btn btn-primary">Buscar</button>
             </div>
@@ -49,15 +49,15 @@
         <div class="col-lg-12 col-xl-6">
             
             <h3 class="mb-4">Gastos</h3>
-            <table class="table text-white">
+            <table class="w-100">
                 <thead>
                     <tr>
-                        <th scope="col" class="co1 text-center">#</th>
-                        <th scope="col" class="co1 text-center">Nombre</th>
-                        <th scope="col" class="co1 text-center">Descripción</th>
-                        <th scope="col" class="co1 text-center">Cuenta</th>
-                        <th scope="col" class="co1 text-center">Fecha</th>
-                        <th scope="col" class="co1 text-center">Cantidad</th>
+                        <th scope="col" class="co1 colorchange p-2 text-center">#</th>
+                        <th scope="col" class="co1 colorchange p-2 text-center">Nombre</th>
+                        <th scope="col" class="co1 colorchange p-2 text-center">Descripción</th>
+                        <th scope="col" class="co1 colorchange p-2 text-center">Cuenta</th>
+                        <th scope="col" class="co1 colorchange p-2 text-center">Fecha</th>
+                        <th scope="col" class="co1 colorchange p-2 text-center">Cantidad</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,13 +71,13 @@
                             while ($fila = $consultaGastos->fetch_object()) {
                                 $x++;
                                 
-                                echo '<tr class="text-center">';
-                                    echo '<th scope="row">' .  $x++ .'</th>';
-                                        echo '<td>' . $fila->categoria_gasto . '</td>';
-                                        echo '<td>' . $fila->descripcion_gasto . '</td>';
-                                        echo '<td>' . $fila->cuenta_gasto . '</td>';
-                                        echo '<td>' . $fila->fecha_gasto . '</td>';
-                                        echo '<td>$ ' . $fila->cantidad_gasto . '</td>';
+                                echo '<tr class="text-center colorchange">';
+                                    echo '<th scope="row" class="p-3">' .  $x++ .'</th>';
+                                        echo '<td class="font-weight-bold">' . $fila->categoria_gasto . '</td>';
+                                        echo '<td class="font-weight-bold">' . $fila->descripcion_gasto . '</td>';
+                                        echo '<td class="font-weight-bold">' . $fila->cuenta_gasto . '</td>';
+                                        echo '<td class="font-weight-bold">' . $fila->fecha_gasto . '</td>';
+                                        echo '<td class="font-weight-bold">$ ' . $fila->cantidad_gasto . '</td>';
                                 echo '</tr>';
                             }
                         }
@@ -88,14 +88,14 @@
 
         <div class="col-lg-12 col-xl-6" id="ingresos">
             <h3 class="mb-4">Ingresos</h3>
-            <table class="table text-white ">
+            <table class="w-100 ">
                 <thead>
-                    <th scope="col" class="co2 text-center">#</th>
-                    <th scope="col" class="co2 text-center">Nombre</th>
-                    <th scope="col" class="co2 text-center">Descripción</th>
-                    <th scope="col" class="co2 text-center">Cuenta</th>
-                    <th scope="col" class="co2 text-center">Fecha</th>
-                    <th scope="col" class="co2 text-center">Cantidad</th>
+                    <th scope="col" class="co2 colorchange p-2 text-center">#</th>
+                    <th scope="col" class="co2 colorchange p-2 text-center">Nombre</th>
+                    <th scope="col" class="co2 colorchange p-2 text-center">Descripción</th>
+                    <th scope="col" class="co2 colorchange p-2 text-center">Cuenta</th>
+                    <th scope="col" class="co2 colorchange p-2 text-center">Fecha</th>
+                    <th scope="col" class="co2 colorchange p-2 text-center">Cantidad</th>
                 </thead>
                 <tbody>
                 <?php
@@ -108,13 +108,13 @@
                         while ($fila = $resultadoIngresos->fetch_object()) {
                             $x++;
                             
-                            echo '<tr class="text-center">';
-                                echo '<th scope="row">' .  $x++ .'</th>';
-                                    echo '<td>' . $fila->categoria_ingreso . '</td>';
-                                    echo '<td>' . $fila->descripcion_ingreso . '</td>';
-                                    echo '<td>' . $fila->cuenta_ingreso . '</td>';
-                                    echo '<td>' . $fila->fecha_ingreso . '</td>';
-                                    echo '<td>$ ' . $fila->cantidad_ingreso . '</td>';
+                            echo '<tr class="text-center colorchange">';
+                                echo '<th scope="row" class="p-3">' .  $x++ .'</th>';
+                                    echo '<td class="font-weight-bold">' . $fila->categoria_ingreso . '</td>';
+                                    echo '<td class="font-weight-bold">' . $fila->descripcion_ingreso . '</td>';
+                                    echo '<td class="font-weight-bold">' . $fila->cuenta_ingreso . '</td>';
+                                    echo '<td class="font-weight-bold">' . $fila->fecha_ingreso . '</td>';
+                                    echo '<td class="font-weight-bold">$ ' . $fila->cantidad_ingreso . '</td>';
                             echo '</tr>';
                         }
                     }
@@ -146,12 +146,11 @@
         const tered = document.getElementsByClassName("tered")[0]
         
         if (window.screen.width >= 580){
-            tered.style.display = "block"
-            tado.style.display = "none"
+            if (tered !== undefined) tered.style.display = "block";
+            if (tado !== undefined) tado.style.display = "none";
         } else {
-            console.log(tered,"mamamamama")
-            tered.style.display = "none"
-            tado.style.display = "block"
+            if (tered !== undefined) tered.style.display = "none";
+            if (tado !== undefined) tado.style.display = "block";
         }
     </script>
 

@@ -1,6 +1,6 @@
 
 
-<div class="accordion pl-4 pr-4 pb-4 modulos modscodown" id="accordionExample">
+<div class="accordion pl-4 pr-4 pb-4 modulos modscodown" style="display: none;" id="accordionExample">
  <div class="card boxes-in bg-blue rounded-0">
    <div class="card-header" id="headingFour">
      <h2 class="mb-0">

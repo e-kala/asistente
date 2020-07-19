@@ -2,6 +2,9 @@ boolam = false
 menu_btn = document.getElementById("menu_btn")
 if (menu_btn !== null) menu_btn.classList.add("menu_btn");
 
+let alma_config; //Almacena configuración cuando el último script se cargue para ser usada aquí en este archivo
+
+
 div_men = document.createElement("div")
 div_men.classList.add("menu_container")
 div_men.style.display = "none"
@@ -9,6 +12,8 @@ div_men.style.display = "none"
 mods = document.getElementsByClassName("modsco")
 modscodown = document.getElementsByClassName("modscodown")[0]
 boxes_in = document.getElementsByClassName("boxes-in")
+registrosgasin = document.getElementsByClassName("registrosgasin")[0]
+colorchangetxt = document.getElementsByClassName("colorchangetxt")
 
 header_session = document.getElementsByClassName("header-home-asistent")[0]
 text_he = document.getElementsByClassName("text-he")[0]
@@ -20,12 +25,18 @@ logo = '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-circle-ha
 
 options = ["Inicio", "Configuración", logo, "Cerrar Sesión"]
 
-iters = (modss, boxes_inn) => {
+iters = (modss, boxes_inn, registrosg, txtcolor) => {
     for (let x = 0; x < mods.length; x++){
       mods[x].className = modss
     }
     for (let x = 0; x < boxes_in.length; x++){
       boxes_in[x].className = boxes_inn
+    }
+    if (registrosgasin !== undefined) registrosgasin.className = registrosg
+    if (colorchangetxt !== undefined) {
+      for (let x = 0; x < colorchangetxt.length; x++){
+        colorchangetxt[x].className = txtcolor
+      }
     }
   }
 
@@ -62,19 +73,21 @@ functions = [
     
     btn_mode_men.innerHTML = !mode_light_dark ? logo : logo
 
-    const impo = (im, om) => {
+    const impo = (im) => {
       mode_light_dark = im
     }
 
     if (!once_config){
-      $.post( "./content/php/usr/usr_cnfg.php")
-      .done( dat => {
-        dat = JSON.parse(dat)
-        let reschange = dat[1].mode === "dark" ? true : false;
-        impo(reschange)
-      });
+    //   $.post( "./content/php/usr/usr_cnfg.php")
+    //   .done( dat => {
+    //     dat = JSON.parse(dat)
+    //     let reschange = dat[1].mode === "dark" ? true : false;
+    //     impo(reschange)
+    //   });
+      impo(alma_config[1].mode === "dark" ? true : false)
       once_config = true
     }
+
 
     mode_light_dark = !mode_light_dark
 
@@ -89,7 +102,9 @@ functions = [
         }
         iters(
           "card modsco dark text-light", 
-          "card boxes-in dark text-light"
+          "card boxes-in dark text-light",
+          "p-4 m-4 tered registrosgasin dark text-light text-white cotxtlight",
+          'text-center colorchangetxt text-light'
           )
       } else { // ----------------------------- Light
           header_session.className = "navbar mb-4 p-4 header-home-asistent header-home-light"
@@ -99,10 +114,11 @@ functions = [
         }
         iters(
           "card modsco light text-dark", 
-          "card boxes-in light text-dark"
+          "card boxes-in light text-dark",
+          "p-4 m-4 text-white tered registrosgasin light text-dark cotxtdark",
+          'text-center colorchangetxt text-dark'
           )
       }
-
     boolam = false
     div_men.style.display = "none"
   },
@@ -114,10 +130,11 @@ functions = [
 ]
 for (let x=0; x < options.length; x++){
   if (x === 0){
-    const optdiv = document.createElement("div")
+    const optdiv = document.createElement("a")
     optdiv.innerHTML = options[x]
     optdiv.classList.add("options_men")
     optdiv.setAttribute("name", options[x])
+    optdiv.setAttribute("href", "index.php")
     optdiv.setAttribute("id", "btn_"+(x+1))
     optdiv.addEventListener("click",functions[x])
     div_men.appendChild(optdiv)

@@ -2,10 +2,11 @@
 <style type="text/css">
 .bg-blue{
 
-background-color: #f2f2f2;
+/*background-color: #f2f2f2;*/
 }
 </style>
- <div class="accordion pl-4 pr-4 pb-4 modulos" id="accordionExample">
+
+ <div class="accordion pl-4 pr-4 pb-4 modulos" style="display: none;" id="accordionExample">
   <!--información in-->
    <div class="card bg-blue modsco">
      <div class="card-header" id="headingOne">
@@ -36,9 +37,9 @@ background-color: #f2f2f2;
      </div>
 
      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-       <div class="card-body">
+       <div class="card-body" align="center">
         <!-- opciones-->
-       <div class="row p-4">
+       <div class="row p-4 d-flex justify-content-between" align="center">
         <!-- Sección de movimientos In -->
          <div class="col-xs-12">
             <h4 class="">Movimientos</h4>
@@ -156,5 +157,3 @@ background-color: #f2f2f2;
      </div>
    </div>
  </div>
-
- 

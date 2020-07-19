@@ -4,7 +4,6 @@ body{
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center center;
-	
 }
 .header_inicio{
 	position: relative;
@@ -38,7 +37,7 @@ body{
 
 .headerinit{
 	flex-grow: 1;
-	background: transparent;
+	background: transparent;		
 	color: #fff;
 	font-weight: bold;
 	font-size: 30px;
@@ -106,12 +105,12 @@ body{
 }
 
 .light{
-	background: #f2f2f2;
+	background: #fff;
 	animation: tolight linear 1 0.2s;
 }
 
 .lightinit{ /* al iniciar */
-	background: #f2f2f2;
+	background: #fff;
 }
 
 @keyframes tolight{
@@ -238,6 +237,8 @@ body{
 	border-radius: 14px;
 	box-shadow: 0px 0px 10px rgb(0,0,0,0.10);
 	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
 }
 .options_men{
 	cursor: pointer;

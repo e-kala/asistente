@@ -27,3 +27,10 @@
 <script type="text/javascript" src="./content/js/redesign_responsive.js"></script>
 
 <script type="text/javascript" src="./content/js/order_js_general/scripts_footer.js"></script>
+
+
+<?php 
+	include "./content/php/usr/usr_cnfg.php";
+?>
+
+

@@ -46,7 +46,7 @@ const search = (formreg, tadores, menreg, find, config) => {
                                 tadores.innerHTML = `   
 
                                 <div class="${co} p-4 mb-3 m-2 flex-grow-1 datawindow"  >
-                                <img src="./content/img/íconos/close.png" width="20px" class="float-right" id="closedata" onClick="closeclick(this)"/>
+                                <img src="./content/img/íconos/close.png" name="0" width="20px" class="float-right" id="closedata" onClick="closeclick(this)"/>
                                    <div class="m-1 font-weight-bold">Id:  ${data.infogen.id_ingreso}</div>
                                    <div class="m-1 font-weight-bold">Nombre:  ${data.infogen.categoria_ingreso}</div>
                                    <div class="m-1 font-weight-bold">Descripción:  ${data.infogen.descripcion_ingreso}</div>
@@ -59,7 +59,7 @@ const search = (formreg, tadores, menreg, find, config) => {
                             } else {
                                 tadores.innerHTML = `   
                                 <div class="${co} p-4 mb-3 m-2 flex-grow-1 datawindow"  >
-                                <img src="./content/img/íconos/close.png" width="20px" class="float-right" id="closedata" onClick="closeclick(this)"/>
+                                <img src="./content/img/íconos/close.png" name="0" width="20px" class="float-right" id="closedata" onClick="closeclick(this)"/>
                                    <div class="m-1 font-weight-bold">Id:  ${data.infogen.id_gasto}</div>
                                    <div class="m-1 font-weight-bold">Nombre:  ${data.infogen.categoria_gasto}</div>
                                    <div class="m-1 font-weight-bold">Descripción:  ${data.infogen.descripcion_gasto}</div>
@@ -84,7 +84,7 @@ const search = (formreg, tadores, menreg, find, config) => {
                                         tadores.innerHTML += `   
 
                                         <div class="${co} p-4 mb-3 m-2 flex-grow-1 datawindow" name="${i+1}datawindow" >
-                                        <img src="./content/img/íconos/close.png" width="20px" class="float-right" id="closedata" onClick="closeclick(this)"/>
+                                        <img src="./content/img/íconos/close.png" name="${n}" width="20px" class="float-right" id="closedata" onClick="closeclick(this)"/>
                                            <div class="m-1 font-weight-bold">Id:  ${data["infogen"+n].id_ingreso}</div>
                                            <div class="m-1 font-weight-bold">Nombre:  ${data["infogen"+n].categoria_ingreso}</div>
                                            <div class="m-1 font-weight-bold">Descripción:  ${data["infogen"+n].descripcion_ingreso}</div>
@@ -97,7 +97,7 @@ const search = (formreg, tadores, menreg, find, config) => {
                                     } else {
                                         tadores.innerHTML += `   
                                         <div class="${co} p-4 mb-3 m-2 flex-grow-1 datawindow" name="${i+1}datawindow" >
-                                        <img src="./content/img/íconos/close.png" width="20px" class="float-right" id="closedata" onClick="closeclick(this)"/>
+                                        <img src="./content/img/íconos/close.png" name="${n}" width="20px" class="float-right" id="closedata" onClick="closeclick(this)"/>
                                            <div class="m-1 font-weight-bold">Id:  ${data["infogen"+n].id_gasto}</div>
                                            <div class="m-1 font-weight-bold">Nombre:  ${data["infogen"+n].categoria_gasto}</div>
                                            <div class="m-1 font-weight-bold">Descripción:  ${data["infogen"+n].descripcion_gasto}</div>
@@ -150,6 +150,28 @@ const search = (formreg, tadores, menreg, find, config) => {
 search(formreg, tadores, menreg, find, { mode: "movil"})
 
     
+
+
+let checker = false
 function closeclick(e){
-  console.log(e)
+  if (document.getElementsByClassName("datawindow") !== undefined){
+    let n;
+    if (!checker){
+      n = e.getAttribute("name")
+      checker = true
+    }
+    n = n - 1
+    console.log(n,"jej")
+    // document.getElementsByClassName("datawindow")[n-- - 1].remove()
+  } else {
+    checker = false
+  }
+
+  // let lengini = e.getAttribute("name")
+
+
+  // const datawindow = document.getElementsByClassName("datawindow")[n]
+  // datawindow.remove()
+  // if (datawindow !== undefined) datawindow.remove()
+
 }
