@@ -35,8 +35,8 @@
         	<div class="form-row">
         		<div class="form-group col-md-12">
                  <label >Fecha</label>
-                 <input id="fecha" type="date" name="fecha" max="3000-12-31"
-                        min="2000-01-01" class="form-control"/>
+                 <input type="date" name="fecha" max="3000-12-31"
+                        min="2000-01-01" class="form-control fecha" val=""/>
                 </div>
 
         	</div>

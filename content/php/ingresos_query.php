@@ -2,11 +2,12 @@
 	$conectar = new conexion();
 	$conexion = $conectar->conectar();
 
-	$consultaIngresos = "SELECT * FROM ingresos";
+	$usuario = $_SESSION['user'];
+	$consultaIngresos = "SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario'";
 	$resultadoIngresos = $conexion->query($consultaIngresos);
-	$consultaGastos = $conexion->query("SELECT * FROM gastos");
+	$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario'");
 
-	if ($resultadoIngresos->num_rows > 0) {
+	if (!empty($resultadoIngresos) && $resultadoIngresos->num_rows > 0) {
 		$x=0;
 		$totalIngresos = 0;
 		$totalGastos = 0;

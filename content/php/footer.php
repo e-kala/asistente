@@ -14,8 +14,8 @@
 <script src="https://cdn.jsdelivr.net/gh/alyssaxuu/flowy/flowy.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-<!-- menú desplegable -->
 
+<!-- menú desplegable -->
 <script src="content/js/windows/asistent_menu.js"></script>
 
 <script type="text/javascript" src="./content/js/patron.js"></script>
@@ -28,6 +28,9 @@
 
 <script type="text/javascript" src="./content/js/order_js_general/scripts_footer.js"></script>
 
+<script type="text/javascript" src="./content/js/subirIngreso.js"></script>
+<script type="text/javascript" src="./content/js/subirGasto.js"></script>
+<script type="text/javascript" src="./content/js/ultimoRegistro.js"></script>
 
 <?php 
 	include "./content/php/usr/usr_cnfg.php";

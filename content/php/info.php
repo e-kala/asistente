@@ -1,8 +1,9 @@
 <?php
     include_once'conexion.php';
 
+    session_start();
 
-
+    $usuario = $_SESSION['user'];
 
     $mysqli = new mysqli("localhost", "u599230971_asistente", "1q-2w-3e-4r-5t-", "u599230971_asistente");
 
@@ -10,7 +11,7 @@
         $arrRes=array("error"=>"Connection Failed: " . $mysqli->connect_error);
     }else{
         //$mysqli->set_charset("utf8");
-        $consult = "SELECT * FROM ingresos ORDER BY id_ingreso DESC LIMIT 1";
+        $consult = "SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' ORDER BY id_ingreso DESC LIMIT 1";
 
         if($result = $mysqli->query($consult)){
             $arrayResponse=array();

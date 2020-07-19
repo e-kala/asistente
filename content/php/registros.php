@@ -2,10 +2,12 @@
 
     $conectar = new conexion();
     $conexion = $conectar->conectar();
-    $consultaIngresos = "SELECT * FROM ingresos";
-    $resultadoIngresos = $conexion->query($consultaIngresos);
-    $consultaGastos = $conexion->query("SELECT * FROM gastos");
 
+    $usuario = $_SESSION['user'];
+    $consultaIngresos = "SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario'";
+    $resultadoIngresos = $conexion->query($consultaIngresos);
+    $consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario'");
+    echo $usuario;
 ?>
 
 
@@ -69,7 +71,7 @@
                 <tbody>
 
                     <?php
-                        if ($consultaGastos->num_rows > 0) {
+                        if (!empty($consultaGastos) && $consultaGastos->num_rows > 0) {
                             $x=0;
                             $totalIngresos = 0;
                             $totalGastos = 0;
@@ -86,6 +88,8 @@
                                         echo '<td class="font-weight-bold">$ ' . $fila->cantidad_gasto . '</td>';
                                 echo '</tr>';
                             }
+                        }else{
+                            echo 'no hay registros';
                         }
                     ?>
                 </tbody>
@@ -106,7 +110,7 @@
                 <tbody>
                 <?php
 
-                    if ($resultadoIngresos->num_rows > 0) {
+                    if (!empty($resultadoIngresos) && $resultadoIngresos->num_rows > 0) {
                         $x=0;
                         $totalIngresos = 0;
                         $totalGastos = 0;
@@ -123,26 +127,10 @@
                                     echo '<td class="font-weight-bold">$ ' . $fila->cantidad_ingreso . '</td>';
                             echo '</tr>';
                         }
+                    }else{
+                        echo "no hay registros";
                     }
                 ?>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    </tr>
                 </tbody>
             </table>
         </div>

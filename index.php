@@ -40,8 +40,8 @@
                    echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
                    include 'content/php/navbar.php';
                    include 'content/php/home.php';
-                   include 'modalIngreso.php';
-                   include 'modalGasto.php';
+                   include 'content/php/modalIngreso.php';
+                   include 'content/php/modalGasto.php';
                break;
 
                case 'registro'://registro de usuarios
@@ -49,7 +49,7 @@
                   include 'content/php/registro/registro_form.php';
                break;
 
-               case 'registros':
+               case 'registros'://registros, ingresos y gastos
                   echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
                   include 'content/php/registros.php';

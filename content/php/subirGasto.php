@@ -1,10 +1,15 @@
 <?php
+    
     require "conexion.php";
     if (isset($_GET)) {
+
         $conectar = new conexion();
-    	$conexion = $conectar->conectar();
+        $conexion = $conectar->conectar();
+        
+        session_start();
 
 
+        $usuario = $_SESSION['user'];
         $cantidadGasto = $_GET['cantidadGasto'];
         $cuenta = $_GET['cuenta'];
         $categoriaGasto = $_GET['categoriaGasto'];
@@ -14,8 +19,8 @@
         echo $cantidadGasto;
         echo $fecha;
 
-        $sql = "INSERT INTO gastos(cantidad_gasto, cuenta_gasto, fecha_gasto, categoria_gasto, descripcion_gasto)
-                VALUES('$cantidadGasto', '$cuenta', '$fecha', '$categoriaGasto', '$descripcionGasto')";
+        $sql = "INSERT INTO gastos(usuario_gasto, cantidad_gasto, cuenta_gasto, fecha_gasto, categoria_gasto, descripcion_gasto)
+                VALUES('$usuario', '$cantidadGasto', '$cuenta', '$fecha', '$categoriaGasto', '$descripcionGasto')";
         /*$sql = "INSERT INTO gastos(cantidad_gasto, fecha_gasto)
                 VALUES('$cantidadGasto', '$fecha')";*/
         $datos = utf8_encode($sql);
@@ -24,8 +29,10 @@
 
         if ($conexion->query($sql) === TRUE) {
             echo "New record created successfully";
+            echo "<script>console.log('Se subió correctamente el gasto');</script>";
         } else {
-            echo "Error: " . $sql . "<br>" . $conexion->error;
+            echo "<script> console.log ('Error: " . $sql . "<br>" . $conexion->error . "');</script>";
+
         }
 
     }else{
