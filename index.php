@@ -45,6 +45,7 @@
                break;
 
                case 'registro'://registro de usuarios
+                  echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
                   include 'content/php/registro/registro_form.php';
                break;
 

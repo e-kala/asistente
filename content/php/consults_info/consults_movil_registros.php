@@ -8,7 +8,7 @@
             <option selected>Ingresos</option>
             <option>Gastos</option>
         </select>
-        <input type="text" class="mt-3 p-3 find" placeholder="Escribe aquí!"/>
+        <input type="text" class="mt-3 p-3 find " placeholder="Escribe aquí!"/>
         <button  class="find- mt-3 p-3 btn btn-dark">Buscar</button>
     </form>
     <div class="tadores"></div>

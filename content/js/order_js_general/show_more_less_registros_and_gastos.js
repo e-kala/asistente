@@ -11,7 +11,7 @@ load_all_reg.onclick = () => {
     show = !show
     if (show){
         load_all_reg.innerHTML = "Mostrar menos"
-        load_all_reg.className = "btn btn-danger"
+        load_all_reg.className = "btn btn-danger mt-4"
         document.getElementsByClassName("tab")[0].style.display = "flex"
         document.getElementsByClassName("tab")[0].animate([{
             opacity:0
@@ -24,7 +24,7 @@ load_all_reg.onclick = () => {
             window.location.href = window.location.href + "#gastos"
         } 
         load_all_reg.innerHTML = "Mostrar más"
-        load_all_reg.className = "btn btn-success"
+        load_all_reg.className = "btn btn-success mt-4"
         setTimeout(()=>{
             document.getElementsByClassName("tab")[0].style.display = "none"
         },450)

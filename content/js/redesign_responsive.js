@@ -126,8 +126,8 @@ window.onresize = () => {
 	const tered = document.getElementsByClassName("tered")[0]
     const tado = document.getElementsByClassName("tado")[0]
     if (window.screen.width >= 580){
-    	if (tered !== undefined) tered.style.display = "block";
     	if (tado !== undefined) tado.style.display = "none";
+    	if (tered !== undefined) tered.style.display = "block";
     } else {
     	if (tered !== undefined) tered.style.display = "none";
     	if (tado !== undefined) tado.style.display = "block";

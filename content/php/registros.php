@@ -14,7 +14,7 @@
 
 
 <!-- Escritorio -->
-<div class="registromodsco p-4 m-4  tered registrosgasin">
+<div class="registromodsco p-4 m-4  tered registrosgasin" style="display: none;">
     <div class="menu-reg-top">
         <a href="index.php" class="backs colorchange font-weight-bold">Atrás</a>
     </div>
@@ -34,13 +34,12 @@
                 </select>
             </div>
             <div class="d-flex center-flex w-100" align="center">
-                <h4 class="mb-3  text-center colorchange">Escribe aquí!</h4>
-                <input type="text" class="mt-3 p-3 findd flexgregdesk w-100 bg-inputtextdark1" />
+                <input type="text" class="mt-3 p-3 findd flexgregdesk w-100 bg-inputtextdark1 coholdermes"  placeholder="Escribe aquí!" />
                 <button  class="find- ml-1 mt-3 btn btn-primary">Buscar</button>
             </div>
         </form>
         <div class="tadoress"></div>
-        <button class="btn btn-danger" id="load_all_reg">Mostrar menos</button>
+        <button class="btn btn-danger mt-4" id="load_all_reg">Mostrar menos</button>
     </div>
 
     <script type="text/javascript" src="./content/js/order_js_general/show_more_less_registros_and_gastos.js"></script>
@@ -142,16 +141,7 @@
         </div>
     </div>
    <script type="text/javascript">
-        const tado = document.getElementsByClassName("tado")[0]
-        const tered = document.getElementsByClassName("tered")[0]
         
-        if (window.screen.width >= 580){
-            if (tered !== undefined) tered.style.display = "block";
-            if (tado !== undefined) tado.style.display = "none";
-        } else {
-            if (tered !== undefined) tered.style.display = "none";
-            if (tado !== undefined) tado.style.display = "block";
-        }
     </script>
 
 </div>

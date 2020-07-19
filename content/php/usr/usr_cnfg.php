@@ -75,17 +75,30 @@
     const headerr = document.getElementsByClassName("header-home-asistent")[0]
     headerr.style.display = "flex"
 
-    const load_gif = document.getElementById("loadingg")
-    if (load_gif !== undefined && load_gif !== null) load_gif.style.display = "none"
-
-    const getcnf = document.getElementById("cng")
-    let jsonst = getcnf.getAttribute("value")
-    let json = JSON.parse(jsonst)
-    console.log(json)
-    alma_config = json
-    if (json[1].mode === "dark"){
-        dark()
+    const tado = document.getElementsByClassName("tado")[0]
+    const tered = document.getElementsByClassName("tered")[0]
+        
+    if (window.screen.width >= 580){
+        if (tered !== undefined) tered.style.display = "block";
+        if (tado !== undefined) tado.style.display = "none";
     } else {
-        ligth()
+        if (tered !== undefined) tered.style.display = "none";
+        if (tado !== undefined) tado.style.display = "block";
     }
+    
+    const load_gif = document.getElementById("loadingg")
+    if (load_gif !== undefined && load_gif !== null) {
+        load_gif.style.display = "none"
+        const getcnf = document.getElementById("cng")
+        let jsonst = getcnf.getAttribute("value")
+        let json = JSON.parse(jsonst)
+        // console.log(json)
+        alma_config = json
+        if (json[1].mode === "dark"){
+            dark()
+        } else {
+            light() 
+        }
+    }
+
 </script>   

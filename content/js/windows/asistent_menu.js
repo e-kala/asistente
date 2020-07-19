@@ -12,7 +12,7 @@ div_men.style.display = "none"
 mods = document.getElementsByClassName("modsco")
 modscodown = document.getElementsByClassName("modscodown")[0]
 boxes_in = document.getElementsByClassName("boxes-in")
-registrosgasin = document.getElementsByClassName("registrosgasin")[0]
+registrosgasin = document.getElementsByClassName("registrosgasin")
 colorchangetxt = document.getElementsByClassName("colorchangetxt")
 
 header_session = document.getElementsByClassName("header-home-asistent")[0]
@@ -32,7 +32,11 @@ iters = (modss, boxes_inn, registrosg, txtcolor) => {
     for (let x = 0; x < boxes_in.length; x++){
       boxes_in[x].className = boxes_inn
     }
-    if (registrosgasin !== undefined) registrosgasin.className = registrosg
+    if (registrosgasin !== undefined) {
+      for (let x = 0; x < registrosgasin.length; x++){
+        registrosgasin[x].className = registrosg
+      }
+    }
     if (colorchangetxt !== undefined) {
       for (let x = 0; x < colorchangetxt.length; x++){
         colorchangetxt[x].className = txtcolor
@@ -197,5 +201,4 @@ if (btn_img_men !== null){
         }],{duration:400, iterations:1})
 
       }     } }
-
 
