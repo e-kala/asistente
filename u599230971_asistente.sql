@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 12-07-2020 a las 04:58:48
+-- Tiempo de generación: 20-07-2020 a las 00:02:40
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -41,6 +41,7 @@ CREATE TABLE `cuentas` (
 
 CREATE TABLE `gastos` (
   `id_gasto` int(11) NOT NULL,
+  `usuario_gasto` varchar(150) NOT NULL,
   `cantidad_gasto` decimal(50,2) NOT NULL,
   `categoria_gasto` varchar(50) NOT NULL,
   `descripcion_gasto` varchar(150) NOT NULL,
@@ -52,26 +53,29 @@ CREATE TABLE `gastos` (
 -- Volcado de datos para la tabla `gastos`
 --
 
-INSERT INTO `gastos` (`id_gasto`, `cantidad_gasto`, `categoria_gasto`, `descripcion_gasto`, `cuenta_gasto`, `fecha_gasto`) VALUES
-(6, '50.00', 'Recarga', 'Telcel', 'Efectivo', '2020-04-25'),
-(7, '50.00', 'Comida', 'Pan', 'Efectivo', '2020-04-26'),
-(8, '150.00', 'Tia Lis', 'Semana', 'Efectivo', '2020-04-26'),
-(9, '1000.00', 'Amolian', 'Abono moto', 'Efectivo', '2020-04-26'),
-(10, '200.00', 'Pclabs', 'Pago tanya marketing', 'Efectivo', '2020-04-26'),
-(11, '400.00', 'Mom', 'Apoyo', 'Efectivo', '2020-04-27'),
-(12, '20.00', 'Comida', 'Galletas', 'Efectivo', '2020-05-04'),
-(13, '27.00', 'Comida', 'Chocolate', 'Efectivo', '2020-05-04'),
-(15, '217.00', 'Krystel', 'Apoyo', 'Efectivo', '2020-04-28'),
-(16, '150.00', 'Comida', 'Cafe y agua', 'Efectivo', '2020-04-28'),
-(17, '98.00', 'Coppel', 'Abono', 'Efectivo', '2020-05-03'),
-(18, '1000.00', 'Amolian', 'Abono Moto', 'Efectivo', '2020-05-03'),
-(19, '1000.00', 'Ocio', 'Squares', 'Efectivo', '2020-05-04'),
-(20, '200.00', 'Lokanath', 'Adelanto diseño', 'Efectivo', '2020-05-04'),
-(21, '600.00', 'Comida', 'Tia', 'Efectivo', '2020-06-01'),
-(22, '1000.00', 'Moto', 'Abono moto Amolian', 'Efectivo', '2020-06-04'),
-(23, '35.00', 'Medicamento', 'Loratadina', 'Efectivo', '2020-06-10'),
-(24, '250.00', 'Envio', 'Ajna', 'Efectivo', '2020-06-11'),
-(25, '100.00', 'Coppel', 'Abono', 'Efectivo', '2020-06-14');
+INSERT INTO `gastos` (`id_gasto`, `usuario_gasto`, `cantidad_gasto`, `categoria_gasto`, `descripcion_gasto`, `cuenta_gasto`, `fecha_gasto`) VALUES
+(6, '', '50.00', 'Recarga', 'Telcel', 'Efectivo', '2020-04-25'),
+(7, '', '50.00', 'Comida', 'Pan', 'Efectivo', '2020-04-26'),
+(8, '', '150.00', 'Tia Lis', 'Semana', 'Efectivo', '2020-04-26'),
+(9, '', '1000.00', 'Amolian', 'Abono moto', 'Efectivo', '2020-04-26'),
+(10, '', '200.00', 'Pclabs', 'Pago tanya marketing', 'Efectivo', '2020-04-26'),
+(11, '', '400.00', 'Mom', 'Apoyo', 'Efectivo', '2020-04-27'),
+(12, '', '20.00', 'Comida', 'Galletas', 'Efectivo', '2020-05-04'),
+(13, '', '27.00', 'Comida', 'Chocolate', 'Efectivo', '2020-05-04'),
+(15, '', '217.00', 'Krystel', 'Apoyo', 'Efectivo', '2020-04-28'),
+(16, '', '150.00', 'Comida', 'Cafe y agua', 'Efectivo', '2020-04-28'),
+(17, '', '98.00', 'Coppel', 'Abono', 'Efectivo', '2020-05-03'),
+(18, '', '1000.00', 'Amolian', 'Abono Moto', 'Efectivo', '2020-05-03'),
+(19, '', '1000.00', 'Ocio', 'Squares', 'Efectivo', '2020-05-04'),
+(20, '', '200.00', 'Lokanath', 'Adelanto diseño', 'Efectivo', '2020-05-04'),
+(21, '', '600.00', 'Comida', 'Tia', 'Efectivo', '2020-06-01'),
+(22, '', '1000.00', 'Moto', 'Abono moto Amolian', 'Efectivo', '2020-06-04'),
+(23, '', '35.00', 'Medicamento', 'Loratadina', 'Efectivo', '2020-06-10'),
+(24, '', '250.00', 'Envio', 'Ajna', 'Efectivo', '2020-06-11'),
+(25, '', '100.00', 'Coppel', 'Abono', 'Efectivo', '2020-06-14'),
+(26, 'Eka', '500.00', 'prueba', 'prueba1', 'Efectivo', '2020-07-19'),
+(27, 'Eka', '300.00', 'prueba', 'prueba', 'Efectivo', '2020-07-19'),
+(28, 'Eka', '100.00', 'prueba', 'gasto', 'Efectivo', '2020-07-19');
 
 -- --------------------------------------------------------
 
@@ -108,6 +112,7 @@ INSERT INTO `ideas` (`id_idea`, `titulo_idea`, `contenido_idea`, `idea_fecha_cre
 
 CREATE TABLE `ingresos` (
   `id_ingreso` int(11) NOT NULL,
+  `usuario_ingreso` varchar(150) NOT NULL,
   `cantidad_ingreso` decimal(50,2) NOT NULL,
   `fecha_ingreso` date NOT NULL,
   `cuenta_ingreso` varchar(150) NOT NULL,
@@ -119,18 +124,25 @@ CREATE TABLE `ingresos` (
 -- Volcado de datos para la tabla `ingresos`
 --
 
-INSERT INTO `ingresos` (`id_ingreso`, `cantidad_ingreso`, `fecha_ingreso`, `cuenta_ingreso`, `categoria_ingreso`, `descripcion_ingreso`) VALUES
-(69, '3044.00', '2020-04-24', 'Efectivo', 'Nómina', 'Reselco'),
-(70, '1027.54', '2020-04-24', 'Bancomer', 'Ahorros', ''),
-(71, '637.25', '2020-04-25', 'Bancomer', 'AirTm', 'Fondeo en cuenta'),
-(73, '1600.00', '2020-05-04', 'Bancomer', 'Nómina', 'Debo 122'),
-(74, '1500.00', '2020-05-08', 'Efectivo', 'Nómina', 'Reselco'),
-(75, '1000.00', '2020-05-31', 'Efectivo', 'Nómina', 'Reselco'),
-(76, '600.00', '2020-06-02', 'Efectivo', 'Nómina', 'Reselco'),
-(77, '1000.00', '2020-06-04', 'Efectivo', 'Nómina', 'Reselco, adelanto semana'),
-(78, '300.00', '2020-06-12', 'Bancomer', 'Nómina', 'Reselco'),
-(79, '1300.00', '2020-06-13', 'Bancomer', 'Nómina', 'Reselco'),
-(80, '100.00', '2020-06-29', 'Efectivo', 'prueba', '124');
+INSERT INTO `ingresos` (`id_ingreso`, `usuario_ingreso`, `cantidad_ingreso`, `fecha_ingreso`, `cuenta_ingreso`, `categoria_ingreso`, `descripcion_ingreso`) VALUES
+(69, '', '3044.00', '2020-04-24', 'Efectivo', 'Nómina', 'Reselco'),
+(70, '', '1027.54', '2020-04-24', 'Bancomer', 'Ahorros', ''),
+(71, '', '637.25', '2020-04-25', 'Bancomer', 'AirTm', 'Fondeo en cuenta'),
+(73, '', '1600.00', '2020-05-04', 'Bancomer', 'Nómina', 'Debo 122'),
+(74, '', '1500.00', '2020-05-08', 'Efectivo', 'Nómina', 'Reselco'),
+(75, '', '1000.00', '2020-05-31', 'Efectivo', 'Nómina', 'Reselco'),
+(76, '', '600.00', '2020-06-02', 'Efectivo', 'Nómina', 'Reselco'),
+(77, '', '1000.00', '2020-06-04', 'Efectivo', 'Nómina', 'Reselco, adelanto semana'),
+(78, '', '300.00', '2020-06-12', 'Bancomer', 'Nómina', 'Reselco'),
+(79, '', '1300.00', '2020-06-13', 'Bancomer', 'Nómina', 'Reselco'),
+(80, '', '100.00', '2020-06-29', 'Efectivo', 'prueba', '124'),
+(81, '', '500.00', '2020-07-19', 'Efectivo', 'prueba', 'prueba'),
+(82, '', '300.00', '2020-07-19', 'Efectivo', 'prueba1', 'prueba'),
+(83, '', '300.00', '2020-07-19', 'Efectivo', 'prueba1', 'prueba'),
+(84, '', '700.00', '2020-07-19', 'Efectivo', 'prueba', 'prueba2'),
+(85, '', '200.00', '2020-07-19', 'Efectivo', 'prueba', 'fea'),
+(86, '', '400.00', '2020-07-19', 'Efectivo', 'prueba', 'prueba'),
+(87, 'Eka', '500.00', '2020-07-19', 'Efectivo', 'prueba', 'demo');
 
 -- --------------------------------------------------------
 
@@ -270,7 +282,7 @@ ALTER TABLE `cuentas`
 -- AUTO_INCREMENT de la tabla `gastos`
 --
 ALTER TABLE `gastos`
-  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `ideas`
@@ -282,7 +294,7 @@ ALTER TABLE `ideas`
 -- AUTO_INCREMENT de la tabla `ingresos`
 --
 ALTER TABLE `ingresos`
-  MODIFY `id_ingreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id_ingreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT de la tabla `logger`
