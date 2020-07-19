@@ -15,6 +15,8 @@ boxes_in = document.getElementsByClassName("boxes-in")
 registrosgasin = document.getElementsByClassName("registrosgasin")
 colorchangetxt = document.getElementsByClassName("colorchangetxt")
 
+bgchan = document.getElementsByClassName("bgchan") //Tadores use change mode dark / light
+
 header_session = document.getElementsByClassName("header-home-asistent")[0]
 text_he = document.getElementsByClassName("text-he")[0]
 
@@ -25,7 +27,7 @@ logo = '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-circle-ha
 
 options = ["Inicio", "Configuración", logo, "Cerrar Sesión"]
 
-iters = (modss, boxes_inn, registrosg, txtcolor) => {
+iters = (modss, boxes_inn, registrosg, txtcolor, tadoreschangemod) => {
     for (let x = 0; x < mods.length; x++){
       mods[x].className = modss
     }
@@ -40,6 +42,11 @@ iters = (modss, boxes_inn, registrosg, txtcolor) => {
     if (colorchangetxt !== undefined) {
       for (let x = 0; x < colorchangetxt.length; x++){
         colorchangetxt[x].className = txtcolor
+      }
+    }
+    if (bgchan !== undefined){
+      for (let x = 0; x < bgchan.length; x++){
+        bgchan[x].className = tadoreschangemod
       }
     }
   }
@@ -108,7 +115,8 @@ functions = [
           "card modsco dark text-light", 
           "card boxes-in dark text-light",
           "p-4 m-4 tered registrosgasin dark text-light text-white cotxtlight",
-          'text-center colorchangetxt text-light'
+          'text-center colorchangetxt text-light',
+          "tadoress bgchan dark text-light"
           )
       } else { // ----------------------------- Light
           header_session.className = "navbar mb-4 p-4 header-home-asistent header-home-light"
@@ -120,7 +128,8 @@ functions = [
           "card modsco light text-dark", 
           "card boxes-in light text-dark",
           "p-4 m-4 text-white tered registrosgasin light text-dark cotxtdark",
-          'text-center colorchangetxt text-dark'
+          'text-center colorchangetxt text-dark',
+          "tadoress bgchan light text-dark"
           )
       }
     boolam = false

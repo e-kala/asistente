@@ -38,7 +38,14 @@
                 <button  class="find- ml-1 mt-3 btn btn-primary">Buscar</button>
             </div>
         </form>
-        <div class="tadoress"></div>
+        <br>
+        <div class="tadoress bgchan"></div>
+        <div class="mt-4 float-right">
+            <button class="btn btn-secondary">Comenter</button>
+            <button class="btn btn-secondary">Arrastrar</button>
+            <button class="btn btn-secondary">Crear grupo</button>
+            <button class="btn btn-secondary">Comparar</button>
+        </div>
         <button class="btn btn-danger mt-4" id="load_all_reg">Mostrar menos</button>
     </div>
 
