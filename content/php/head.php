@@ -20,6 +20,8 @@
     <link rel="stylesheet" type="text/css" href="./content/js/alertifyjs/css/themes/default.css">
 
     <link rel="stylesheet" type="text/css" href="./content/js/alertifyjs/alertify.js">
+
+    <script type="text/javascript" src="./content/js/windows/aside.js"></script>
     <script type="text/javascript">
         let usuariop = ""
         function getDevicePixelRatio() {

@@ -1,13 +1,14 @@
 
 
-<div class="accordion pl-4 pr-4 pb-4 modulos modscodown" style="display: none;" id="accordionExample">
+<div class="accordion modulos modscodown" style="display: none;" id="accordionExample">
  <div class="card boxes-in bg-blue rounded-0">
-   <div class="card-header" id="headingFour">
+   <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingFour">
      <h2 class="mb-0">
        <button class="btn btn-link font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
          Pagos Pendientes semana
        </button>
      </h2>
+        <img src="./content/img/íconos/configur.png" class="" width="30px" height="30px">
    </div>
 
    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
@@ -39,12 +40,13 @@
       </div>
     </div>
    <div class="card boxes-in bg-blue rounded-0">
-     <div class="card-header" id="headingTwo">
+     <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingTwo">
        <h2 class="mb-0">
          <button class="btn btn-link collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
            Recordatorios
          </button>
        </h2>
+       <img src="./content/img/íconos/configur.png" class="" width="30px" height="30px">
      </div>
      <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
        <div class="card-body">
@@ -54,12 +56,13 @@
    </div>
 
    <div class="card boxes-in bg-blue rounded-0">
-     <div class="card-header" id="headingThree">
+     <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingThree">
        <h2 class="mb-0">
          <button class="btn btn-link collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
            Ideas
          </button>
        </h2>
+       <img src="./content/img/íconos/configur.png" class="" width="30px" height="30px">
      </div>
      <div id="collapseSix" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
        <div class="card-body">

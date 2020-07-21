@@ -177,7 +177,6 @@
 
 		</script>
 
-		<script type="text/javascript" src="./content/js/movil.js"></script>
 			
 	</div>
 </div>

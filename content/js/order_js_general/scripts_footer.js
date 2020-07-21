@@ -61,11 +61,17 @@ const dark = () => {
     if (modscodown !== undefined){
       modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow text-dark";
     }
+
+
+    const asidechancolor = document.getElementsByClassName("asidechancolor")[0]
+    if (asidechancolor !== undefined) asidechancolor.className = "containeraside card asidechancolor darkinit text-light"
+
     iters(
-      "card modsco darkinit text-light", 
-      "card boxes-in darkinit text-light",
+      "card modsco darkinit text-light flexbg", 
+      "card boxes-in darkinit text-light flexbg",
       "p-4 m-4 text-white tered registrosgasin darkinit text-light text-white cotxtlight",
-      'text-center colorchangetxt text-light'
+      'text-center colorchangetxt text-light',
+      "containeraside card asidechancolor darkinit text-light"
       )
     for (let x = 0; x < colorchangetxt.length; x++){
         colorchangetxt[x].className = 'text-center colorchangetxt text-light'
@@ -80,11 +86,15 @@ const light = () => {
     if (modscodown !== undefined){
       modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow  text-dark";
     }
+
+    const asidechancolor = document.getElementsByClassName("asidechancolor")[0]
+    if (asidechancolor !== undefined) asidechancolor.className = "containeraside card asidechancolor lightinit text-dark"
+
     iters(
-      "card modsco lightinit text-dark", 
+      "card modsco lightinit text-dark flexbg", 
       "card boxes-in lightinit text-dark",
       "p-4 m-4 tered registrosgasin lightinit text-dark cotxtdark",
-      'text-center colorchangetxt text-dark'
+      'text-center colorchangetxt text-dark',
       )
     for (let x = 0; x < colorchangetxt.length; x++){
         colorchangetxt[x].className = 'text-center colorchangetxt text-darks p-4'
@@ -92,6 +102,8 @@ const light = () => {
 
     registrosgasin.className = "p-4 m-4 tered registrosgasin lightinit text-dark cotxtdark"
 }
+
+
 
 
 // Iniciar configuración de la sesión

@@ -39,9 +39,13 @@
                case 'home':
                    echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
                    include 'content/php/navbar.php';
-                   include 'content/php/home.php';
-                   include 'content/php/modalIngreso.php';
-                   include 'content/php/modalGasto.php';
+                   echo "<div class='containhome'>";
+                      echo "<div class='sectionhome'>";
+                         include 'content/php/home.php';
+                         include 'content/php/modalIngreso.php';
+                         include 'content/php/modalGasto.php';
+                      echo "</div>";
+                   echo "</div>";
                break;
 
                case 'registro'://registro de usuarios
@@ -52,7 +56,11 @@
                case 'registros'://registros, ingresos y gastos
                   echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
-                  include 'content/php/registros.php';
+                  echo "<div class='containhome'>";
+                    echo "<div class='sectionhome'>";
+                      include 'content/php/registros.php';
+                    echo "</div>";
+                  echo "</div>";
                break;
 
                case 'configuracion':

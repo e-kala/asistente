@@ -3,6 +3,8 @@ let tadores = document.getElementsByClassName("tadores")[0]
 let menreg = document.getElementsByClassName("menreg")[0]
 let find = document.getElementsByClassName("find")[0]
 
+
+
 const search = (formreg, tadores, menreg, find, config) => {
     if (config.mode === "desktop"){
       tadores.style.display = "flex"
@@ -36,7 +38,7 @@ const search = (formreg, tadores, menreg, find, config) => {
                     category: selected.toLowerCase() !== "" ? selected.toLowerCase() : "ingresos"
                 }).done(data =>{
                     data = JSON.parse(data)
-                    // console.log(data, data.multiple)
+                    console.log(data, data.multiple)
                     let co = ""
                     if (config.mode === "desktop"){
                       co = "bg-borderwhite"
@@ -48,20 +50,23 @@ const search = (formreg, tadores, menreg, find, config) => {
                         if (data.multiple === false){
                           tadores.style.justifyContent = "flex-start"
                             if (data.category === "ingresos"){
-                                tadores.innerHTML = `   
+                                if (data.infogen.usuario_ingreso === user){
+                                  tadores.innerHTML = `   
 
-                                <div class="${co} p-4 mb-3 m-4 datawindow"  >
-                                <div class="closedata float-right"> <img src="./content/img/íconos/close.png" name="0" width="20px" class="float-right"  onClick="closeclick(this)"/></div>
-                                   <div class="m-1 font-weight-bold">Id:  ${data.infogen.id_ingreso}</div>
-                                   <div class="m-1 font-weight-bold">Nombre:  ${data.infogen.categoria_ingreso}</div>
-                                   <div class="m-1 font-weight-bold">Descripción:  ${data.infogen.descripcion_ingreso}</div>
-                                   <div class="m-1 font-weight-bold">Cuenta:  ${data.infogen.cuenta_ingreso}</div>
-                                   <div class="m-1 font-weight-bold">Fecha:  ${data.infogen.fecha_ingreso}</div>
-                                   <div class="m-1 font-weight-bold">Cantidad:  ${data.infogen.cantidad_ingreso}</div>
-                                   
-                                </div>
-                                `
+                                  <div class="${co} p-4 mb-3 m-4 datawindow"  >
+                                  <div class="closedata float-right"> <img src="./content/img/íconos/close.png" name="0" width="20px" class="float-right"  onClick="closeclick(this)"/></div>
+                                     <div class="m-1 font-weight-bold">Id:  ${data.infogen.id_ingreso}</div>
+                                     <div class="m-1 font-weight-bold">Nombre:  ${data.infogen.categoria_ingreso}</div>
+                                     <div class="m-1 font-weight-bold">Descripción:  ${data.infogen.descripcion_ingreso}</div>
+                                     <div class="m-1 font-weight-bold">Cuenta:  ${data.infogen.cuenta_ingreso}</div>
+                                     <div class="m-1 font-weight-bold">Fecha:  ${data.infogen.fecha_ingreso}</div>
+                                     <div class="m-1 font-weight-bold">Cantidad:  ${data.infogen.cantidad_ingreso}</div>
+                                     
+                                  </div>
+                                  `
+                                }
                             } else {
+                              if (data.infogen.usuario_gasto === user){
                                 tadores.innerHTML = `   
                                 <div class="${co} p-4 mb-3 m-4 datawindow"  >
                                 <div class="closedata float-right"> <img src="./content/img/íconos/close.png" name="0" width="20px" class="float-right"  onClick="closeclick(this)"/></div>
@@ -74,6 +79,7 @@ const search = (formreg, tadores, menreg, find, config) => {
                                    
                                 </div>
                                 `
+                              }
                             }
                         } else {
                             tadores.innerHTML = ""
@@ -87,6 +93,8 @@ const search = (formreg, tadores, menreg, find, config) => {
                                       co = n % 2 ? "bg-darkblue0" : "bg-darkblue1"
                                     } 
                                     if (data.category === "ingresos"){
+
+                                      if (data["infogen"+n].usuario_ingreso === user){
                                         tadores.innerHTML += `   
 
                                         <div class="${co} p-4 mb-3 m-4 datawindow" name="${i+1}datawindow" >
@@ -100,7 +108,9 @@ const search = (formreg, tadores, menreg, find, config) => {
                                            
                                         </div>
                                         `
+                                      }
                                     } else {
+                                      if (data["infogen"+n].usuario_gasto === user){
                                         tadores.innerHTML += `   
                                         <div class="${co} p-4 mb-3 m-4 datawindow" name="${i+1}datawindow" >
                                         <div class="closedata float-right"> <img src="./content/img/íconos/close.png" name="${n-1}" width="20px" class="float-right"  onClick="closeclick(this)"/></div>
@@ -113,6 +123,7 @@ const search = (formreg, tadores, menreg, find, config) => {
                                            
                                         </div>
                                         `
+                                      }
                                     }
                                 }
                             })

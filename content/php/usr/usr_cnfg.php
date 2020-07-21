@@ -73,7 +73,7 @@
     }
 
     const headerr = document.getElementsByClassName("header-home-asistent")[0]
-    headerr.style.display = "flex"
+    if (headerr !== undefined) headerr.style.display = "flex"
 
     const tado = document.getElementsByClassName("tado")[0]
     const tered = document.getElementsByClassName("tered")[0]
@@ -94,6 +94,7 @@
         let json = JSON.parse(jsonst)
         // console.log(json)
         alma_config = json
+        Aside(json[0].usuario)
         if (json[1].mode === "dark"){
             dark()
         } else {

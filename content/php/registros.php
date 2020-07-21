@@ -7,12 +7,15 @@
     $consultaIngresos = "SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario'";
     $resultadoIngresos = $conexion->query($consultaIngresos);
     $consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario'");
-    echo $usuario;
+
+    echo "<script> let user = '" . $usuario ."';</script>";
 ?>
 
 
 <!-- Móvil -->
 <?php include "content/php/consults_info/consults_movil_registros.php"; ?>
+
+
 
 
 <!-- Escritorio -->
@@ -136,7 +139,6 @@
         </div>
     </div>
    <script type="text/javascript">
-        
-    </script>
+   </script>
 
 </div>

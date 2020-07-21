@@ -49,6 +49,9 @@ iters = (modss, boxes_inn, registrosg, txtcolor, tadoreschangemod) => {
         bgchan[x].className = tadoreschangemod
       }
     }
+
+
+
   }
 
 let once_config = false
@@ -118,7 +121,10 @@ functions = [
           'text-center colorchangetxt text-light',
           "tadoress bgchan dark text-light"
           )
-      } else { // ----------------------------- Light
+        let asidechancolor = document.getElementsByClassName("asidechancolor")[0]
+        if (asidechancolor !== undefined) asidechancolor.className = "containeraside card asidechancolor dark text-light"
+
+    } else { // ----------------------------- Light
           header_session.className = "navbar mb-4 p-4 header-home-asistent header-home-light"
           text_he.className = "navbar-brand text-dark text-he font-weight-bold"
         if (modscodown !== undefined){
@@ -131,6 +137,9 @@ functions = [
           'text-center colorchangetxt text-dark',
           "tadoress bgchan light text-dark"
           )
+        let asidechancolor = document.getElementsByClassName("asidechancolor")[0]
+        if (asidechancolor !== undefined) asidechancolor.className = "containeraside card asidechancolor light text-dark"
+
       }
     boolam = false
     div_men.style.display = "none"
@@ -211,3 +220,5 @@ if (btn_img_men !== null){
 
       }     } }
 
+
+      

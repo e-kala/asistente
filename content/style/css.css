@@ -1,6 +1,6 @@
 body{
 	position: relative;
-	background: url(../img/bgg.png);
+	background: url(../img/bgeco2.png);
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center center;
@@ -253,6 +253,28 @@ body{
 }
 
 
+.containhome{
+	display: flex;
+	flex-flow: wrap row;
+	border: 1px solid #2D303C;
+	background: rgb(41,54,108,0.80);
+	background: rgb(0,0,0,0.40);
+
+	/*background-color: #1E172B;*/
+	min-height: 97vh;
+
+	margin: 20px;
+	/*padding: 20px;*/
+}
+.containeraside{
+	flex-grow: 1;
+	flex-basis: 100%;
+}
+
+.sectionhome{
+	flex-grow: 1;
+	flex-basis: 100%;
+}
 
 
 
@@ -327,6 +349,12 @@ body{
 		width: 105px; height: auto;
 	}
 
+	.containeraside{
+		flex: 1 1 auto;
+	}
+	.sectionhome{
+		flex: 1 1 auto;
+	}
 
 }
 
@@ -343,6 +371,21 @@ body{
 	}
 	.box-rounded{
 		width: 80px; height: auto;
+	}
+
+	.containeraside{
+		flex: 0.5 0;
+
+	}
+	.sectionhome{
+		flex: 2 0;
+	}
+
+	.containeraside{
+		order: 1;
+	}
+	.sectionhome{
+		order: 2;
 	}
 
 }
