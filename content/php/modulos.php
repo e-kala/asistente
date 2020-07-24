@@ -89,9 +89,9 @@
           <h4 class="">Cuentas</h4>
           <div class="btn-group" role="group" aria-label="Basic example">
             <!--<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ingresoModal">Cuentas</button>-->
-            <button type="button" class="btn btn-secondary">
-               Cuentas
-             </button>
+            
+             <a class="btn btn-info" href="?action=cuentas" role="button">Cuentas</a>
+             
             <button type="button" class="btn btn-secondary">Ahorros</button>
             <button type="button" class="btn btn-secondary">Apartados</button>
           </div>

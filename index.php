@@ -69,6 +69,11 @@
                   include 'content/php/user_config.php';
                break;
 
+               case 'cuentas':
+                  include 'content/php/navbar.php';
+                  include 'content/php/modulos/cuentas/cuentas.php';
+               break;
+
 
                case 'cerrar_sesion':
                   if (isset($_SESSION['login'])) {
