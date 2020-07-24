@@ -242,7 +242,7 @@ Pattmo = (container, config) => {
 			let bool = false; let boolMouseOver = false; //Don't touch
 			let pass = "";  let bfixAnActiveInput = false;
 
-			document.querySelector("form").addEventListener("submit",(e)=> {
+			form.addEventListener("submit",(e)=> {
 				e.preventDefault()
 				if (userValue !== "" && userValue !== null 
 					&& userValue !== udefined && userValue.style.display !== "none"){
@@ -500,8 +500,8 @@ Pattmo = (container, config) => {
 			let bool = false; let boolMouseOver = false; //Don't touch
 			let pass = "";  let bfixAnActiveInput = false;
 
-			if (document.querySelector("form") !== null){
-				document.querySelector("form").addEventListener("submit",(e)=> {
+			if (form !== null){
+				form.addEventListener("submit",(e)=> {
 					e.preventDefault()
 					if (userValue !== "" && userValue !== null && userValue !== undefined && userValue.style.display !== "none"){
 						btn_next.style.display = "none"
@@ -1460,4 +1460,3 @@ managerPassword = db => {
 		}
 	}
 };
-alert("alasodi");

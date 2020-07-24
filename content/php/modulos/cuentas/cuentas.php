@@ -39,7 +39,7 @@
         <tbody>
 
             
-            <?
+            <?php
                 while ($fila = $resultadoCuentas->fetch_object()) {
                     $x++;
                     
