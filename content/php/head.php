@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alyssaxuu/flowy/flowy.min.css">
     <link rel="stylesheet" type="text/css" href="./content/style/otros.css">
     <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" type="text/css" href="./content/style/patron.css">
     <link rel="stylesheet" type="text/css" href="./content/style/css.css">

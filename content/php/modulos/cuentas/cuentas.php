@@ -44,8 +44,11 @@
                     $x++;
                     
                     echo '<tr class="text-center colorchange">';
-                        echo '<th scope="row" class="p-3">' .  $x++ .'</th>';
                             echo '<td class="font-weight-bold">' . $fila->nombre_cuenta . '</td>';
+                            echo '<td>
+                                        <a href=""><i class="fa fa-pencil fa-lg"></i></a>
+                                         <a href=""><i class="fa fa-trash fa-lg"></i></a>
+                                </td>';
                     echo '</tr>';
                 }
             }else{
