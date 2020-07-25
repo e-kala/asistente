@@ -242,8 +242,9 @@ Pattmo = (container, config) => {
 			let bool = false; let boolMouseOver = false; //Don't touch
 			let pass = "";  let bfixAnActiveInput = false;
 
-			document.querySelector("form").addEventListener("submit",(e)=> {
+			form.addEventListener("submit",(e)=> {
 				e.preventDefault()
+
 				if (userValue !== "" && userValue !== null && userValue !== undefined && userValue.style.display !== "none"){
 					btn_next.style.display = "none"
 					btn_accept_init.style.display = "block"
@@ -499,10 +500,10 @@ Pattmo = (container, config) => {
 			let bool = false; let boolMouseOver = false; //Don't touch
 			let pass = "";  let bfixAnActiveInput = false;
 
-			if (document.querySelector("form") !== null){
-				document.querySelector("form").addEventListener("submit",(e)=> {
+			if (form !== null){
+				form.addEventListener("submit",(e)=> {
 					e.preventDefault()
-					if (userValue !== ""){
+					if (userValue !== "" && userValue !== null && userValue !== undefined && userValue.style.display !== "none"){
 						btn_next.style.display = "none"
 						btn_volver.style.display = "block"
 						btn_volver.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
