@@ -3,12 +3,12 @@
 <div class="accordion modulos modscodown" style="display: none;" id="accordionExample">
  <div class="card boxes-in bg-blue rounded-0">
    <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingFour">
-     <h2 class="mb-0">
-       <button class="btn btn-link font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+     <h2 class="mb-0 flex-grow-1 flexbg w-100">
+       <button class="btn btn-link flex-grow-1 flexbg w-100 text-left font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
          Pagos Pendientes semana
        </button>
      </h2>
-        <img src="./content/img/íconos/configur.png" class="" width="30px" height="30px">
+     <img src="./content/img/íconos/configur.png" class="" width="30px" height="30px">
    </div>
 
    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
@@ -41,8 +41,8 @@
     </div>
    <div class="card boxes-in bg-blue rounded-0">
      <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingTwo">
-       <h2 class="mb-0">
-         <button class="btn btn-link collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+       <h2 class="mb-0 flex-grow-1 flexbg w-100">
+         <button class="btn btn-link flex-grow-1 flexbg w-100 text-left collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
            Recordatorios
          </button>
        </h2>
@@ -57,8 +57,8 @@
 
    <div class="card boxes-in bg-blue rounded-0">
      <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingThree">
-       <h2 class="mb-0">
-         <button class="btn btn-link collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+       <h2 class="mb-0 flex-grow-1 flexbg w-100">
+         <button class="btn btn-link flex-grow-1 flexbg w-100 text-left collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
            Ideas
          </button>
        </h2>

@@ -56,11 +56,7 @@
                case 'registros'://registros, ingresos y gastos
                   echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
-                  echo "<div class='containhome'>";
-                    echo "<div class='sectionhome'>";
-                      include 'content/php/registros.php';
-                    echo "</div>";
-                  echo "</div>";
+                  include 'content/php/registros.php';
                break;
 
                case 'configuracion':
@@ -68,14 +64,14 @@
                   include 'content/php/navbar.php';
                   include 'content/php/user_config.php';
                break;
-
+                
                case 'cuentas':
                   include 'content/php/navbar.php';
                   include 'content/php/modulos/cuentas/cuentas.php';
                break;
 
-
                case 'cerrar_sesion':
+                  echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
                   if (isset($_SESSION['login'])) {
                      echo "<script>window.location.href = 'index.php';</script>";
                      unset ($_SESSION ['login']);

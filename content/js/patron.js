@@ -244,8 +244,8 @@ Pattmo = (container, config) => {
 
 			form.addEventListener("submit",(e)=> {
 				e.preventDefault()
-				if (userValue !== "" && userValue !== null 
-					&& userValue !== udefined && userValue.style.display !== "none"){
+
+				if (userValue !== "" && userValue !== null && userValue !== undefined && userValue.style.display !== "none"){
 					btn_next.style.display = "none"
 					btn_accept_init.style.display = "block"
 					btn_volver.style.display = "block"

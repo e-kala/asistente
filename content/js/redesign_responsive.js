@@ -23,7 +23,7 @@ const resize_modulos = () => {
 			modulos[0].style.width = "100%"
 			modulos[0].className = "accordion modulos"
 		}
-		if (modulos[1] !== undefined){x
+		if (modulos[1] !== undefined){
 			modulos[1].style.width = "100%"	
 			modulos[1].className = "accordion modulos"
 		}
@@ -132,4 +132,5 @@ window.onresize = () => {
     	if (tered !== undefined) tered.style.display = "none";
     	if (tado !== undefined) tado.style.display = "block";
     }
+
 }

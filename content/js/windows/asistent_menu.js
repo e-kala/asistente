@@ -14,6 +14,7 @@ modscodown = document.getElementsByClassName("modscodown")[0]
 boxes_in = document.getElementsByClassName("boxes-in")
 registrosgasin = document.getElementsByClassName("registrosgasin")
 colorchangetxt = document.getElementsByClassName("colorchangetxt")
+bguserconfigchange = document.getElementsByClassName("bguserconfigchange")[0]
 
 bgchan = document.getElementsByClassName("bgchan") //Tadores use change mode dark / light
 
@@ -73,14 +74,7 @@ functions = [
   },
   () =>{ //----------------  Configuración
     check = false
-    for (let x = 0; x < mods.length; x++){
-      mods[x].style.display = "none"
-    }
-    if (modscodown !== undefined) modscodown.style.display = "none";
-
     boolam = false
-    div_men.style.display = "none"
-
   }, 
   () => { // ------------------- Mode light / dark
     const btn_mode_men = document.getElementById("btn_3")
@@ -92,12 +86,6 @@ functions = [
     }
 
     if (!once_config){
-    //   $.post( "./content/php/usr/usr_cnfg.php")
-    //   .done( dat => {
-    //     dat = JSON.parse(dat)
-    //     let reschange = dat[1].mode === "dark" ? true : false;
-    //     impo(reschange)
-    //   });
       impo(alma_config[1].mode === "dark" ? true : false)
       once_config = true
     }
@@ -105,14 +93,15 @@ functions = [
 
     mode_light_dark = !mode_light_dark
 
-    // CORREGIR
- 
     if (mode_light_dark){ // ----------------- Dark
           header_session.className = "navbar mb-4 p-4 header-home-asistent-dark"
           text_he.className = "navbar-brand text-light text-he font-weight-bold"
      
         if (modscodown !== undefined){
           modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow text-dark";
+        }
+        if (bguserconfigchange !== undefined && bguserconfigchange !== null){
+          bguserconfigchange.className = "card bguserconfigchange dark text-light"
         }
         iters(
           "card modsco dark text-light", 
@@ -121,14 +110,21 @@ functions = [
           'text-center colorchangetxt text-light',
           "tadoress bgchan dark text-light"
           )
-        let asidechancolor = document.getElementsByClassName("asidechancolor")[0]
-        if (asidechancolor !== undefined) asidechancolor.className = "containeraside card asidechancolor dark text-light"
+        let asidechancolor = document.getElementsByClassName("asidechancolor")
+        if (asidechancolor !== undefined) {
+          for (let x = 0; x < asidechancolor.length; x++){
+            asidechancolor[x].className = "containeraside card asidechancolor dark text-light"
+          }
+        }
 
     } else { // ----------------------------- Light
           header_session.className = "navbar mb-4 p-4 header-home-asistent header-home-light"
           text_he.className = "navbar-brand text-dark text-he font-weight-bold"
         if (modscodown !== undefined){
           modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow  text-dark";
+        }
+        if (bguserconfigchange !== undefined && bguserconfigchange !== null){
+          bguserconfigchange.className = "card bguserconfigchange light text-dark"
         }
         iters(
           "card modsco light text-dark", 
@@ -137,9 +133,10 @@ functions = [
           'text-center colorchangetxt text-dark',
           "tadoress bgchan light text-dark"
           )
-        let asidechancolor = document.getElementsByClassName("asidechancolor")[0]
-        if (asidechancolor !== undefined) asidechancolor.className = "containeraside card asidechancolor light text-dark"
-
+        let asidechancolor = document.getElementsByClassName("asidechancolor")
+        for (let x = 0; x < asidechancolor.length; x++){
+          asidechancolor[x].className = "containeraside card asidechancolor light text-dark"
+        }
       }
     boolam = false
     div_men.style.display = "none"
@@ -150,6 +147,7 @@ functions = [
     div_men.style.display = "none"
   }
 ]
+
 for (let x=0; x < options.length; x++){
   if (x === 0){
     const optdiv = document.createElement("a")
@@ -159,6 +157,7 @@ for (let x=0; x < options.length; x++){
     optdiv.setAttribute("href", "index.php")
     optdiv.setAttribute("id", "btn_"+(x+1))
     optdiv.addEventListener("click",functions[x])
+    optdiv.className += "  btn btn-inherit"
     div_men.appendChild(optdiv)
   } else if (x === 1){ //Configuración
     const optdiv = document.createElement("a")
@@ -168,15 +167,28 @@ for (let x=0; x < options.length; x++){
     optdiv.setAttribute("name", options[x])
     optdiv.setAttribute("id", "btn_"+(x+1))
     optdiv.addEventListener("click",functions[x])
+    optdiv.className += "  btn btn-inherit"
     div_men.appendChild(optdiv)
   } else if (x === 2){ //Mode Dark / light
     const optdiv = document.createElement("div")
     optdiv.innerHTML = options[x]
-    optdiv.classList.add("options_men")
     optdiv.setAttribute("name", options[x])
     optdiv.setAttribute("id", "btn_"+(x+1))
     optdiv.addEventListener("click",functions[x])
-    div_men.appendChild(optdiv)
+    optdiv.className += ""
+    optdiv.style.cursor = "pointer"
+    optdiv.style.position = "fixed"
+    optdiv.style.bottom = "0"
+    optdiv.style.right = "0"
+    optdiv.style.margin = "20px"
+    optdiv.style.paddingBottom = "3px"
+    optdiv.style.paddingLeft = "5px"
+    optdiv.style.paddingRight = "5px"
+    optdiv.style.zIndex = "80"
+    optdiv.style.transform = "scale(1.4)"
+    optdiv.style.borderRadius = "12%"
+    optdiv.style.backgroundColor = "white"
+    header_session.appendChild(optdiv)
   } else if (x === 3) { // Cerrar Sesion
     const optdiv = document.createElement("a")
     optdiv.innerHTML = options[x]
@@ -185,6 +197,7 @@ for (let x=0; x < options.length; x++){
     optdiv.setAttribute("name", options[x])
     optdiv.setAttribute("id", "btn_"+(x+1))
     optdiv.addEventListener("click",functions[x])
+    optdiv.className += "  btn btn-inherit"
     div_men.appendChild(optdiv)
   }
 }

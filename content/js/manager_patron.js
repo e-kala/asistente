@@ -20,6 +20,6 @@ Pattmo("root", managerPassword({
 
 	config_dev : { //Para el desarrollador
 		letters : false, //Quitar o poner letras 
-		showPassword : true // Mostrar password
+		showPassword : false // Mostrar password
 	}
 }))
