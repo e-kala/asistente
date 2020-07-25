@@ -77,7 +77,11 @@ const edifi = destiny => {
 
 
 // edifi("body")
-banplan("body")
+if (document.getElementsByClassName("divflomes")[0] !== undefined
+	&& document.getElementsByClassName("divflomes")[0] !== null
+	&& document.getElementsByClassName("divflomes")[0].style.display !== "none"){
+	banplan("body")
+}
 
 
 function getDevicePixelRatio() {

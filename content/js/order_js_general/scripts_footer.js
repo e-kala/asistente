@@ -62,6 +62,9 @@ const dark = () => {
       modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow text-dark";
     }
 
+    if (bguserconfigchange !== undefined && bguserconfigchange !== null){
+      bguserconfigchange.className = "card bguserconfigchange darkinit text-light"
+    }
 
     const asidechancolor = document.getElementsByClassName("asidechancolor")[0]
     if (asidechancolor !== undefined) asidechancolor.className = "containeraside card asidechancolor darkinit text-light"
@@ -85,6 +88,10 @@ const light = () => {
       text_he.className = "navbar-brand text-dark text-he font-weight-bold"
     if (modscodown !== undefined){
       modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow  text-dark";
+    }
+
+    if (bguserconfigchange !== undefined && bguserconfigchange !== null){
+      bguserconfigchange.className = "card bguserconfigchange lightinit text-dark"
     }
 
     const asidechancolor = document.getElementsByClassName("asidechancolor")[0]

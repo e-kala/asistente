@@ -4,18 +4,21 @@
 
 /*background-color: #f2f2f2;*/
 }
+body{
+  background: white;
+}
 </style>
 
  <div class="accordion modulos w-100" style="display: none; margin-top: 23px;" id="accordionExample">
   <!--información in-->
    <div class="card bg-blue modsco">
      <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingOne">
-       <h2 class="mb-0">
+       <h2 class="mb-0 flex-grow-1 flexbg w-100">
          <button class="btn btn-link btn-block text-left font-weight-bold " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
            Información
          </button>
        </h2>
-       <img src="./content/img/íconos/info.png" width="30px">
+       <img src="./content/img/íconos/info.png" c width="30px">
      </div>
 
        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -30,7 +33,7 @@
   <!--Módulos In -->
    <div class="card bg-blue modsco">
      <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingTwo">
-       <h2 class="mb-0">
+       <h2 class="mb-0 flex-grow-1 flexbg w-100">
          <button class="btn btn-link btn-block text-left collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
            Movimientos
          </button>
@@ -146,7 +149,7 @@
 
    <div class="card bg-blue modsco ">
      <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingThree">
-       <h2 class="mb-0">
+       <h2 class="mb-0 flex-grow-1 flexbg w-100">
          <button class="btn btn-link btn-block text-left collapsed font-weight-bold " type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
            Collapsible Group Item #3
          </button>
