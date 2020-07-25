@@ -64,6 +64,11 @@
                   include 'content/php/navbar.php';
                   include 'content/php/user_config.php';
                break;
+                
+               case 'cuentas':
+                  include 'content/php/navbar.php';
+                  include 'content/php/modulos/cuentas/cuentas.php';
+               break;
 
                case 'cerrar_sesion':
                   echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
