@@ -10,8 +10,9 @@
         $sql ="UPDATE cuentas SET nombre_cuenta='$nombre_cuenta' WHERE id_cuenta='$id_cuenta'";
 
         if ($conexion->query($sql) === TRUE) {
-            echo "New record created <successfully>";
-            // header('location: ../../../');
+            //echo "New record created <successfully>";
+            echo "<script>window.location.reload()</script>";
+             header('location: ../../../../?action=cuentas');
         } else {
             echo "Error: " . $sql . "<br>" . $conexion->error;
         }

@@ -16,8 +16,9 @@
         //echo $result;
 
         if ($conexion->query($sql) === TRUE) {
-            echo "New record created <successfully>";
-            // header('location: ../../../');
+            //echo "New record created <successfully>";
+            //echo '<script type="text/javascript">window.location.reload()</script>';
+             header('location: ?action=cuentas');
         } else {
             echo "Error: " . $sql . "<br>" . $conexion->error;
         }

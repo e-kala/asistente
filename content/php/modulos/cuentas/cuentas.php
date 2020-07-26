@@ -47,8 +47,14 @@
                         <td class="font-weight-bold" id="nombreCuenta<?php echo $fila->id_cuenta; ?>" value<?php echo $fila->id_cuenta; ?>="<?php echo $fila->nombre_cuenta; ?>"><?php echo $fila->nombre_cuenta ?> </td>
                         <td>
                             <a href="#editar" class="editarCuenta" data-id="<?php echo $fila->id_cuenta; ?>"
-                             data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil fa-lg"></i></a>
-                            <a href="#eliminar"><i class="fa fa-trash fa-lg"></i></a>
+                             data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil fa-lg"></i>
+                            </a>
+
+                            <a class="eliminarCuenta" id="eliminarCuenta<?php echo $fila->id_cuenta; ?>" 
+                                value<?php echo $fila->id_cuenta; ?>="<?php echo $fila->nombre_cuenta; ?>" 
+                                data-id="<?php echo $fila->id_cuenta; ?>"  href="#eliminar" data-toggle="modal" 
+                                data-target="#modalEliminar"><i class="fa fa-trash fa-lg"></i>
+                            </a>
                         </td>'
                     </tr>
                 <?php }
@@ -110,10 +116,11 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Nombre</label>
                 <input type="hidden" name="idCuenta" id="idInput"></input>
-                <input type="text" class="form-control" id="nuevoNombreCuenta" aria-describedby="emailHelp" name="nuevoNombreCuenta">
+                <input type="text" class="form-control" id="nuevoNombreCuenta" 
+                       aria-describedby="emailHelp" name="nuevoNombreCuenta">
                 <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
             </div>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             <!--<button type="button" class="btn btn-primary">Save changes</button>-->
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -122,3 +129,25 @@
   </div>
 </div>
 <!-- Modal editar end-->
+
+
+<!-- Modal eliminar -->
+<div class="modal fade" id="modalEliminar" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Confirmación</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>¿Seguro que desea eliminar?</p><p id="cuentaAEliminar"></p>
+        <hr>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-danger" id="confirmar">Eliminar</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
