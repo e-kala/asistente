@@ -66,6 +66,7 @@
                break;
                 
                case 'cuentas':
+                  echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
                   include 'content/php/modulos/cuentas/cuentas.php';
                break;

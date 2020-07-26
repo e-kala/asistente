@@ -1,6 +1,6 @@
 
-<div class="m-4" align="center">
-	<div class="card bguserconfigchange" style="width: 70%;" align="center">
+<div class="m-4 panel-config" align="center" style="display: none;">
+	<div class="card bguserconfigchange" style="width: 80%;" align="center">
 		<div class="card-header d-flex align-items-center align-content-center justify-content-between">
 			<h3>Configuración</h3>
 			<a class="btn btn-danger d-flex align-items-center align-content-center" href="index.php">Inicio</a>
@@ -10,11 +10,11 @@
 				<h3 class="m-4 text-center"> Tiempo de actualización de balances </h3>
 				<h4 class="mb-3 ml-4 mt-4 text-center"> Recomendados </h4>
 				<div class="m-4 d-flex flex-wrap justify-content-between">
-					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="one">1 min</div></div>
-					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="five">5 min</div></div>
-					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="ten">10 min</div></div>
-					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="thirty">30 min</div></div>
-					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="hour">1 hr</div></div>
+					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="one">1 semana</div></div>
+					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="two">2 semanas</div></div>
+					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="three">3 semanas</div></div>
+					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="four">4 semanas</div></div>
+					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="five">5 semanas</div></div>
 				</div>
 				<div class="d-flex justify-content-center align-content-center align-items-center flex-column" align="center">
 					<h3 class="m-4 text-center">Personalizar:</h3>
@@ -114,6 +114,7 @@
 			background: bg,
 			time_bal: time !== "" ? time : "hour"
 		}).done(d => {
+			console.log(d)
 			if (d.match(/\<success\>/gim)){
 				alertify.success("Guardado exitoso")
 				setTimeout(()=> window.location.reload(false), 1000)

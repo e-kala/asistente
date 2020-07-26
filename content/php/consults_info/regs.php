@@ -8,6 +8,7 @@
 		$conectar = new conexion();
 		$conexion = $conectar->conectar();
 
+
 		function reply_query($get_name, $category){
 			if ($get_name->num_rows === 1) { 
 				while ($filaso = $get_name->fetch_object()) {
@@ -32,12 +33,12 @@
 
 		function action($category, $name, $conexion){
 			if ($category === "ingresos"){
-				$consulta_gn = "SELECT * FROM ingresos WHERE categoria_ingreso = '$name'";
+				$consulta_gn = "SELECT * FROM ingresos WHERE categoria_ingreso LIKE '%$name%'";
 				$get_name = $conexion->query($consulta_gn);
 				reply_query($get_name, $category);
 
 			} else if ($category === "gastos"){
-				$consulta_gn = "SELECT * FROM gastos WHERE categoria_gasto = '$name'";
+				$consulta_gn = "SELECT * FROM gastos WHERE categoria_gasto LIKE '%$name%'";
 				$get_name = $conexion->query($consulta_gn);
 				reply_query($get_name, $category);
 			}

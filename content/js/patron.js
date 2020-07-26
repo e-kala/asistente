@@ -196,7 +196,7 @@ Pattmo = (container, config) => {
 			container.appendChild(btn_next)
 			btn_next.className += "btn btn-primary btn-lg btn-next-log-tap"
 			btn_next.onclick = () => {
-				if (document.getElementById("username").value !== "" && userValue !== null && userValue !== undefined && userValue.style.display !== "none"){
+				if (document.getElementById("username").value !== "" && userValue !== null && userValue !== undefined ){
 					pattern.style.opacity = "1"
 					pattern.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
 					document.getElementById("username").style.display = "none"
@@ -245,7 +245,7 @@ Pattmo = (container, config) => {
 			form.addEventListener("submit",(e)=> {
 				e.preventDefault()
 
-				if (userValue !== "" && userValue !== null && userValue !== undefined && userValue.style.display !== "none"){
+				if (userValue !== "" && userValue !== null && userValue !== undefined ){
 					btn_next.style.display = "none"
 					btn_accept_init.style.display = "block"
 					btn_volver.style.display = "block"
@@ -460,7 +460,7 @@ Pattmo = (container, config) => {
 			}
 			btn_next.className += "btn btn-primary btn-lg btn-next-log-tap"
 			btn_next.onclick = () => {
-				if (document.getElementById("username").value !== "" && userValue !== null && userValue !== undefined && userValue.style.display !== "none"){
+				if (document.getElementById("username").value !== "" && userValue !== null && userValue !== undefined ){
 					pattern.style.opacity = "1"
 					pattern.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
 					document.getElementById("username").style.display = "none"
@@ -500,10 +500,11 @@ Pattmo = (container, config) => {
 			let bool = false; let boolMouseOver = false; //Don't touch
 			let pass = "";  let bfixAnActiveInput = false;
 
+
 			if (form !== null){
 				form.addEventListener("submit",(e)=> {
 					e.preventDefault()
-					if (userValue !== "" && userValue !== null && userValue !== undefined && userValue.style.display !== "none"){
+					if (userValue !== "" && userValue !== null && userValue !== undefined ){
 						btn_next.style.display = "none"
 						btn_volver.style.display = "block"
 						btn_volver.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
@@ -1460,3 +1461,5 @@ managerPassword = db => {
 		}
 	}
 };
+
+

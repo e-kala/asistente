@@ -3,8 +3,6 @@ let tadores = document.getElementsByClassName("tadores")[0]
 let menreg = document.getElementsByClassName("menreg")[0]
 let find = document.getElementsByClassName("find")[0]
 
-
-
 const search = (formreg, tadores, menreg, find, config) => {
     if (config.mode === "desktop"){
       tadores.style.display = "flex"
@@ -16,54 +14,21 @@ const search = (formreg, tadores, menreg, find, config) => {
     // tadores.style.background = "#474A64"
     tadores.style.borderBottom = "2px solid #dbdbdb"
 
-    let word = find.value
     let selected = "Ingresos"
     menreg.addEventListener("click", (e)=>{
         selected = e.target.options[e.target.selectedIndex].text
-        word = find.value
     })
 
+    formreg.onsubmit = e => e.preventDefault()
 
-    find.onchange = e => word = find.value
-    
-
-    find.onkeypress = e => {
-        // e.preventDefault()
-        word += e.key
-        word = word.split("").filter((r,i) => r).toString().replace(/\,/gim, "")
-        conpost(word)
-        
-        find.onselect = e => word = find.value
-        find.onblur = e => word = find.value
-        find.onchange = e => word = find.value
-
-        console.log("taltalala", word)
-      
-    }
 
     find.onkeydown = e => {
-      if (e.key === "Backspace"  ){
-        word = word.split("").filter((r,i) => i !== word.split("").length - 1).toString().replace(/\,/gim, "")
-        
-        conpost(word)
-      } else if (e.key === "Control"){
         word = find.value
-        find.onselect = e => word = find.value
-        find.onblur = e => word = find.value
-        find.onchange = e => word = find.value
-      }
-    }
+        word += e.key !== "Backspace" && e.key !== "Enter" ? e.key : " "
+        
+  
+        if (word !== ""){
 
-
-    function conpost(word){
-      tadores.animate([
-          {
-            opacity:0
-          },
-          {
-            opacity:1
-          }],{duration:800, iterations:1})
-        // if (word !== ""){
             $.post("./content/php/consults_info/regs.php",
                 { 
                     name:word,
@@ -77,6 +42,7 @@ const search = (formreg, tadores, menreg, find, config) => {
                     } else {
                       co = "bg-darkblue1"
                     }
+
 
                     if (data.category !== undefined){
                         if (data.multiple === false){
@@ -97,7 +63,6 @@ const search = (formreg, tadores, menreg, find, config) => {
                                   </div>
                                   `
                                 }
-                              
                             } else {
                               if (data.infogen.usuario_gasto === user){
                                 tadores.innerHTML = `   
@@ -113,7 +78,6 @@ const search = (formreg, tadores, menreg, find, config) => {
                                 </div>
                                 `
                               }
-                              
                             }
                         } else {
                             tadores.innerHTML = ""
@@ -143,7 +107,6 @@ const search = (formreg, tadores, menreg, find, config) => {
                                         </div>
                                         `
                                       }
-                                      
                                     } else {
                                       if (data["infogen"+n].usuario_gasto === user){
                                         tadores.innerHTML += `   
@@ -159,46 +122,35 @@ const search = (formreg, tadores, menreg, find, config) => {
                                         </div>
                                         `
                                       }
-                                      
                                     }
                                 }
                             })
                         }
                     } else {
                         tadores.style.justifyContent = "center"
-                        let text = "Ninguna coincidencia encontrada"
-                        let velocity = 20
-                        tadores.innerHTML = '<div class="bg-alertemer p-3 m-4 text-center font-weight-bold mb-3 desfin"></div>'
-                        let destiny = document.getElementsByClassName("desfin")[0]
-                        text = text.split("")
-                        let n = -1
-                        let interval = setInterval(()=>{
-                          n += 1
-                          if (n < text.length){
-                            destiny.innerHTML += text[n]
-                          } else {
-                            clearInterval(interval)
-                          }
-                        },velocity)
+                        tadores.innerHTML = '<div class="bg-alertemer p-3 m-4 text-center font-weight-bold mb-3 desfin">Ninguna coincidencia encontrada</div>'
+                        
                     }
+                    
+                  
             })
-        // } else {
-        //     tadores.style.justifyContent = "center"
-        //     let text = "Se requiere un dato para la consulta"
-        //     let velocity = 20
-        //     tadores.innerHTML = '<div class="bg-alertemerdanger p-3 m-4 text-center font-weight-bold mb-3 desfin"></div>'
-        //     let destiny = document.getElementsByClassName("desfin")[0]
-        //     text = text.split("")
-        //     let n = -1
-        //     let interval = setInterval(()=>{
-        //       n += 1
-        //       if (n < text.length){
-        //         destiny.innerHTML += text[n]
-        //       } else {
-        //         clearInterval(interval)
-        //       }
-        //     },velocity)
-        // }
+        } else {
+            tadores.style.justifyContent = "center"
+            let text = "Se requiere un dato para la consulta"
+            let velocity = 20
+            tadores.innerHTML = '<div class="bg-alertemerdanger p-3 m-4 text-center font-weight-bold mb-3 desfin"></div>'
+            let destiny = document.getElementsByClassName("desfin")[0]
+            text = text.split("")
+            let n = -1
+            let interval = setInterval(()=>{
+              n += 1
+              if (n < text.length){
+                destiny.innerHTML += text[n]
+              } else {
+                clearInterval(interval)
+              }
+            },velocity)
+        }
     }
 }
 
@@ -220,3 +172,39 @@ function closeclick(e){
       
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -188,7 +188,7 @@ for (let x=0; x < options.length; x++){
     optdiv.style.transform = "scale(1.4)"
     optdiv.style.borderRadius = "12%"
     optdiv.style.backgroundColor = "white"
-    header_session.appendChild(optdiv)
+    if (header_session !== undefined) header_session.appendChild(optdiv)
   } else if (x === 3) { // Cerrar Sesion
     const optdiv = document.createElement("a")
     optdiv.innerHTML = options[x]

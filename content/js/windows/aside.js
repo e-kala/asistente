@@ -3,13 +3,9 @@
 const Aside = (username) => {
 
 	const containhome = document.getElementsByClassName("containhome")[0]
-
 	const container = document.createElement("div")
 	container.className += "containeraside card asidechancolor"
-	container.onpointermove = e => {
-		console.log(e)
-	}
-
+	
 	const header = document.createElement("div")
 	header.setAttribute("align", "center")
 	header.className = "card-header d-flex flex-column"	
@@ -44,7 +40,6 @@ const Aside = (username) => {
 	boton_calc.ondragstart = () => false
 	boton_calc.style.userSelect = "none"
 	boton_calc.style.borderRadius = "100%"
-
 
 	const boton_calendario = document.createElement("img")
 	boton_calendario.setAttribute("src", "./content/img/íconos/calender.png")

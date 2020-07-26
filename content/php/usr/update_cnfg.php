@@ -1,3 +1,4 @@
+
 <?php
 	include '../conexion.php';
 	if ($_POST) {
@@ -17,6 +18,14 @@
 
 		$conectar = new conexion();
 		$conexion = $conectar->conectar();
+
+		$consulta_cnf = "SELECT * FROM usuarios WHERE nombre_usuario = '$userr'";
+		$cnf_result = $conexion->query($consulta_cnf);
+		$fila = $cnf_result->fetch_object();
+
+		$data_cnf = $fila->usr_config;
+
+		echo "<script> let config_ = '" .$data_cnf . "';</script>";
 
 		if ($background !== "" && $time_change_balance !== ""){
 			$sql = "UPDATE usuarios SET usr_config='$set' WHERE nombre_usuario='$userr'";

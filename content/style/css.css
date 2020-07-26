@@ -256,9 +256,10 @@ body{
 .containhome{
 	display: flex;
 	flex-flow: wrap row;
-	border: 1px solid #2D303C;
-	background: rgb(41,54,108,0.80);
-	background: rgb(0,0,0,0.40);
+	/*border: 1px solid #2D303C;*/
+	/*border: 3px solid #808080;*/
+	/*background: rgb(41,54,108,0.80);*/
+	background: rgb(0,0,0,0.20);
 
 	/*background-color: #1E172B;*/
 	min-height: 97vh;
