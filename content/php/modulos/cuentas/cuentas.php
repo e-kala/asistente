@@ -40,17 +40,18 @@
 
             
             <?php
-                while ($fila = $resultadoCuentas->fetch_object()) {
-                    $x++;
+                while ($fila = $resultadoCuentas->fetch_object()) { ?>
+                   
                     
-                    echo '<tr class="text-center colorchange">';
-                            echo '<td class="font-weight-bold">' . $fila->nombre_cuenta . '</td>';
-                            echo '<td>
-                                        <a href=""><i class="fa fa-pencil fa-lg"></i></a>
-                                         <a href=""><i class="fa fa-trash fa-lg"></i></a>
-                                </td>';
-                    echo '</tr>';
-                }
+                    <tr class="text-center colorchange">
+                        <td class="font-weight-bold" id="nombreCuenta<?php echo $fila->id_cuenta; ?>" value<?php echo $fila->id_cuenta; ?>="<?php echo $fila->nombre_cuenta; ?>"><?php echo $fila->nombre_cuenta ?> </td>
+                        <td>
+                            <a href="#editar" class="editarCuenta" data-id="<?php echo $fila->id_cuenta; ?>"
+                             data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil fa-lg"></i></a>
+                            <a href="#eliminar"><i class="fa fa-trash fa-lg"></i></a>
+                        </td>'
+                    </tr>
+                <?php }
             }else{
                 echo 'No hay cuentas aún, pero puedes crear una! :)';
             }
@@ -61,7 +62,7 @@
 
 
 
-<!-- Modal -->
+<!-- Modal agregar in-->
 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -90,3 +91,34 @@
         </div>
     </div>
 </div>
+<!-- Modal agregar end-->
+
+
+
+<!-- Modal editar in-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar cuenta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="content/php/modulos/cuentas/editar_cuenta.php" method="POST">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nombre</label>
+                <input type="hidden" name="idCuenta" id="idInput"></input>
+                <input type="text" class="form-control" id="nuevoNombreCuenta" aria-describedby="emailHelp" name="nuevoNombreCuenta">
+                <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+            </div>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal editar end-->
