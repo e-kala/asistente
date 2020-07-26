@@ -1,5 +1,5 @@
 <?php
-    require "../conexion.php";
+    require "../../conexion.php";
     if (isset($_POST)) {
         $conectar = new conexion();
     	$conexion = $conectar->conectar();
@@ -9,7 +9,7 @@
         $usuario = $_SESSION['user'];
         $nombre_cuenta = $_POST['nombre_cuenta'];
 
-        $sql = "INSERT INTO cuentas(nombre_usuario, nombre_cuenta, tipo_cuenta)
+        $sql = "INSERT INTO cuentas(usuario_cuenta, nombre_cuenta, tipo_cuenta)
                 VALUES('$usuario', '$nombre_cuenta', 'NULL')";
         $datos = utf8_encode($sql);
         //$result = mysqli_query($conexion, $datos);
