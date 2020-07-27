@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 20-07-2020 a las 00:02:40
+-- Tiempo de generación: 27-07-2020 a las 10:07:54
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -30,8 +30,22 @@ SET time_zone = "+00:00";
 CREATE TABLE `cuentas` (
   `id_cuenta` int(11) NOT NULL,
   `nombre_cuenta` varchar(150) NOT NULL,
-  `tipo_cuenta` varchar(150) NOT NULL
+  `tipo_cuenta` varchar(150) NOT NULL,
+  `usuario_cuenta` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cuentas`
+--
+
+INSERT INTO `cuentas` (`id_cuenta`, `nombre_cuenta`, `tipo_cuenta`, `usuario_cuenta`) VALUES
+(2, 'Bancomer', 'NULL', 'Eka'),
+(4, 'Efectivo', 'NULL', 'Eka'),
+(6, 'Ahorro', 'NULL', 'Eka'),
+(9, 'Moto', 'NULL', 'Eka'),
+(11, 'pagos', 'NULL', 'Eka'),
+(16, 'prueba', 'NULL', 'Eka'),
+(26, 'comida', 'NULL', 'Eka');
 
 -- --------------------------------------------------------
 
@@ -73,9 +87,8 @@ INSERT INTO `gastos` (`id_gasto`, `usuario_gasto`, `cantidad_gasto`, `categoria_
 (23, '', '35.00', 'Medicamento', 'Loratadina', 'Efectivo', '2020-06-10'),
 (24, '', '250.00', 'Envio', 'Ajna', 'Efectivo', '2020-06-11'),
 (25, '', '100.00', 'Coppel', 'Abono', 'Efectivo', '2020-06-14'),
-(26, 'Eka', '500.00', 'prueba', 'prueba1', 'Efectivo', '2020-07-19'),
-(27, 'Eka', '300.00', 'prueba', 'prueba', 'Efectivo', '2020-07-19'),
-(28, 'Eka', '100.00', 'prueba', 'gasto', 'Efectivo', '2020-07-19');
+(27, 'Eka', '400.00', 'prueba', 'prueba', 'Efectivo', '2020-07-19'),
+(29, 'Eka', '300.00', 'Herramienta', 'Kit de herramientas', 'null', '2020-07-27');
 
 -- --------------------------------------------------------
 
@@ -142,7 +155,7 @@ INSERT INTO `ingresos` (`id_ingreso`, `usuario_ingreso`, `cantidad_ingreso`, `fe
 (84, '', '700.00', '2020-07-19', 'Efectivo', 'prueba', 'prueba2'),
 (85, '', '200.00', '2020-07-19', 'Efectivo', 'prueba', 'fea'),
 (86, '', '400.00', '2020-07-19', 'Efectivo', 'prueba', 'prueba'),
-(87, 'Eka', '500.00', '2020-07-19', 'Efectivo', 'prueba', 'demo');
+(88, 'Eka', '600.00', '2020-07-19', 'Efectivo', 'prueba', '2prueba');
 
 -- --------------------------------------------------------
 
@@ -204,7 +217,6 @@ CREATE TABLE `usuarios` (
   `correo_usuario` varchar(100) NOT NULL,
   `pass_usuario` varchar(50) NOT NULL,
   `privilegios` varchar(50) NOT NULL,
-  `hola` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`hola`)),
   `usr_config` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`usr_config`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -212,9 +224,9 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo_usuario`, `pass_usuario`, `privilegios`, `hola`, `usr_config`) VALUES
-(2, 'admin', 'admin@demo.com', 'root', 'admin', '', '0'),
-(4, 'Eka', 'caiman.mistico@gmail.com', 'abcfedghi', 'normal', '', '{\"mode\" : \"dark\"}');
+INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo_usuario`, `pass_usuario`, `privilegios`, `usr_config`) VALUES
+(2, 'admin', 'admin@demo.com', 'root', 'admin', '0'),
+(4, 'Eka', 'caiman.mistico@gmail.com', 'abcfedghi', 'normal', '{\"mode\":\"dark\",\"background\":\"5.png\",\"time_bal\":\"1\"}');
 
 --
 -- Índices para tablas volcadas
@@ -276,13 +288,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `cuentas`
 --
 ALTER TABLE `cuentas`
-  MODIFY `id_cuenta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cuenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `gastos`
 --
 ALTER TABLE `gastos`
-  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `ideas`
@@ -294,7 +306,7 @@ ALTER TABLE `ideas`
 -- AUTO_INCREMENT de la tabla `ingresos`
 --
 ALTER TABLE `ingresos`
-  MODIFY `id_ingreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id_ingreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT de la tabla `logger`
