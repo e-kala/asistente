@@ -46,7 +46,7 @@ body{
         <!-- opciones-->
        <div class="row p-4 d-flex justify-content-between" align="center">
         <!-- Sección de movimientos In -->
-         <div class="col-xs-12">
+         <div class="col-md-6 offset-md-3">
             <h4 class="">Movimientos</h4>
             <div class="btn-group" role="group" aria-label="Basic example">
               <!-- Ingreso/egreso/transferencia -->
@@ -89,20 +89,21 @@ body{
             </div>
             <hr>
         <!-- Sección de movimientos End -->
-
-          <h4 class="">Cuentas</h4>
+          <h4>Otros</h4>
           <div class="btn-group" role="group" aria-label="Basic example">
-            <!--<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ingresoModal">Cuentas</button>-->
-            
-             <a class="btn btn-info" href="?action=cuentas" role="button">Cuentas</a>
-             
-            <button type="button" class="btn btn-secondary">Ahorros</button>
-            <button type="button" class="btn btn-secondary">Apartados</button>
+            <a class="btn btn-primary" href="?action=registros" role="button">Registros</a>
+            <a class="btn btn-info" href="?action=cuentas" role="button">Cuentas</a>
           </div>
           <hr>
+          <h4><br></h4><!--
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ingresoModal">Balancear Cuentas</button>
+          </div>-->
 
          </div>
 
+         </div>
+<!--
          <div class="col-xs-12">
           <h4 class="">Deudas</h4>
           <div class="btn-group" role="group" aria-label="Basic example">
@@ -111,9 +112,17 @@ body{
             <button type="button" class="btn btn-secondary">Inversiones</button>
           </div>
           <hr>
+          <h4>Cuentas</h4>
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ingresoModal">Ingreso</button>
+            <button type="button" class="btn btn-secondary">Gasto</button>
+            <button type="button" class="btn btn-secondary">transferencia</button>
+          </div>
+          <hr>
           
          </div>
-
+-->
+<!--
          <div class="col-xs-12">
            <h4>Otros</h4>
           <div class="btn-group" role="group" aria-label="Basic example">
@@ -129,10 +138,8 @@ body{
           </div>
 
          </div>
-
-
-       </div>
-          
+-->
+      
           
         
        </div>
@@ -141,7 +148,7 @@ body{
   <!--Módulos END -->
 
 
-   <div class="card bg-blue modsco ">
+   <!--<div class="card bg-blue modsco ">
      <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingThree">
        <h2 class="mb-0 flex-grow-1 flexbg w-100">
          <button class="btn btn-link btn-block text-left collapsed font-weight-bold " type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -155,5 +162,5 @@ body{
          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
        </div>
      </div>
-   </div>
+   </div>-->
  </div>

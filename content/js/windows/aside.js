@@ -54,7 +54,7 @@ const Aside = (username) => {
 	
 	const header = document.createElement("div")
 	header.setAttribute("align", "center")
-	header.className = "card-header d-flex flex-column"	
+	header.className = "card-header d-flex flex-column justify-content-center"	
 
 	const h1 = document.createElement("h4")
 	h1.innerHTML = "Hola "+username
