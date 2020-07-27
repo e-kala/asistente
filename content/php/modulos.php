@@ -52,7 +52,8 @@ body{
               <!-- Ingreso/egreso/transferencia -->
               <!-- Boton de Ingreso In-->
                 <div class="btn-group dropdown">
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ingresoModal">
+                  <button type="button" class="btn btn-success" data-toggle="modal" 
+                          data-target="#ingresoModal" id="modalIngreso">
                     Ingreso
                   </button>
                   <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -108,13 +109,6 @@ body{
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ingresoModal">Deudas</button>
             <button type="button" class="btn btn-secondary">Prestamos</button>
             <button type="button" class="btn btn-secondary">Inversiones</button>
-          </div>
-          <hr>
-          <h4>Cuentas</h4>
-          <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ingresoModal">Ingreso</button>
-            <button type="button" class="btn btn-secondary">Gasto</button>
-            <button type="button" class="btn btn-secondary">transferencia</button>
           </div>
           <hr>
           

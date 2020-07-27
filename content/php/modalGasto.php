@@ -19,9 +19,7 @@
               </div>
               <div class="form-group col-md-6">
                   <label for="inputState">Cuenta</label>
-                  <select id="cuenta" class="form-control" name="cuenta">
-                    <option selected>Efectivo</option>
-                    <option>Bancomer</option>
+                  <select id="cuentaGasto" class="form-control" name="cuenta">
                   </select>
               </div>
             </div>
