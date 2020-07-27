@@ -77,6 +77,12 @@
                   include 'content/php/modulos/movimientos/ingresos/ingresos.php';   
                break;
 
+               case 'editar_gastos': 
+                  echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
+                  include 'content/php/navbar.php';
+                  include 'content/php/modulos/movimientos/gastos/gastos.php';   
+               break;
+
                case 'cerrar_sesion':
                   echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
                   if (isset($_SESSION['login'])) {

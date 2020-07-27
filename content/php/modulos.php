@@ -61,8 +61,8 @@ body{
                   </button>
                   <div class="dropdown-menu">
                    <h6 class="dropdown-header">Opciones</h6>
-                    <a class="dropdown-item" href="#">Ver Registros</a>
-                    <a class="dropdown-item" href="#">Eliminar</a>
+                    <a class="dropdown-item" href="?action=editar_ingresos">Ver Registros</a>
+                    <a class="dropdown-item" href="?action=editar_ingresos">Eliminar</a>
                     <a class="dropdown-item" href="?action=editar_ingresos">Editar</a>
                   </div>
                 </div>
@@ -78,9 +78,9 @@ body{
                   </button>
                   <div class="dropdown-menu">
                    <h6 class="dropdown-header">Opciones</h6>
-                    <a class="dropdown-item" href="#">Ver Registros</a>
-                    <a class="dropdown-item" href="#">Eliminar</a>
-                    <a class="dropdown-item" href="#">Editar</a>
+                    <a class="dropdown-item" href="?action=editar_gastos">Ver Registros</a>
+                    <a class="dropdown-item" href="?action=editar_gastos">Eliminar</a>
+                    <a class="dropdown-item" href="?action=editar_gastos">Editar</a>
                   </div>
                 </div>
               <!-- Boton de Gasto End-->

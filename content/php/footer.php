@@ -34,6 +34,8 @@
 
 <script type="text/javascript" src="./content/js/cuentas.js"></script>
 <script type="text/javascript" src="./content/js/editar_ingresos.js"></script>
+<script type="text/javascript" src="./content/js/editar_gastos.js"></script>
+
 
 
 <?php 
