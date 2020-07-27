@@ -55,14 +55,15 @@ body{
                   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ingresoModal">
                     Ingreso
                   </button>
-                  <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" 
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="sr-only">Toggle Dropright</span>
                   </button>
                   <div class="dropdown-menu">
                    <h6 class="dropdown-header">Opciones</h6>
                     <a class="dropdown-item" href="#">Ver Registros</a>
                     <a class="dropdown-item" href="#">Eliminar</a>
-                    <a class="dropdown-item" href="#">Editar</a>
+                    <a class="dropdown-item" href="?action=editar_ingresos">Editar</a>
                   </div>
                 </div>
               <!-- Boton de Ingreso End-->

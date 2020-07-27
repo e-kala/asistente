@@ -2,6 +2,7 @@ $(function(){
     $(".editarCuenta").click(function(){
         var id = $(this).attr('data-id');
         var nuevoNombreCuenta = $('#nombreCuenta'+id).attr('value'+id);
+        
         $("#idInput").val(id);
         $('#nuevoNombreCuenta').val(nuevoNombreCuenta);
     });

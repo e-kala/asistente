@@ -33,6 +33,8 @@
 <script type="text/javascript" src="./content/js/ultimoRegistro.js"></script>
 
 <script type="text/javascript" src="./content/js/cuentas.js"></script>
+<script type="text/javascript" src="./content/js/editar_ingresos.js"></script>
+
 
 <?php 
 	include "./content/php/usr/usr_cnfg.php";
