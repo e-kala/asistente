@@ -1,3 +1,49 @@
+let openedcalculator = false
+let openedcalender = false
+let openedconversor = false
+
+const calculator = () => {
+	if (openedcalculator){
+		const container = document.createElement("div")
+		container.className = "container_calculadora"
+		
+
+		const header_icons = document.createElement("div")
+		const close = document.createElement("div")
+		close.style.cursor = "pointer"
+		close.innerHTML = "X"
+		close.onclick = () =>{
+			openedcalculator = false
+			container.remove()
+		}
+
+		header_icons.appendChild(close)
+		container.appendChild(header_icons)
+
+		const body = document.createElement("div")
+		container.appendChild(body)
+
+		const form = document.createElement("form")
+		const input_and_result = document.createElement("input")
+		input_and_result.placeholder = "2 + 2 = 4"
+		form.appendChild(input_and_result)
+
+		const men_buttons = document.createElement("div")
+		men_buttons.className = "d-flex flex-wrap"
+		body.appendChild(men_buttons)
+
+		for (let x = 0; x < 10; x++){
+			const number = document.createElement("button")
+			number.className = "flex-grow-1"
+			number.innerHTML = x
+			men_buttons.appendChild(number)
+		}
+
+		body.appendChild(form)
+
+		return container;
+	}
+}
 
 
 const Aside = (username) => {
@@ -40,6 +86,12 @@ const Aside = (username) => {
 	boton_calc.ondragstart = () => false
 	boton_calc.style.userSelect = "none"
 	boton_calc.style.borderRadius = "100%"
+	boton_calc.onclick = () => {
+		if (!openedcalculator){
+			openedcalculator = true
+			document.body.appendChild(calculator())
+		}
+	}
 
 	const boton_calendario = document.createElement("img")
 	boton_calendario.setAttribute("src", "./content/img/íconos/calender.png")
@@ -95,4 +147,12 @@ const Aside = (username) => {
 		document.getElementsByClassName("containhome")[0].appendChild(container)
 	}
 }
+
+
+
+
+
+
+
+
 

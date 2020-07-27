@@ -11,7 +11,7 @@
       </p>
     </div>
     <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
+      <small class="text-muted"> <?php echo $state; ?></small>
     </div>
   </div>
   <?php // para la carga de la información en id="info" está en ?>

@@ -9,69 +9,6 @@ import_data_signup = (dat) => {
 	dat_post.usuario = dat.usuario
 }
 
-fetchConsult = (configdb, user, pass) => { 
-	let tryConnect = 0; //Try number to connect
-
-	let destiny = document.getElementById(configdb.insertDataInHTML) //HTML data destiny
-
-	//Ajax
-
-	const call_ajax = () => {
-		$.post( "./content/php/login.php", { usuario: user, pass: first_char_pass + pass})
-		  .done( dat => {
-		  	console.log(dat)
-		  	if (dat.match(/\<welcome\>/gim)){
-		  		window.location.reload(false);
-		  	}
-		  });
-		document.getElementsByClassName("inicio-container")[0].innerHTML += "<?php $_SESSION['login'] = TRUE; ?>"
-		
-	}
-
-
-	if (configdb.signUp === false){ // Significa que el usuario se loguea
-		call_ajax()
-	} else {
-	}
-}
-
-errorUserPage = (config, valueinputform) =>{
-	//Aquí uno se inventa algo, atención al usuario, recuperación de password, etc.
-
-	valueinputform.value = ""  //Se limpia formulario de login
-
-	//En esta función se invocará el componente hacia la pagina de error
-	let errorPage = config.components.access_ErrorLoginPage
-
-	// window.location.href = errorPage; //Access
-	// alert("Demasiados intentos")
-	//Change state and access
-}
-
-accessToUserPage = (config, formAndSys, valueinputform, pass) => { //Acceso a la página de usuario una vez logra login
-	// ----------- remove sys ---------- validated login -------------------
-
-
-	formAndSys.sys.animate([{ 
-		opacity: 1
-	},{
-		opacity: 0
-	}],{duration:1000, iterations:1})
-
-	setTimeout(()=>{
-		formAndSys.form.remove() 
-		formAndSys.sys.remove() 
-	},1150)
-	
-
-	//Se activa la carga de datos usando AJAX y la página de Usuario donde se accederá
-	fetchConsult(config, valueinputform.value, pass)
-	valueinputform.value = ""  //Se limpia formulario de login
-
-	// window.location.href = userPage; //Access
-	// alert(`Bienvenid@ ${config.login.userReference}`)
-}
-
 Pattmo = (container, config) => {
 	container = document.getElementById(container)
 	const btn_mode_loginn = document.getElementsByClassName("login-change-way")[0]
@@ -329,7 +266,7 @@ Pattmo = (container, config) => {
 				if (div[x] !== undefined){
 					div[x].onpointerdown = () => {
 						if (pattern.style.opacity !== "0"){
-							console.log("tap")
+							// console.log("tap")
 
 							pass += div[x].getAttribute("name")
 							div[x].style.background = "rgb(125,27,233,0.40)"
@@ -340,7 +277,7 @@ Pattmo = (container, config) => {
 									background:"rgb(125,27,233,0.40)"
 								}
 							],{duration:350, iterations:1})
-							console.log(pass,":..")
+							// console.log(pass,":..")
 						}
 						
 					}
@@ -376,8 +313,7 @@ Pattmo = (container, config) => {
 						  	// console.log(dat)
 						  	if (dat.match(/\<welcome\>/gim)){
 						  		window.location.reload(false);
-						  		accessToUserPage(config, { form: form, sys: pattern}, itext, pass)
-
+						  		
 								boolMouseOver = false
 								tryNumber = 0
 						  	} else {
@@ -624,7 +560,7 @@ Pattmo = (container, config) => {
 			}
 
 			document.querySelector("html").addEventListener("pointerup",()=>{
-				console.log(first_char_pass+ pass)
+				// console.log(first_char_pass+ pass)
 				if (config.config.showPasswordInConsole){
 					console.log(pass)
 				}
@@ -643,11 +579,10 @@ Pattmo = (container, config) => {
 						
 						$.post( "./content/php/login.php", { usuario: userValue, pass: first_char_pass + pass})
 						  .done( dat => {
-						  	console.log(dat)
+						  	// console.log(dat)
 						  	if (dat.match(/\<welcome\>/gim)){
 						  		window.location.reload(false);
-						  		accessToUserPage(config, { form: form, sys: pattern}, itext, pass)
-
+						  		
 								boolMouseOver = false
 								tryNumber = 0
 						  	} else {
@@ -999,7 +934,7 @@ Pattmo = (container, config) => {
 							first_char_pass += div[x].getAttribute("name");
 							first_char_pass = first_char_pass.replace("undefined", "")
 							// console.log(first_char_pass)
-							console.log(first_char_pass, "zzzaaaaaaaaaaaakak")
+							// console.log(first_char_pass, "zzzaaaaaaaaaaaakak")
 							// console.log(pass, tryNumber, "try")
 						// }
 					})
@@ -1121,7 +1056,7 @@ Pattmo = (container, config) => {
 							first_char_pass += div[x].getAttribute("name");
 							first_char_pass = first_char_pass.replace("undefined", "")
 							// console.log(first_char_pass)
-							console.log(first_char_pass, "zzzaaaaaaaaaaaakak")
+							// console.log(first_char_pass, "zzzaaaaaaaaaaaakak")
 							// console.log(pass, tryNumber, "try")
 						// }
 					})
@@ -1461,5 +1396,4 @@ managerPassword = db => {
 		}
 	}
 };
-
 

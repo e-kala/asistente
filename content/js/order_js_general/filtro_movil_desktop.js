@@ -3,6 +3,8 @@ let tadores = document.getElementsByClassName("tadores")[0]
 let menreg = document.getElementsByClassName("menreg")[0]
 let find = document.getElementsByClassName("find")[0]
 
+
+
 const search = (formreg, tadores, menreg, find, config) => {
     if (config.mode === "desktop"){
       tadores.style.display = "flex"
@@ -19,16 +21,9 @@ const search = (formreg, tadores, menreg, find, config) => {
         selected = e.target.options[e.target.selectedIndex].text
     })
 
-    formreg.onsubmit = e => e.preventDefault()
 
-
-    find.onkeydown = e => {
-        word = find.value
-        word += e.key !== "Backspace" && e.key !== "Enter" ? e.key : " "
-        
-  
-        if (word !== ""){
-
+    const action = () => {
+      if (word !== ""){
             $.post("./content/php/consults_info/regs.php",
                 { 
                     name:word,
@@ -127,7 +122,6 @@ const search = (formreg, tadores, menreg, find, config) => {
                             })
                         }
                     } else {
-                        tadores.style.justifyContent = "center"
                         tadores.innerHTML = '<div class="bg-alertemer p-3 m-4 text-center font-weight-bold mb-3 desfin">Ninguna coincidencia encontrada</div>'
                         
                     }
@@ -135,22 +129,21 @@ const search = (formreg, tadores, menreg, find, config) => {
                   
             })
         } else {
-            tadores.style.justifyContent = "center"
-            let text = "Se requiere un dato para la consulta"
-            let velocity = 20
-            tadores.innerHTML = '<div class="bg-alertemerdanger p-3 m-4 text-center font-weight-bold mb-3 desfin"></div>'
-            let destiny = document.getElementsByClassName("desfin")[0]
-            text = text.split("")
-            let n = -1
-            let interval = setInterval(()=>{
-              n += 1
-              if (n < text.length){
-                destiny.innerHTML += text[n]
-              } else {
-                clearInterval(interval)
-              }
-            },velocity)
+            tadores.innerHTML = '<div class="bg-alertemerdanger p-3 m-4 text-center font-weight-bold mb-3 desfin">Se requiere un dato para la consulta</div>'
         }
+    }
+
+    formreg.onsubmit = e => {
+      e.preventDefault()
+      word = find.value
+      if (word !== "")action()
+    }
+
+
+    find.onkeydown = e => {
+        word = find.value
+        word += e.key !== "Backspace" ? e.key : " "
+        if (word !== "")action()
     }
 }
 
@@ -161,15 +154,13 @@ search(formreg, tadores, menreg, find, { mode: "movil"})
 
 function closeclick(e){
     let n = e.getAttribute("name")
-    // console.log(n)
 
     let lentda = document.getElementsByClassName("datawindow").length
     n =  n 
 
-    document.getElementsByClassName("datawindow")[n].style.display = "none"
-
-    console.log( n)
-      
+    if (document.getElementsByClassName("datawindow")[n] !== undefined){
+      document.getElementsByClassName("datawindow")[n].style.display = "none"
+    }
 
 }
 

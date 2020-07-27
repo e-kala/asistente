@@ -10,7 +10,7 @@
             $consultaIngresos = "SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario'";
             $resultadoIngresos = $conexion->query($consultaIngresos);
             $consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario'");
-
+            
             echo "<script> let user = '" . $usuario ."';</script>";
         ?>
 

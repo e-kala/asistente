@@ -4,11 +4,11 @@
  <div class="card boxes-in bg-blue rounded-0">
    <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingFour">
      <h2 class="mb-0 flex-grow-1 flexbg w-100">
-       <button class="btn btn-link flex-grow-1 flexbg w-100 text-left font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+       <button class="btn btn-link  flex-grow-1 flexbg w-100 text-left font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
          Pagos Pendientes semana
        </button>
      </h2>
-     <img src="./content/img/íconos/configur.png" class="" width="30px" height="30px">
+     <img src="./content/img/íconos/configur.png" class="ml-2" width="30px" height="30px">
    </div>
 
    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
@@ -46,7 +46,7 @@
            Recordatorios
          </button>
        </h2>
-       <img src="./content/img/íconos/configur.png" class="" width="30px" height="30px">
+       <img src="./content/img/íconos/configur.png" class="ml-2" width="30px" height="30px">
      </div>
      <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
        <div class="card-body">
@@ -62,7 +62,7 @@
            Ideas
          </button>
        </h2>
-       <img src="./content/img/íconos/configur.png" class="" width="30px" height="30px">
+       <img src="./content/img/íconos/configur.png" class="ml-2" width="30px" height="30px">
      </div>
      <div id="collapseSix" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
        <div class="card-body">

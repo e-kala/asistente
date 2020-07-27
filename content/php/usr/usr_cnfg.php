@@ -44,11 +44,10 @@
 			}
 		}
 	}
-
+	
 	$usr_cnfg = new usr_cnfg();
 	$usr_cnfg->configuracion();
-   
-
+  
 ?>
 
 <script type="text/javascript">
@@ -121,6 +120,7 @@
 		try{
 	 		if (bg !== undefined && bg !== null) bg = json[1].background // var from user_config.php
 	 		if (time !== undefined && time !== null) time = json[1].time_bal
+	 		if (document.getElementsByName("data_balanc_custom")[0] !== undefined && document.getElementsByName("data_balanc_custom")[0] !== null) document.getElementsByName("data_balanc_custom")[0].value = json[1].time_bal
 		} catch(e){
 			//
 		}

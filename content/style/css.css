@@ -277,6 +277,13 @@ body{
 	flex-basis: 100%;
 }
 
+.databalanc{
+	padding: 14px;
+	border:0.5px solid #dbdbdb;
+	outline: none;
+	border-radius: 14px;
+}
+
 
 
 

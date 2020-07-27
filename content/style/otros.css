@@ -113,6 +113,25 @@
 
 
 
+
+
+/*-----------------CALCULADORA-------------------------*/
+
+.container_calculadora{
+	background: #fff;
+	padding: 20px;
+	width: 400px; height: 400px;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+/*----------------------------------------------------*/
+
+
+
+
+
 /* ------------------ COLORS --------------------*/
 
 .co1{ background: #4A4AC4; }

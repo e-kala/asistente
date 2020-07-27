@@ -2,31 +2,31 @@
 <div class="m-4 panel-config" align="center" style="display: none;">
 	<div class="card bguserconfigchange" style="width: 80%;" align="center">
 		<div class="card-header d-flex align-items-center align-content-center justify-content-between">
-			<h3>Configuración</h3>
+			<h4>Configuración</h4>
 			<a class="btn btn-danger d-flex align-items-center align-content-center" href="index.php">Inicio</a>
 		</div>
 		<div class="card-body p-4 m-4">
 			<div class="time-mostrar-balance border">
-				<h3 class="m-4 text-center"> Tiempo de actualización de balances </h3>
+				<h4 class="m-4 text-center"> Tiempo de actualización de balances </h4>
 				<h4 class="mb-3 ml-4 mt-4 text-center"> Recomendados </h4>
 				<div class="m-4 d-flex flex-wrap justify-content-between">
-					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="one">1 semana</div></div>
-					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="two">2 semanas</div></div>
-					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="three">3 semanas</div></div>
-					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="four">4 semanas</div></div>
-					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="five">5 semanas</div></div>
+					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="1">1 semana</div></div>
+					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="2">2 semanas</div></div>
+					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="3">3 semanas</div></div>
+					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="4">1 mes</div></div>
+					<div class="m-2 flex-grow-1 font-weight-bold timedefbalc" align="center"><div class="ml-2 btn btn-info flex-grow-1" name="5">2 meses</div></div>
 				</div>
-				<div class="d-flex justify-content-center align-content-center align-items-center flex-column" align="center">
-					<h3 class="m-4 text-center">Personalizar:</h3>
+				<div class="d-flex justify-content-center flex-wrap align-items-center align-content-center" align="center" >
+					<h4 class="m-4 text-center">Personalizar:</h4>
 					<div class="m-4 mt-0" align="center">
-						<h4>Definir tiempo</h4>
-						<input type="range" name="rangetime">
+						<span class="mr-3 font-weight-bold">Obtener balances desde</span>
+						<input type="date" class="databalanc" name="data_balanc_custom">
 					</div>
 				</div>
 			</div>
 
 			<div class="cambiar-fondos border mt-2">
-				<h3 class="m-4 text-center"> Cambiar fondo </h3>
+				<h4 class="m-4 text-center"> Cambiar fondo </h4>
 				<div class="d-flex  justify-content-center flex-wrap">
 					<img src="./content/img/fondos/0.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
 					<img src="./content/img/fondos/1.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
@@ -60,6 +60,9 @@
 <script type="text/javascript">
 	let [time, bg] = ["hour", ""]
 
+	const data_time_customized_balance = document.getElementsByName("data_balanc_custom")[0]
+	const default_value_data = data_time_customized_balance.defaultValue
+
 	const time_balance = () => {
 		const timedef = document.getElementsByClassName("timedefbalc")
 
@@ -73,6 +76,7 @@
 						timedef[x].children[0].className = "ml-2 btn btn-info flex-grow-1"
 					}
 				}
+				data_time_customized_balance.value = default_value_data
 			}
 		}
 	}
@@ -117,13 +121,22 @@
 			console.log(d)
 			if (d.match(/\<success\>/gim)){
 				alertify.success("Guardado exitoso")
-				setTimeout(()=> window.location.reload(false), 1000)
 			} 
 		})
 	}
 
 	const save_btn = document.getElementById("save-changes-config")
 	save_btn.onclick = () => send_config()	
+
+	data_time_customized_balance.onchange = e => {
+		const timedef = document.getElementsByClassName("timedefbalc")
+		for (let x = 0; x < timedef.length; x++){
+			timedef[x].children[0].className = "ml-2 btn btn-info flex-grow-1"
+		}
+		time = data_time_customized_balance.value
+		console.log(time)
+	}
+
 
 
 </script>
