@@ -1,7 +1,7 @@
 
 <div class=" inicio-container">
 	<div>
-		<div class="header_inicio ">
+		<div class="header_inicio">
 			<div class="headerinit">
 				<span class="loinan">E</span>
 				<span class="loinan">k</span>
@@ -18,8 +18,8 @@
 				<h2>Iniciar Sesión</h2>
 			</div> -->
 			<div class="panel-log-reg">
-				<a class="btn btn-success text-light float-right login-btn" role="button">Iniciar Sesión</a>
-				<a class="btn btn-primary text-light mr-2 float-right registro-btn" href="?action=registro" role="button">Registrarse</a>
+				<a class="btn btn-light float-right login-btn" role="button">Iniciar Sesión</a>
+				<a class="btn btn-light mr-2 float-right registro-btn" href="?action=registro" role="button">Registrarse</a>
 			</div>
 		</div>
 		<div id="logpan" style="display: none;" align="center">
@@ -29,7 +29,9 @@
 			    <button class="login-change-way   text-light font-weight-bold">Pan</button>
 			</div>
 		</div>
-		
+		<div class="divbgmain">
+			
+		</div>
 		<script type="text/javascript">
 				const login_btn = document.getElementsByClassName("login-btn")[0]
 				const logpan = document.getElementById("logpan")
@@ -47,9 +49,7 @@
 		
 		<script type="text/javascript">
 			publici = destiny => {
-
 				destiny = document.querySelector(destiny)
-
 				let div = document.createElement("div")
 				div.style.position = "absolute"
 				div.classList.add("divmestype")

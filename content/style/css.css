@@ -1,13 +1,22 @@
 body{
 	position: relative;
-	background: url(../img/fondos/1.png);
+	/*background: url(../img/bg4.gif);
 	background-size: cover;
 	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;*/
+}
+.divbgmain{
+	min-height: 100vh;
+	background: url(../img/bg4.gif);
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
 	background-position: center center;
 }
 .header_inicio{
 	position: relative;
-	background: #fff;
+	/*background: white;*/
 	background: url(../img/bgheader2.png);
 	background-size: cover;
 	/*background-repeat: no-repeat;*/
@@ -18,10 +27,11 @@ body{
 	/*box-shadow: inset -10px -50px 80px -10px #3b4660;*/
 	display: flex;
 	flex-flow: wrap row;
-	justify-content: space-between;
+	/*justify-content: space-between;*/
 	align-content: center;
 	align-items: center;
 	transition: ease all 0.3s;
+	padding: 20px;
 }
 .header_inicio:hover{
 	transition: ease all 0.3s;
@@ -42,7 +52,7 @@ body{
 	font-weight: bold;
 	font-size: 30px;
 	width: 255px;
-	padding: 30px;
+	padding: 10px;
 	
 	/*position: fixed;*/
 
@@ -145,7 +155,7 @@ body{
 .panel-log-reg{
 	position: absolute;
 	right: 0;
-	top: 30px;
+	top: 20px;
 	
 	margin: 15px;
 	flex-grow: 1;
@@ -283,10 +293,6 @@ body{
 	outline: none;
 	border-radius: 14px;
 }
-
-
-
-
 
 
 

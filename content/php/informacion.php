@@ -4,14 +4,14 @@
 <div class="card-group">
   <div class="card boxes-in">
     <!-- <img src="..." class="card-img-top" alt="...">-->
-    <div class="card-body">
+    <div class="card-body content-balance">
       <h5 class="card-title" >Balance</h5>
       <p class="card-text">
       	<?php include 'content/php/ingresos_query.php'; ?>
       </p>
     </div>
     <div class="card-footer">
-      <small class="text-muted"> <?php echo $state; ?></small>
+      <small class="text-muted state_balanc"> <?php echo $state; ?></small>
     </div>
   </div>
   <?php // para la carga de la información en id="info" está en ?>

@@ -42,6 +42,7 @@
 					<img src="./content/img/fondos/11.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
 					<img src="./content/img/fondos/12.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
 					<img src="./content/img/fondos/13.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
+					<img src="./content/img/fondos/14.gif" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
 				</div>
 				<div class="p-3">
 					<input type="file" name="loadimage">

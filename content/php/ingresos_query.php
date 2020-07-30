@@ -34,7 +34,7 @@
 	$diaActual = date('d');
 	$añoActual = date('Y');
 
-	if ($time_filter_balance === "5"){ //Último Mes + 1 semana 
+	if ($time_filter_balance === "5"){ // 2 meses
 		$month_before = $mesActual - 1; // Un mes antes
 		$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND DAY(fecha_gasto) > 0 AND MONTH(fecha_gasto) >= '$month_before' ");
 		$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND DAY(fecha_ingreso) > 0 AND MONTH(fecha_ingreso) >= '$month_before'");
@@ -56,7 +56,7 @@
 			
 			$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND DAY(fecha_gasto) > '$number_day_refer' AND MONTH(fecha_gasto) >=  '$month_before'");
 
-			$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND DAY(fecha_ingreso) >= '$case' AND MONTH(fecha_ingreso) >= '$month_before'");
+			$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND DAY(fecha_ingreso) >= '$number_day_refer' AND MONTH(fecha_ingreso) >= '$month_before'");
 
 		}
 		$state = "Actividad en las últimas 3 semanas";
@@ -74,7 +74,7 @@
 			
 			$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND DAY(fecha_gasto) > '$number_day_refer' AND MONTH(fecha_gasto) >=  '$month_before'");
 
-			$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND DAY(fecha_ingreso) >= '$case' AND MONTH(fecha_ingreso) >= '$month_before'");
+			$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND DAY(fecha_ingreso) >= '$number_day_refer' AND MONTH(fecha_ingreso) >= '$month_before'");
 		}
 		$state = "Actividad en las últimas 2 semanas";
 		
@@ -91,7 +91,7 @@
 			
 			$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND DAY(fecha_gasto) > '$number_day_refer' AND MONTH(fecha_gasto) >=  '$month_before'");
 
-			$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND DAY(fecha_ingreso) >= '$case' AND MONTH(fecha_ingreso) >= '$month_before'");
+			$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND DAY(fecha_ingreso) >= '$number_day_refer' AND MONTH(fecha_ingreso) >= '$month_before'");
 		}
 		$state = "Actividad en la última semana";
 	} else { //Tiempo personalizado por input data
@@ -126,10 +126,10 @@
 			}
 		}
 
-		echo "<span class='font-weight-bold'>Balance Actual</span>: $ ". $totali = $totalIngresosGeneral - $totalGastosGeneral;
+		echo "<span class='balactual'><span class='font-weight-bold'>Balance Actual</span>: $ ". $totali = $totalIngresosGeneral - $totalGastosGeneral . "</span>";
 		echo "<br><br><span class='font-weight-bold text-secondary font-italic'>Valores según filtro</span>";
-		echo "<br><br><span class='font-weight-bold font-italic'>Total Gastos</span>: $ {$totalGastos} <br>";
-		echo "<span class='font-weight-bold font-italic'>Total Ingresos</span>: $ ". $totalIngresos . "<br>";
-		echo "<span class='font-weight-bold font-italic'>Balance</span>: $ " .$total = $totalIngresos - $totalGastos;
+		echo "<br><br><span class='togasfil'><span class='font-weight-bold font-italic'>Total Gastos</span>: $ {$totalGastos} <br></span>";
+		echo "<span class='toinfil'><span class='font-weight-bold font-italic'>Total Ingresos</span>: $ ". $totalIngresos . "<br></span>";
+		echo "<span class='bafis'><span class='font-weight-bold font-italic'>Balance</span>: $ " .$total = $totalIngresos - $totalGastos . "</span>";
 	}
 ?>

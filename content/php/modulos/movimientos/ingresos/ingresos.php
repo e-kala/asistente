@@ -6,9 +6,9 @@
     $consultaIngresos = "SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario'";
     $resultadoIngresos = $conexion->query($consultaIngresos);
     
-
-
 ?>
+
+
 <div class="container">
     <div class="table-responsive">
         <table class="table table-striped">

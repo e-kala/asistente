@@ -16,6 +16,7 @@ body{
        <h2 class="mb-0 flex-grow-1 flexbg w-100">
          <button class="btn btn-link btn-block text-left font-weight-bold " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
            Información
+           
          </button>
        </h2>
        <img src="./content/img/íconos/info.png" class="ml-2" width="30px">

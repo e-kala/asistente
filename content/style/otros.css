@@ -1,3 +1,6 @@
+body{
+	position: relative;
+}
 #loadingg{
 	position: fixed;
 	left: 0;
@@ -111,23 +114,63 @@
 
 .flexbg{ flex-basis: 100%; flex-grow: 1;  }
 
+.panel_widgets{
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 6px;
+}
 
+.alignment_invisible_widgets{
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
 
 
 
 /*-----------------CALCULADORA-------------------------*/
 
 .container_calculadora{
+	position: relative;
 	background: #fff;
 	padding: 20px;
-	width: 400px; height: 400px;
-	position: fixed;
-	top: 0;
-	left: 0;
+	/*width: 600px;*/
+	/*height: 460px;*/
+	/*position: fixed;*/
+	user-select: none;
+	transition: ease all 0.1s;
+	transform: scale(0.8);
+	
 }
+.container_calculadora:hover{
+	transition: ease all 0.1s;
+}
+
+.contain_calender{
+	transition: ease all 0.1s;
+}
+.contain_calender:hover{
+	transition: ease all 0.1s;
+}
+.opt_hea_win_asi{
+	/*border-radius: 14px;*/
+	position: absolute;
+	top: -50px;
+	left: 0px;
+	z-index: 100;
+}
+
 
 /*----------------------------------------------------*/
 
+/*---------------------- Calendaro ----------------------*/
+
+
+/*--------------------------------------------------------*/
 
 
 

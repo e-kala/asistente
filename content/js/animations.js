@@ -30,13 +30,13 @@ const banplan = destiny => {
 	const img = document.createElement("img")
 	img.classList.add("banderpng")
 	img.setAttribute("src", "./content/img/bandermind.png")
-	img.setAttribute("width", "30%")
+	img.setAttribute("width", "20%")
 
 	img.style.position = "fixed"
 	img.style.margin = "auto"
 	img.style.opacity = "0.7"
-	img.style.right= "-5%"
-	img.style.bottom = "-30%"
+	img.style.right= "-10%"
+	img.style.bottom = "-15%"
 	img.style.zIndex = "-3"
 	img.ondragstart = () => false;
 
@@ -49,7 +49,6 @@ const banplan = destiny => {
 	destiny.appendChild(img)
 
 }
-
 
 const edifi = destiny => {
 	destiny = document.querySelector(destiny)
