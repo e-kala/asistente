@@ -1,19 +1,13 @@
 body{
 	position: relative;
-	/*background: url(../img/bg4.gif);
+	background: url(../img/bg6.gif);
 	background-size: cover;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	background-position: center center;*/
+	background-position: left 0% bottom 300%;
+	background-color: #070f3c;
 }
-.divbgmain{
-	min-height: 100vh;
-	background: url(../img/bg4.gif);
-	background-size: cover;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-position: center center;
-}
+
 .header_inicio{
 	position: relative;
 	/*background: white;*/
@@ -269,12 +263,12 @@ body{
 	/*border: 1px solid #2D303C;*/
 	/*border: 3px solid #808080;*/
 	/*background: rgb(41,54,108,0.80);*/
-	background: rgb(0,0,0,0.20);
+	/*background: rgb(0,0,0,0.20);*/
 
 	/*background-color: #1E172B;*/
 	min-height: 97vh;
 
-	margin: 20px;
+	margin: 20px;	
 	/*padding: 20px;*/
 }
 .containeraside{

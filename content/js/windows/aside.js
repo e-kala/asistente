@@ -381,13 +381,30 @@ const calender = () => {
 		let mes = dat_whole.getMonth() + 1;
 		let year = dat_whole.getFullYear();
 		let getnumberdays = new Date(year, mes, 0)
+		let getdaynuntoday = dat_whole.toString().match(/\b\w+\s+\w+/gim)[1].split(" ")[0]
+
 		getnumberdays = getnumberdays.toString().match(/\b\w+\s+\w+/gim)[1].split(" ")[0]
-		
+
 		let meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 		let diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
-	
+
 		let almadaysnames = [];
-		let y = dat_whole.getDay() - 1
+		let fdm = new Date(year, dat_whole.getMonth(), 6)
+		fdm = fdm.toString()
+		let y = 0;
+		if (fdm.match(/Wed/gim)){
+			y = 3 //Miercoels
+		} else if (fdm.match(/Thu/gim)){
+			y = 4 //Jueves
+		} else if (fdm.match(/Fri/gim)){
+			y = 5 //Viernes
+		} else if (fdm.match(/Sat/gim)){
+			y = 6 //Sábado
+		} else if (fdm.match(/Sun/gim)){
+			y = 1 //Domingo
+		} else if (fdm.match(/Mon/gim)){
+			y = 2 //Lunes
+		}
 		let countSeven = 0
 		for (let x = 0; x < getnumberdays; x++){
 			y += 1
@@ -396,12 +413,18 @@ const calender = () => {
 				y = -1
 				y += 1
 			}
-			if (countSeven < 8) almadaysnames.push(diasSemana[y])
+			
+			if (countSeven < 8) {
+				console.log(diasSemana[y])
+				almadaysnames.push(diasSemana[y])
+			}
 		}
+
 	
 		return {
 			diaNombre : diasSemana[dat_whole.getDay()],
 			diaNumberHoy : dat_whole.getDay(),
+			diaNumberRealHoy : getdaynuntoday,
 			mesNombre : meses[dat_whole.getMonth()],
 			year: dat_whole.getFullYear(),
 			mesNumero : mes,
@@ -411,7 +434,6 @@ const calender = () => {
 	}
 
 	let time = get_whole_days_this_month()
-
 
 	if (openedcalender){
 		let contacal;
@@ -554,8 +576,8 @@ const calender = () => {
 				})
 			}
 
-			if ((x+1) == (time.allDays - time.diaNumberHoy + 1)){	
-				day_nun.style.border = "2px solid red"
+			if ((x+1) == time.diaNumberRealHoy){	
+				day_nun.style.border = "2px solid red" 
 			}
 			day_nun.className = "hoverdaynuncalender p-2 text-center d-flex flex-column  text-dark font-weight-bold "
 			if (x <= 6){

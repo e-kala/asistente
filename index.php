@@ -12,7 +12,6 @@
       
    </head>
    <body>
-
       <div class="contain">
          <?php  
             if (isset($_SESSION['login'])) {
@@ -105,7 +104,6 @@
             <?php include 'content/php/footer.php'; ?>
 
       </div>
-      
    </body>
 </html>
 

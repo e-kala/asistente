@@ -62,6 +62,7 @@ const dark = () => {
       modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow text-dark";
     }
 
+
     if (bguserconfigchange !== undefined && bguserconfigchange !== null){
       bguserconfigchange.className = "card bguserconfigchange darkinit text-light"
     }
@@ -109,9 +110,6 @@ const light = () => {
 
     registrosgasin.className = "p-4 m-4 tered registrosgasin lightinit text-dark cotxtdark"
 }
-
-
-
 
 // Iniciar configuración de la sesión
 

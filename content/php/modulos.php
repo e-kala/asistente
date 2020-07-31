@@ -1,16 +1,27 @@
 <!--módulos-->
 <style type="text/css">
-.bg-blue{
+  .bg-blue{
 
-/*background-color: #f2f2f2;*/
-}
-body{
-  background: white;
-}
+  /*background-color: #f2f2f2;*/
+  }
+  body{
+    background: white;
+  }
 </style>
 
- <div class="accordion modulos w-100" style="display: none; margin-top: 23px;" id="accordionExample">
+ <div class="accordion modulos m-2" style="display: none;" id="accordionExample">
   <!--información in-->
+  <script type="text/javascript">
+    if (window.screen.width >= 800){
+      const modulos = document.getElementsByClassName("modulos")[0]
+
+      if(modulos[0] !== undefined){
+        // modulos[0].style.width = "80%"
+        modulos[0].className = "accordion pl-4 pb-4 modulos"
+      }
+      // alert("")
+    }
+  </script>
    <div class="card bg-blue modsco">
      <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingOne">
        <h2 class="mb-0 flex-grow-1 flexbg w-100">
@@ -22,7 +33,7 @@ body{
        <img src="./content/img/íconos/info.png" class="ml-2" width="30px">
      </div>
 
-       <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+       <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" >
           <div class="card-body">
             <?php include 'content/php/informacion.php'; ?>
              
@@ -35,14 +46,14 @@ body{
    <div class="card bg-blue modsco">
      <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingTwo">
        <h2 class="mb-0 flex-grow-1 flexbg w-100">
-         <button class="btn btn-link btn-block text-left collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+         <button class="btn btn-link btn-block text-left collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
            Movimientos
          </button>
        </h2>
        <img src="./content/img/íconos/configur.png" class="ml-2" width="30px">
      </div>
 
-     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+     <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" >
        <div class="card-body" align="center">
         <!-- opciones-->
        <div class="row p-4 d-flex justify-content-between" align="center">
@@ -158,7 +169,7 @@ body{
        </h2>
        <img src="./content/img/íconos/configur.png" class="ml-2" width="30px">
      </div>
-     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" >
        <div class="card-body">
          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
        </div>

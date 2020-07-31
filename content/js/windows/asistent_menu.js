@@ -4,7 +4,6 @@ if (menu_btn !== null) menu_btn.classList.add("menu_btn");
 
 let alma_config; //Almacena configuración cuando el último script se cargue para ser usada aquí en este archivo
 
-
 div_men = document.createElement("div")
 div_men.classList.add("menu_container")
 div_men.style.display = "none"
