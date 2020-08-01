@@ -24,6 +24,7 @@
     <script type="text/javascript" src="./content/js/windows/aside.js"></script>
     <script type="text/javascript">
         let usuariop = ""
+       
         function getDevicePixelRatio() {
             var mediaQuery;
             var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;

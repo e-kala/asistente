@@ -126,10 +126,10 @@
 			}
 		}
 
-		echo "<span class='balactual'><span class='font-weight-bold'>Balance Actual</span>: $ ". $totali = $totalIngresosGeneral - $totalGastosGeneral . "</span>";
+		echo "<span class='balactual'><span class='font-weight-bold'>Balance Actual</span>: <span class='balactual_co' value='".$totali = $totalIngresosGeneral - $totalGastosGeneral."'>$ ". $totali = $totalIngresosGeneral - $totalGastosGeneral . "</span></span>";
 		echo "<br><br><span class='font-weight-bold text-secondary font-italic'>Valores según filtro</span>";
-		echo "<br><br><span class='togasfil'><span class='font-weight-bold font-italic'>Total Gastos</span>: $ {$totalGastos} <br></span>";
-		echo "<span class='toinfil'><span class='font-weight-bold font-italic'>Total Ingresos</span>: $ ". $totalIngresos . "<br></span>";
-		echo "<span class='bafis'><span class='font-weight-bold font-italic'>Balance</span>: $ " .$total = $totalIngresos - $totalGastos . "</span>";
+		echo "<br><br><span class='togasfil'><span class='font-weight-bold font-italic'>Total Gastos</span>: <span class='togasinitfil' value='{$totalGastos}'>$ {$totalGastos} </span><br></span>";
+		echo "<span class='toinfil'><span class='font-weight-bold font-italic'>Total Ingresos</span>: <span class='toingresinitfil' value='{$totalIngresos}'>$ ". $totalIngresos . "</span><br></span>";
+		echo "<span class='bafis'><span class='font-weight-bold font-italic'>Balance</span>: <span class='balancefiltro' value='".$total = $totalIngresos - $totalGastos."'>$ " .$total = $totalIngresos - $totalGastos . "</span></span>";
 	}
 ?>

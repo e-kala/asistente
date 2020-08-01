@@ -3,13 +3,27 @@ let openedcalender = false
 let openedconversor = false
 let calcumoving = false
 let calenmoving = false
+let conversormoving = false
 let calcuresizemoving = false
 
-
 const maction_window = (state) =>{
+	window.onpointerup = () => {
+		let calendario = document.getElementsByClassName("contain_calender")[0]
+		let calculadora = document.getElementsByClassName("container_calculadora")[0]
+		let conversor = document.getElementsByClassName("container_conversor")[0]
+		if (calendario !== undefined) calendario.style.zIndex = "0"
+		if (calculadora !== undefined) calculadora.style.zIndex = "0"
+		if (conversor !== undefined) conversor.style.zIndex = "0"
+		if (document.getElementsByClassName("alignment_invisible_widgets")[0] !== undefined){
+			if (document.getElementsByClassName("alignment_invisible_widgets")[0].children.length === 0){
+				document.getElementsByClassName("alignment_invisible_widgets")[0].remove()
+			}
+		}
+	}
 	window.onclick = () => {
 		calcumoving = false
 		calenmoving = false
+		conversormoving = false
 		calcuresizemoving = false
 		if (document.getElementsByClassName("_general_conten_cals")[0] !== undefined){
 			if (document.getElementsByClassName("_general_conten_cals")[0].children.length === 0){
@@ -17,40 +31,128 @@ const maction_window = (state) =>{
 			}
 		}
 
-		if (document.getElementsByClassName("contain_calender")[0] === undefined && document.getElementsByClassName("container_calculadora")[0] === undefined){
-			document.getElementsByClassName("btn_reposition")[0].style.opacity = "0"
+		let calendario = document.getElementsByClassName("contain_calender")[0]
+		let calculadora = document.getElementsByClassName("container_calculadora")[0]
+		let conversor = document.getElementsByClassName("container_conversor")[0]
+		let btn_reposition = document.getElementsByClassName("btn_reposition")[0]
+		if (calendario === undefined && 
+			calculadora === undefined && conversor === undefined){
+			btn_reposition.style.opacity = "0"
 			setTimeout(()=>{
-				document.getElementsByClassName("btn_reposition")[0].style.display = "none"
+				btn_reposition.style.display = "none"
 			},430)
-			document.getElementsByClassName("btn_reposition")[0].animate([{
+			btn_reposition.animate([{
 				opacity:1
 			},{
 				opacity:0
 			}],{duration:400, iterations:1})
-		}
-		if(document.getElementsByClassName("container_calculadora")[0] === undefined){
-			if (document.getElementsByClassName("contain_calender")[0] !== undefined){
-				document.getElementsByClassName("contain_calender")[0].style.marginRight = "30px"
-				document.getElementsByClassName("contain_calender")[0].style.marginLeft = "30px"
+			if (document.getElementsByClassName("alignment_invisible_widgets")[0] !== undefined){	
+				document.getElementsByClassName("alignment_invisible_widgets")[0].style.display = "none"
+				document.getElementsByClassName("alignment_invisible_widgets")[0].remove()
 			}
 		}
+
+		if(calculadora === undefined){
+			if (calendario !== undefined){
+				calendario.style.marginRight = "30px"
+				calendario.style.marginLeft = "30px"
+			}
+		} 
+
+		if(calendario === undefined && calcumoving){
+			if (calculadora !== undefined){
+				if (conversor !== undefined){
+					conversor.style.marginRight = "30px"
+					conversor.style.marginLeft = "30px"
+				}
+			}
+		} 
+
+		if (calendario === undefined && calculadora === undefined){
+			if (conversor !== undefined){
+				conversor.style.marginRight = "30px"
+				conversor.style.marginLeft = "30px"
+			}
+		}
+
+		if (calenmoving) {
+			calendario.style.zIndex = "20"
+			if (calculadora !== undefined) calculadora.style.zIndex = "0"
+			if (conversor !== undefined) conversor.style.zIndex = "0"
+		}
+		if (calcumoving) {
+			calculadora.style.zIndex = "20"
+			if (calendario !== undefined) calendario.style.zIndex = "0"
+			if (conversor !== undefined) conversor.style.zIndex = "0"
+		}
+		if (conversormoving) {
+			conversor.style.zIndex = "20"
+			if (calculadora !== undefined) calculadora.style.zIndex = "0"
+			if (calendario !== undefined) calendario.style.zIndex = "0"
+		}
 	}
+
 	window.onpointerdown = e =>{
-		if (document.getElementsByClassName("container_calculadora")[0] !== undefined){
+		let calculadora = document.getElementsByClassName("container_calculadora")[0]
+		let calendario = document.getElementsByClassName("contain_calender")[0]
+		let conversor = document.getElementsByClassName("container_conversor")[0]
+
+		if (calculadora !== undefined){
 			if(calcumoving){
-				if (document.getElementsByClassName("contain_calender")[0] !== undefined){
-					document.getElementsByClassName("contain_calender")[0].style.marginRight = "30px"
-					document.getElementsByClassName("contain_calender")[0].style.marginLeft = "30px"
+				if (calendario !== undefined){
+					calendario.style.marginRight = "30px"
+					calendario.style.marginLeft = "30px"
+				}
+			} 
+
+			if(calcumoving && calendario === undefined){
+				if (conversor !== undefined){
+					conversor.style.marginRight = "30px"
+					conversor.style.marginLeft = "30px"
+				}
+			} 
+		}
+		if (calenmoving && calculadora === undefined){
+			if (calendario !== undefined){
+				if (conversor !== undefined){
+					conversor.style.marginRight = "30px"
+					conversor.style.marginLeft = "30px"
+				}
+			}
+		}
+
+
+		if (calendario !== undefined){
+			if(calenmoving){
+				if (conversor !== undefined){
+					conversor.style.marginRight = "30px"
+					conversor.style.marginLeft = "30px"
+				}
+			}
+		}
+		if (calendario === undefined){
+			if(calcumoving){
+				if (conversor !== undefined){
+					conversor.style.marginRight = "30px"
+					conversor.style.marginLeft = "30px"
 				}
 			} 
 		}
 	}
+
 	window.onpointermove = e =>{
 		let pixrad = getDevicePixelRatio()
 		//Pendiente PENDIENTE segun el pixelradio configurar el cursor cuando se expande o disminuye la escala de un widget de momento la calculadora
-		let calculadora =document.getElementsByClassName("container_calculadora")[0]
+		let calculadora = document.getElementsByClassName("container_calculadora")[0]
+		let conversor = document.getElementsByClassName("container_conversor")[0]
+		let calendario = document.getElementsByClassName("contain_calender")[0]
+
 		if (calcumoving){
-			if (calculadora !== undefined) calculadora.style.zIndex= "20"
+			document.body.appendChild(calculadora)
+			calculadora.style.zIndex= "20"
+			if (calendario !== undefined) calendario.style.zIndex= "0"
+			if (conversor !== undefined) conversor.style.zIndex= "0"
+
 			if (document.getElementsByClassName("contain_calender")[0] !== undefined) document.getElementsByClassName("contain_calender")[0].style.zIndex = "0"
 			
 			calculadora.style.position = "fixed"
@@ -89,16 +191,28 @@ const maction_window = (state) =>{
 				calculadora.style.left = Math.round(e.clientX - 85) + "px"
 				calculadora.style.top = Math.round(e.clientY - 40) + "px"	
 			}
-		} else if (calenmoving){
+		} else if (calenmoving){ //Moving calculator
+			document.body.appendChild(calendario)
+			calendario.style.position = "fixed"
+			calendario.style.zIndex = "20"
 			if (calculadora !== undefined) calculadora.style.zIndex= "0"
-			document.getElementsByClassName("contain_calender")[0].style.position = "fixed"
+			if (conversor !== undefined) conversor.style.zIndex= "0"
 
-			if (document.getElementsByClassName("contain_calender")[0] !== undefined) document.getElementsByClassName("contain_calender")[0].style.zIndex = "20"
 			
-			document.getElementsByClassName("contain_calender")[0].style.left = Math.round(e.clientX - 350) + "px"
-			document.getElementsByClassName("contain_calender")[0].style.top = Math.round(e.clientY - 30) + "px"
+			calendario.style.left = Math.round(e.clientX - 385) + "px"
+			calendario.style.top = Math.round(e.clientY - 30) + "px"
+		} else if (conversormoving){ //Moving conversor
+			document.body.appendChild(conversor)
+			conversor.style.position = "fixed"
+			conversor.style.zIndex = "20"
+			if (calculadora !== undefined) calculadora.style.zIndex= "0"
+			if (calendario !== undefined) calendario.style.zIndex= "0"
+
+			
+			conversor.style.left = Math.round(e.clientX - 385) + "px"
+			conversor.style.top = Math.round(e.clientY - 30) + "px"
 		}
-		if (calcuresizemoving){
+		if (calcuresizemoving){ //Resize calculator
 			if ((e.clientX / 100 * 0.1).toFixed(1) >= 0.4 && (e.clientX / 100 * 0.1).toFixed(1) <= 1.3){
 				if (e.clientX / 1000 * 0.0001 <= 5){
 					calculadora.style.transform = `scale(${(e.clientX / 100 * 0.1).toFixed(1)})`
@@ -110,7 +224,6 @@ const maction_window = (state) =>{
 		}
 	}
 }
-
 
 const calculator = () => {
 	const calc = (contacal, ide, contacprimge) => {
@@ -284,11 +397,17 @@ const calculator = () => {
 		contacal.style.height = "520px"
 		contacal.style.zIndex = "30"
 		contacal.style.borderRadius = "15px"
+		contacal.style.boxShadow = "2px 2px 10px rgb(0,0,0,0.50)"
 		contacal.animate([{
 			opacity:0
 		},{
 			opacity:1
 		}],{duration:400, iterations:1})
+
+		contacal.onclick = () => {
+			if (document.getElementsByClassName("contain_calender")[0] !== undefined) document.getElementsByClassName("contain_calender")[0].style.zIndex = "0"
+				contacal.style.zIndex = "20"
+		}
 
 		_general_conten_cals.className = "d-flex flex-wrap flex-grow-1 justify-content-center _general_conten_cals"
 		_general_conten_cals.style.overflow = "auto"
@@ -405,7 +524,7 @@ const calender = () => {
 		} else if (fdm.match(/Mon/gim)){
 			y = 2 //Lunes
 		}
-		let countSeven = 0
+		let countSeven = 0 // Contar primera semana de referencia el orden de dias
 		for (let x = 0; x < getnumberdays; x++){
 			y += 1
 			countSeven += 1
@@ -413,9 +532,7 @@ const calender = () => {
 				y = -1
 				y += 1
 			}
-			
 			if (countSeven < 8) {
-				console.log(diasSemana[y])
 				almadaysnames.push(diasSemana[y])
 			}
 		}
@@ -423,7 +540,6 @@ const calender = () => {
 	
 		return {
 			diaNombre : diasSemana[dat_whole.getDay()],
-			diaNumberHoy : dat_whole.getDay(),
 			diaNumberRealHoy : getdaynuntoday,
 			mesNombre : meses[dat_whole.getMonth()],
 			year: dat_whole.getFullYear(),
@@ -436,8 +552,7 @@ const calender = () => {
 	let time = get_whole_days_this_month()
 
 	if (openedcalender){
-		let contacal;
-		contacal = document.createElement("div")
+		let contacal = document.createElement("div")
 		contacal.className = "contain_calender"
 		contacal.style.background = "rgb(255,255,255,0.80)"
 		contacal.style.position = "fixed"
@@ -466,6 +581,11 @@ const calender = () => {
 		},{
 			opacity:1
 		}],{duration:400, iterations:1})
+
+		contacal.onclick = () => {
+			if (document.getElementsByClassName("container_calculadora")[0] !== undefined) document.getElementsByClassName("container_calculadora")[0].style.zIndex = "0"
+				contacal.style.zIndex = "20"
+		}
 
 
 		const header_icons = document.createElement("div")
@@ -637,9 +757,160 @@ const calender = () => {
 		body.appendChild(days_semana_div_nombres)
 		body.appendChild(dias_numeros)
 		contacal.appendChild(footer)
-
 		return contacal
+	}
+}
+
+
+
+//Funcion del conversor
+let monedaBase = "Dólar USA"
+let monedaDeConversion = "Euro"
+const cotasaproresult = () => {
+	let numConverTasa = document.getElementById("montotoChange")
+	alert(numConverTasa.value)
+	alert(monedaBase)
+	alert(monedaDeConversion)
+}
+//Seleccion de Moneda Base
+const select_init_moneda = (e) => monedaBase = e.options[e.selectedIndex].text // De
+const select_moneda_conver = (e) => monedaDeConversion = e.options[e.selectedIndex].text // A
+
+const conversor = () => {
+	if (openedconversor) {
+		let contacal = document.createElement("div")
+		contacal.className = "container_conversor"
+		contacal.style.background = "rgb(255,255,255,0.80)"
+		contacal.style.position = "fixed"
+
+		if (window.screen.width >= 500){
+			contacal.style.bottom = "0px"
+			contacal.style.right = "0"
+			contacal.style.marginRight = "30px"
+			contacal.style.marginBottom = "30px"
+			contacal.style.width = "450px"
+		} else {
+			contacal.style.bottom = "0"
+			contacal.style.right = "0"
+			contacal.style.left = "0"
+			contacal.style.top ="0"
+			contacal.style.margin = "auto"
+			contacal.style.width = "400px"
+		}
+
+		contacal.style.height = "450px"
+		// contacal.style.overflow = "auto"
+		contacal.style.zIndex = "30"
+		contacal.style.borderRadius = "15px"
+		contacal.style.boxShadow = "2px 2px 10px rgb(0,0,0,0.50)"
+		contacal.animate([{
+			opacity:0
+		},{
+			opacity:1
+		}],{duration:400, iterations:1})
+
+		contacal.onclick = () => {
+			if (document.getElementsByClassName("container_conversor")[0] !== undefined) document.getElementsByClassName("container_conversor")[0].style.zIndex = "0"
+				contacal.style.zIndex = "20"
+		}
+
+		const header_icons = document.createElement("div")
+		header_icons.innerHTML = "<h4 class='ml-2 text-light font-weight-bold'>Conversor de tasas</h4>"
+		contacal.appendChild(header_icons)
+		header_icons.className = "bg-warning p-2 d-flex align-items-center align-content-center justify-content-between"
+		const menicons = document.createElement("div")
+		header_icons.appendChild(menicons)
+
+		const move = document.createElement("img") // Mover
+		move.setAttribute("src", "./content/img/íconos/move.png")
+		move.setAttribute("width", "90px")
+		move.ondragstart = () => false
+		move.style.userSelect = "none"
+		move.setAttribute("height", "40px")
+		move.style.cursor = "pointer"
+		move.className = "btn-transparent text-light font-weight-bold btn move_conversor"
+		move.style.fontSize = "150%"
+		move.innerHTML = "Mover"
+		move.onpointerdown = () => {
+			conversormoving = true
+		}
+		move.onpointerup = () => conversormoving = false
+		menicons.appendChild(move)
+		maction_window("calender")
+
+		const cerrar_general = document.createElement("img") //Cerrar todas
+		cerrar_general.setAttribute("src","./content/img/íconos/close.png")
+		cerrar_general.setAttribute("width", "40px")
+		cerrar_general.setAttribute("height", "40px")
+		cerrar_general.style.cursor = "pointer"
+		cerrar_general.style.userSelect = "none"
+		cerrar_general.ondragstart = () => false
+		cerrar_general.style.fontSize = "150%"
+		menicons.appendChild(cerrar_general)
+		cerrar_general.onclick = () => {
+			if (document.getElementsByClassName("container_conversor")[0] !== undefined && document.getElementsByClassName("container_conversor")[0] !== null){
+				openedconversor = false
+				document.getElementsByClassName("container_conversor")[0].remove()
+			}
+			
+		}
+
+		const body = document.createElement("div")
+		body.className ="p-3"
+		const form = document.createElement("form")
+		form.className = "p-1"
+		form.onsubmit = e => e.preventDefault()
+		form.innerHTML = `
+			<div class="d-flex flex-column">
+				<label><h4>Introduzca el monto a calcular</h4></label>
+				<input type="number" value ="1" id="montotoChange" class="p-2"/>
+				<label><h4 class="mt-1">Unidad monetaria</h4></label>
+				<select onclick="select_init_moneda(this)" class="flexgrow menreg p-2">
+					<option>Bolívar</option>
+		            <option>Boliviano</option>
+					<option>Dólar Australiano</option>
+					<option>Dólar Canadiense</option>
+					<option selected>Dólar USA</option>
+					<option>Euro</option>
+					<option>Libra Esterlina</option>
+		            <option>Peso Argentino</option>
+		            <option>Peso Chileno</option>
+		            <option>Peso Mexicano</option>
+		            <option>Peso Colombiano</option>
+		            <option>Peso Cubano</option>
+		            <option>Real</option>
+		            <option>Sol</option>
+		        </select>
+		        <label><h4 class="mt-1">Moneda de conversión</h4></label>
+		        <select  onclick="select_moneda_conver(this)" class="flexgrow menreg p-2">
+					<option>Bolívar</option>
+		            <option>Boliviano</option>
+					<option>Dólar Australiano</option>
+					<option>Dólar Canadiense</option>
+					<option>Dólar USA</option>
+					<option selected>Euro</option>
+					<option>Libra Esterlina</option>
+		            <option>Peso Argentino</option>
+		            <option>Peso Chileno</option>
+		            <option>Peso Mexicano</option>
+		            <option>Peso Colombiano</option>
+		            <option>Peso Cubano</option>
+		            <option>Real</option>
+		            <option>Sol</option>
+		        </select>
+		        <div class="mt-4 d-flex align-items-center align-content-center justify-content-center">
+		        	<button class="p-2 mr-2 btn btn-success flex-grow-1" id="cotasaproresultp" onclick="cotasaproresult()">Calcular</button>
+		        	<input type="text" value="0" id="result_conversion_tasa"  class="p-2"/>
+		        </div>
+			</div>
+
+		`
+
 		
+		body.appendChild(form)
+
+		contacal.appendChild(body)
+		return contacal;
 	}
 }
 
@@ -744,6 +1015,15 @@ const Aside = (username) => {
 	boton_conversor.className = "btnmenaside p-1 m-2  mt-0 btn btn-light"
 	boton_conversor.ondragstart = () => false
 	boton_conversor.style.userSelect = "none"
+	boton_conversor.onclick = () => {
+		if (!openedconversor){
+			openedconversor = true
+			if (document.getElementsByClassName("btn_reposition")[0].style.opacity == "0") document.getElementsByClassName("btn_reposition")[0].animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+			document.getElementsByClassName("btn_reposition")[0].style.display = "block"
+			document.getElementsByClassName("btn_reposition")[0].style.opacity = "1"
+			document.body.appendChild(conversor())
+		}
+	}
 
 	const btnhover = btn => {
 		btn.onpointerover = () => {
@@ -776,11 +1056,15 @@ const Aside = (username) => {
 	panel_widgets.appendChild(btn_reposition)
 
 	const alignment_invisible_widgets = document.createElement("div")
-	alignment_invisible_widgets.className = "alignment_invisible_widgets d-flex flex-wrap align-content-center align-content-center justify-content-center pt-4"
+	alignment_invisible_widgets.className = "alignment_invisible_widgets d-flex pt-4"
+	alignment_invisible_widgets.style.display = "none"
+	// alignment_invisible_widgets.style.background = "rgb(0,0,0,0.50)"
+	alignment_invisible_widgets.style.borderTop = "4px solid #fff"
+	// alignment_invisible_widgets.style.borderBottom = "4px solid #fff"
 	
-	alignment_invisible_widgets.style.background = "rgb(0,0,0,0.50)"
-	document.body.appendChild(alignment_invisible_widgets)
 	btn_reposition.onclick = () =>{
+		document.body.appendChild(alignment_invisible_widgets)
+		alignment_invisible_widgets.style.display = "flex"
 		alignment_invisible_widgets.animate([{
 			opacity:0
 		},{
@@ -798,6 +1082,7 @@ const Aside = (username) => {
 			document.getElementsByClassName("container_calculadora")[0].style.transform = ""
 			document.getElementsByClassName("container_calculadora")[0].style.margin = ""
 		}
+
 		if (document.getElementsByClassName("contain_calender")[0] !== undefined && document.getElementsByClassName("contain_calender")[0] !== null){
 			alignment_invisible_widgets.appendChild(document.getElementsByClassName("contain_calender")[0])
 			document.getElementsByClassName("contain_calender")[0].style.position = ""
@@ -812,6 +1097,44 @@ const Aside = (username) => {
 				document.getElementsByClassName("contain_calender")[0].style.marginRight = "30px"
 			}
 			document.getElementsByClassName("contain_calender")[0].style.marginTop = "10px"
+		}
+
+		if (document.getElementsByClassName("container_conversor")[0] !== undefined && document.getElementsByClassName("container_conversor")[0] !== null){
+			alignment_invisible_widgets.appendChild(document.getElementsByClassName("container_conversor")[0])
+			document.getElementsByClassName("container_conversor")[0].style.position = ""
+			document.getElementsByClassName("container_conversor")[0].style.left = ""
+			document.getElementsByClassName("container_conversor")[0].style.top= ""
+			document.getElementsByClassName("container_conversor")[0].style.transform = ""
+			if(document.getElementsByClassName("contain_calender")[0] === undefined){
+				document.getElementsByClassName("container_conversor")[0].style.marginRight = "30px"
+				document.getElementsByClassName("container_conversor")[0].style.marginLeft = "30px"
+			} else{
+				// document.getElementsByClassName("container_conversor")[0].style.marginLeft = ""
+				// document.getElementsByClassName("container_conversor")[0].style.marginRight = "30px"
+				document.getElementsByClassName("container_conversor")[0].style.marginLeft = ""
+			}
+			document.getElementsByClassName("container_conversor")[0].style.marginTop = "10px"
+		
+		}
+		if (document.getElementsByClassName("contain_calender")[0] !== undefined && calenmoving === false){
+			if (document.getElementsByClassName("container_conversor")[0] !== undefined){
+				document.getElementsByClassName("container_conversor")[0].style.marginRight = "30px"
+				document.getElementsByClassName("container_conversor")[0].style.marginLeft = ""
+			}
+		}
+
+		if (calenmoving){
+			if (document.getElementsByClassName("container_conversor")[0] !== undefined){
+				document.getElementsByClassName("container_conversor")[0].style.marginRight = "30px"
+				document.getElementsByClassName("container_conversor")[0].style.marginLeft = "30px"
+			}
+		}
+
+		if(document.getElementsByClassName("contain_calender")[0] === undefined && document.getElementsByClassName("container_calculadora")[0] !== undefined){	
+			if (document.getElementsByClassName("container_conversor")[0] !== undefined){
+				document.getElementsByClassName("container_conversor")[0].style.marginRight = "30px"
+				document.getElementsByClassName("container_conversor")[0].style.marginLeft = ""
+			}
 		}
 	}
 
@@ -835,5 +1158,4 @@ const Aside = (username) => {
 	if (document.getElementsByClassName("containhome")[0] !== undefined){
 		document.getElementsByClassName("containhome")[0].appendChild(contacal)
 	}
-
 }

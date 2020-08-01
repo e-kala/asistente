@@ -111,6 +111,27 @@ const light = () => {
     registrosgasin.className = "p-4 m-4 tered registrosgasin lightinit text-dark cotxtdark"
 }
 
+
+const colorear_balances = () => {
+  let balactualco = document.getElementsByClassName("balactual_co")[0]
+  let totalgastosfiltro = document.getElementsByClassName("togasinitfil")[0]
+  let totalIngresFiltro = document.getElementsByClassName("toingresinitfil")[0]
+  let balancefiltro = document.getElementsByClassName("balancefiltro")[0]
+  const apply_color_balance = obj =>{
+    obj.style.fontWeight = "bold"
+    if (obj.getAttribute("value").match(/\-/gim)){
+      obj.style.color = "red"
+    } else {
+      obj.style.color = "#50d53a"
+    }
+  }
+  apply_color_balance(balactualco)
+  apply_color_balance(totalgastosfiltro)
+  apply_color_balance(totalIngresFiltro)
+  apply_color_balance(balancefiltro)
+}
+colorear_balances()
+
 // Iniciar configuración de la sesión
 
 //hacer un innerHTML y probar insertando php para aplicar modo dar lyght en modo embebido
