@@ -72,7 +72,7 @@ body{
 
               <!-- Boton de Gasto In -->
                <div class="btn-group dropdown">
-                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalGasto">
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#gastoModal" id="modalGasto">
                     Gasto
                   </button>
                   <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

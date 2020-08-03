@@ -25,12 +25,11 @@ $(function(){
 
 $(function(){
     $("#modalGasto").click(function(){
-        console.log("ok");
 
         $("#cuentaGasto").load("content/php/modulos/cuentas/consultar_cuentas.php", function(data){
-            console.log(data);
+//            console.log(data);
             let conversion = JSON.parse(data);
-            console.log(conversion);
+  //          console.log(conversion);
             $.each(conversion, function (i, val) {
                 if(i==0){
                     $("#cuentaGasto").append("<option selected>"+val+"</option>");
@@ -44,4 +43,41 @@ $(function(){
         });
     });
     
+});
+
+
+$(function(){
+    console.log("ok");
+    $(".aCuentaTransferencia").load("content/php/modulos/cuentas/consultar_cuentas.php", function(data){
+        
+        //console.log(data);
+        
+        let conversion = JSON.parse(data);
+        
+        //console.log(conversion);
+        
+        $.each(conversion, function (i, val) {
+            if(i==0){
+               // $(".deCuentaTransferencia").append("<option selected>Selecciona una cuenta</option>");
+                $(".deCuentaTransferencia").append("<option>"+val+"</option>");
+
+            }else{
+                $(".deCuentaTransferencia").append("<option>"+val+"</option>");
+            }
+            //console.log(val);
+            
+        });
+
+        $.each(conversion, function (i, val) {
+            if(i==0){
+                $(".aCuentaTransferencia").append("<option selected>Selecciona una cuenta</option>");
+                $(".aCuentaTransferencia").append("<option>"+val+"</option>");
+
+            }else{
+                $(".aCuentaTransferencia").append("<option>"+val+"</option>");
+            }
+            //console.log(val);
+            
+        });
+    });
 });

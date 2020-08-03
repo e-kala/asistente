@@ -1,6 +1,6 @@
 
 <!-- Modal Gasto-->
-<div class="modal fade text-light" id="modalGasto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade text-light" id="gastoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content bg-dark">
       <div class="modal-header">
@@ -19,7 +19,7 @@
               </div>
               <div class="form-group col-md-6">
                   <label for="inputState">Cuenta</label>
-                  <select id="cuentaGasto" class="form-control" name="cuenta">
+                  <select id="cuentaGasto" class="form-control" name="cuentaGasto">
                   </select>
               </div>
             </div>

@@ -2,11 +2,11 @@
 $(function(){
     $('#subirGasto').click(function(){
         cantidadGasto=$('#cantidadGasto').val();
-        cuenta=$('#cuenta').val();
+        cuenta=$('#cuentaGasto').val();
         categoriaGasto=$('#categoriaGasto').val();
         descripcionGasto=$('#descripcionGasto').val();
         fecha=$('.fecha').val();
-        console.log(cantidadGasto +cuenta+ categoriaGasto + descripcionGasto + fecha);
+        console.log(cantidadGasto + cuenta + categoriaGasto + descripcionGasto + fecha);
         agregarDatosGasto(cantidadGasto,cuenta,categoriaGasto,descripcionGasto,fecha);
 
     });

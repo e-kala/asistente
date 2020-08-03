@@ -12,7 +12,7 @@
         while ($fila_cuentas = $resultado_cuentas->fetch_object()) {
             //echo $fila_cuentas->nombre_cuenta;
           $array[] = $fila_cuentas->nombre_cuenta;
-            ;
+            
         }
         echo json_encode($array);
     }else{
