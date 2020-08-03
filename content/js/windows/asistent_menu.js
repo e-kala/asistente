@@ -14,6 +14,7 @@ boxes_in = document.getElementsByClassName("boxes-in")
 registrosgasin = document.getElementsByClassName("registrosgasin")
 colorchangetxt = document.getElementsByClassName("colorchangetxt")
 bguserconfigchange = document.getElementsByClassName("bguserconfigchange")[0]
+containeringasedi = document.getElementsByClassName("containeringasedi")[0] //Make accounts, gast edit, ingr edit
 
 bgchan = document.getElementsByClassName("bgchan") //Tadores use change mode dark / light
 
@@ -54,6 +55,7 @@ iters = (modss, boxes_inn, registrosg, txtcolor, tadoreschangemod) => {
 
   }
 
+
 let once_config = false
 functions = [
   () =>{ // ---------------- Inicio
@@ -92,15 +94,28 @@ functions = [
 
     mode_light_dark = !mode_light_dark
 
+    const post_save_change = (mode) => {
+      $.post("./content/php/usr/update_cnfg.php", {
+        usuario : alma_config[0].usuario,
+        background : alma_config[1].background,
+        mode : mode,
+        time_bal : alma_config[1].time_bal
+      })
+    }
+
     if (mode_light_dark){ // ----------------- Dark
-          header_session.className = "navbar mb-4 p-4 header-home-asistent-dark"
-          text_he.className = "navbar-brand text-light text-he font-weight-bold"
+      post_save_change("dark")
+        header_session.className = "navbar mb-4 p-4 header-home-asistent-dark"
+        text_he.className = "navbar-brand text-light text-he font-weight-bold"
      
         if (modscodown !== undefined){
           modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow text-dark";
         }
         if (bguserconfigchange !== undefined && bguserconfigchange !== null){
           bguserconfigchange.className = "card bguserconfigchange dark text-light"
+        }
+        if (containeringasedi !== undefined && containeringasedi !== null){
+          containeringasedi.className = "container containeringasedi p-4 dark text-light"
         }
         iters(
           "card modsco dark text-light", 
@@ -117,13 +132,17 @@ functions = [
         }
 
     } else { // ----------------------------- Light
-          header_session.className = "navbar mb-4 p-4 header-home-asistent header-home-light"
-          text_he.className = "navbar-brand text-dark text-he font-weight-bold"
+      post_save_change("white")
+        header_session.className = "navbar mb-4 p-4 header-home-asistent header-home-light"
+        text_he.className = "navbar-brand text-dark text-he font-weight-bold"
         if (modscodown !== undefined){
           modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow  text-dark";
         }
         if (bguserconfigchange !== undefined && bguserconfigchange !== null){
           bguserconfigchange.className = "card bguserconfigchange light text-dark"
+        }
+        if (containeringasedi !== undefined && containeringasedi !== null){
+          containeringasedi.className = "container containeringasedi p-4 light text-dark"
         }
         iters(
           "card modsco light text-dark", 
@@ -147,13 +166,14 @@ functions = [
   }
 ]
 
+
 for (let x=0; x < options.length; x++){
   if (x === 0){
     const optdiv = document.createElement("a")
     optdiv.innerHTML = options[x]
     optdiv.classList.add("options_men")
     optdiv.setAttribute("name", options[x])
-    optdiv.setAttribute("href", "index.php")
+    optdiv.setAttribute("href", "index.php#?")
     optdiv.setAttribute("id", "btn_"+(x+1))
     optdiv.addEventListener("click",functions[x])
     optdiv.className += "  btn btn-inherit"

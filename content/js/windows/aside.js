@@ -508,9 +508,10 @@ const calender = () => {
 		let diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
 
 		let almadaysnames = [];
-		let fdm = new Date(year, dat_whole.getMonth(), 6)
+		let fdm = new Date(year, dat_whole.getMonth(), 7)
 		fdm = fdm.toString()
 		let y = 0;
+		console.log(fdm)
 		if (fdm.match(/Wed/gim)){
 			y = 3 //Miercoels
 		} else if (fdm.match(/Thu/gim)){
@@ -536,6 +537,8 @@ const calender = () => {
 				almadaysnames.push(diasSemana[y])
 			}
 		}
+
+		console.log(almadaysnames, "Je")
 
 	
 		return {
@@ -798,7 +801,7 @@ const conversor = () => {
 			contacal.style.width = "400px"
 		}
 
-		contacal.style.height = "450px"
+		contacal.style.height = "355px"
 		// contacal.style.overflow = "auto"
 		contacal.style.zIndex = "30"
 		contacal.style.borderRadius = "15px"
@@ -815,7 +818,7 @@ const conversor = () => {
 		}
 
 		const header_icons = document.createElement("div")
-		header_icons.innerHTML = "<h4 class='ml-2 text-light font-weight-bold'>Conversor de tasas</h4>"
+		header_icons.innerHTML = "<h4 class='ml-2 text-light font-weight-bold'>Conversor</h4>"
 		contacal.appendChild(header_icons)
 		header_icons.className = "bg-warning p-2 d-flex align-items-center align-content-center justify-content-between"
 		const menicons = document.createElement("div")
@@ -848,6 +851,8 @@ const conversor = () => {
 		cerrar_general.style.fontSize = "150%"
 		menicons.appendChild(cerrar_general)
 		cerrar_general.onclick = () => {
+			document.body.appendChild(document.getElementById("conversor_tasa"))
+			document.getElementById("conversor_tasa").style.display = "none"
 			if (document.getElementsByClassName("container_conversor")[0] !== undefined && document.getElementsByClassName("container_conversor")[0] !== null){
 				openedconversor = false
 				document.getElementsByClassName("container_conversor")[0].remove()
@@ -860,52 +865,13 @@ const conversor = () => {
 		const form = document.createElement("form")
 		form.className = "p-1"
 		form.onsubmit = e => e.preventDefault()
-		form.innerHTML = `
-			<div class="d-flex flex-column">
-				<label><h4>Introduzca el monto a calcular</h4></label>
-				<input type="number" value ="1" id="montotoChange" class="p-2"/>
-				<label><h4 class="mt-1">Unidad monetaria</h4></label>
-				<select onclick="select_init_moneda(this)" class="flexgrow menreg p-2">
-					<option>Bolívar</option>
-		            <option>Boliviano</option>
-					<option>Dólar Australiano</option>
-					<option>Dólar Canadiense</option>
-					<option selected>Dólar USA</option>
-					<option>Euro</option>
-					<option>Libra Esterlina</option>
-		            <option>Peso Argentino</option>
-		            <option>Peso Chileno</option>
-		            <option>Peso Mexicano</option>
-		            <option>Peso Colombiano</option>
-		            <option>Peso Cubano</option>
-		            <option>Real</option>
-		            <option>Sol</option>
-		        </select>
-		        <label><h4 class="mt-1">Moneda de conversión</h4></label>
-		        <select  onclick="select_moneda_conver(this)" class="flexgrow menreg p-2">
-					<option>Bolívar</option>
-		            <option>Boliviano</option>
-					<option>Dólar Australiano</option>
-					<option>Dólar Canadiense</option>
-					<option>Dólar USA</option>
-					<option selected>Euro</option>
-					<option>Libra Esterlina</option>
-		            <option>Peso Argentino</option>
-		            <option>Peso Chileno</option>
-		            <option>Peso Mexicano</option>
-		            <option>Peso Colombiano</option>
-		            <option>Peso Cubano</option>
-		            <option>Real</option>
-		            <option>Sol</option>
-		        </select>
-		        <div class="mt-4 d-flex align-items-center align-content-center justify-content-center">
-		        	<button class="p-2 mr-2 btn btn-success flex-grow-1" id="cotasaproresultp" onclick="cotasaproresult()">Calcular</button>
-		        	<input type="text" value="0" id="result_conversion_tasa"  class="p-2"/>
-		        </div>
-			</div>
+		
 
-		`
-
+		let conversor_tasa = document.getElementById("conversor_tasa")
+		if (conversor_tasa !== null) {
+			conversor_tasa.style.display = "block"
+			form.appendChild(conversor_tasa)
+		}
 		
 		body.appendChild(form)
 
@@ -1154,7 +1120,11 @@ const Aside = (username) => {
 	}
 	if (document.getElementsByClassName("navbar")[0] !== undefined) document.getElementsByClassName("navbar")[0].appendChild(panel_widgets)
 
-	if (contacal !== undefined) contacal.appendChild(body)
+	if (contacal !== undefined) {
+		contacal.appendChild(body)
+		document.getElementById("criptowidget").style.display = "block"
+		contacal.appendChild(document.getElementById("criptowidget"))
+	}
 	if (document.getElementsByClassName("containhome")[0] !== undefined){
 		document.getElementsByClassName("containhome")[0].appendChild(contacal)
 	}

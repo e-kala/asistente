@@ -1,4 +1,5 @@
 <!--módulos-->
+
 <style type="text/css">
 .bg-blue{
 
@@ -14,11 +15,9 @@ body{
    <div class="card bg-blue modsco">
      <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingOne">
        <h2 class="mb-0 flex-grow-1 flexbg w-100">
-         <a href="#collapseOne">
-           <div class="btn btn-link btn-block text-left font-weight-bold " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Información
-          </div>
-         </a>
+         <button class="open_modul btn btn-link btn-block text-left font-weight-bold " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Información
+        </button>
        </h2>
        <img src="./content/img/íconos/info.png" class="ml-2" width="30px">
      </div>
@@ -34,17 +33,15 @@ body{
    <div class="card bg-blue modsco">
      <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingTwo">
        <h2 class="mb-0 flex-grow-1 flexbg w-100">
-         <a href="#collapseTwo">
-          <div class="btn btn-link btn-block text-left collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Movimientos
-          </div>
-         </a>
+        <div class="open_modul btn btn-link btn-block text-left collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Movimientos
+        </div>  
        </h2>
        <img src="./content/img/íconos/configur.png" class="ml-2" width="30px">
      </div>
 
      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-       <div class="card-body" id="movimientos" align="center">
+       <div class="card-body" align="center">
         <!-- opciones-->
        <div class="row p-4 d-flex justify-content-between" align="center">
         <!-- Sección de movimientos In -->
@@ -168,14 +165,51 @@ body{
 
 
 <script type="text/javascript">
+
   let collapseOne = document.getElementById("collapseOne")
   let collapseTwo = document.getElementById("collapseTwo")
-  if (window.location.href.toString().match(/collapseOne/gim)){
+  if (window.location.href.toString().match(/informacion/gim)){
     collapseOne.className = "collapse show"
     collapseTwo.className = "collapse"
-  } else if (window.location.href.toString().match(/collapseTwo/gim)){
+  } else if (window.location.href.toString().match(/movimientos/gim)){
     collapseOne.className = "collapse"
     collapseTwo.className = "collapse show"
+  }
+
+  let open_modul = document.getElementsByClassName("open_modul")
+
+  let lhref = window.location.href
+
+  let movclick = false
+  let infoclick = false
+
+  open_modul[0].onclick = () =>{
+    movclick = false
+    if (window.location.href.match(/\#movimientos/gim)){
+      window.location.href = window.location.href.replace(/movimientos/gim, "informacion")
+    } else{
+
+      if (!infoclick){
+        if (window.location.href.match(/\#informacion/gim) === null){
+         window.location.href += "#informacion"
+         infoclick = true
+        }
+      }
+    }
+  }
+
+  open_modul[1].onclick = () =>{
+    infoclick = false
+    if (window.location.href.match(/informacion/gim)){
+      window.location.href = window.location.href.replace(/informacion/gim, "movimientos")
+    } else {
+      if (!movclick){
+        if (window.location.href.match(/movimientos/gim) === null){
+          window.location.href += "#movimientos"
+          movclick = true
+        }  
+      }
+    }
   }
 
 </script>

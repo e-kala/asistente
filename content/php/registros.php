@@ -20,7 +20,7 @@
 <!-- Escritorio -->
 <div class="registromodsco p-4 m-4  tered registrosgasin registros" style="display: none;">
     <div class="menu-reg-top">
-        <a href="index.php" class="backs colorchange font-weight-bold">Atrás</a>
+        <a href="index.php#?" class="backs colorchange font-weight-bold">Atrás</a>
     </div>
     <h3 class=" pl-4 pr-4 pt-4 tered">Registros</h3>
     <div class="men_data_registros tered">

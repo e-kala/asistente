@@ -268,7 +268,9 @@ body{
 	/*background-color: #1E172B;*/
 	min-height: 97vh;
 
-	margin: 20px;	
+	margin-left: 20px;	
+	margin-right: 20px;	
+
 	/*padding: 20px;*/
 }
 .containeraside{

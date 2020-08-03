@@ -12,9 +12,9 @@
 ?>
 
 
-<div class="container text-center text-light">
+<div class="container containeringasedi p-4" style="display: none;">
     <h1>Cuentas</h1>
-    <div class="alert alert-success" role="alert">
+    <div class="p-2 pb-4 mt-2 border-bottom d-flex justify-content-center" role="alert">
         
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop">
          Crear Nueva Cuenta
@@ -27,13 +27,13 @@
                     $totalIngresos = 0;
                     $totalGastos = 0;
     ?>
-    <table class="table table-striped text-light">
+    <table class="w-100 table-striped ">
         <thead>
             <tr>
-                <th scope="col">Nombre De Cuenta</th>
+                <th scope="col" class="text-center font-weight-bold">Nombre De Cuenta</th>
                 <!--<th scope="col">Saldo</th>-->
                 <!--<th scope="col">Last</th>-->
-                <th scope="col">Opciones</th>
+                <th scope="col" class="text-center font-weight-bold">Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -44,7 +44,7 @@
                    
                     
                     <tr class="text-center colorchange">
-                        <td class="font-weight-bold" id="nombreCuenta<?php echo $fila->id_cuenta; ?>" value<?php echo $fila->id_cuenta; ?>="<?php echo $fila->nombre_cuenta; ?>"><?php echo $fila->nombre_cuenta ?> </td>
+                        <td class="font-weight-bold p-3" id="nombreCuenta<?php echo $fila->id_cuenta; ?>" value<?php echo $fila->id_cuenta; ?>="<?php echo $fila->nombre_cuenta; ?>"><?php echo $fila->nombre_cuenta ?> </td>
                         <td>
                             <a href="#editar" class="editarCuenta" data-id="<?php echo $fila->id_cuenta; ?>"
                              data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil fa-lg"></i>

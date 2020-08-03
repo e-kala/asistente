@@ -31,14 +31,14 @@
               <label for="descripcionGasto">Descripción</label>
               <textarea class="form-control" id="descripcionGasto" placeholder="" name="descripcionGasto"></textarea>
             </div>
-        	<div class="form-row">
-        		<div class="form-group col-md-12">
+          <div class="form-row">
+            <div class="form-group col-md-12">
                  <label >Fecha</label>
                  <input type="date" name="fecha" max="3000-12-31"
                         min="2000-01-01" class="form-control fecha"/>
                 </div>
 
-        	</div>
+          </div>
           </form>
       </div>
       <div class="modal-footer">

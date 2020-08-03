@@ -9,17 +9,17 @@
 
 
 ?>
-<div class="container">
+<div class="container containeringasedi p-4" style="display: none;">
     <div class="table-responsive">
-        <table class="table table-striped">
+        <table class="w-100 table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Categoría</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col">Cuenta</th>
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Opciones</th>
+                    <th scope="col" class="p-2 font-weight-bold text-center">Categoría</th>
+                    <th scope="col" class="p-2 font-weight-bold text-center">Descripción</th>
+                    <th scope="col" class="p-2 font-weight-bold text-center">Cuenta</th>
+                    <th scope="col" class="p-2 font-weight-bold text-center">Fecha</th>
+                    <th scope="col" class="p-2 font-weight-bold text-center">Cantidad</th>
+                    <th scope="col" class="p-2 font-weight-bold text-center">Opciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,27 +35,27 @@
                             
                             <tr class="">
 
-                                    <td class="" 
+                                    <td class="p-3 text-center" 
                                         id="categoriaGasto<?php echo $fila->id_gasto ?>" 
                                         value<?php echo $fila->id_gasto; ?>="<?php echo $fila->categoria_gasto; ?>" >
                                           <?php echo $fila->categoria_gasto; ?>  
                                     </td>
-                                    <td class="" 
+                                    <td class="p-3 text-center" 
                                         id="descripcionGasto<?php echo $fila->id_gasto ?>" 
                                         value<?php echo $fila->id_gasto; ?>="<?php echo $fila->descripcion_gasto; ?>" >
                                           <?php echo $fila->descripcion_gasto; ?>
                                     </td>
-                                    <td class="" 
+                                    <td class="p-3 text-center" 
                                         id="cuentaGasto<?php echo $fila->id_gasto ?>" 
                                         value<?php echo $fila->id_gasto; ?>="<?php echo $fila->cuenta_gasto; ?>" >
                                           <?php echo $fila->cuenta_gasto; ?>     
                                     </td>
-                                    <td class="" 
+                                    <td class="p-3 text-center" 
                                         id="fechaGasto<?php echo $fila->id_gasto ?>" 
                                         value<?php echo $fila->id_gasto; ?>="<?php echo $fila->fecha_gasto; ?>" >
                                           <?php echo $fila->fecha_gasto; ?>      
                                     </td>
-                                    <td class="" 
+                                    <td class="p-3 text-center" 
                                         id="cantidadGasto<?php echo $fila->id_gasto ?>" 
                                         value<?php echo $fila->id_gasto; ?>="<?php echo $fila->cantidad_gasto; ?>" >
                                           <?php echo $fila->cantidad_gasto ?>    

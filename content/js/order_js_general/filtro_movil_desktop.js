@@ -4,7 +4,6 @@ let menreg = document.getElementsByClassName("menreg")[0]
 let find = document.getElementsByClassName("find")[0]
 
 
-
 const search = (formreg, tadores, menreg, find, config) => {
     if (config.mode === "desktop"){
       tadores.style.display = "flex"
@@ -30,7 +29,6 @@ const search = (formreg, tadores, menreg, find, config) => {
                     category: selected.toLowerCase() !== "" ? selected.toLowerCase() : "ingresos"
                 }).done(data =>{
                     data = JSON.parse(data)
-                    console.log(data, data.multiple)
                     let co = ""
                     if (config.mode === "desktop"){
                       co = "bg-borderwhite"
@@ -156,13 +154,14 @@ function closeclick(e){
     let n = e.getAttribute("name")
 
     let lentda = document.getElementsByClassName("datawindow").length
-    n =  n 
+    
+    n = n
 
     if (document.getElementsByClassName("datawindow")[n] !== undefined){
       document.getElementsByClassName("datawindow")[n].style.display = "none"
     }
-
 }
+
 
 
 

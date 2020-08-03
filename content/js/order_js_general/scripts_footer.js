@@ -11,7 +11,6 @@ $(function(){
 }); // ---------------------------------------------------------------------------------------
 
 
-
 /*
 success:function(r){
     if (r==1) {
@@ -52,8 +51,6 @@ success:function(r){
 // Agregar Datos Gasto 
  // ------------------------------------------------------------------------------------------------------
 
-
-
 const dark = () => {
     header_session.className = "navbar mb-4 p-4 header-home-asistent-darkinit"
       text_he.className = "navbar-brand text-light text-he font-weight-bold"
@@ -62,13 +59,16 @@ const dark = () => {
       modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow text-dark";
     }
 
-
     if (bguserconfigchange !== undefined && bguserconfigchange !== null){
       bguserconfigchange.className = "card bguserconfigchange darkinit text-light"
     }
 
     const asidechancolor = document.getElementsByClassName("asidechancolor")[0]
     if (asidechancolor !== undefined) asidechancolor.className = "containeraside card asidechancolor darkinit text-light"
+
+    if (containeringasedi !== undefined && containeringasedi !== null){
+      containeringasedi.className = "container containeringasedi p-4 darkinit text-light"
+    }
 
     iters(
       "card modsco darkinit text-light flexbg", 
@@ -98,6 +98,10 @@ const light = () => {
     const asidechancolor = document.getElementsByClassName("asidechancolor")[0]
     if (asidechancolor !== undefined) asidechancolor.className = "containeraside card asidechancolor lightinit text-dark"
 
+    if (containeringasedi !== undefined && containeringasedi !== null){
+      containeringasedi.className = "container containeringasedi p-4 lightinit text-dark"
+    }
+
     iters(
       "card modsco lightinit text-dark flexbg", 
       "card boxes-in lightinit text-dark",
@@ -118,11 +122,13 @@ const colorear_balances = () => {
   let totalIngresFiltro = document.getElementsByClassName("toingresinitfil")[0]
   let balancefiltro = document.getElementsByClassName("balancefiltro")[0]
   const apply_color_balance = obj =>{
-    obj.style.fontWeight = "bold"
-    if (obj.getAttribute("value").match(/\-/gim)){
-      obj.style.color = "red"
-    } else {
-      obj.style.color = "#50d53a"
+    if (obj !== undefined){
+      obj.style.fontWeight = "bold"
+      if (obj.getAttribute("value").match(/\-/gim)){
+        obj.style.color = "red"
+      } else {
+        obj.style.color = "#50d53a"
+      }
     }
   }
   apply_color_balance(balactualco)
@@ -130,6 +136,7 @@ const colorear_balances = () => {
   apply_color_balance(totalIngresFiltro)
   apply_color_balance(balancefiltro)
 }
+
 colorear_balances()
 
 // Iniciar configuración de la sesión

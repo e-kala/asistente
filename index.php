@@ -12,6 +12,33 @@
       
    </head>
    <body>
+      <!-- Second W Marquee -->
+      <div id="criptowidget" class="p-3 overflow" style="display: none;">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+          {
+          "symbol": "BITSTAMP:BTCUSD",
+          "width": "100%",
+          "colorTheme": "dark",
+          "isTransparent": true,
+          "locale": "es"
+        }
+          </script>
+        </div>
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+          {
+          "symbol": "BYBIT:ETHUSD",
+          "width": "100%",
+          "colorTheme": "dark",
+          "isTransparent": true,
+          "locale": "es"
+        }
+          </script>
+        </div>
+      </div>
       <div class="contain">
          <?php  
             if (isset($_SESSION['login'])) {
@@ -108,8 +135,12 @@
          ?>
          
             <?php include 'content/php/footer.php'; ?>
-
+      </div>
+      <!-- Firts W -->
+      <div id="conversor_tasa" style="display: none; background-color: #bbb;">
+        <script type="text/javascript" src="//www.forextime.com/widget.js?type=currency-converter&theme=light&p=&pt=no&l=/es&h=250&"></script> 
       </div>
    </body>
 </html>
+
 

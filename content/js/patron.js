@@ -1088,8 +1088,10 @@ Pattmo = (container, config) => {
 							ver_pass.first_char_pass = first_char_pass
 							ver_pass.tryone = pass
 							pass = ""
-							document.getElementsByClassName("label_state")[0].style.color = "white"
-							document.getElementsByClassName("label_state")[0].innerHTML =  "* Repita clave por favor"
+							if (document.getElementsByClassName("label_state")[0] !== undefined){
+								document.getElementsByClassName("label_state")[0].style.color = "white"
+								document.getElementsByClassName("label_state")[0].innerHTML =  "* Repita clave por favor"
+							}
 							
 						} else if (count_try_for_signup === 2){
 							ver_pass.first_char_pass = first_char_pass

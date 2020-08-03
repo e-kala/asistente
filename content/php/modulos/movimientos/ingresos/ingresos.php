@@ -9,17 +9,17 @@
 ?>
 
 
-<div class="container">
+<div class="container containeringasedi p-4" style="display: none;">
     <div class="table-responsive">
-        <table class="table table-striped">
+        <table class="w-100 table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Categoría</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col">Cuenta</th>
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Opciones</th>
+                    <th scope="col" class="p-2 font-weight-bold text-center">Categoría</th>
+                    <th scope="col" class="p-2 font-weight-bold text-center">Descripción</th>
+                    <th scope="col" class="p-2 font-weight-bold text-center">Cuenta</th>
+                    <th scope="col" class="p-2 font-weight-bold text-center">Fecha</th>
+                    <th scope="col" class="p-2 font-weight-bold text-center">Cantidad</th>
+                    <th scope="col" class="p-2 font-weight-bold text-center">Opciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,27 +35,27 @@
                             
                             <tr class="">
 
-                                    <td class="" 
+                                    <td class="p-3 text-center" 
                                         id="categoriaIngreso<?php echo $fila->id_ingreso ?>" 
                                         value<?php echo $fila->id_ingreso; ?>="<?php echo $fila->categoria_ingreso; ?>" >
                                           <?php echo $fila->categoria_ingreso; ?>  
                                     </td>
-                                    <td class="" 
+                                    <td class="p-3 text-center" 
                                         id="descripcionIngreso<?php echo $fila->id_ingreso ?>" 
                                         value<?php echo $fila->id_ingreso; ?>="<?php echo $fila->descripcion_ingreso; ?>" >
                                           <?php echo $fila->descripcion_ingreso; ?>
                                     </td>
-                                    <td class="" 
+                                    <td class="p-3 text-center" 
                                         id="cuentaIngreso<?php echo $fila->id_ingreso ?>" 
                                         value<?php echo $fila->id_ingreso; ?>="<?php echo $fila->cuenta_ingreso; ?>" >
                                           <?php echo $fila->cuenta_ingreso; ?>     
                                     </td>
-                                    <td class="" 
+                                    <td class="p-3 text-center" 
                                         id="fechaIngreso<?php echo $fila->id_ingreso ?>" 
                                         value<?php echo $fila->id_ingreso; ?>="<?php echo $fila->fecha_ingreso; ?>" >
                                           <?php echo $fila->fecha_ingreso; ?>      
                                     </td>
-                                    <td class="" 
+                                    <td class="p-3 text-center" 
                                         id="cantidadIngreso<?php echo $fila->id_ingreso ?>" 
                                         value<?php echo $fila->id_ingreso; ?>="<?php echo $fila->cantidad_ingreso; ?>" >
                                           <?php echo $fila->cantidad_ingreso ?>    

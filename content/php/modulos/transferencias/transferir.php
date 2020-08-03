@@ -7,7 +7,7 @@
 
         
         $conectar = new conexion();
-    	$conexion = $conectar->conectar();
+        $conexion = $conectar->conectar();
         echo "alert 'se estableció la conexion'";
 
         $usuario = $_SESSION['user'];

@@ -42,7 +42,7 @@ const resize_modulos = () => {
 window.onload = () => {
 	resize_modulos()
 }
-
+resize_modulos()
 window.onresize = () => {
 	resize_modulos()
 	const devip = getDevicePixelRatio()
@@ -133,4 +133,51 @@ window.onresize = () => {
     	if (tado !== undefined) tado.style.display = "block";
     }
 
+}
+
+
+function div_opa_init_dark_wait(){
+  const divopa = document.createElement("div")
+  divopa.style.position = "fixed"
+  divopa.style.margin ="auto"
+  divopa.style.left = "0"
+  divopa.style.top = "0"
+  divopa.style.right = "0"
+  divopa.style.bottom = "0"
+  divopa.style.background = "rgb(0,0,0,0.90)"
+  divopa.style.zIndex = 100
+  divopa.style.display = "flex"
+  divopa.style.justifyContent = "center"
+  divopa.style.alignItems = "center"
+  divopa.style.alignContent = "center"
+  document.body.appendChild(divopa)
+
+  const loading = document.createElement("img")
+  loading.setAttribute("src", "./content/img/íconos/load2.gif")
+  loading.setAttribute("width", "100px")
+  divopa.appendChild(loading)
+
+  setTimeout(()=>{
+    divopa.style.opacity = "0"
+    setTimeout(()=>{
+      divopa.remove()
+    },1100)
+    loading.remove()
+    divopa.animate([{
+      opacity:1
+    },{
+      opacity:0
+    }],{duration:1000, iterations:1})
+    if (window.location.href.match(/(\#\?|registros|editar\_ingresos|editar\_gastos|configuracion)/gim) === null){
+   		window.location.href = window.location.href + "#?"
+    }
+  },3000)
+}
+
+
+if (document.getElementsByClassName("modulos") !== undefined){
+	if (window.location.href.match(/(\#\?|registros|editar\_ingresos|editar\_gastos|configuracion)/gim) === null){
+		div_opa_init_dark_wait();
+	}
+	
 }

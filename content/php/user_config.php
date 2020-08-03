@@ -3,7 +3,7 @@
 	<div class="card bguserconfigchange" style="width: 80%;" align="center">
 		<div class="card-header d-flex align-items-center align-content-center justify-content-between">
 			<h4>Configuración</h4>
-			<a class="btn btn-danger d-flex align-items-center align-content-center" href="index.php">Inicio</a>
+			<a class="btn btn-danger d-flex align-items-center align-content-center" href="index.php#?">Inicio</a>
 		</div>
 		<div class="card-body p-4 m-4">
 			<div class="time-mostrar-balance border">
@@ -27,6 +27,12 @@
 
 			<div class="cambiar-fondos border mt-2">
 				<h4 class="m-4 text-center"> Cambiar fondo </h4>
+				<div class="menu_folder_conjunts_images">
+					<button id="abstracts" class="btn btn-dark">Abstractos</button>
+					<button class="btn btn-dark">Plano</button>
+					<button class="btn btn-dark">Paisajes</button>
+					<button class="btn btn-dark">Empresa</button>
+				</div>
 				<div class="d-flex  justify-content-center flex-wrap">
 					<img src="./content/img/fondos/0.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
 					<img src="./content/img/fondos/1.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
