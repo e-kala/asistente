@@ -86,8 +86,7 @@ body{
                   </div>
                 </div>
               <!-- Boton de Gasto End-->
-
-              <button type="button" class="btn btn-secondary">transferencia</button>
+              <a class="btn btn-warning" href="?action=transferencias" role="button">Transferencias</a>
             </div>
             <hr>
         <!-- Sección de movimientos End -->
