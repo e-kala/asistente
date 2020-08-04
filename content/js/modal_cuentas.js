@@ -83,24 +83,41 @@ $(function(){
 });
 
 
+var q;
 
 $(function(){
     $("#deCuentaTransferencia").change(function(){
-        valor = $("#deCuentaTransferencia").val();
-        console.log(valor);
+        var cuenta = $(this).val();
+        console.log(cuenta);
         var url = "content/php/modulos/cuentas/saldo_cuentas.php";
+        $("#saldoDisponible").empty();
         
         $.ajax({
             type : "POST",
             url : url,
-            data : {"cuenta" : valor},
+            data : {"cuenta" : cuenta},
             dataType : "JSON"
         }).done(function(res) {
             console.log(res);
-            $("#saldoDisponible").empty();
             $("#saldoDisponible").append(" Saldo Disponible: <b>$" + res.resultado + "</b>");
-
+            q = res.resultado;
         }); 
+
+        $("#cantidadTransferencia").keydown(function(){
+            
+            var cantidad = $(this).val();
+            
+            $(this).keyup(function(){
+                cantidad = $(this).val();
+                console.log(cantidad);
+                console.log(q);
+
+                if (cantidad > q){
+                    $(this).notify("No puedes transferir más del saldo disponible", "warn");
+                }
+            });
+
+        });
     });
 });
         

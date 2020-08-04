@@ -73,6 +73,9 @@
 		$array_json_calculo_saldo_cuentas["resultado"] = $calculo;
 		echo json_encode($array_json_calculo_saldo_cuentas);
 	}else{
-		echo "El resultado es igual o menor a 0 o no tienes registrados datos en esa cuenta";
+
+		$msj["resultado"] = "El resultado es igual o menor a 0 o no tienes registrados datos en esa cuenta";
+
+		echo json_encode($msj);
 	}
 ?>

@@ -20,7 +20,7 @@
 	  </div>
 	    <div class="row">
 	    	<div class="col">
-	    		<input type="text" name="cantidad" placeholder="Cantidad">
+	    		<input id="cantidadTransferencia" type="text" name="cantidad" placeholder="Cantidad">
 	    	</div>
 	    	<div class="col">
 		    	<button class="btn btn-success align-right" type="submit">Registrar</button>
