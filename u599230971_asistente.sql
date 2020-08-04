@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-07-2020 a las 10:07:54
+-- Tiempo de generación: 04-08-2020 a las 07:58:38
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -88,7 +88,15 @@ INSERT INTO `gastos` (`id_gasto`, `usuario_gasto`, `cantidad_gasto`, `categoria_
 (24, '', '250.00', 'Envio', 'Ajna', 'Efectivo', '2020-06-11'),
 (25, '', '100.00', 'Coppel', 'Abono', 'Efectivo', '2020-06-14'),
 (27, 'Eka', '400.00', 'prueba', 'prueba', 'Efectivo', '2020-07-19'),
-(29, 'Eka', '300.00', 'Herramienta', 'Kit de herramientas', 'null', '2020-07-27');
+(31, 'Eka', '300.00', 'prueba', 'prueba', 'Bancomer', '2020-08-03'),
+(32, 'Eka', '100.00', 'prueba', 'prueba', 'null', '2020-08-03'),
+(33, 'Eka', '500.00', 'prueba4', 'prueba4', 'null', '2020-08-03'),
+(34, 'Eka', '100.00', 'prueba5', 'prueba5', 'null', '2020-08-03'),
+(35, 'Eka', '100.00', 'fsd', 'sdfsd', 'comida', '2020-08-03'),
+(36, 'Eka', '100.00', 'prueba7', 'prueba7', 'Ahorro', '2020-08-03'),
+(37, 'Eka', '200.00', 'Transferencia', 'Transferencia', 'Efectivo', '2020-08-04'),
+(38, 'Eka', '1000.00', 'Transferencia', 'Transferencia', 'Bancomer', '2020-08-04'),
+(39, 'Eka', '500.00', 'Transferencia', 'Transferencia de Efectivo a Ahorro', 'Efectivo', '2020-08-04');
 
 -- --------------------------------------------------------
 
@@ -155,7 +163,13 @@ INSERT INTO `ingresos` (`id_ingreso`, `usuario_ingreso`, `cantidad_ingreso`, `fe
 (84, '', '700.00', '2020-07-19', 'Efectivo', 'prueba', 'prueba2'),
 (85, '', '200.00', '2020-07-19', 'Efectivo', 'prueba', 'fea'),
 (86, '', '400.00', '2020-07-19', 'Efectivo', 'prueba', 'prueba'),
-(88, 'Eka', '600.00', '2020-07-19', 'Efectivo', 'prueba', '2prueba');
+(88, 'Eka', '600.00', '2020-07-19', 'Efectivo', 'prueba', '2prueba'),
+(89, 'Eka', '300.00', '2020-08-03', 'Moto', 'prueba2', 'prueba2'),
+(90, 'Eka', '50.00', '2020-08-03', 'comida', 'prueba3', 'prueba3'),
+(91, 'Eka', '2000.00', '2020-08-03', 'Bancomer', 'Asistente', 'Ingreso'),
+(92, 'Eka', '200.00', '2020-08-04', 'Bancomer', 'Transferencia', 'Transferencia'),
+(93, 'Eka', '1000.00', '2020-08-04', 'Efectivo', 'Transferencia', 'Transferencia'),
+(94, 'Eka', '500.00', '2020-08-04', 'Ahorro', 'Transferencia', 'Transferencia de Efectivo a Ahorro');
 
 -- --------------------------------------------------------
 
@@ -199,11 +213,24 @@ INSERT INTO `pagos` (`id_pagos`, `nombre_pagos`, `monto_pagos`, `fecha_a_pagar`,
 
 CREATE TABLE `transferencias` (
   `id_transferencia` int(11) NOT NULL,
+  `usuario_transferencia` varchar(150) NOT NULL,
   `cantidad_transferencia` double NOT NULL,
   `de_cuenta` varchar(150) NOT NULL,
   `a_cuenta` varchar(150) NOT NULL,
   `fecha_transferencia` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `transferencias`
+--
+
+INSERT INTO `transferencias` (`id_transferencia`, `usuario_transferencia`, `cantidad_transferencia`, `de_cuenta`, `a_cuenta`, `fecha_transferencia`) VALUES
+(1, 'Eka', 300, 'Bancomer', 'Bancomer', '2020-08-03'),
+(2, 'Eka', 300, 'Bancomer', 'Bancomer', '2020-08-03'),
+(3, 'Eka', 500, 'Ahorro', 'Bancomer', '2020-08-03'),
+(4, 'Eka', 200, 'Efectivo', 'Bancomer', '2020-08-04'),
+(5, 'Eka', 1000, 'Bancomer', 'Efectivo', '2020-08-04'),
+(6, 'Eka', 500, 'Efectivo', 'Ahorro', '2020-08-04');
 
 -- --------------------------------------------------------
 
@@ -226,7 +253,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo_usuario`, `pass_usuario`, `privilegios`, `usr_config`) VALUES
 (2, 'admin', 'admin@demo.com', 'root', 'admin', '0'),
-(4, 'Eka', 'caiman.mistico@gmail.com', 'abcfedghi', 'normal', '{\"mode\":\"dark\",\"background\":\"5.png\",\"time_bal\":\"1\"}');
+(4, 'Eka', 'caiman.mistico@gmail.com', 'abcfedghi', 'normal', '{\"mode\":\"dark\",\"background\":\"14.gif\",\"time_bal\":\"4\"}');
 
 --
 -- Índices para tablas volcadas
@@ -294,7 +321,7 @@ ALTER TABLE `cuentas`
 -- AUTO_INCREMENT de la tabla `gastos`
 --
 ALTER TABLE `gastos`
-  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `ideas`
@@ -306,7 +333,7 @@ ALTER TABLE `ideas`
 -- AUTO_INCREMENT de la tabla `ingresos`
 --
 ALTER TABLE `ingresos`
-  MODIFY `id_ingreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id_ingreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT de la tabla `logger`
@@ -324,7 +351,7 @@ ALTER TABLE `pagos`
 -- AUTO_INCREMENT de la tabla `transferencias`
 --
 ALTER TABLE `transferencias`
-  MODIFY `id_transferencia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transferencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
