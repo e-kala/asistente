@@ -16,18 +16,18 @@
         $cantidad = $_POST['cantidad'];
 
         $fecha = date("Y")."-".date("m") ."-". date("d");
+        $descripcion = "De {$deCuenta} a {$aCuenta}";
 
         //ver cantidad en cuentas seleccionadas y si es mayor la cantidad de transferencia a la que hay en la cuenta se cancela
-
         $sql = "INSERT INTO transferencias(usuario_transferencia, cantidad_transferencia, de_cuenta, a_cuenta, fecha_transferencia)
                 VALUES('$usuario', '$cantidad', '$deCuenta', '$aCuenta', '$fecha')";
 
         $deCuentaSQL = "INSERT INTO gastos(usuario_gasto, cantidad_gasto, cuenta_gasto, fecha_gasto, categoria_gasto, descripcion_gasto)
-                    VALUES('$usuario', '$cantidad', '$deCuenta', '$fecha', 'Transferencia', 'Transferencia')
+                    VALUES('$usuario', '$cantidad', '$deCuenta', '$fecha', 'Transferencia', '$descripcion')
                     ";
 
         $aCuentaSQL = "INSERT INTO ingresos(usuario_ingreso, cantidad_ingreso, cuenta_ingreso, fecha_ingreso, categoria_ingreso, descripcion_ingreso)
-                VALUES('$usuario', '$cantidad', '$aCuenta', '$fecha', 'Transferencia', 'Transferencia')";
+                VALUES('$usuario', '$cantidad', '$aCuenta', '$fecha', 'Transferencia', '$descripcion')";
 
         $datos = utf8_encode($sql);
 
