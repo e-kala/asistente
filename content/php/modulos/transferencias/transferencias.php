@@ -6,13 +6,14 @@
 	  <div class="row">
 	    <div class="col">
 	    	<label class="text-center">De esta cuenta</label>
-	    	<select class="form-control deCuentaTransferencia" name="de">
+	    	<label id="saldoDisponible"></label>
+	    	<select id="deCuentaTransferencia" class="form-control" name="de">
 	    		<option selected="">Selecciona una cuenta</option>
 	    	</select>
 	    </div>
 	    <div class="col">
 	    	<label class="text-center">A esta Cuenta</label>
-	    	<select class="form-control aCuentaTransferencia" name="a">
+	    	<select id="aCuentaTransferencia" class="form-control" name="a">
 	    		<option selected="">Selecciona una cuenta</option>
 	    	</select>
 	    </div>

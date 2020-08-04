@@ -16,7 +16,7 @@
         $cantidad = $_POST['cantidad'];
 
         $fecha = date("Y")."-".date("m") ."-". date("d");
-
+        //ver cantidad en cuentas seleccionadas y si es mayor la cantidad de transferencia a la que hay en la cuenta se cancela
 
         $sql = "INSERT INTO transferencias(usuario_transferencia, cantidad_transferencia, de_cuenta, a_cuenta, fecha_transferencia)
                 VALUES('$usuario', '$cantidad', '$deCuenta', '$aCuenta', '$fecha')";

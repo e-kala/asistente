@@ -48,7 +48,7 @@ $(function(){
 
 $(function(){
     console.log("ok");
-    $(".aCuentaTransferencia").load("content/php/modulos/cuentas/consultar_cuentas.php", function(data){
+    $("#aCuentaTransferencia").load("content/php/modulos/cuentas/consultar_cuentas.php", function(data){
         
         //console.log(data);
         
@@ -58,11 +58,11 @@ $(function(){
         
         $.each(conversion, function (i, val) {
             if(i==0){
-               // $(".deCuentaTransferencia").append("<option selected>Selecciona una cuenta</option>");
-                $(".deCuentaTransferencia").append("<option>"+val+"</option>");
+               // $("#deCuentaTransferencia").append("<option selected>Selecciona una cuenta</option>");
+                $("#deCuentaTransferencia").append("<option>"+val+"</option>");
 
             }else{
-                $(".deCuentaTransferencia").append("<option>"+val+"</option>");
+                $("#deCuentaTransferencia").append("<option>"+val+"</option>");
             }
             //console.log(val);
             
@@ -70,14 +70,37 @@ $(function(){
 
         $.each(conversion, function (i, val) {
             if(i==0){
-                $(".aCuentaTransferencia").append("<option selected>Selecciona una cuenta</option>");
-                $(".aCuentaTransferencia").append("<option>"+val+"</option>");
+                $("#aCuentaTransferencia").append("<option selected>Selecciona una cuenta</option>");
+                $("#aCuentaTransferencia").append("<option>"+val+"</option>");
 
             }else{
-                $(".aCuentaTransferencia").append("<option>"+val+"</option>");
+                $("#aCuentaTransferencia").append("<option>"+val+"</option>");
             }
             //console.log(val);
             
         });
     });
 });
+
+
+
+$(function(){
+    $("#deCuentaTransferencia").change(function(){
+        valor = $("#deCuentaTransferencia").val();
+        console.log(valor);
+        var url = "content/php/modulos/cuentas/saldo_cuentas.php";
+        
+        $.ajax({
+            type : "POST",
+            url : url,
+            data : {"cuenta" : valor},
+            dataType : "JSON"
+        }).done(function(res) {
+            console.log(res);
+            $("#saldoDisponible").empty();
+            $("#saldoDisponible").append(" Saldo Disponible: <b>$" + res.resultado + "</b>");
+
+        }); 
+    });
+});
+        
