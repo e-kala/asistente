@@ -9,9 +9,10 @@
         $mail = $_POST['mail'];
         $usuario = $_POST['usuario'];
         $pass = $_POST['pass'];
-
-        $sql = "INSERT INTO usuarios(nombre_usuario, correo_usuario, pass_usuario, privilegios)
-                VALUES('$usuario', '$mail', '$pass', 'normal')";
+        $array_cnfg = ["mode" => "light", "background" => "3/8.png", "time_bal" => "4"];
+        $usr_cnfg_default = json_encode($array_cnfg);
+        $sql = "INSERT INTO usuarios(nombre_usuario, correo_usuario, pass_usuario, privilegios, usr_config)
+                VALUES('$usuario', '$mail', '$pass', 'normal', '$usr_cnfg_default')";
         $datos = utf8_encode($sql);
         //$result = mysqli_query($conexion, $datos);
         //echo $result;
