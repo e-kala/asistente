@@ -85,8 +85,8 @@ const dark = () => {
 }
 
 const light = () => {
-    header_session.className = "navbar mb-4 p-4 header-home-asistentinit header-home-lightinit"
-      text_he.className = "navbar-brand text-dark text-he font-weight-bold"
+    if (header_session !== undefined) header_session.className = "navbar mb-4 p-4 header-home-asistentinit header-home-lightinit"
+    if (text_he !== undefined) text_he.className = "navbar-brand text-dark text-he font-weight-bold"
     if (modscodown !== undefined){
       modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow  text-dark";
     }
@@ -112,7 +112,7 @@ const light = () => {
         colorchangetxt[x].className = 'text-center colorchangetxt text-darks p-4'
     }
 
-    registrosgasin.className = "p-4 m-4 tered registrosgasin lightinit text-dark cotxtdark"
+    if (registrosgasin !== undefined) registrosgasin.className = "p-4 m-4 tered registrosgasin lightinit text-dark cotxtdark"
 }
 
 
@@ -121,20 +121,36 @@ const colorear_balances = () => {
   let totalgastosfiltro = document.getElementsByClassName("togasinitfil")[0]
   let totalIngresFiltro = document.getElementsByClassName("toingresinitfil")[0]
   let balancefiltro = document.getElementsByClassName("balancefiltro")[0]
-  const apply_color_balance = obj =>{
+  const apply_color_balance = (obj, state) =>{
     if (obj !== undefined){
       obj.style.fontWeight = "bold"
-      if (obj.getAttribute("value").match(/\-/gim)){
+      if (state === "gastostotal"){
         obj.style.color = "red"
-      } else {
+      } else if(obj.getAttribute("value").match(/\-/gim) === null && state === "gastostotal"){
         obj.style.color = "#50d53a"
       }
+
+      if (obj.getAttribute("value").match(/\-/gim) && state === "ingresostotal"){
+        obj.style.color = "red"
+      } else if (obj.getAttribute("value").match(/\-/gim) === null && state === "ingresostotal") {
+        obj.style.color = "#50d53a"
+      }
+
+      if (obj.getAttribute("value").match(/\-/gim) && state === "balactualco"){
+        obj.style.color = "red"
+      } else if (obj.getAttribute("value").match(/\-/gim) === null && state === "balactualco") {
+        obj.style.color = "#50d53a"
+      }
+
+      if (state === "balancefiltro"){
+        obj.style.color = "#0CC9D5"
+      } 
     }
   }
-  apply_color_balance(balactualco)
-  apply_color_balance(totalgastosfiltro)
-  apply_color_balance(totalIngresFiltro)
-  apply_color_balance(balancefiltro)
+  apply_color_balance(balactualco, "balactualco")
+  apply_color_balance(totalgastosfiltro, "gastostotal")
+  apply_color_balance(totalIngresFiltro, "ingresostotal")
+  apply_color_balance(balancefiltro, "balancefiltro")
 }
 
 colorear_balances()

@@ -691,10 +691,10 @@ const calender = () => {
 					time_bal: timeo !== "" ? timeo : "hour"
 				}).done(d => {
 					d = JSON.parse(d)
-					document.getElementsByClassName("balactual")[0].innerHTML = `<span class='font-weight-bold'>Balance Actual</span>: <span class='	font-weight-bold' style='color:${d.BalanceActual.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.BalanceActual+"</span>"
-					document.getElementsByClassName("togasfil")[0].innerHTML = `<span class='font-weight-bold'>Total Gastos</span>: <span class='font-weight-bold' style='color:${d.TotalGastosFiltro.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.TotalGastosFiltro+"</span><br>"
+					document.getElementsByClassName("balactual")[0].innerHTML = `<span class='font-weight-bold'>Balance Real</span>: <span class='	font-weight-bold' style='color:${d.BalanceActual.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.BalanceActual+"</span>"
+					document.getElementsByClassName("togasfil")[0].innerHTML = `<span class='font-weight-bold'>Total Gastos</span>: <span class='font-weight-bold' style='color:red;'>$ ` + d.TotalGastosFiltro+"</span><br>"
 					document.getElementsByClassName("toinfil")[0].innerHTML = `<span class='font-weight-bold'>Total Ingresos</span>: <span class='font-weight-bold' style='color:${d.TotalIngresosFiltro.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.TotalIngresosFiltro+"</span><br>"
-					document.getElementsByClassName("bafis")[0].innerHTML = `<span class='font-weight-bold'>Balance</span>: <span class='font-weight-bold' style='color:${d.BalanceFiltro.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.BalanceFiltro + "</span"
+					document.getElementsByClassName("bafis")[0].innerHTML = `<span class='font-weight-bold'>Flujo ${d.Statebalancefiltro}</span>: <span class='font-weight-bold' style='color:${d.BalanceFiltro.toString().match(/\-/gim) ? "red" : "#0CC9D5"}'>$ ` + d.BalanceFiltro + "</span"
 					document.getElementsByClassName("state_balanc")[0].innerHTML = d.Status
 				})
 			}
@@ -747,13 +747,14 @@ const calender = () => {
 				time_bal: alma_config[1].time_bal
 			}).done(d => {
 				d = JSON.parse(d)
-				document.getElementsByClassName("balactual")[0].innerHTML = "<span class='font-weight-bold'>Balance Actual</span>:$ " + d.BalanceActual
-				document.getElementsByClassName("togasfil")[0].innerHTML = "<span class='font-weight-bold'>Total Gastos</span>: $" + d.TotalGastosFiltro+"<br>"
-				document.getElementsByClassName("toinfil")[0].innerHTML = "<span class='font-weight-bold'>Total Ingresos</span>: $" + d.TotalIngresosFiltro+"<br>"
-				document.getElementsByClassName("bafis")[0].innerHTML = "<span class='font-weight-bold'>Balance</span>: $" + d.BalanceFiltro 
+				document.getElementsByClassName("balactual")[0].innerHTML = `<span class='font-weight-bold'>Balance Real</span>: <span class='	font-weight-bold' style='color:${d.BalanceActual.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.BalanceActual+"</span>"
+				document.getElementsByClassName("togasfil")[0].innerHTML = `<span class='font-weight-bold'>Total Gastos</span>: <span class='font-weight-bold' style='color:red;'>$ ` + d.TotalGastosFiltro+"</span><br>"
+				document.getElementsByClassName("toinfil")[0].innerHTML = `<span class='font-weight-bold'>Total Ingresos</span>: <span class='font-weight-bold' style='color:${d.TotalIngresosFiltro.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.TotalIngresosFiltro+"</span><br>"
+				document.getElementsByClassName("bafis")[0].innerHTML = `<span class='font-weight-bold'>Flujo ${d.Statebalancefiltro}</span>: <span class='font-weight-bold' style='color:${d.BalanceFiltro.toString().match(/\-/gim) ? "red" : "#0CC9D5"}'>$ ` + d.BalanceFiltro + "</span"
 				document.getElementsByClassName("state_balanc")[0].innerHTML = d.Status
 			})
 		}
+		
 		footer.appendChild(btn_default_restablish)
 		
 		body.appendChild(dias_semana)

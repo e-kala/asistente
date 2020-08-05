@@ -18,9 +18,9 @@ body{
    <div class="card bg-blue modsco">
      <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingOne">
        <h2 class="mb-0 flex-grow-1 flexbg w-100">
-         <button class="open_modul btn btn-link btn-block text-left font-weight-bold " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+         <div class="open_modul btn btn-link btn-block text-left font-weight-bold " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           Información
-        </button>
+        </div>
        </h2>
        <img src="./content/img/íconos/info.png" class="ml-2" width="30px">
      </div>

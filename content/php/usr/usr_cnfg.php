@@ -94,11 +94,15 @@
 	if (load_gif !== undefined && load_gif !== null) {
 		load_gif.style.display = "none"
 		const getcnf = document.getElementById("cng")
-		let jsonst = getcnf.getAttribute("value")
-		let json = JSON.parse(jsonst)
+		let jsonst = ""
+		let json = [{usuario:""},{mode:"", bg:"", time_bal:""}]
+		if (getcnf !== null){
+			jsonst = getcnf.getAttribute("value")
+			json = JSON.parse(jsonst)
+		}
 		// console.log(json)
 		// console.log(jsonst)
-		alma_config = json
+		alma_config = json !== undefined && json !== null && json !== "" ? json : []
 		Aside(json[0].usuario)
 
 		if (json[1].mode === "dark"){

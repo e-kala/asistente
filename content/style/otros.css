@@ -142,6 +142,36 @@ main{
 	background: transparent;
 }
 
+.conjunt_images{
+	scroll-behavior: smooth;
+	overflow-y: hidden;
+}
+
+.leftimg{
+	position: absolute; 
+	display: none; 
+	border-radius: 100%; 
+	left: 8%; 
+	width: 60px;
+	height: 60px;
+	top: 150px;
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 150%;
+}
+
+.rightimg{
+	position: absolute; 
+	display: none; 
+	border-radius: 100%; 
+	right: 8%; 
+	width: 60px;
+	height: 60px;
+	top: 150px;
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 150%;
+}
 
 
 /*-----------------CALCULADORA-------------------------*/

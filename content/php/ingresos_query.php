@@ -34,32 +34,47 @@
 	$diaActual = date('d');
 	$añoActual = date('Y');
 
-	if ($time_filter_balance === "5"){ // 2 meses
-		$month_before = $mesActual - 1; // Un mes antes
-		$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND DAY(fecha_gasto) > 0 AND MONTH(fecha_gasto) >= '$month_before' ");
-		$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND DAY(fecha_ingreso) > 0 AND MONTH(fecha_ingreso) >= '$month_before'");
-		$state = "Actividad en 2 meses";
-	} else if ($time_filter_balance === "4"){ //Ultimo Mes, ultimas 3 semanas
-		$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND DAY(fecha_gasto) > 0 AND MONTH(fecha_gasto) = '$mesActual' ");
-		$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND DAY(fecha_ingreso) > 0 AND MONTH(fecha_ingreso) = '$mesActual'");
-		$state = "Actividad en el último mes";
+	if ($time_filter_balance === "5"){ // 2 meses atrás
+		$month_before = $mesActual - 2; // 2 meses atrás
+		$dias_total = getMonthDays($month_before, $añoActual); //Dias totales dle mes anterior
+		$number_day_refer = ($dias_total + $diaActual) - $dias_total; //Total de dias del mes anterior mas los dias que lleva el mes actual menos 21, o sea menos 3 semanas
+		$fecha_deseada_atras = $añoActual . "-" . $month_before . "-" . $number_day_refer; //Actividad desde hace 1 mes atrás
+		
+		$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND fecha_gasto >= '$fecha_deseada_atras'");
+
+		$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND fecha_ingreso >= '$fecha_deseada_atras'");
+
+		$state = "Actividad 2 meses atrás";
+		$statemonthweek = "2 meses atrás";
+	} else if ($time_filter_balance === "4"){ //Hace un mes atrás desde la fecha actual
+		$month_before = $mesActual - 1; // 1 meses atrás
+		$dias_total = getMonthDays($month_before, $añoActual); //Dias totales dle mes anterior
+		$number_day_refer = ($dias_total + $diaActual) - $dias_total; //Total de dias del mes anterior mas los dias que lleva el mes actual menos 21, o sea menos 3 semanas
+		$fecha_deseada_atras = $añoActual . "-" . $month_before . "-" . $number_day_refer; //Actividad desde hace 1 mes atrás
+		
+		$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND fecha_gasto >= '$fecha_deseada_atras'");
+
+		$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND fecha_ingreso >= '$fecha_deseada_atras'");
+
+		$state = "Actividad 1 mes atrás";
+		$statemonthweek = "1 mes atrás";
 	} else if ($time_filter_balance === "3"){
 		if ($diaActual > 7){
 			$case = $diaActual - 21; //1/4 del ultimo mes, ultimas 3 semanas
 			$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND DAY(fecha_gasto) >= '$case' AND MONTH(fecha_gasto) = '$mesActual'");
 			$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND DAY(fecha_ingreso) >= '$case' AND MONTH(fecha_ingreso) = '$mesActual'");
 		} else {
-			$month_before = $mesActual - 1; // Un mes antes
-			// HACER EN TODOS DONDE ESTE LA FUNCION RETRO_DIFERENCE
-			$dias_total = getMonthDays($month_before, $añoActual);
-			$number_day_refer = $dias_total - 21;
+			$month_before = $mesActual - 1; // 1 meses atrás
+			$dias_total = getMonthDays($month_before, $añoActual); //Dias totales dle mes anterior
+			$number_day_refer = ($dias_total + $diaActual) - 21; //Total de dias del mes anterior mas los dias que lleva el mes actual menos 21, o sea menos 3 semanas
+			$fecha_deseada_atras = $añoActual . "-" . $month_before . "-" . $number_day_refer; //Actividad desde hace 3 semanas
 			
-			$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND DAY(fecha_gasto) > '$number_day_refer' AND MONTH(fecha_gasto) >=  '$month_before'");
+			$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND fecha_gasto >= '$fecha_deseada_atras'");
 
-			$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND DAY(fecha_ingreso) >= '$number_day_refer' AND MONTH(fecha_ingreso) >= '$month_before'");
-
+			$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND fecha_ingreso >= '$fecha_deseada_atras'");
 		}
 		$state = "Actividad en las últimas 3 semanas";
+		$statemonthweek = "desde 3 semanas atrás";
 		
 	} else if ($time_filter_balance === "2"){
 		if ($diaActual > 7){
@@ -67,16 +82,17 @@
 			$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND DAY(fecha_gasto) >= '$case' AND MONTH(fecha_gasto) = '$mesActual'");
 			$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND DAY(fecha_ingreso) >= '$case' AND MONTH(fecha_ingreso) = '$mesActual'");
 		} else {
-			$month_before = $mesActual - 1; // Un mes antes
-			// HACER EN TODOS DONDE ESTE LA FUNCION RETRO_DIFERENCE
-			$dias_total = getMonthDays($month_before, $añoActual);
-			$number_day_refer = $dias_total - 14;
+			$month_before = $mesActual - 1; // 1 meses atrás
+			$dias_total = getMonthDays($month_before, $añoActual); //Dias totales dle mes anterior
+			$number_day_refer = ($dias_total + $diaActual) - 14; //Total de dias del mes anterior mas los dias que lleva el mes actual menos 21, o sea menos 3 semanas
+			$fecha_deseada_atras = $añoActual . "-" . $month_before . "-" . $number_day_refer; //Actividad desde hace 2 semanas
 			
-			$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND DAY(fecha_gasto) > '$number_day_refer' AND MONTH(fecha_gasto) >=  '$month_before'");
+			$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND fecha_gasto >= '$fecha_deseada_atras'");
 
-			$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND DAY(fecha_ingreso) >= '$number_day_refer' AND MONTH(fecha_ingreso) >= '$month_before'");
+			$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND fecha_ingreso >= '$fecha_deseada_atras'");
 		}
 		$state = "Actividad en las últimas 2 semanas";
+		$statemonthweek = "desde 2 semanas atrás";
 		
 	} else if ($time_filter_balance === "1"){
 		if ($diaActual > 7){
@@ -85,19 +101,22 @@
 			$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND DAY(fecha_ingreso) >= '$case' AND MONTH(fecha_ingreso) = '$mesActual'");
 		} else {
 			//Retro diference
-			$month_before = $mesActual - 1; // Un mes antes
-			$dias_total = getMonthDays($month_before, $añoActual);
-			$number_day_refer = $dias_total - 7;
+			$month_before = $mesActual - 1; // 1 meses atrás
+			$dias_total = getMonthDays($month_before, $añoActual); //Dias totales dle mes anterior
+			$number_day_refer = ($dias_total + $diaActual) - 7; //Total de dias del mes anterior mas los dias que lleva el mes actual menos 21, o sea menos 3 semanas
+			$fecha_deseada_atras = $añoActual . "-" . $month_before . "-" . $number_day_refer; //Actividad desde hace 3 semanas
 			
-			$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND DAY(fecha_gasto) > '$number_day_refer' AND MONTH(fecha_gasto) >=  '$month_before'");
+			$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND fecha_gasto >= '$fecha_deseada_atras'");
 
-			$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND DAY(fecha_ingreso) >= '$number_day_refer' AND MONTH(fecha_ingreso) >= '$month_before'");
+			$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND fecha_ingreso >= '$fecha_deseada_atras'");
 		}
 		$state = "Actividad en la última semana";
+		$statemonthweek = "esta semana";
 	} else { //Tiempo personalizado por input data
 		$consultaGastos = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND fecha_gasto >= '$time_filter_balance'");
 		$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND fecha_ingreso >= '$time_filter_balance'");
 		$state = "Actividad desde " . $time_filter_balance;
+		$statemonthweek = "desde " . $time_filter_balance ;
 	}
 
 	if (!empty($resultadoIngresosGeneral) && $resultadoIngresosGeneral->num_rows > 0) {
@@ -126,10 +145,10 @@
 			}
 		}
 
-		echo "<span class='balactual'><span class='font-weight-bold'>Balance Actual</span>: <span class='balactual_co' value='".$totali = $totalIngresosGeneral - $totalGastosGeneral."'>$ ". $totali = $totalIngresosGeneral - $totalGastosGeneral . "</span></span>";
+		echo "<span class='balactual'><span class='font-weight-bold'>Balance Real</span>: <span class='balactual_co' value='".$totali = $totalIngresosGeneral - $totalGastosGeneral."'>$ ". $totali = $totalIngresosGeneral - $totalGastosGeneral . "</span></span>";
 		echo "<br><br><span class='font-weight-bold text-secondary font-italic'>Valores según filtro</span>";
 		echo "<br><br><span class='togasfil'><span class='font-weight-bold font-italic'>Total Gastos</span>: <span class='togasinitfil' value='{$totalGastos}'>$ {$totalGastos} </span><br></span>";
 		echo "<span class='toinfil'><span class='font-weight-bold font-italic'>Total Ingresos</span>: <span class='toingresinitfil' value='{$totalIngresos}'>$ ". $totalIngresos . "</span><br></span>";
-		echo "<span class='bafis'><span class='font-weight-bold font-italic'>Balance</span>: <span class='balancefiltro' value='".$total = $totalIngresos - $totalGastos."'>$ " .$total = $totalIngresos - $totalGastos . "</span></span>";
+		echo "<span class='bafis'><span class='font-weight-bold font-italic'>Flujo ".$statemonthweek."</span>: <span class='balancefiltro' value='".$total = $totalIngresos - $totalGastos."'>$ " .$total = $totalIngresos - $totalGastos . "</span></span>";
 	}
 ?>

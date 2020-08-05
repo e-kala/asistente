@@ -64,81 +64,81 @@ body{
 
 
 .header-home-asistent{ /* Change to modo light*/
-	background: #fff;
+	background: rgb(255,255,255,0.90);
 	color: #303030;
 }
 
 .header-home-asistentinit{ /* al iniciar t*/
-	background: #fff;
+	background: rgb(255,255,255,0.90);
 	color: #303030;
 }
 
 .header-home-light{
-	background: #fff;
+	background: rgb(255,255,255,0.90);
 	animation: tolighthea linear 1 0.2s;
 }
 
 .header-home-lightinit{ /*al iniciar*/
-	background: #fff;
+	background: rgb(255,255,255,0.90);
 }
 
 @keyframes tolighthea{
 	from{
-		background: #343445;
+		background: rgb(52,52,69,0.95);
 	}
 	to{
-		background: #fff;
+		background: rgb(255,255,255,0.90);
 	}
 }
 .header-home-asistent-dark{/* Change to modo Dark*/
-	background: #343445;
+	background: rgb(52,52,69,0.95);
 	animation: todarkhea linear 1 0.2s;
 }
 
 .header-home-asistent-darkinit{/* al iniciar*/
-	background: #343445;
+	background: rgb(52,52,69,0.95);
 }
 
 @keyframes todarkhea{
 	from{
-		background: #fff;
+		background: rgb(255,255,255,0.90);
 	}
 	to{
-		background: #343445;
+		background: rgb(52,52,69,0.95);
 	}
 }
 
 .light{
-	background: #fff;
+	background: rgb(255,255,255,0.90);
 	animation: tolight linear 1 0.2s;
 }
 
 .lightinit{ /* al iniciar */
-	background: #fff;
+	background: rgb(255,255,255,0.90);
 }
 
 @keyframes tolight{
 	from{
-		background: #343445;
+		background: rgb(52,52,69,0.95);
 	}
 	to{
 		background: #f2f2f2;
 	}
 }
 .dark{
-	background: #343445;
+	background: rgb(52,52,69,0.95);
 	animation: todark linear 1 0.2s;
 }
 
 .darkinit{ /* al iniciar */
-	background: #343445;
+	background: rgb(52,52,69,0.95);
 }
 @keyframes todark{
 	from{
 		background: #f2f2f2;
 	}
 	to{
-		background: #343445;
+		background: rgb(52,52,69,0.95);
 	}
 }
 
