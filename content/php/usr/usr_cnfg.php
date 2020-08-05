@@ -134,10 +134,13 @@
 		}
 	 	
 
-		document.body.style.background = `url(./content/img/fondos/${json[1].background})`
-		document.body.style.backgroundSize = "cover"
-		document.body.style.backgroundPosition = "center center"
-		document.body.style.backgroundAttachment = "fixed"
+		if (json[1].bg !== ""){
+			document.body.style.background = `url(./content/img/fondos/${json[1].background})`
+			document.body.style.backgroundSize = "cover"
+			document.body.style.backgroundPosition = "center center"
+			document.body.style.backgroundAttachment = "fixed"
+		}
+
 		console.log(json, "domo")
 
 

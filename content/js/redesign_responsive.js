@@ -175,9 +175,12 @@ function div_opa_init_dark_wait(){
 }
 
 
-if (document.getElementsByClassName("modulos") !== undefined &&
-	document.getElementsByClassName("divflomes") === undefined){
-	if (window.location.href.match(/(\#\?|registros|transferencias|editar\_ingresos|editar\_gastos|configuracion)/gim) === null){
-		div_opa_init_dark_wait();
+if (document.getElementsByClassName("modulos") !== undefined){
+
+	if (document.getElementsByClassName("divflomes").length === 0){
+		if (window.location.href.match(/(\#\?|registros|transferencias|editar\_ingresos|editar\_gastos|configuracion)/gim) === null){
+			div_opa_init_dark_wait();
+		}
 	}
 }
+
