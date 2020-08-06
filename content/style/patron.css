@@ -10,12 +10,6 @@ body{
 }
 
 #root{
-	position: fixed;
-	border-radius: 20px;
-	margin:auto;
-	top:40px;
-	left: 0;
-	right: 0;
 	/*padding: 20px;*/
 }
 

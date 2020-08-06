@@ -168,7 +168,7 @@ function div_opa_init_dark_wait(){
     },{
       opacity:0
     }],{duration:1000, iterations:1})
-    if (window.location.href.match(/(\#\?|registros|transferencias|editar\_ingresos|editar\_gastos|configuracion)/gim) === null){
+    if (window.location.href.match(/(\#\?|registros|registro|transferencias|editar\_ingresos|editar\_gastos|configuracion)/gim) === null){
    		window.location.href = window.location.href + "#?"
     }
   },3000)
@@ -178,7 +178,7 @@ function div_opa_init_dark_wait(){
 if (document.getElementsByClassName("modulos") !== undefined){
 
 	if (document.getElementsByClassName("divflomes").length === 0){
-		if (window.location.href.match(/(\#\?|registros|transferencias|editar\_ingresos|editar\_gastos|configuracion)/gim) === null){
+		if (window.location.href.match(/(\#\?|registros|registro|transferencias|editar\_ingresos|editar\_gastos|configuracion)/gim) === null){
 			div_opa_init_dark_wait();
 		}
 	}

@@ -8,11 +8,13 @@
 		$mode = $_POST['mode'];
 		$background = $_POST['background'];
 		$time_change_balance = $_POST['time_bal'];
+		$transparency = $_POST['transparency'];
 
 		//Array contenedor de todos los datos
 		$set["mode"] = $mode;
 		$set["background"] = $background;
 		$set["time_bal"] = $time_change_balance;
+		$set["transparency"] = $transparency;
 
 		$set = json_encode($set);
 

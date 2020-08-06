@@ -28,9 +28,12 @@ logo = '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-circle-ha
 
 options = ["Inicio", "Configuración", logo, "Cerrar Sesión"]
 
-iters = (modss, boxes_inn, registrosg, txtcolor, tadoreschangemod) => {
+iters = (status, modss, boxes_inn, registrosg, txtcolor, tadoreschangemod) => {
     for (let x = 0; x < mods.length; x++){
-      mods[x].className = modss
+      if (mods[x] !== undefined){
+        mods[x].className = modss[0]
+        mods[x].style.background = modss[1]
+      }
     }
     for (let x = 0; x < boxes_in.length; x++){
       boxes_in[x].className = boxes_inn
@@ -93,14 +96,16 @@ functions = [
 
 
     mode_light_dark = !mode_light_dark
+    mode_client = mode_light_dark
 
     const post_save_change = (mode) => {
       $.post("./content/php/usr/update_cnfg.php", {
         usuario : alma_config[0].usuario,
         background : alma_config[1].background,
+        transparency: alma_config[1].transparency,
         mode : mode,
         time_bal : alma_config[1].time_bal
-      })
+      }).done(e => console.log(e,"jeje"))
     }
 
     if (mode_light_dark){ // ----------------- Dark
@@ -118,7 +123,8 @@ functions = [
           containeringasedi.className = "container containeringasedi p-4 dark text-light"
         }
         iters(
-          "card modsco dark text-light", 
+          "dark",
+          ["card modsco dark text-light", `rgb(52,52,69,${alma_config[1].transparency}5)`], 
           "card boxes-in dark text-light",
           "p-4 m-4 tered registrosgasin dark text-light text-white cotxtlight",
           'text-center colorchangetxt text-light',
@@ -145,7 +151,8 @@ functions = [
           containeringasedi.className = "container containeringasedi p-4 light text-dark"
         }
         iters(
-          "card modsco light text-dark", 
+          "light"
+          ["card modsco light text-dark",`rgb(255,255,255,${alma_config[1].transparency}5)`], 
           "card boxes-in light text-dark",
           "p-4 m-4 text-white tered registrosgasin light text-dark cotxtdark",
           'text-center colorchangetxt text-dark',

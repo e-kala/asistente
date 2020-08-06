@@ -51,27 +51,37 @@ success:function(r){
 // Agregar Datos Gasto 
  // ------------------------------------------------------------------------------------------------------
 
+
 const dark = () => {
-    header_session.className = "navbar mb-4 p-4 header-home-asistent-darkinit"
-      text_he.className = "navbar-brand text-light text-he font-weight-bold"
+    header_session.className = "navbar mb-4 p-4"
+    header_session.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+    
+    text_he.className = "navbar-brand text-light text-he font-weight-bold"
  
     if (modscodown !== undefined){
       modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow text-dark";
+      modscodow.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
     }
 
     if (bguserconfigchange !== undefined && bguserconfigchange !== null){
-      bguserconfigchange.className = "card bguserconfigchange darkinit text-light"
+      bguserconfigchange.className = "card bguserconfigchange text-light"
+      bguserconfigchange.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
     }
 
     const asidechancolor = document.getElementsByClassName("asidechancolor")[0]
-    if (asidechancolor !== undefined) asidechancolor.className = "containeraside card asidechancolor darkinit text-light"
+    if (asidechancolor !== undefined){
+       asidechancolor.className = "containeraside card asidechancolor text-light"
+       asidechancolor.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+    }
 
     if (containeringasedi !== undefined && containeringasedi !== null){
-      containeringasedi.className = "container containeringasedi p-4 darkinit text-light"
+      containeringasedi.className = "container containeringasedi p-4 text-light"
+      containeringasedi.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
     }
 
     iters(
-      "card modsco darkinit text-light flexbg", 
+      "dark",
+      ["card modsco darkinit text-light flexbg",`rgb(52,52,69,${alma_config[1].transparency}5)`], 
       "card boxes-in darkinit text-light flexbg",
       "p-4 m-4 text-white tered registrosgasin darkinit text-light text-white cotxtlight",
       'text-center colorchangetxt text-light',
@@ -81,7 +91,7 @@ const dark = () => {
         colorchangetxt[x].className = 'text-center colorchangetxt text-light'
     }
 
-    registrosgasin.className = "p-4 m-4 text-white tered registrosgasin darkinit text-light text-white cotxtlight"
+    registrosgasin.className = "p-4 m-4 text-white tered registrosgasin text-light text-white cotxtlight"
 }
 
 const light = () => {
@@ -103,7 +113,8 @@ const light = () => {
     }
 
     iters(
-      "card modsco lightinit text-dark flexbg", 
+      "light",
+      ["card modsco lightinit text-dark flexbg",`rgb(255,255,255,${alma_config[1].transparency}5)`], 
       "card boxes-in lightinit text-dark",
       "p-4 m-4 tered registrosgasin lightinit text-dark cotxtdark",
       'text-center colorchangetxt text-dark',

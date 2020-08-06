@@ -1,4 +1,65 @@
-let [time, bg] = ["hour", "", ""]
+let mode_client = ""
+let change_use_mode_init_or_client = false
+
+let [time, bg, transparency] = ["hour", "", document.getElementById("slide_transparency").value]
+
+const element_to_change_style_mode = () =>{
+	const navbar = document.getElementsByClassName("navbar")[0]
+	const panel_config = document.getElementsByClassName("bguserconfigchange")[0]
+	
+	if (mode_client){
+		navbar.style.background = `rgb(52,52,69,${transparency}5)`
+		panel_config.style.background = `rgb(52,52,69,${transparency}5)`
+	} else {
+		navbar.style.background = `rgb(255,255,255,${transparency}5)`
+		panel_config.style.background = `rgb(255,255,255,${transparency}5)`
+	
+	}
+}
+
+const slide_transparency = document.getElementById("slide_transparency")
+slide_transparency.onpointermove = e => {
+	let valor = e.target.value
+	value_slide_transparency = document.getElementById("value_slide_transparency")
+	value_slide_transparency.innerHTML = valor
+
+	if (valor !== "0"){
+		transparency = valor
+	} else if (valor === ""){
+		transparency = alma_config[1].transparency
+	} else {
+		transparency = "0.0"
+	}
+	
+	if (mode_client === ""){
+		mode_client = alma_config[1].mode === "dark" ? true : false
+	} else {
+		mode_client = mode_client
+	}
+	
+	element_to_change_style_mode()
+}
+
+slide_transparency.onclick = e => {
+	let valor = e.target.value
+	value_slide_transparency = document.getElementById("value_slide_transparency")
+	value_slide_transparency.innerHTML = valor
+
+	if (valor !== "0"){
+		transparency = valor
+	} else if (valor === ""){
+		transparency = alma_config[1].transparency
+	} else {
+		transparency = "0.0"
+	}
+
+	if (mode_client === ""){
+		mode_client = alma_config[1].mode === "dark" ? true : false
+	} else {
+		mode_client = mode_client
+	}
+	element_to_change_style_mode()
+}
 
 
 const data_time_customized_balance = document.getElementsByName("data_balanc_custom")[0]
@@ -58,6 +119,7 @@ const send_config = () => {
 	$.post("./content/php/usr/update_cnfg.php", {
 		usuario: alma_config[0].usuario,
 		mode: alma_config[1].mode,
+		transparency: transparency !== "" ? transparency : alma_config[1].transparency,
 		background: bg,
 		time_bal: time !== "" ? time : "hour"
 	}).done(d => {
@@ -117,8 +179,6 @@ const show_1 = () => {
 
 		conjunt_images[1].style.display = "none"
 		conjunt_images[2].style.display = "none"
-		conjunt_images[3].style.display = "none"
-		conjunt_images[4].style.display = "none"
 	}
 }
 
@@ -156,8 +216,6 @@ const show_2 = () => {
 
 		conjunt_images[0].style.display = "none"
 		conjunt_images[2].style.display = "none"
-		conjunt_images[3].style.display = "none"
-		conjunt_images[4].style.display = "nonr"
 
 	}
 }
@@ -195,8 +253,6 @@ const show_3 = () => {
 		conjunt_images[2].animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
 		conjunt_images[0].style.display = "none"
 		conjunt_images[1].style.display = "none"
-		conjunt_images[3].style.display = "none"
-		conjunt_images[4].style.display = "nonr"
 
 	}
 }

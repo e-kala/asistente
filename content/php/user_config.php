@@ -28,8 +28,9 @@
 			<div class="cambiar-fondos/1 border mt-2">
 				<h4 class="m-4 text-center"> Personalizar estilo </h4>
 				<div class="d-flex">
-					<h4 class="m-4 text-center"> Transparencia </h4>
-					<input class="flex-grow-1 ml-4 mr-4" min="0" max="9" type="range" name="slide_transparency" id="slide_transparency">
+					<h4 class="m-4 pl-4 text-center"> Transparencia </h4>
+					<input class="flex-grow-1 ml-4 mr-4" min="0" max="1" type="range" name="slide_transparency" step="0.1" id="slide_transparency">
+					<span id="value_slide_transparency" class="p-4 mr-4"></span>
 				</div>
 				<h4 class="m-4 text-center"> Cambiar fondo </h4>
 				<div class="menu_folder_conjunts_images">

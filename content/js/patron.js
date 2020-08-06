@@ -1399,3 +1399,28 @@ managerPassword = db => {
 	}
 };
 
+
+
+if (window.location.href.match(/registro/gim) === null){
+	let root = document.getElementById("root")
+	if (root !== undefined && root !== null){
+		root.style.position = "fixed"
+		root.style.borderRadius = "20px"
+		root.style.margin = "auto"
+		root.style.top = "40px"
+		root.style.left = "0"
+		root.style.right = "0"
+	}
+} else {
+	let root = document.getElementById("root")
+	if (root !== undefined && root !== null){
+		root.style.position = ""
+		root.style.borderRadius = "20px"
+		root.style.margin = ""
+		root.style.padding = "20px"
+		root.style.top = "30px"
+		root.style.float = "right"
+		root.style.left = ""
+		root.style.right = "0"
+	}
+}

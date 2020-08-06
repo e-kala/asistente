@@ -132,6 +132,18 @@
 		} catch(e){
 			//
 		}
+
+		if (json[1].transparency !== ""){
+			transparency = json[1].transparency
+			let slide_transparency = document.getElementById("slide_transparency")
+			let value_slide_transparency = document.getElementById("value_slide_transparency")
+			if (slide_transparency !== undefined && slide_transparency !== null){
+				slide_transparency.setAttribute("value", transparency) 
+			}
+			if(value_slide_transparency !== undefined && value_slide_transparency !== null){
+				value_slide_transparency.innerHTML = transparency
+			}
+		}
 	 	
 
 		if (json[1].bg !== ""){
