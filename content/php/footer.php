@@ -1,3 +1,40 @@
+<div class="container-fluid">
+	
+	<div class="card">
+	  <div class="card-body">
+	  	<div class="row text-center">
+			<div class="col-sm-4">
+				<p>Contenido</p>
+			</div>  		
+			<div class="col-sm-4">
+				<p>
+					Copyright ©
+		            <script> 
+		                var f = new Date();
+		                document.write(f.getFullYear());
+		            </script> 
+	            | 	<a href="#">Asistente</a>
+	        	</p>
+			</div>  		
+			<div class="col-sm-4">
+				<a href="#"> <i class="fa fa-twitter"></i></a>
+				<a href="#"><i class="fa fa-instagram"></i></a>
+				<a href="#"> <i class="fa fa-facebook"></i></a>
+				<a href="#"> <i class="fa fa-email"></i></a>
+			</div>  		
+
+	  	</div>
+	  </div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -37,7 +74,24 @@
 <script type="text/javascript" src="./content/js/editar_gastos.js"></script>
 <script type="text/javascript" src="./content/js/modal_cuentas.js"></script>
 
+<script>
+    $(function(){
+        var URLsearch = window.location.search;
+        //alert(URLsearch);
 
+        $('.navbar-nav li').removeClass('active');
+        //$(this).parent().addClass('active');
+
+        var a = $("li > a").attr("href");
+        //alert(a);
+
+        $('a[href="'+ URLsearch +'"]').addClass('active');
+
+        if (URLsearch < 1) {
+          $('a[href="?action=home"]').addClass('active');
+        }
+    });
+</script>
 
 
 <?php 
