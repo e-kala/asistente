@@ -3,7 +3,7 @@
 if(isset($_SESSION['tiempo']) ) {
 
     //Tiempo en segundos para dar vida a la sesión.
-    $inactivo = 1000;//10 min en este caso.
+    $inactivo = 600;//10 min en este caso.
 
     //Calculamos tiempo de vida inactivo.
     $vida_session = time() - $_SESSION['tiempo'];
@@ -18,7 +18,7 @@ if(isset($_SESSION['tiempo']) ) {
             session_destroy();
 
             //Redirigimos pagina.
-            header("Location: inicio.php");
+            header("Location: index.php");
             exit();
             
         } else {  // si no ha caducado la sesion, actualizamos
