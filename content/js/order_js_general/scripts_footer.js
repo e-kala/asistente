@@ -51,7 +51,6 @@ success:function(r){
 // Agregar Datos Gasto 
  // ------------------------------------------------------------------------------------------------------
 
-
 const dark = () => {
     header_session.className = "navbar mb-4 p-4"
     header_session.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
@@ -60,7 +59,7 @@ const dark = () => {
  
     if (modscodown !== undefined){
       modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow text-dark";
-      modscodow.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+      modscodown.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
     }
 
     if (bguserconfigchange !== undefined && bguserconfigchange !== null){
@@ -79,13 +78,39 @@ const dark = () => {
       containeringasedi.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
     }
 
+    if (document.getElementsByClassName("footcolor")[0] !== undefined && document.getElementsByClassName("footcolor")[0] !== null){
+      document.getElementsByClassName("footcolor")[0].style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+      document.getElementsByClassName("footcolor")[0].className = "card footcolor text-light font-weight-bold"
+    }
+
+    if (document.getElementsByClassName("color_ventana_graficos")[0] !== undefined && document.getElementsByClassName("color_ventana_graficos")[0] !== null){
+      document.getElementsByClassName("color_ventana_graficos")[0].style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+      document.getElementsByClassName("color_ventana_graficos")[0].className = "card mt-4 p-4 color_ventana_graficos text-light"
+    }
+
+    if (modingresogasto[0] !== undefined){ //Modal ingreso
+        modingresogasto[0].style.background = `rgb(52,52,69)`
+        modingresogasto[0].className = "modal-content modingresogasto text-light"
+    }
+
+    if (modingresogasto[1] !== undefined){ //Modal Gasto
+        modingresogasto[1].style.background = `rgb(52,52,69)`
+        modingresogasto[1].className = "modal-content modingresogasto text-light"
+    }
+
+    //Transferencias
+    if (bgtransferencias_ventana !== undefined && bgtransferencias_ventana !== null){
+        bgtransferencias_ventana.className = "p-4 mt-4 rounded bgtransferencias_ventana text-light"
+        bgtransferencias_ventana.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+    }
+
     iters(
       "dark",
-      ["card modsco darkinit text-light flexbg",`rgb(52,52,69,${alma_config[1].transparency}5)`], 
-      "card boxes-in darkinit text-light flexbg",
-      "p-4 m-4 text-white tered registrosgasin darkinit text-light text-white cotxtlight",
+      ["card modsco text-light flexbg",`rgb(52,52,69,${alma_config[1].transparency}5)`], 
+      ["card boxes-in text-light flexbg",`rgb(52,52,69,${alma_config[1].transparency}5)`],
+      ["p-4 m-4 text-white tered registrosgasin text-light text-white cotxtlight", `rgb(52,52,69,${alma_config[1].transparency}5)`],
       'text-center colorchangetxt text-light',
-      "containeraside card asidechancolor darkinit text-light"
+      "containeraside card asidechancolor text-light"
       )
     for (let x = 0; x < colorchangetxt.length; x++){
         colorchangetxt[x].className = 'text-center colorchangetxt text-light'
@@ -95,7 +120,11 @@ const dark = () => {
 }
 
 const light = () => {
-    if (header_session !== undefined) header_session.className = "navbar mb-4 p-4 header-home-asistentinit header-home-lightinit"
+    if (header_session !== undefined) {
+      header_session.className = "navbar mb-4 p-4 header-home-lightinit"
+      header_session.style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+    }
+
     if (text_he !== undefined) text_he.className = "navbar-brand text-dark text-he font-weight-bold"
     if (modscodown !== undefined){
       modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow  text-dark";
@@ -103,20 +132,49 @@ const light = () => {
 
     if (bguserconfigchange !== undefined && bguserconfigchange !== null){
       bguserconfigchange.className = "card bguserconfigchange lightinit text-dark"
+      bguserconfigchange.style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
     }
 
     const asidechancolor = document.getElementsByClassName("asidechancolor")[0]
-    if (asidechancolor !== undefined) asidechancolor.className = "containeraside card asidechancolor lightinit text-dark"
+    if (asidechancolor !== undefined) {
+      asidechancolor.className = "containeraside card asidechancolor text-dark"
+      asidechancolor.style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+    }
 
     if (containeringasedi !== undefined && containeringasedi !== null){
       containeringasedi.className = "container containeringasedi p-4 lightinit text-dark"
     }
 
+    if (document.getElementsByClassName("footcolor")[0] !== undefined && document.getElementsByClassName("footcolor")[0] !== null){
+      document.getElementsByClassName("footcolor")[0].style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      document.getElementsByClassName("footcolor")[0].className = "card footcolor text-dark font-weight-bold"
+    }
+
+    if (document.getElementsByClassName("color_ventana_graficos")[0] !== undefined && document.getElementsByClassName("color_ventana_graficos")[0] !== null){
+      document.getElementsByClassName("color_ventana_graficos")[0].style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      document.getElementsByClassName("color_ventana_graficos")[0].className = "card mt-4 p-4 color_ventana_graficos text-dark"
+    }
+    if (modingresogasto[0] !== undefined){ //Modal ingreso
+        modingresogasto[0].style.background = `rgb(255,255,255)`
+        modingresogasto[0].className = "modal-content modingresogasto text-dark"
+    }
+
+    if (modingresogasto[1] !== undefined){ //Modal Gasto
+        modingresogasto[1].style.background = `rgb(255,255,255)`
+        modingresogasto[1].className = "modal-content modingresogasto text-dark"
+    }
+
+    //Transferencias
+    if (bgtransferencias_ventana !== undefined && bgtransferencias_ventana !== null){
+        bgtransferencias_ventana.className = "p-4 mt-4 rounded bgtransferencias_ventana text-dark"
+        bgtransferencias_ventana.style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+    }
+
     iters(
       "light",
-      ["card modsco lightinit text-dark flexbg",`rgb(255,255,255,${alma_config[1].transparency}5)`], 
-      "card boxes-in lightinit text-dark",
-      "p-4 m-4 tered registrosgasin lightinit text-dark cotxtdark",
+      ["card modsco text-dark flexbg",`rgb(255,255,255,${alma_config[1].transparency}5)`], 
+      ["card boxes-in text-dark", `rgb(255,255,255,${alma_config[1].transparency}5)`],
+      ["p-4 m-4 tered registrosgasin lightinit text-dark cotxtdark", `rgb(255,255,255,${alma_config[1].transparency}5)`],
       'text-center colorchangetxt text-dark',
       )
     for (let x = 0; x < colorchangetxt.length; x++){

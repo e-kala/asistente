@@ -1,0 +1,79 @@
+{
+  "_from": "chart.xkcd@^1.1.13",
+  "_id": "chart.xkcd@1.1.13",
+  "_inBundle": false,
+  "_integrity": "sha512-++JC2J1D13MdB4XZHYfa/gekbJ9DtYMwSFohbtTsryrf1C3ylMy3jcNKgSSo6CA38lS3HDR1Xol+BGWtwZFJTg==",
+  "_location": "/chart.xkcd",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "chart.xkcd@^1.1.13",
+    "name": "chart.xkcd",
+    "escapedName": "chart.xkcd",
+    "rawSpec": "^1.1.13",
+    "saveSpec": null,
+    "fetchSpec": "^1.1.13"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/chart.xkcd/-/chart.xkcd-1.1.13.tgz",
+  "_shasum": "873a5cc20c2c8add79151ed3e90802c2bae69c96",
+  "_spec": "chart.xkcd@^1.1.13",
+  "_where": "C:\\xampp\\htdocs\\asistente\\content\\js",
+  "author": {
+    "name": "timqian"
+  },
+  "bugs": {
+    "url": "https://github.com/timqian/chart.xkcd/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "d3-axis": "^1.0.12",
+    "d3-scale": "^3.2.0",
+    "d3-selection": "^1.4.1",
+    "d3-shape": "^1.3.7",
+    "dayjs": "^1.8.17"
+  },
+  "deprecated": false,
+  "description": "xkcd style chart lib",
+  "devDependencies": {
+    "eslint": "^6.2.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "gh-pages": "^2.1.1",
+    "parcel-bundler": "^1.12.4"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "homepage": "https://timqian.com/chart.xkcd",
+  "jsdelivr": "dist/chart.xkcd.min.js",
+  "keywords": [
+    "chart",
+    "graph",
+    "xkcd",
+    "hand-drawn"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "chart.xkcd",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timqian/chart.xkcd.git"
+  },
+  "scripts": {
+    "build": "parcel build src/index.js --target node --bundle-node-modules --no-source-maps --experimental-scope-hoisting",
+    "buildUmd": "parcel build src/index.js --target browser --out-file chart.xkcd.min.js --no-source-maps --experimental-scope-hoisting --global chartXkcd",
+    "deployDoc": "npm run genDoc && npm run genExample && gh-pages -d docs-dist",
+    "genDoc": "~/go/bin/static-docs --in docs --out docs-dist --title Chart.xkcd --subtitle 'xkcd styled chart lib'",
+    "genExample": "parcel build examples/example.html --out-dir docs-dist --public-url /chart.xkcd",
+    "lint": "eslint ./src",
+    "prepublishOnly": "rm -rf dist && npm run buildUmd && npm run build",
+    "start": "parcel examples/example.html"
+  },
+  "unpkg": "dist/chart.xkcd.min.js",
+  "version": "1.1.13"
+}

@@ -59,7 +59,8 @@
 		}],{duration:400, iterations:1})
 	}
 	for(let x = 0; x < modulos.length; x++){
-		modulos[x].style.display = "block"
+		modulos[x].style.display = "flex"
+		modulos[x].style.flexDirection = "column"
 		// anim(modulos[x])
 	}
 
@@ -88,7 +89,9 @@
 		containeringasedi.style.display = "block"
 	}
 
-
+	if (document.getElementsByClassName("fot")[0] !== undefined && document.getElementsByClassName("fot")[0] !== null){
+		document.getElementsByClassName("fot")[0].style.display = "block"
+	}
 	
 	const load_gif = document.getElementById("loadingg")
 	if (load_gif !== undefined && load_gif !== null) {

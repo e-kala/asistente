@@ -15,10 +15,15 @@ registrosgasin = document.getElementsByClassName("registrosgasin")
 colorchangetxt = document.getElementsByClassName("colorchangetxt")
 bguserconfigchange = document.getElementsByClassName("bguserconfigchange")[0]
 containeringasedi = document.getElementsByClassName("containeringasedi")[0] //Make accounts, gast edit, ingr edit
+footer = document.getElementsByClassName("footcolor")[0]
+color_ventana_graficos = document.getElementsByClassName("color_ventana_graficos")[0]
+modingresogasto = document.getElementsByClassName("modingresogasto")
+bgtransferencias_ventana = document.getElementsByClassName("bgtransferencias_ventana")[0]
 
 bgchan = document.getElementsByClassName("bgchan") //Tadores use change mode dark / light
 
 header_session = document.getElementsByClassName("header-home-asistent")[0]
+cotextmennavtop_color_bottons_header = document.getElementsByClassName("cotextmennavtop")
 text_he = document.getElementsByClassName("text-he")[0]
 
 mode_light_dark = false // Mode light
@@ -29,18 +34,54 @@ logo = '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-circle-ha
 options = ["Inicio", "Configuración", logo, "Cerrar Sesión"]
 
 iters = (status, modss, boxes_inn, registrosg, txtcolor, tadoreschangemod) => {
+  if (mods !== undefined){
     for (let x = 0; x < mods.length; x++){
       if (mods[x] !== undefined){
         mods[x].className = modss[0]
         mods[x].style.background = modss[1]
       }
     }
+  }
+
+  if (boxes_in !== undefined){
     for (let x = 0; x < boxes_in.length; x++){
-      boxes_in[x].className = boxes_inn
+      if (boxes_in[x] !== undefined){
+        boxes_in[x].className = boxes_inn[0]
+        boxes_in[x].style.background = boxes_inn[1]
+        if (status === "dark"){
+          boxes_in[x].animate([{
+            background:`rgb(255,255,255,${alma_config[1].transparency}5)`
+          },{
+            background:boxes_inn[1]
+          }],{duration:400, iterations:1})
+        } else {
+          boxes_in[x].animate([{
+            background:`rgb(52,52,69,${alma_config[1].transparency}5)`
+          },{
+            background:boxes_inn[1]
+          }],{duration:400, iterations:1})
+        }
+      }
     }
+    
+  }
     if (registrosgasin !== undefined) {
       for (let x = 0; x < registrosgasin.length; x++){
-        registrosgasin[x].className = registrosg
+        registrosgasin[x].className = registrosg[0]
+        registrosgasin[x].style.background = registrosg[1]
+        if (status === "dark"){
+          registrosgasin[x].animate([{
+            background:`rgb(255,255,255,${alma_config[1].transparency}5)`
+          },{
+            background:registrosg[1]
+          }],{duration:400, iterations:1})
+        } else {
+          registrosgasin[x].animate([{
+            background:`rgb(52,52,69,${alma_config[1].transparency}5)`
+          },{
+            background:registrosg[1]
+          }],{duration:400, iterations:1})
+        }
       }
     }
     if (colorchangetxt !== undefined) {
@@ -54,10 +95,16 @@ iters = (status, modss, boxes_inn, registrosg, txtcolor, tadoreschangemod) => {
       }
     }
 
-
-
-  }
-
+    if (cotextmennavtop_color_bottons_header !== undefined) {
+      for (let x = 0; x < cotextmennavtop_color_bottons_header.length; x++){  
+        if (status === "dark"){
+          cotextmennavtop_color_bottons_header[x].className = "cotextmennavtop btn btn-inherit text-light"
+        } else {
+          cotextmennavtop_color_bottons_header[x].className = "cotextmennavtop btn btn-inherit text-dark"    
+        }
+      }
+    }
+}
 
 let once_config = false
 functions = [
@@ -110,57 +157,238 @@ functions = [
 
     if (mode_light_dark){ // ----------------- Dark
       post_save_change("dark")
-        header_session.className = "navbar mb-4 p-4 header-home-asistent-dark"
+        header_session.className = "navbar mb-4 p-4"
+        header_session.style.background = `rgb(52,52,69,${transparency}5)`
+        header_session.animate([{
+          background:`rgb(255,255,255,${transparency}5)`
+        },{
+          background:`rgb(52,52,69,${transparency}5)`
+        }],{duration:400, iterations:1})
+
         text_he.className = "navbar-brand text-light text-he font-weight-bold"
-     
+
+        footer.style.background =  `rgb(52,52,69,${transparency}5)`
+        footer.className = "card footcolor text-light font-weight-bold"
+        footer.animate([{
+          background:`rgb(255,255,255,${transparency}5)`
+        },{
+          background:`rgb(52,52,69,${transparency}5)`
+        }],{duration:400, iterations:1})
+
+        if (mods[0] !== undefined && mods[1] !== undefined){
+          mods[0].animate([{
+            background:`rgb(255,255,255,${transparency}5)`
+          },{
+            background:`rgb(52,52,69,${transparency}5)`
+          }],{duration:400, iterations:1})
+          mods[1].animate([{
+            background:`rgb(255,255,255,${transparency}5)`
+          },{
+            background:`rgb(52,52,69,${transparency}5)`
+          }],{duration:400, iterations:1})
+        }
+       
         if (modscodown !== undefined){
           modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow text-dark";
         }
         if (bguserconfigchange !== undefined && bguserconfigchange !== null){
-          bguserconfigchange.className = "card bguserconfigchange dark text-light"
+          bguserconfigchange.className = "card bguserconfigchange text-light"
+          bguserconfigchange.style.background = `rgb(52,52,69,${transparency}5)`
+          bguserconfigchange.animate([{
+            background:`rgb(255,255,255,${transparency}5)`
+          },{
+            background:`rgb(52,52,69,${transparency}5)`
+          }],{duration:400, iterations:1})
         }
         if (containeringasedi !== undefined && containeringasedi !== null){
-          containeringasedi.className = "container containeringasedi p-4 dark text-light"
+          containeringasedi.className = "container containeringasedi p-4 text-light"
+          containeringasedi.style.background = `rgb(52,52,69,${transparency}5)`
+          containeringasedi.animate([{
+            background:`rgb(255,255,255,${transparency}5)`
+          },{
+            background:`rgb(52,52,69,${transparency}5)`
+          }],{duration:400, iterations:1})
         }
+
+        if (color_ventana_graficos !== undefined){
+          color_ventana_graficos.style.background = `rgb(52,52,69,${transparency}5)`
+          color_ventana_graficos.animate([{
+            background:`rgb(255,255,255,${transparency}5)`
+          },{
+            background:`rgb(52,52,69,${transparency}5)`
+          }],{duration:400, iterations:1})
+          color_ventana_graficos.className = "card mt-4 p-4 color_ventana_graficos text-light"
+        }
+
+        if (modingresogasto[0] !== undefined){ //Modal ingreso
+          modingresogasto[0].style.background = `rgb(52,52,69)`
+          modingresogasto[0].className = "modal-content modingresogasto text-light"
+          modingresogasto[0].animate([{
+            background:`rgb(255,255,255)`
+          },{
+            background:`rgb(52,52,69)`
+          }],{duration:400, iterations:1})
+        }
+
+        if (modingresogasto[1] !== undefined){ //Modal gasto
+          modingresogasto[1].style.background = `rgb(52,52,69)`
+          modingresogasto[1].className = "modal-content modingresogasto text-light"
+          modingresogasto[1].animate([{
+            background:`rgb(255,255,255)`
+          },{
+            background:`rgb(52,52,69)`
+          }],{duration:400, iterations:1})
+        }
+
+        //Transferencias
+        if (bgtransferencias_ventana !== undefined){
+          bgtransferencias_ventana.style.background = `rgb(52,52,69,${transparency}5)`
+          bgtransferencias_ventana.className = "p-4 mt-4 rounded bgtransferencias_ventana text-light"
+          bgtransferencias_ventana.animate([{
+            background:`rgb(255,255,255,${transparency}5)`
+          },{
+            background:`rgb(52,52,69,${transparency}5)`
+          }],{duration:400, iterations:1})
+        }
+
         iters(
           "dark",
-          ["card modsco dark text-light", `rgb(52,52,69,${alma_config[1].transparency}5)`], 
-          "card boxes-in dark text-light",
-          "p-4 m-4 tered registrosgasin dark text-light text-white cotxtlight",
+          ["card modsco text-light flexbg",`rgb(52,52,69,${transparency}5)`], 
+          ["card boxes-in text-light flexbg",`rgb(52,52,69,${transparency}5)`],
+          ["p-4 m-4 text-white tered registrosgasin text-light text-white cotxtlight",`rgb(52,52,69,${transparency}5)`],
           'text-center colorchangetxt text-light',
-          "tadoress bgchan dark text-light"
-          )
-        let asidechancolor = document.getElementsByClassName("asidechancolor")
+          "containeraside card asidechancolor text-light"
+        )
+        let asidechancolor = document.getElementsByClassName("asidechancolor")[0]
         if (asidechancolor !== undefined) {
-          for (let x = 0; x < asidechancolor.length; x++){
-            asidechancolor[x].className = "containeraside card asidechancolor dark text-light"
-          }
+          asidechancolor.className = "containeraside card asidechancolor text-light"
+          asidechancolor.style.background = `rgb(52,52,69,${transparency}5)`
+          asidechancolor.animate([{
+            background:`rgb(255,255,255,${transparency}5)`
+          },{
+            background:`rgb(52,52,69,${transparency}5)`
+          }],{duration:400, iterations:1})
         }
+      
 
     } else { // ----------------------------- Light
       post_save_change("white")
-        header_session.className = "navbar mb-4 p-4 header-home-asistent header-home-light"
+        header_session.className = "navbar mb-4 p-4 header-home-asistent"
+        header_session.style.background = `rgb(255,255,255,${transparency}5)`
+        header_session.animate([{
+          background:`rgb(52,52,69,${transparency}5)`
+        },{
+          background:`rgb(255,255,255,${transparency}5)`
+        }],{duration:400, iterations:1})
+
         text_he.className = "navbar-brand text-dark text-he font-weight-bold"
+
+        footer.style.background = `rgb(255,255,255,${transparency}5)`
+        footer.animate([{
+          background:`rgb(52,52,69,${transparency}5)`
+        },{
+          background:`rgb(255,255,255,${transparency}5)`
+        }],{duration:400, iterations:1})
+        footer.className = "card footcolor text-dark font-weight-bold"
+
+        if (mods[0] !== undefined && mods[1] !== undefined){
+          mods[0].animate([{
+            background:`rgb(52,52,69,${transparency}5)`
+          },{
+            background:`rgb(255,255,255,${transparency}5)`
+          }],{duration:400, iterations:1})
+
+          mods[1].animate([{
+            background:`rgb(52,52,69,${transparency}5)`
+          },{
+            background:`rgb(255,255,255,${transparency}5)`
+          }],{duration:400, iterations:1})
+        }
+
         if (modscodown !== undefined){
           modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow  text-dark";
         }
+
         if (bguserconfigchange !== undefined && bguserconfigchange !== null){
-          bguserconfigchange.className = "card bguserconfigchange light text-dark"
+          bguserconfigchange.className = "card bguserconfigchange text-dark"
+          bguserconfigchange.style.background = `rgb(255,255,255,${transparency}5)`
+          bguserconfigchange.animate([{
+            background:`rgb(52,52,69,${transparency}5)`
+          },{
+            background:`rgb(255,255,255,${transparency}5)`
+          }],{duration:400, iterations:1})
         }
+
         if (containeringasedi !== undefined && containeringasedi !== null){
-          containeringasedi.className = "container containeringasedi p-4 light text-dark"
+          containeringasedi.className = "container containeringasedi p-4 text-dark"
+          containeringasedi.style.background = `rgb(255,255,255,${transparency}5)`
+          containeringasedi.animate([{
+            background:`rgb(52,52,69,${transparency}5)`
+          },{
+            background:`rgb(255,255,255,${transparency}5)`
+          }],{duration:400, iterations:1})
         }
+
+
+        if (color_ventana_graficos !== undefined){
+          color_ventana_graficos.style.background = `rgb(255,255,255,${transparency}5)`
+          color_ventana_graficos.animate([{
+            background:`rgb(52,52,69,${transparency}5)`
+          },{
+            background:`rgb(255,255,255,${transparency}5)`
+          }],{duration:400, iterations:1})
+          color_ventana_graficos.className = "card mt-4 p-4 color_ventana_graficos text-dark"
+        }
+
+        if (modingresogasto[0] !== undefined){ //Modal ingreso
+          modingresogasto[0].style.background = `rgb(255,255,255)`
+          modingresogasto[0].className = "modal-content modingresogasto text-dark"
+          modingresogasto[0].animate([{
+            background:`rgb(52,52,69)`
+          },{
+            background:`rgb(255,255,255)`
+          }],{duration:400, iterations:1})
+        }
+
+        if (modingresogasto[1] !== undefined){ //Modal gastos
+          modingresogasto[1].style.background = `rgb(255,255,255)`
+          modingresogasto[1].className = "modal-content modingresogasto text-dark"
+          modingresogasto[1].animate([{
+            background:`rgb(52,52,69)`
+          },{
+            background:`rgb(255,255,255)`
+          }],{duration:400, iterations:1})
+        }
+
+        //Transferencias
+        if (bgtransferencias_ventana !== undefined){
+          bgtransferencias_ventana.style.background =`rgb(255,255,255,${transparency}5)`
+          bgtransferencias_ventana.className = "p-4 mt-4 rounded bgtransferencias_ventana text-dark"
+          bgtransferencias_ventana.animate([{
+            background:`rgb(52,52,69,${transparency}5)`
+          },{
+            background:`rgb(255,255,255,${transparency}5)`
+          }],{duration:400, iterations:1})
+        }
+
         iters(
-          "light"
-          ["card modsco light text-dark",`rgb(255,255,255,${alma_config[1].transparency}5)`], 
-          "card boxes-in light text-dark",
-          "p-4 m-4 text-white tered registrosgasin light text-dark cotxtdark",
+          "light",
+          ["card modsco text-dark flexbg",`rgb(255,255,255,${transparency}5)`], 
+          ["card boxes-in text-dark", `rgb(255,255,255,${transparency}5)`],
+          ["p-4 m-4 tered registrosgasin text-dark cotxtdark", `rgb(255,255,255,${transparency}5)`],
           'text-center colorchangetxt text-dark',
-          "tadoress bgchan light text-dark"
-          )
-        let asidechancolor = document.getElementsByClassName("asidechancolor")
-        for (let x = 0; x < asidechancolor.length; x++){
-          asidechancolor[x].className = "containeraside card asidechancolor light text-dark"
+          "containeraside card asidechancolor text-dark"
+        )
+        let asidechancolor = document.getElementsByClassName("asidechancolor")[0]
+        if (asidechancolor !== undefined){
+          asidechancolor.className = "containeraside card asidechancolor text-dark"
+          asidechancolor.style.background = `rgb(255,255,255,${transparency}5)`
+          asidechancolor.animate([{
+            background:`rgb(52,52,69,${transparency}5)`
+          },{
+            background:`rgb(255,255,255,${transparency}5)`
+          }],{duration:400, iterations:1})
+
         }
       }
     boolam = false
@@ -210,7 +438,7 @@ for (let x=0; x < options.length; x++){
     optdiv.style.paddingBottom = "3px"
     optdiv.style.paddingLeft = "5px"
     optdiv.style.paddingRight = "5px"
-    optdiv.style.zIndex = "80"
+    optdiv.style.zIndex = "980"
     optdiv.style.transform = "scale(1.4)"
     optdiv.style.borderRadius = "12%"
     optdiv.style.backgroundColor = "white"

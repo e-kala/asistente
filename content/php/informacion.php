@@ -2,7 +2,7 @@
 <!-- <h3 class="text-center text-dark">Información</h3>-->
 
 <div class="card-group">
-  <div class="card boxes-in">
+  <div class="card boxes-inn bg-transparent"> <!--replace boxes-inn by boxes-in for aplly style on cascade-->
     <!-- <img src="..." class="card-img-top" alt="...">-->
     <div class="card-body content-balance">
       <div class="justify-content-between d-flex">
@@ -18,7 +18,7 @@
     </div>
   </div>
   <?php // para la carga de la información en id="info" está en ?>
-  <div class="card boxes-in">
+  <div class="card boxes-inn bg-transparent"> <!--replace boxes-inn by boxes-in for aplly style on cascade-->
     <!-- <img src="..." class="card-img-top" alt="..."> -->
     <div class="card-body">
       <div class="justify-content-between d-flex">
@@ -32,7 +32,7 @@
     </div>
   </div>
 
-  <div class="card boxes-in">
+  <div class="card boxes-inn bg-transparent"> <!--replace boxes-inn by boxes-in for aplly style on cascade-->
     <!-- <img src="..." class="card-img-top" alt="..."> -->
     <div class="card-body">
       <div class="justify-content-between d-flex">

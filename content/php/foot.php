@@ -1,19 +1,18 @@
-<div class="container-fluid">
-	
-	<div class="card">
+<div class="mt-4 fot" style="display: none; margin: 20px;">
+	<div class="card footcolor">
 	  <div class="card-body">
 	  	<div class="row text-center">
 			<div class="col-sm-4">
-				<p>Contenido</p>
+				<p class="m-0">Contenido</p>
 			</div>  		
 			<div class="col-sm-4">
-				<p>
+				<p class="m-0">
 					Copyright ©
 		            <script> 
 		                var f = new Date();
 		                document.write(f.getFullYear());
 		            </script> 
-	            | 	<a href="#">Asistente</a>
+	             	<a href="#">Asistente</a>
 	        	</p>
 			</div>  		
 			<div class="col-sm-4">

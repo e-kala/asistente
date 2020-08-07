@@ -6,16 +6,19 @@ let [time, bg, transparency] = ["hour", "", document.getElementById("slide_trans
 const element_to_change_style_mode = () =>{
 	const navbar = document.getElementsByClassName("navbar")[0]
 	const panel_config = document.getElementsByClassName("bguserconfigchange")[0]
-	
+	const footer = document.getElementsByClassName("footcolor")[0]
 	if (mode_client){
 		navbar.style.background = `rgb(52,52,69,${transparency}5)`
 		panel_config.style.background = `rgb(52,52,69,${transparency}5)`
+		footcolor.style.background = `rgb(52,52,69,${transparency}5)`
 	} else {
 		navbar.style.background = `rgb(255,255,255,${transparency}5)`
 		panel_config.style.background = `rgb(255,255,255,${transparency}5)`
+		footer.style.background = `rgb(255,255,255,${transparency}5)`
 	
 	}
 }
+
 
 const slide_transparency = document.getElementById("slide_transparency")
 slide_transparency.onpointermove = e => {
@@ -30,6 +33,7 @@ slide_transparency.onpointermove = e => {
 	} else {
 		transparency = "0.0"
 	}
+	console.log(transparency, "transparency")
 	
 	if (mode_client === ""){
 		mode_client = alma_config[1].mode === "dark" ? true : false
@@ -115,7 +119,7 @@ iter(hover_select_bg, imgdefa)
 iter(get_background, imgdefa)
 
 //Enviar configuración del usuario
-const send_config = () => {
+function send_config(){
 	$.post("./content/php/usr/update_cnfg.php", {
 		usuario: alma_config[0].usuario,
 		mode: alma_config[1].mode,

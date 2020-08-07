@@ -1,6 +1,7 @@
 const modulos = document.getElementsByClassName("accordion")
 const modsdown = document.getElementsByClassName("modscodown")[0]
 const divmestype = document.getElementsByClassName("divmestype")[0]
+const modsco_especify_moduls = document.getElementsByClassName("modsco")
 const menu_registros = document.getElementsByClassName("men_data_registros")[0]
 
 const readjust_pattern = () => {
@@ -8,24 +9,33 @@ const readjust_pattern = () => {
 	if (root_pattern !== undefined) root_pattern.style.marginTop = "0px";
 }
 
+
 const resize_modulos = () => {
+	//Restricción de flexibilidad para modulos superiores Info y Movimientos
+	if (modsco_especify_moduls[0] !== undefined){ //Modulos no flexibles, flexible solo la seccion de grafico
+		modsco_especify_moduls[0].style.flexGrow = "0"
+	}
+	if (modsco_especify_moduls[1] !== undefined){ //Modulos no flexibles, flexible solo la seccion de grafico
+		modsco_especify_moduls[1].style.flexGrow = "0"
+	}
+
 	if (window.screen.width >= 800){
 		if(modulos[0] !== undefined){
 			// modulos[0].style.width = "80%"
-			modulos[0].className = "accordion pl-4 pb-4 modulos"
+			modulos[0].className = "accordion pl-4 modulos"
 		}
 		if (modulos[1] !== undefined){
 			// modulos[1].style.width = "80%"
-			modulos[1].className = "accordion pl-4 pr-4 pb-4 modulos"
+			modulos[1].className = "accordion pl-4 pr-4 modulos"
 		}
 	} else {
 		if (modulos[0] !== undefined){
 			modulos[0].style.width = "100%"
-			modulos[0].className = "accordion modulos"
+			modulos[0].className = "accordion pb-4 modulos"
 		}
 		if (modulos[1] !== undefined){
 			modulos[1].style.width = "100%"	
-			modulos[1].className = "accordion modulos"
+			modulos[1].className = "accordion pb-4 modulos"
 		}
 	}
 
@@ -168,7 +178,7 @@ function div_opa_init_dark_wait(){
     },{
       opacity:0
     }],{duration:1000, iterations:1})
-    if (window.location.href.match(/(\#\?|registros|registro|transferencias|editar\_ingresos|editar\_gastos|configuracion)/gim) === null){
+    if (window.location.href.match(/(\#\?|registros|cuentas|registro|transferencias|editar\_ingresos|editar\_gastos|configuracion)/gim) === null){
    		window.location.href = window.location.href + "#?"
     }
   },3000)
@@ -178,7 +188,7 @@ function div_opa_init_dark_wait(){
 if (document.getElementsByClassName("modulos") !== undefined){
 
 	if (document.getElementsByClassName("divflomes").length === 0){
-		if (window.location.href.match(/(\#\?|registros|registro|transferencias|editar\_ingresos|editar\_gastos|configuracion)/gim) === null){
+		if (window.location.href.match(/(\#\?|registros|cuentas|registro|transferencias|editar\_ingresos|editar\_gastos|configuracion)/gim) === null){
 			div_opa_init_dark_wait();
 		}
 	}

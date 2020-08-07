@@ -1,5 +1,5 @@
 
-<div class="m-4 panel-config" align="center" style="display: none;">
+<div class="m-4 panel-config" align="center" style="display: none; min-height: 100vh;">
 	<div class="card bguserconfigchange" style="width: 80%;" align="center">
 		<div class="card-header d-flex align-items-center align-content-center justify-content-between">
 			<h4>Configuración</h4>

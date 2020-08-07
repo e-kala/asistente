@@ -1,7 +1,7 @@
 <!-- Modal Ingreso-->
 <div class="modal fade text-light" id="ingresoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content bg-dark">
+    <div class="modal-content modingresogasto">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Registrar Ingreso</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
