@@ -10,7 +10,7 @@ const element_to_change_style_mode = () =>{
 	if (mode_client){
 		navbar.style.background = `rgb(52,52,69,${transparency}5)`
 		panel_config.style.background = `rgb(52,52,69,${transparency}5)`
-		footcolor.style.background = `rgb(52,52,69,${transparency}5)`
+		footer.style.background = `rgb(52,52,69,${transparency}5)`
 	} else {
 		navbar.style.background = `rgb(255,255,255,${transparency}5)`
 		panel_config.style.background = `rgb(255,255,255,${transparency}5)`
