@@ -1,18 +1,4 @@
 <?php
-//cargar configuración del usuario
-/*
- * cuando el usuario inicie sesión->ejecutará la consulta automaticamente
- * la consulta podria ejecutarse if(inició sesion){ejecuta json}
- * o detectar con js si se inició sesión directamente
- * cargará la configuración desde la db consultando un dato json
- * el dato json deberá ser interpretado por js
- * 
- * 
- * 
- * 
- * 
-*/
-
 	// include '../conexion.php';
 
 	class usr_cnfg{

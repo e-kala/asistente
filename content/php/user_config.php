@@ -102,7 +102,18 @@
 					<input type="file" name="loadimage">
 				</div>
 			</div>
+
+
 		</div>
+
+		<div class="card-body p-4 m-4">
+			<div class="border">
+				<h4>Cierre de sesión automático</h4>
+				<label>Minimo 5min - Max 1 hora</label>
+				<input type="range" name="" min="5" max="60">
+			</div>
+		</div>
+
 		<div class="card-footer text-right">
 			<button class="btn btn-success" id="save-changes-config">
 				Guardar cambios

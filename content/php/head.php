@@ -1,4 +1,5 @@
     <title>Asistente</title>
+    <link rel="icon" type="image/png" href="content/img/logoAsistentev0.1.png"/>
 
     <!-- Required meta tags -->
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -30,5 +31,4 @@
 
     <script type="text/javascript" src="./content/js/windows/aside.js"></script>
     <script type="text/javascript" src="./content/js/order_js_general/scripts_head_first_exe.js"></script>
-
 

@@ -1,6 +1,5 @@
 
 <?php
-
 	class conexion{
 		private $servidor="localhost";
 		private $usuario="u599230971_asistente";

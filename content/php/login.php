@@ -21,6 +21,7 @@
 		if ($resultado->num_rows>0 || $resultado2->num_rows>0) { //validacion por usuario o correo + password
 			$_SESSION['login'] = TRUE;
 			$_SESSION['user'] = $usuario;
+			$_SESSION['tiempo']= time();
 
 			// header('location: ../../index.php');
 			echo "<welcome>";

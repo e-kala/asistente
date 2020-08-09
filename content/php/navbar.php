@@ -8,7 +8,7 @@
 	<div class="d-flex flex-wrap justify-content-end align-content-center align-items-center">
 		<ul class="m-2 d-flex flex-wrap justify-content-end align-content-center align-items-center">
 			<li class="navbar-option-general-show-top m-2 flex-grow-1">
-	        	<a class="cotextmennavtop btn btn-inherit" href="#">Contáctanos</a>
+	        	<a class="cotextmennavtop btn btn-inherit" href="#">Premium</a>
 		  	</li>
 			<li class="navbar-option-general-show-top m-2 flex-grow-1">
 	        	<a class="cotextmennavtop btn btn-inherit" href="#">Educación Financiera</a>
@@ -19,6 +19,7 @@
 			<li class="navbar-option-general-show-top m-2 flex-grow-1">
 		        <a class="cotextmennavtop btn btn-inherit" href="#">Contáctanos</a>
 		  	</li>
+
 	    </ul>
 		<div id="menu_btn">
 			<img id="btn_img_men" src="./content/img/íconos/menu.png" width="40px">	
