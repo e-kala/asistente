@@ -81,7 +81,7 @@
                         }],{duration:700, iterations:1})
                         state_btn = "acept"
                     } else {
-                        alertify.error("Debes completar todos los campos")
+                        $(".registrarse-btn").notify(`Debes completar todos los campos`, "error");
                     }
 
                     let count_try_for_signup = 0
@@ -113,13 +113,16 @@
                                     $.post( "./content/php/registro/registrando.php", { mail: document.getElementsByName("mail")[0].value, usuario: document.getElementsByName("usuario")[0].value, pass: ver_pass.first_char_pass1})
                                       .done( dat => {
                                         console.log(dat)
-                                        if (dat.match(/\<successfully\>/gim)){
-                                            // alert("Registro satisfactorio")
-                                            alertify.success("Registro satisfactorio")
-                                            setTimeout(()=>{
-                                                window.location.href = "index.php"
-                                            },1400)
+                                        if (dat !== undefined && dat !== "undefined"){
+                                            if (dat.match(/\<successfully\>/gim)){
+                                                // alert("Registro satisfactorio")
+                                                
+                                                $(".btn-volver-log-tap").notify(`Registro satisfactorio ${userValue}`, "success");
+                                                setTimeout(()=>{
+                                                    window.location.href = "index.php"
+                                                },1400)
 
+                                            }
                                         }
                                         bfixAnActiveInput = false
                                       });

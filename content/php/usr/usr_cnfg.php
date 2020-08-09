@@ -16,10 +16,12 @@
 				$cnf_result = $conexion->query($consulta_cnf);
 				$fila = $cnf_result->fetch_object();
 	
+				$email = $fila->correo_usuario;
 				$data_cnf = $fila->usr_config;// obtiene configuracion en json
 				//$json = json_decode($data_cnf, TRUE); //lo convierte DE json A array
 				
 				$array = ["usuario" => $usuario]; //crea un array con el usuario
+				$array["email"] = $email;
 				//array_push($array, $json);
 				$json_user = json_encode($array, TRUE); //convierte el array con el usuario a json
 
@@ -78,7 +80,7 @@
 	if (document.getElementsByClassName("fot")[0] !== undefined && document.getElementsByClassName("fot")[0] !== null){
 		document.getElementsByClassName("fot")[0].style.display = "block"
 	}
-	
+
 	const load_gif = document.getElementById("loadingg")
 	if (load_gif !== undefined && load_gif !== null) {
 		load_gif.style.display = "none"
@@ -135,12 +137,34 @@
 		}
 	 	
 
-		if (json[1].bg !== ""){
-			document.body.style.background = `url(./content/img/fondos/${json[1].background})`
+		if (json[1].background !== "" && json[1].background !== undefined){
+			if (json[1].background.match(/img/gim)===null){
+				document.body.style.background = `url(./content/img/fondos/${json[1].background})`
+			} else {
+				if (json[1].background.match(/asistente/gim)){
+					bg = json[1].background.replace("asistente/","")
+				} else if (json[1].background.match(/img\/\w+\.(jpg|png|gif)/gim)){
+					bg = "content/usuarios/"+json[0].usuario+"/"+json[1].background
+				} else {
+					bg = "content/usuarios/"+json[0].usuario+"/"+json[1].background
+				}
+				bg = bg.replace("\r\n", "")
+				console.log(bg,"BGGGGG")
+				document.body.style.background = `url(${bg})`
+			}
 			document.body.style.backgroundSize = "cover"
 			document.body.style.backgroundPosition = "center center"
 			document.body.style.backgroundAttachment = "fixed"
 		}
+
+		//************* Personal data **************
+		let name = document.getElementById("type_name_config")
+		let email = document.getElementById("type_email_config")
+		if (name !== undefined && name !== null) name.innerHTML = json[0].usuario
+		if (email !== undefined && email !== null) email.innerHTML = json[0].email
+
+		//******************************************
+		
 
 		console.log(json, "domo")
 

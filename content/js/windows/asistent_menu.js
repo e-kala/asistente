@@ -152,10 +152,11 @@ functions = [
         transparency: alma_config[1].transparency,
         mode : mode,
         time_bal : alma_config[1].time_bal
-      }).done(e => console.log(e,"jeje"))
+      }).done(e => console.log(e,"actualizado"))
     }
 
     if (mode_light_dark){ // ----------------- Dark
+      bg_session = "dark"
       post_save_change("dark")
         header_session.className = "navbar mb-4 p-4"
         header_session.style.background = `rgb(52,52,69,${transparency}5)`
@@ -272,6 +273,7 @@ functions = [
       
 
     } else { // ----------------------------- Light
+      bg_session = "white"
       post_save_change("white")
         header_session.className = "navbar mb-4 p-4 header-home-asistent"
         header_session.style.background = `rgb(255,255,255,${transparency}5)`

@@ -1,4 +1,5 @@
 let usuariop = ""
+let bg_session = ""
         
 function getDevicePixelRatio() {
     var mediaQuery;

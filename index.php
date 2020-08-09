@@ -1,8 +1,9 @@
 <?php 
 
 include 'content/php/conexion.php';
-//include 'content/php/inactividad.php'; 
-   //echo "<script>console.log('".$_SESSION['user']."')</script>";
+include 'content/php/inactividad.php'; 
+// session_start();
+   // echo "<script>console.log('".$_SESSION['user']."')</script>";
    //include 'content/php/usr/usr_cnfg.php';
 
 ?>

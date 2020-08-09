@@ -146,7 +146,7 @@ Pattmo = (container, config) => {
 					btn_accept_init.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
 				
 				} else {
-					alertify.error("Escribe nombre de usuario o email")
+					$("#username").notify("Escribe nombre de usuario o email", "error");
 				}
 			}
 
@@ -201,7 +201,7 @@ Pattmo = (container, config) => {
 						}],{duration:1000, iterations:1})
 					}
 				}else {
-					alertify.error("Escribe nombre de usuario o email")
+					$("#username").notify("Escribe nombre de usuario o email", "error");
 					pattern.style.opacity = "0"
 					btn_next.style.display = "block"
 					document.getElementById("username").style.display = "block"
@@ -318,7 +318,7 @@ Pattmo = (container, config) => {
 								tryNumber = 0
 						  	} else {
 								// alert(`Datos inválidos ${userValue}`)
-								alertify.error(`Datos inválidos ${userValue}`)
+								$(".btn-volver-log-tap").notify(`Datos inválidos ${userValue}`, "error");
 								// console.log("Datos inválidos", userValue	)
 							}	
 
@@ -407,7 +407,7 @@ Pattmo = (container, config) => {
 				
 					
 				} else {
-					alertify.error("Escribe un nombre de usuario o email")
+					$("#username").notify("Escribe un nombre de usuario o email", "error");
 				}
 			}
 
@@ -462,7 +462,7 @@ Pattmo = (container, config) => {
 						pattern.style.opacity = "0"
 						form.animate([{opacity:1},{opacity:0}],{duration:1000, iterations:1})
 						form.style.display = "block"
-						alertify.error("Escribe un nombre de usuario o email")
+						$("#username").notify("Escribe un nombre de usuario o email", "error");
 					}
 				})
 			}
@@ -587,7 +587,9 @@ Pattmo = (container, config) => {
 								tryNumber = 0
 						  	} else {
 								// alert(`Datos inválidos ${userValue}`)
-								alertify.error(`Datos inválidos ${userValue}`)
+								
+								$(".btn-volver-log-tap").notify(`Datos inválidos ${userValue}`, "error");
+
 								// console.log("Datos inválidos", userValue	)
 							}	
 
@@ -1076,8 +1078,6 @@ Pattmo = (container, config) => {
 						// console.log(pass, tryNumber, "try")
 						if (tryNumber > 230 && pass !== config.login.passwordReference) { 
 						 	// errorUserPage(config, itext); //Demasiados intentos, accede a pagina de error, ayuda/soporte
-							alert("Muchos intentos")
-							window.location.reload(false)
 						}
 
 						// ------------------------ Validation-----------------------------
@@ -1106,7 +1106,7 @@ Pattmo = (container, config) => {
 								  .done( dat => {
 								  	if (dat.match(/\<successfully\>/gim)){
 								  		document.getElementsByClassName("label_state")[0].style.color = "#fff"
-								  		alertify.success("Registro satisfactorio")
+								  		$("#root").notify(`Registro satisfactorio`, "success");
 								  		setTimeout(()=>{
 											window.location.href = "index.php"
 								  		},1600)

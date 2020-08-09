@@ -115,13 +115,11 @@ body{
 .flexbg{ flex-basis: 100%; flex-grow: 1;  }
 
 .panel_widgets{
-	position: absolute;
-	top: 0;
-	right: 0;
-	left: 0;
-	width: 50%;
-	margin: 0 auto;
-	margin-top: 6px;
+	position: fixed;
+	bottom: -2px;
+	right: 50px;
+	z-index: 150;
+	margin-top: 5px;
 }
 
 .alignment_invisible_widgets{
@@ -149,7 +147,6 @@ main{
 
 .leftimg{
 	position: absolute; 
-	display: none; 
 	border-radius: 100%; 
 	left: 8%; 
 	width: 60px;
@@ -162,7 +159,6 @@ main{
 
 .rightimg{
 	position: absolute; 
-	display: none; 
 	border-radius: 100%; 
 	right: 8%; 
 	width: 60px;

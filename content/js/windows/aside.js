@@ -5,7 +5,7 @@ let calcumoving = false
 let calenmoving = false
 let conversormoving = false
 let calcuresizemoving = false
-
+ 
 const maction_window = (state) =>{
 	window.onpointerup = () => {
 		let calendario = document.getElementsByClassName("contain_calender")[0]
@@ -1119,7 +1119,7 @@ const Aside = (username) => {
 	if (body !== undefined) {
 		body.appendChild(menuaside)
 	}
-	if (document.getElementsByClassName("navbar")[0] !== undefined) document.getElementsByClassName("navbar")[0].appendChild(panel_widgets)
+	document.body.appendChild(panel_widgets)
 
 	if (contacal !== undefined) {
 		contacal.appendChild(body)

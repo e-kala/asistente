@@ -2,11 +2,12 @@
 //cerrar sesión automaticamente
 //Comprobamos si esta definida la sesión 'tiempo'.
 
-if(!isset($_SESSION)){
-  session_start();
-}else{
-  //echo "ya hay";
+
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
 }
+
 if(isset($_SESSION['tiempo']) ) {
 
     //Tiempo en segundos para dar vida a la sesión.
@@ -40,7 +41,7 @@ if(isset($_SESSION['tiempo']) ) {
 
 } else {
     //Activamos sesion tiempo.
-    $_SESSION['tiempo'] = time();
-    echo "no iniciada";
+    // $_SESSION['tiempo'] = time();
+    echo "no iniciada " . time();
 }
 ?>

@@ -10,7 +10,6 @@ setInterval(function(){
 				console.log("estado cerrar sesion");
 				window.location.reload();
 			}
-
 		});
 }, 1800000)//30 min
 
