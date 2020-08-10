@@ -51,6 +51,14 @@ success:function(r){
 // Agregar Datos Gasto 
  // ------------------------------------------------------------------------------------------------------
 
+
+
+if (document.getElementsByClassName("panel-log-reg")[0] !== undefined && 
+  document.getElementsByClassName("panel-log-reg")[0] !== null &&
+  window.location.href.match(/action\=cerrar\_sesion/gim) !== null) {
+  window.location.href = "index.php"
+} 
+
 const dark = () => {
     header_session.className = "navbar mb-4 p-4"
     header_session.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`

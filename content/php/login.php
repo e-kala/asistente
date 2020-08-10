@@ -24,7 +24,7 @@
 			$_SESSION['tiempo'] = time();
 
 			// header('location: ../../index.php');
-			// echo "<welcome>";
+			echo "<welcome>";
 		}else{
 			// header('location: ../../index.php?pass=error');
 			echo '<script type="text/javascript"> document.body.innerHTML = ""</script>';

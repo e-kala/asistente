@@ -1,7 +1,8 @@
 
 <?php 
 
-include 'inactividad.php';?>
+include 'inactividad.php';
+?>
 <!--módulos-->
 
 <style type="text/css">
