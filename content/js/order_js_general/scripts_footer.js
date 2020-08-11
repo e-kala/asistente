@@ -124,6 +124,12 @@ const dark = () => {
         colorchangetxt[x].className = 'text-center colorchangetxt text-light'
     }
 
+    if (menu_option_config_panel_collapsable !== undefined){
+      for (let x = 0; x < menu_option_config_panel_collapsable.length; x++){
+        menu_option_config_panel_collapsable[x].className = "btn btn-link btn-block text-left fg-color-menu-option-configpanel text-light"
+      }
+    }
+
     registrosgasin.className = "p-4 m-4 text-white tered registrosgasin text-light text-white cotxtlight"
 }
 
@@ -187,6 +193,12 @@ const light = () => {
       )
     for (let x = 0; x < colorchangetxt.length; x++){
         colorchangetxt[x].className = 'text-center colorchangetxt text-darks p-4'
+    }
+
+    if (menu_option_config_panel_collapsable !== undefined){
+      for (let x = 0; x < menu_option_config_panel_collapsable.length; x++){
+        menu_option_config_panel_collapsable[x].className = "btn btn-link btn-block text-left fg-color-menu-option-configpanel text-dark"
+      }
     }
 
     if (registrosgasin !== undefined) registrosgasin.className = "p-4 m-4 tered registrosgasin lightinit text-dark cotxtdark"

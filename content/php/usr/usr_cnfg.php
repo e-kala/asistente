@@ -157,6 +157,20 @@
 			document.body.style.backgroundAttachment = "fixed"
 		}
 
+		//Caducidad
+		if (json !== ""){
+			if (json[1].caducidad !== "" && json[1].caducidad !== undefined && json[1].caducidad !== null){
+				const caducidad_slide = document.getElementById("caducidad-slide")
+				const value_caduci = document.getElementById("value_caducidad")
+				if (caducidad_slide !== undefined && caducidad_slide !== null){
+					caducidad_slide.value = json[1].caducidad
+				}
+				if (value_caduci !== undefined && value_caduci !== null){
+					value_caduci.innerHTML = json[1].caducidad
+				}
+			}
+		}
+
 		//************* Personal data **************
 		let name = document.getElementById("type_name_config")
 		let email = document.getElementById("type_email_config")

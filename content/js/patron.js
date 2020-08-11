@@ -9,6 +9,7 @@ import_data_signup = (dat) => {
 	dat_post.usuario = dat.usuario
 }
 
+
 Pattmo = (container, config) => {
 	container = document.getElementById(container)
 	const btn_mode_loginn = document.getElementsByClassName("login-change-way")[0]
@@ -823,9 +824,19 @@ Pattmo = (container, config) => {
 		}
 	}
 
-	function change_tap_pan_signup(){ // FOR SIGN UP
-		if (bolshowhide){ //Tap
 
+	let once_navigator_dichrome = false
+	function change_tap_pan_signup(){ // FOR SIGN UP
+		if (!once_navigator_dichrome){
+			once_navigator_dichrome = true
+			if (window.screen.width <= 560){
+				if (document.getElementsByClassName("login-change-way")[0] !== undefined){
+		            document.getElementsByClassName("login-change-way")[0].click()
+		        }
+			}
+		}
+
+		if (bolshowhide){ //Tap
 			let btn_registrarse = document.getElementsByClassName("registrarse-btn")[0]
 			btn_registrarse.style.display = "block"
 			if (btn_mode_loginn !== undefined){

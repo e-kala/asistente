@@ -1,10 +1,11 @@
-<div class="headerinit" style="position: fixed; top:0; left:0;">
-    Ekasistent
+<div class="d-flex justify-content-between flex-wrap w-100 p-4 " style="position: fixed; top:0; left:0;">
+    <div class="headerinitregistrate">Ekasistent</div>
+    <a class="btn btn-link text-light text-center font-weight-bold d-flex align-items-center align-content-center " href="index.php">Volver</a>
 </div>
 <div class="row pt-5  m-auto">
 	<div class="m-auto bg-col p-4 rounded gen-form">
             <form class="p-4 bg-col formureg">
-                <h1 class="text-center p-2 text-light bg-col title-form">Regístrate!</h1>
+                <h1 class="text-center p-2 text-light bg-col title-form">¡Regístrate!</h1>
                 <div class="froot">
                     <div class="text-center">
                             <label for="inputPassword3" class=" font-weight-bold text-center label_state"><h5>Clave</h5></label>
@@ -198,6 +199,10 @@
                     if (state_btn === "next") {
                         btn_registrarse.onclick = () => {
                             repeal_post_gen()
+                            if (navigator.userAgent.match(/chrome/gim) === null && window.screen.width <= 560
+                                ){
+                                $(".title-form").notify("Modo Tap activo", {position:"top", className:"warn"});
+                            } 
                         }
                     }
                 }
@@ -205,11 +210,19 @@
                 window.onkeypress = e => {
                     if (e.key === "Enter"){
                         repeal_post_gen()
+                        if (navigator.userAgent.match(/chrome/gim) === null && window.screen.width <= 560
+                            ){
+                            $(".title-form").notify("Modo Tap activo", {position:"top", className:"warn"});
+                        }
                     }
                 }
 
                 btn_registrarse.onclick = () => {
                     repeal_post_gen()
+                    if (navigator.userAgent.match(/chrome/gim) === null && window.screen.width <= 560
+                        ){
+                        $(".title-form").notify("Modo Tap activo", {position:"top", className:"warn"});
+                    }
                 }
 
                 const repva = () => {

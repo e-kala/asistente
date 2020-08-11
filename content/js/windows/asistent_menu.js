@@ -8,10 +8,11 @@ div_men = document.createElement("div")
 div_men.classList.add("menu_container")
 div_men.style.display = "none"
 
-mods = document.getElementsByClassName("modsco")
-modscodown = document.getElementsByClassName("modscodown")[0]
-boxes_in = document.getElementsByClassName("boxes-in")
-registrosgasin = document.getElementsByClassName("registrosgasin")
+
+mods = document.getElementsByClassName("modsco") //Modulos
+modscodown = document.getElementsByClassName("modscodown")[0] //Módulos inferiores
+boxes_in = document.getElementsByClassName("boxes-in") //Ventans internas de módulos
+registrosgasin = document.getElementsByClassName("registrosgasin") //Seccion "Registros" gastos / ingresos, seccion del filtro historial de movimientos
 colorchangetxt = document.getElementsByClassName("colorchangetxt")
 bguserconfigchange = document.getElementsByClassName("bguserconfigchange")[0]
 containeringasedi = document.getElementsByClassName("containeringasedi")[0] //Make accounts, gast edit, ingr edit
@@ -19,7 +20,9 @@ footer = document.getElementsByClassName("footcolor")[0]
 color_ventana_graficos = document.getElementsByClassName("color_ventana_graficos")[0]
 modingresogasto = document.getElementsByClassName("modingresogasto")
 bgtransferencias_ventana = document.getElementsByClassName("bgtransferencias_ventana")[0]
+menu_option_config_panel_collapsable = document.getElementsByClassName("fg-color-menu-option-configpanel")
 
+//tadores, registro
 bgchan = document.getElementsByClassName("bgchan") //Tadores use change mode dark / light
 
 header_session = document.getElementsByClassName("header-home-asistent")[0]
@@ -97,10 +100,24 @@ iters = (status, modss, boxes_inn, registrosg, txtcolor, tadoreschangemod) => {
 
     if (cotextmennavtop_color_bottons_header !== undefined) {
       for (let x = 0; x < cotextmennavtop_color_bottons_header.length; x++){  
-        if (status === "dark"){
-          cotextmennavtop_color_bottons_header[x].className = "cotextmennavtop btn btn-inherit text-light"
+        if (window.screen.width >= 670){
+          if (status === "dark"){
+            cotextmennavtop_color_bottons_header[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-light"
+          } else {
+            cotextmennavtop_color_bottons_header[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-dark"    
+          }
         } else {
-          cotextmennavtop_color_bottons_header[x].className = "cotextmennavtop btn btn-inherit text-dark"    
+            cotextmennavtop_color_bottons_header[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-dark"  
+        }
+      }
+    }
+
+    if (menu_option_config_panel_collapsable !== undefined){
+      for (let x = 0; x < menu_option_config_panel_collapsable.length; x++){
+        if (status === "dark"){
+          menu_option_config_panel_collapsable[x].className = "btn btn-link btn-block text-left fg-color-menu-option-configpanel text-light"
+        } else {
+          menu_option_config_panel_collapsable[x].className = "btn btn-link btn-block text-left fg-color-menu-option-configpanel text-dark"
         }
       }
     }
@@ -464,7 +481,7 @@ if (btn_img_men !== null){
     btn_img_men.onclick = () => {
       boolam = !boolam
       if (boolam){
-        div_men.style.display = "block"
+        div_men.style.display = "flex"
         div_men.style.opacity = "1"
         div_men.animate([{
           opacity:0,

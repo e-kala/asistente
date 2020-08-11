@@ -5,8 +5,8 @@
 		<img src="content/img/logoAsistentev0.1.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
 		Asistente
 	</a>
-	<div class="d-flex flex-wrap justify-content-end align-content-center align-items-center">
-		<ul class="m-2 d-flex flex-wrap justify-content-end align-content-center align-items-center">
+	<div class="d-flex flex-wrap justify-content-end align-content-center align-items-center container_menues_navbar">
+		<ul class="m-2 d-flex flex-wrap justify-content-end align-content-center align-items-center menu-header-top" style="order:1;">
 			<li class="navbar-option-general-show-top m-2 flex-grow-1">
 	        	<a class="cotextmennavtop btn btn-inherit" href="#">Premium</a>
 		  	</li>
@@ -21,7 +21,7 @@
 		  	</li>
 
 	    </ul>
-		<div id="menu_btn">
+		<div id="menu_btn" style="order:2">
 			<img id="btn_img_men" src="./content/img/íconos/menu.png" width="40px">	
 		</div>
 	</div>

@@ -43,7 +43,7 @@ session_start();
           </script>
         </div>
       </div>
-      <div class="contain">
+      <div class="contain" align="center">
          <?php  
             if (isset($_SESSION['login'])) {
                if (isset($_GET['action'])) {

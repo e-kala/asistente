@@ -6,20 +6,15 @@ include 'inactividad.php';
 <!--módulos-->
 
 <style type="text/css">
-.bg-blue{
-
-/*background-color: #f2f2f2;*/
-}
-body{
-  background: white;
-}
+.bg-blue{ /*background-color: #f2f2f2;*/ }
+body{background: white;}
 </style>
 
- <div class="accordion modulos w-100" style="display: none; min-height: 100vh;" id="accordionExample">
+ <div class="accordion modulos " style="display: none;" id="accordionExample">
   <!--información in-->
    <div class="card bg-blue modsco">
      <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingOne">
-       <h2 class="mb-0 flex-grow-1 flexbg w-100">
+       <h2 class="mb-0 flex-grow-1 flexbg ">
          <div class="open_modul btn btn-link btn-block text-left font-weight-bold " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           Información
         </div>
@@ -37,7 +32,7 @@ body{
   <!--Módulos In -->
    <div class="card bg-blue modsco">
      <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingTwo">
-       <h2 class="mb-0 flex-grow-1 flexbg w-100">
+       <h2 class="mb-0 flex-grow-1 flexbg ">
         <div class="open_modul btn btn-link btn-block text-left collapsed font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
           Movimientos
         </div>  
@@ -48,14 +43,14 @@ body{
      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
        <div class="card-body" align="center">
         <!-- opciones-->
-       <div class="row p-4 d-flex justify-content-between" align="center">
+       <div class="" >
         <!-- Sección de movimientos In -->
-         <div class="col-md-6 offset-md-3">
-            <h4 class="">Movimientos</h4>
-            <div class="btn-group" role="group" aria-label="Basic example">
+         <div class="">
+            <h4 class="p-3">Movimientos</h4>
+            <div class="" role="group" aria-label="Basic example">
               <!-- Ingreso/egreso/transferencia -->
               <!-- Boton de Ingreso In-->
-                <div class="btn-group dropdown">
+                <div class="btn-group dropdown m-1">
                   <button type="button" class="btn btn-success" data-toggle="modal" 
                           data-target="#ingresoModal" id="modalIngreso">
                     Ingreso
@@ -73,7 +68,7 @@ body{
               <!-- Boton de Ingreso End-->
 
               <!-- Boton de Gasto In -->
-               <div class="btn-group dropdown">
+               <div class="btn-group dropdown m-4">
                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#gastoModal" id="modalGasto">
                     Gasto
                   </button>
@@ -90,14 +85,14 @@ body{
               <!-- Boton de Gasto End-->
               <a class="btn btn-warning" href="?action=transferencias" role="button">Transferencias</a>
             </div>
-            <hr>
+            
         <!-- Sección de movimientos End -->
-          <h4>Otros</h4>
+          <h4 class="p-3">Otros</h4>
           <div class="btn-group" role="group" aria-label="Basic example">
             <a class="btn btn-primary" href="?action=registros" role="button">Registros</a>
             <a class="btn btn-info" href="?action=cuentas" role="button">Cuentas</a>
           </div>
-          <hr>
+          
           <h4><br></h4><!--
           <div class="btn-group" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ingresoModal">Balancear Cuentas</button>
@@ -149,12 +144,12 @@ body{
      </div>
    </div>
   <!--Módulos END -->
-  <?php include "graficos.php"; ?>
+  <!-- <?php include "graficos.php"; ?> -->
 
 
    <!--<div class="card bg-blue modsco ">
      <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingThree">
-       <h2 class="mb-0 flex-grow-1 flexbg w-100">
+       <h2 class="mb-0 flex-grow-1 flexbg ">
          <button class="btn btn-link btn-block text-left collapsed font-weight-bold " type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
            Collapsible Group Item #3
          </button>

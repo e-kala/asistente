@@ -4,6 +4,7 @@ let change_use_mode_init_or_client = false
 
 let [time, bg, transparency] = ["hour", "", document.getElementById("slide_transparency").value]
 let files = ""
+let caducidad = ""
 
 const element_to_change_style_mode = () =>{
 	const navbar = document.getElementsByClassName("navbar")[0]
@@ -86,6 +87,22 @@ const time_balance = () => {
 	}
 }
 
+const get_inactividad = () => {
+	const caducidad_slide = document.getElementById("caducidad-slide")
+	const value_caduci = document.getElementById("value_caducidad")
+	caducidad_slide.onpointermove = e => {
+		caducidad = e.target.value
+		value_caduci.innerHTML = e.target.value
+	}
+	caducidad_slide.onpointerdown = e => {
+		caducidad = e.target.value
+		value_caduci.innerHTML = e.target.value
+	}
+
+}
+
+get_inactividad()
+
 const hover_select_bg = e => {
 	e.style.cursor = "pointer"
 	e.onpointerover = () => e.style.border = "2px solid #999999"
@@ -117,7 +134,7 @@ iter(hover_select_bg, imgdefa)
 iter(get_background, imgdefa)
 
 	
-const get_files = () => {
+const get_files = () => { //Previous view
 	const input_file = document.getElementById("loadimage")
 	input_file.onchange = e => { 
 		
@@ -165,6 +182,7 @@ function send_config(){
 		mode: bg_session !== "" ? bg_session : alma_config[1].mode,
 		transparency: transparency !== "" && transparency !== null ? transparency : alma_config[1].transparency,
 		background: bg,
+		caducidad: caducidad !== "" ? caducidad : alma_config[1].caducidad,
 		time_bal: time !== "" ? time : "hour"
 	}).done(d => {
 		if (d.match(/\<success\>/gim)){
@@ -237,7 +255,7 @@ let scrollhormas = 0;
 left.onpointerdown = () => {
 	let maxscroll = conjunt_images[0].scrollWidth - 200
 	if (scrollhormas > 0 && scrollhormas <= maxscroll){
-		scrollhormas -= 600  
+		scrollhormas -= window.screen.width <= 390 ? 100 : 600  
 		conjunt_images[0].scrollTo(scrollhormas,0)
 	} else {
 		conjunt_images[0].scrollTo(maxscroll,0)
@@ -247,7 +265,7 @@ left.onpointerdown = () => {
 right.onpointerdown = () => {
 	let maxscroll = conjunt_images[0].scrollWidth - 200
 	if (scrollhormas < maxscroll ){
-		scrollhormas +=  600  
+		scrollhormas +=  window.screen.width <= 390 ? 100 : 600  
 			conjunt_images[0].scrollTo(scrollhormas,0)
 	}else{
 		conjunt_images[0].scrollTo(0,0)
@@ -270,7 +288,7 @@ const show_1 = () => {
 		left.onpointerdown = () => {
 			let maxscroll = conjunt_images[0].scrollWidth - 200
 			if (scrollhormas > 0 && scrollhormas <= maxscroll){
-				scrollhormas -= 600  
+				scrollhormas -= window.screen.width <= 390 ? 100 : 600  
 				conjunt_images[0].scrollTo(scrollhormas,0)
 			} else {
 				conjunt_images[0].scrollTo(maxscroll,0)
@@ -282,7 +300,7 @@ const show_1 = () => {
 			let maxscroll = conjunt_images[0].scrollWidth - 200
 
 			if (scrollhormas < maxscroll ){
-				scrollhormas +=  600  
+				scrollhormas +=  window.screen.width <= 390 ? 100 : 600  
 					conjunt_images[0].scrollTo(scrollhormas,0)
 			}else{
 				conjunt_images[0].scrollTo(0,0)
@@ -308,7 +326,7 @@ const show_2 = () => {
 		left.onpointerdown = () => {
 			let maxscroll = conjunt_images[1].scrollWidth - 200
 			if (scrollhormas > 0 && scrollhormas <= maxscroll){
-				scrollhormas -= 600  
+				scrollhormas -= window.screen.width <= 390 ? 100 : 600  
 				conjunt_images[1].scrollTo(scrollhormas,0)
 			} else {
 				conjunt_images[1].scrollTo(maxscroll,0)
@@ -320,7 +338,7 @@ const show_2 = () => {
 			let maxscroll = conjunt_images[1].scrollWidth - 200
 
 			if (scrollhormas < maxscroll ){
-				scrollhormas +=  600  
+				scrollhormas +=  window.screen.width <= 390 ? 100 : 600  
 					conjunt_images[1].scrollTo(scrollhormas,0)
 			}else{
 				conjunt_images[1].scrollTo(0,0)
@@ -347,7 +365,7 @@ const show_3 = () => {
 		left.onpointerdown = () => {
 			let maxscroll = conjunt_images[2].scrollWidth - 200
 			if (scrollhormas > 0 && scrollhormas <= maxscroll){
-				scrollhormas -= 600  
+				scrollhormas -= window.screen.width <= 390 ? 100 : 600  
 				conjunt_images[2].scrollTo(scrollhormas,0)
 			} else {
 				conjunt_images[2].scrollTo(maxscroll,0)
@@ -359,7 +377,7 @@ const show_3 = () => {
 			let maxscroll = conjunt_images[2].scrollWidth - 200
 
 			if (scrollhormas < maxscroll ){
-				scrollhormas +=  600  
+				scrollhormas +=  window.screen.width <= 390 ? 100 : 600  
 					conjunt_images[2].scrollTo(scrollhormas,0)
 			}else{
 				conjunt_images[2].scrollTo(0,0)
@@ -387,7 +405,7 @@ const show_myphothos = () => {
 		left.onpointerdown = () => {
 			let maxscroll = conjunt_images[3].scrollWidth - 200
 			if (scrollhormas > 0 && scrollhormas <= maxscroll){
-				scrollhormas -= 600  
+				scrollhormas -= window.screen.width <= 390 ? 100 : 600  
 				conjunt_images[3].scrollTo(scrollhormas,0)
 			} else {
 				conjunt_images[3].scrollTo(maxscroll,0)
@@ -399,7 +417,7 @@ const show_myphothos = () => {
 			let maxscroll = conjunt_images[3].scrollWidth - 200
 
 			if (scrollhormas < maxscroll ){
-				scrollhormas +=  600  
+				scrollhormas +=  window.screen.width <= 390 ? 100 : 600  
 					conjunt_images[3].scrollTo(scrollhormas,0)
 			}else{
 				conjunt_images[3].scrollTo(0,0)

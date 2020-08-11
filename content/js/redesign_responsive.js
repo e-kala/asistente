@@ -10,6 +10,7 @@ const readjust_pattern = () => {
 }
 
 
+
 const resize_modulos = () => {
 	//Restricción de flexibilidad para modulos superiores Info y Movimientos
 	if (modsco_especify_moduls[0] !== undefined){ //Modulos no flexibles, flexible solo la seccion de grafico
@@ -30,11 +31,11 @@ const resize_modulos = () => {
 		}
 	} else {
 		if (modulos[0] !== undefined){
-			modulos[0].style.width = "100%"
+			
 			modulos[0].className = "accordion pb-4 modulos"
 		}
 		if (modulos[1] !== undefined){
-			modulos[1].style.width = "100%"	
+				
 			modulos[1].className = "accordion pb-4 modulos"
 		}
 	}
@@ -51,8 +52,11 @@ const resize_modulos = () => {
 
 window.onload = () => {
 	resize_modulos()
+	menu_header_top_adjust(window.screen.width)
 }
 resize_modulos()
+menu_header_top_adjust(window.screen.width)
+
 window.onresize = () => {
 	resize_modulos()
 	const devip = getDevicePixelRatio()
@@ -143,6 +147,46 @@ window.onresize = () => {
     	if (tado !== undefined) tado.style.display = "block";
     }
 
+    menu_header_top_adjust(window.screen.width)
+
+}
+
+function menu_header_top_adjust(screen){
+	const container_screen_desktop = document.getElementsByClassName("container_menues_navbar")[0]
+	const menu_header_container = document.getElementsByClassName("menu-header-top")[0]
+	const menu_rallas = document.getElementsByClassName("menu_container")[0]
+	const cotextmennavtop_ = document.getElementsByClassName("cotextmennavtop")
+
+	if (menu_rallas !== undefined && menu_rallas !== null 
+		&& container_screen_desktop !== undefined && 
+		container_screen_desktop !== null && menu_header_container !== undefined &&
+		menu_header_container !== null){
+		if (screen >= 670){
+			menu_header_container.className = "m-2 d-flex flex-wrap justify-content-end align-content-center align-items-cente menu-header-top"
+			
+			container_screen_desktop.appendChild(menu_header_container)
+			for (let x = 0; x < cotextmennavtop_.length; x++){
+				if (alma_config !== undefined){
+					if (alma_config[1].mode === "dark"){
+			            cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit text-light"
+				    } else {
+				    	cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit text-dark"    
+				    }
+				}
+			}
+		} else {
+			menu_header_container.className = "m-2 d-flex flex-column justify-content-center align-content-center align-items-cente menu-header-top"
+			menu_header_container.style.listStyleType = "none"
+			menu_header_container.style.padding = "0"
+			menu_header_container.style.margin = "0"
+			menu_rallas.appendChild(menu_header_container)
+			if (cotextmennavtop_ !== undefined && cotextmennavtop_ !== null){
+				for (let x = 0; x < cotextmennavtop_.length; x++){
+					cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit text-dark"
+				}
+			} 
+		}
+	}
 }
 
 

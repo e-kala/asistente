@@ -148,19 +148,21 @@ main{
 .leftimg{
 	position: absolute; 
 	border-radius: 100%; 
-	left: 8%; 
+	left: 1%; 
 	width: 60px;
 	height: 60px;
 	top: 150px;
 	font-family: monospace;
 	font-weight: bold;
 	font-size: 150%;
+
+	
 }
 
 .rightimg{
 	position: absolute; 
 	border-radius: 100%; 
-	right: 8%; 
+	right: 1%; 
 	width: 60px;
 	height: 60px;
 	top: 150px;
