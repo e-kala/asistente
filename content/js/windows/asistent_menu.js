@@ -162,14 +162,22 @@ functions = [
     mode_light_dark = !mode_light_dark
     mode_client = mode_light_dark
 
+
+    if (document.getElementById("caducidad-slide") !== undefined && document.getElementById("caducidad-slide") !== null){
+      caducidad = document.getElementById("caducidad-slide").value
+    }
+
     const post_save_change = (mode) => {
       $.post("./content/php/usr/update_cnfg.php", {
         usuario : alma_config[0].usuario,
         background : alma_config[1].background,
         transparency: alma_config[1].transparency,
         mode : mode,
+        caducidad : caducidad !== "" ? caducidad : alma_config[1].caducidad,
         time_bal : alma_config[1].time_bal
-      }).done(e => console.log(e,"actualizado"))
+      }).done(e => {
+        console.log(e,"actualizado")
+      })
     }
 
     if (mode_light_dark){ // ----------------- Dark
@@ -420,14 +428,14 @@ functions = [
   }
 ]
 
-
 for (let x=0; x < options.length; x++){
-  if (x === 0){
+  if (x === 0){ //Inicio
     const optdiv = document.createElement("a")
     optdiv.innerHTML = options[x]
     optdiv.classList.add("options_men")
     optdiv.setAttribute("name", options[x])
     optdiv.setAttribute("href", "index.php#?")
+    optdiv.style.fontWeight ="bold"
     optdiv.setAttribute("id", "btn_"+(x+1))
     optdiv.addEventListener("click",functions[x])
     optdiv.className += "  btn btn-inherit"
@@ -439,6 +447,7 @@ for (let x=0; x < options.length; x++){
     optdiv.setAttribute("href", "?action=configuracion")
     optdiv.setAttribute("name", options[x])
     optdiv.setAttribute("id", "btn_"+(x+1))
+    optdiv.style.fontWeight ="bold"
     optdiv.addEventListener("click",functions[x])
     optdiv.className += "  btn btn-inherit"
     div_men.appendChild(optdiv)
@@ -467,6 +476,7 @@ for (let x=0; x < options.length; x++){
     optdiv.innerHTML = options[x]
     optdiv.classList.add("options_men")
     optdiv.setAttribute("href", "?action=cerrar_sesion")
+    optdiv.style.fontWeight ="bold"
     optdiv.setAttribute("name", options[x])
     optdiv.setAttribute("id", "btn_"+(x+1))
     optdiv.addEventListener("click",functions[x])

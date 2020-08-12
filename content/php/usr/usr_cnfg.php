@@ -168,6 +168,7 @@
 				if (value_caduci !== undefined && value_caduci !== null){
 					value_caduci.innerHTML = json[1].caducidad
 				}
+				caducidad = json[1].caducidad
 			}
 		}
 

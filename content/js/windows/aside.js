@@ -881,6 +881,7 @@ const conversor = () => {
 	}
 }
 
+
 const Aside = (username) => {
 	const containhome = document.getElementsByClassName("containhome")[0]
 	const contacal = document.createElement("div")
@@ -888,47 +889,132 @@ const Aside = (username) => {
 	
 	const header = document.createElement("div")
 	header.setAttribute("align", "center")
-	header.className = "card-header d-flex flex-column justify-content-center align-items-center align-content-center"	
+	header.className = "card-header position-relative d-flex flex-column justify-content-center align-items-center align-content-center"	
 
 	const h1 = document.createElement("h4")
 	h1.innerHTML = "Hola "+username
 	h1.className = "p-3"
 	if (header !== undefined) header.appendChild(h1)
 
+	const imgcontainer = document.createElement("div")
+	imgcontainer.className = "position-relative "
 	const img = document.createElement("img")
 	img.className += "caras"
-	// img.setAttribute("src", "./content/img/íconos/faceangry.gif")
 	img.setAttribute("width", "50%")
-	img.className = " flex-grow-1 "
+
 	img.style.background = "#909090"
 	img.style.borderRadius = "100%"
 	img.ondragstart = () => false
 	img.style.userSelect = "none"
+	imgcontainer.appendChild(img)
 
-	if (img !== undefined) header.appendChild(img)
+	if (img !== undefined) header.appendChild(imgcontainer)
 	if (contacal !== undefined)contacal.appendChild(header)
 
 	const btn_notificacion = document.createElement("div")
 	btn_notificacion.setAttribute("name", "btn_notificacion")
-	btn_notificacion.style.fontSize ="130%"
+	btn_notificacion.style.fontSize ="120%"
+	btn_notificacion.style.display = "none"
 	
-	if (contacal !== undefined) contacal.appendChild(btn_notificacion)
+	// if (contacal !== undefined) contacal.appendChild(btn_notificacion)
 
 	let balcontent = document.getElementsByClassName("balactual")[0]
-	
+
 	if (balcontent !== undefined && balcontent !==null){
+		const divnoti = document.createElement("span")
 		if (balcontent.textContent.match(/\-/gim)){
-			img.setAttribute("src","./content/img/íconos/faceangry.gif")
-			btn_notificacion.className = "p-3 m-2 font-weight-bold text-center"
-			btn_notificacion.animate([{
-				color: "transparent"
-			},{
-				color: "#ff9834"
-			}],{duration:1000, iterations:Infinity})
+			img.setAttribute("src","./content/img/íconos/bauangry.gif")
+			btn_notificacion.className = "p-4 m-2 alert-warning font-weight-bold text-center"
+			
+			btn_notificacion.style.wordWrap = "break-word"
+			btn_notificacion.style.overflowWrap = "break-word"
+			btn_notificacion.style.whiteSpace = "normal"
 			btn_notificacion.style.color = "#ff9834"
-			btn_notificacion.innerHTML = "Tienes deudas, ¡Haz algo!"
+			btn_notificacion.style.borderRadius = "100px"
+			btn_notificacion.style.zIndex = "200"
+			btn_notificacion.style.cursor = "pointer"
+			btn_notificacion.onpointerover = ()=> btn_notificacion.style.border = "1px solid #f35b5c"
+			btn_notificacion.onpointerout = ()=> btn_notificacion.style.border = "1px solid transparent"
+			btn_notificacion.innerHTML = "Actualmente posees deudas"
+			btn_notificacion.ondragstart = () => false
+			btn_notificacion.style.userSelect = "none"
+			btn_notificacion.onclick = () => {
+				divnoti.style.display = "flex"
+				btn_notificacion.style.display = "none"
+			}
+
+			//Notify pj
+			// divnoti.setAttribute("src", "./content/img/íconos/notifi_danger.png")
+			divnoti.className = "m-3  btn badge badge-danger  align-items-center justify-content-center"
+			divnoti.style.position = "absolute"
+			divnoti.style.display = "flex"
+			divnoti.style.top ="0"
+			divnoti.style.width = "40px"
+			divnoti.style.height = "40px"
+			divnoti.style.right = "-10px"
+			divnoti.setAttribute("title", "Tienes una notificación")
+			divnoti.innerHTML = "1"
+			divnoti.style.fontSize = "130%"
+			divnoti.ondragstart = () => false
+			divnoti.style.userSelect = "none"
+			divnoti.animate([{
+				boxShadow:" 0px 0px 0px #ff6666"
+			},{
+				boxShadow:" 0px 0px 20px red"
+			}],{duration:400, iterations:Infinity})
+			// divnoti.setAttribute("width", "36px")
+			divnoti.style.borderRadius ="100%"
+			divnoti.onclick = () => {
+				btn_notificacion.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+				btn_notificacion.style.display = "block"
+				divnoti.style.display = "none"
+			}
+			header.appendChild(btn_notificacion)
+			imgcontainer.appendChild(divnoti)
 		} else {
-			img.setAttribute("src","./content/img/íconos/facehappy.gif")
+			img.setAttribute("src","./content/img/íconos/bau.gif")
+			btn_notificacion.className = "p-4 m-2 alert-success font-weight-bold text-center"
+			
+			btn_notificacion.style.wordWrap = "break-word"
+			btn_notificacion.style.overflowWrap = "break-word"
+			btn_notificacion.style.whiteSpace = "normal"
+			btn_notificacion.style.color = "#358e1a"
+			btn_notificacion.style.borderRadius = "100px"
+			btn_notificacion.style.zIndex = "200"
+			btn_notificacion.style.cursor = "pointer"
+			btn_notificacion.onpointerover = ()=> btn_notificacion.style.border = "1px solid #358e1a"
+			btn_notificacion.onpointerout = ()=> btn_notificacion.style.border = "1px solid transparent"
+			btn_notificacion.innerHTML = "Un gusto saludarte"
+			btn_notificacion.ondragstart = () => false
+			btn_notificacion.style.userSelect = "none"
+			btn_notificacion.onclick = () => {
+				divnoti.style.display = "flex"
+				btn_notificacion.style.display = "none"
+			}
+
+			//Notify pj
+			// divnoti.setAttribute("src", "./content/img/íconos/notifi_danger.png")
+			divnoti.className = "m-3  btn badge badge-primary  align-items-center justify-content-center"
+			divnoti.style.position = "absolute"
+			divnoti.style.display = "flex"
+			divnoti.style.top ="0"
+			divnoti.style.width = "40px"
+			divnoti.style.height = "40px"
+			divnoti.style.right = "-10px"
+			divnoti.setAttribute("title", "Tienes una notificación")
+			divnoti.innerHTML = "1"
+			divnoti.style.fontSize = "130%"
+			divnoti.ondragstart = () => false
+			divnoti.style.userSelect = "none"
+			// divnoti.setAttribute("width", "36px")
+			divnoti.style.borderRadius ="100%"
+			divnoti.onclick = () => {
+				btn_notificacion.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+				btn_notificacion.style.display = "block"
+				divnoti.style.display = "none"
+			}
+			header.appendChild(btn_notificacion)
+			imgcontainer.appendChild(divnoti)
 		}
 	}
 
@@ -943,6 +1029,7 @@ const Aside = (username) => {
 	const boton_calc = document.createElement("img")
 	boton_calc.setAttribute("src", "./content/img/íconos/calc.png")
 	boton_calc.setAttribute("width", "80px")
+	boton_calc.setAttribute("title", "Calculadora")
 	boton_calc.className = "btnmenaside p-1 m-2  mt-0 btn btn-light"
 	boton_calc.ondragstart = () => false
 	boton_calc.style.userSelect = "none"
@@ -964,6 +1051,7 @@ const Aside = (username) => {
 	boton_calendario.style.borderRadius = "100%"
 	boton_calendario.className = "btnmenaside p-1 m-2  mt-0 btn  btn-light"
 	boton_calendario.ondragstart = () => false
+	boton_calendario.setAttribute("title", "Mes actual")
 	boton_calendario.style.userSelect = "none"
 	boton_calendario.onclick = () => {
 		if (!openedcalender){
@@ -981,6 +1069,7 @@ const Aside = (username) => {
 	boton_conversor.setAttribute("width", "80px")
 	boton_conversor.className = "btnmenaside p-1 m-2  mt-0 btn btn-light"
 	boton_conversor.ondragstart = () => false
+	boton_conversor.setAttribute("title", "Conversor de divisas")
 	boton_conversor.style.userSelect = "none"
 	boton_conversor.onclick = () => {
 		if (!openedconversor){

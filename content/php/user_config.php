@@ -111,6 +111,7 @@
 							<!-- 2 -->
 							<div class="conjunt_images m-4 p-4 " style="display: none; flex-wrap: nowrap; flex-direction: row; height: 300px; overflow: auto; ">
 								<img src="./content/img/fondos/2/6.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
+								<img src="./content/img/fondos/2/9.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
 								<img src="./content/img/fondos/2/4.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
 								<img src="./content/img/fondos/2/2.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
 								<img src="./content/img/fondos/2/3.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
@@ -178,7 +179,7 @@
 				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="sesion">
 					<div class="sesion_time_caducidad pb-4 pt-4 card bg-transparent border-0">
 						<h4>Cierre de sesión automático</h4>
-						<label>Minimo 5min - Max 1 hora</label>
+						<label>Tiempo Minimo 5min - Max 1 hora</label>
 						<div class="d-flex flex-wrap p-2 align-content-center align-items-center">
 							<input type="range" id="caducidad-slide" min="5" max="60">
 							<span id="value_caducidad" class="ml-3">5</span>

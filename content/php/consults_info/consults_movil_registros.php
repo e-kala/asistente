@@ -1,7 +1,7 @@
 <!-- Movil -->
 
 <div class="p-4 font-weight-bold text-light tado" style="display: none;">
-    <a href="index.php#?" class="btn btn-primary mb-3 text-light font-weight-bold">Atrás</a>
+    <a href="index.php#?#movimientos" class="btn btn-primary mb-3 text-light font-weight-bold">Atrás</a>
     <form id="formreg" class="frgus">
         <h3 class="flexgrow">Selecciona lo que deseas buscar</h3>
         <select value="Ingresos"  class="flexgrow menreg p-3">

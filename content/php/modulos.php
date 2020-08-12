@@ -52,7 +52,7 @@ body{background: white;}
               <!-- Boton de Ingreso In-->
                 <div class="btn-group dropdown m-1">
                   <button type="button" class="btn btn-success" data-toggle="modal" 
-                          data-target="#ingresoModal" id="modalIngreso">
+                          data-target="#ingresoModal" id="modalIngreso" title="Hacer nuevo ingreso">
                     Ingreso
                   </button>
                   <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,7 +69,7 @@ body{background: white;}
 
               <!-- Boton de Gasto In -->
                <div class="btn-group dropdown m-4">
-                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#gastoModal" id="modalGasto">
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#gastoModal" id="modalGasto" title="Registrar gasto">
                     Gasto
                   </button>
                   <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -83,14 +83,14 @@ body{background: white;}
                   </div>
                 </div>
               <!-- Boton de Gasto End-->
-              <a class="btn btn-warning" href="?action=transferencias" role="button">Transferencias</a>
+              <a class="btn btn-warning" href="?action=transferencias" role="button" title="Transferir entre cuentas">Transferencias</a>
             </div>
             
         <!-- Sección de movimientos End -->
           <h4 class="p-3">Otros</h4>
           <div class="btn-group" role="group" aria-label="Basic example">
-            <a class="btn btn-primary" href="?action=registros" role="button">Registros</a>
-            <a class="btn btn-info" href="?action=cuentas" role="button">Cuentas</a>
+            <a class="btn btn-primary ml-3 mr-3 mt-0" href="?action=registros" role="button" title="Consultar registros">Registros</a>
+            <a class="btn btn-info ml-3 mr-3 mt-0" href="?action=cuentas" title="Gestor de cuentas" role="button">Cuentas</a>
           </div>
           
           <h4><br></h4><!--
@@ -136,15 +136,12 @@ body{background: white;}
           </div>
 
          </div>
--->
-      
-          
-        
+-->    
        </div>
      </div>
    </div>
   <!--Módulos END -->
-  <!-- <?php include "graficos.php"; ?> -->
+  <!--  include "graficos.php"; ?> --> 
 
 
    <!--<div class="card bg-blue modsco ">
