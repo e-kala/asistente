@@ -432,7 +432,6 @@ functions = [
   }
 ]
 
-alert("wo")
 for (let x=0; x < options.length; x++){
   if (x === 0){ //Inicio
     const optdiv = document.createElement("a")
