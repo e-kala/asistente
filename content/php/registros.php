@@ -24,11 +24,11 @@
     </div>
     <h3 class=" pl-4 pr-4 pt-4 tered">Registros</h3>
     <div class="men_data_registros tered">
-        <a href="#gastos" class="option-menu-registro"><img src="./content/img/íconos/mengasto.png" width="70px" ></a>
-        <a href="#ingresos" class="option-menu-registro"><img src="./content/img/íconos/meningreso.png" width="70px" ></a>
+        <a href="#gastos" class="option-menu-registro"><img src="./content/img/iconos/mengasto.png" width="70px" ></a>
+        <a href="#ingresos" class="option-menu-registro"><img src="./content/img/iconos/meningreso.png" width="70px" ></a>
     </div>
     <div class="p-4 mb-4">
-        <h3 class="ml-2 mb-4 text-center">Buscador <img src="./content/img/íconos/lupa.png" width="50px"></h3>
+        <h3 class="ml-2 mb-4 text-center">Buscador <img src="./content/img/iconos/lupa.png" width="50px"></h3>
         <form id="formregdesk" class="frguss">
             <div class="mt-3 flexgregdesk d-flex center-flex">
                 <h4 class="colorchange mb-3 text-center">Selecciona lo que deseas buscar</h4>

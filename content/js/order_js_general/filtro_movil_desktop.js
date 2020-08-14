@@ -45,7 +45,7 @@ const search = (formreg, tadores, menreg, find, config) => {
                                   tadores.innerHTML = `   
 
                                   <div class="${co} p-4 mb-3 m-4 datawindow"  >
-                                  <div class="closedata float-right"> <img src="./content/img/íconos/close.png" name="0" width="20px" class="float-right"  onClick="closeclick(this)"/></div>
+                                  <div class="closedata float-right"> <img src="./content/img/iconos/close.png" name="0" width="20px" class="float-right"  onClick="closeclick(this)"/></div>
                                      <div class="m-1 font-weight-bold">Id:  ${data.infogen.id_ingreso}</div>
                                      <div class="m-1 font-weight-bold">Nombre:  ${data.infogen.categoria_ingreso}</div>
                                      <div class="m-1 font-weight-bold">Descripción:  ${data.infogen.descripcion_ingreso}</div>
@@ -60,7 +60,7 @@ const search = (formreg, tadores, menreg, find, config) => {
                               if (data.infogen.usuario_gasto === user){
                                 tadores.innerHTML = `   
                                 <div class="${co} p-4 mb-3 m-4 datawindow"  >
-                                <div class="closedata float-right"> <img src="./content/img/íconos/close.png" name="0" width="20px" class="float-right"  onClick="closeclick(this)"/></div>
+                                <div class="closedata float-right"> <img src="./content/img/iconos/close.png" name="0" width="20px" class="float-right"  onClick="closeclick(this)"/></div>
                                    <div class="m-1 font-weight-bold">Id:  ${data.infogen.id_gasto}</div>
                                    <div class="m-1 font-weight-bold">Nombre:  ${data.infogen.categoria_gasto}</div>
                                    <div class="m-1 font-weight-bold">Descripción:  ${data.infogen.descripcion_gasto}</div>
@@ -89,7 +89,7 @@ const search = (formreg, tadores, menreg, find, config) => {
                                         tadores.innerHTML += `   
 
                                         <div class="${co} p-4 mb-3 m-4 datawindow" name="${i+1}datawindow" >
-                                        <div class="closedata float-right"> <img src="./content/img/íconos/close.png" name="${n-1}" width="20px" class="float-right"  onClick="closeclick(this)"/></div>
+                                        <div class="closedata float-right"> <img src="./content/img/iconos/close.png" name="${n-1}" width="20px" class="float-right"  onClick="closeclick(this)"/></div>
                                            <div class="m-1 font-weight-bold">Id:  ${data["infogen"+n].id_ingreso}</div>
                                            <div class="m-1 font-weight-bold">Nombre:  ${data["infogen"+n].categoria_ingreso}</div>
                                            <div class="m-1 font-weight-bold">Descripción:  ${data["infogen"+n].descripcion_ingreso}</div>
@@ -104,7 +104,7 @@ const search = (formreg, tadores, menreg, find, config) => {
                                       if (data["infogen"+n].usuario_gasto === user){
                                         tadores.innerHTML += `   
                                         <div class="${co} p-4 mb-3 m-4 datawindow" name="${i+1}datawindow" >
-                                        <div class="closedata float-right"> <img src="./content/img/íconos/close.png" name="${n-1}" width="20px" class="float-right"  onClick="closeclick(this)"/></div>
+                                        <div class="closedata float-right"> <img src="./content/img/iconos/close.png" name="${n-1}" width="20px" class="float-right"  onClick="closeclick(this)"/></div>
                                            <div class="m-1 font-weight-bold">Id:  ${data["infogen"+n].id_gasto}</div>
                                            <div class="m-1 font-weight-bold">Nombre:  ${data["infogen"+n].categoria_gasto}</div>
                                            <div class="m-1 font-weight-bold">Descripción:  ${data["infogen"+n].descripcion_gasto}</div>

@@ -16,7 +16,7 @@ document.body.onload = e => {
 				//60000 equivale al valor del minuto
 				time_config = alma_config[1].caducidad * 60000 //Conversion al formato de js, de segundos
 				
-				start = true //Primer arranque automático junto a la carga de la configuracion
+				start = true //Primer arranque automático junto a la carga de la configuracion inicial
 				//Solo empieza a ejecutarse el intérvalo al iniciar sesión
 				if (document.getElementsByClassName("fot")[0] !== undefined && document.getElementsByClassName("fot")[0] !== null){
 					if (time_config !== "" && time_config !== null && time_config !== undefined){ //Solo si la caducidad esta programada / definida arranca el intervalo
@@ -26,8 +26,7 @@ document.body.onload = e => {
 									state:"cerrar"
 								}
 							).done( data => { 	
-								if (!isPaused){ //Procesa los datos una vez antes de volver a llamar un cuadro emergente de nuevo
-								
+								if (!isPaused){ //Procesa los datos una vez antes de volver a llamar un cuadro emergente de nuevo	
 									isPaused = true //Mantener pausa para no llamar mas de una vez una ventana emergente habiendo una existente con su cuenta regresiva
 									let valor = JSON.parse(data) //Convertir datos recibidos en formato JSON, a objeto utilizable en javascript
 									if (valor.estado == "cerrar") { //Si la respuesta es cerrar
@@ -43,7 +42,6 @@ document.body.onload = e => {
 				}
 			} 
 		}
-
 	}
 }
 

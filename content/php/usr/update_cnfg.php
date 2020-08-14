@@ -9,6 +9,9 @@
 		$background = $_POST['background'];
 		$time_change_balance = $_POST['time_bal'];
 		$transparency = $_POST['transparency'];
+		$pj_change = $_POST['pj_change'];
+		$pj_hidden = $_POST['pj_hidden'];
+		$aside_hidden = $_POST['aside_hidden'];
 		$caducidad = $_POST['caducidad'];
 
 		//Array contenedor de todos los datos
@@ -16,6 +19,9 @@
 		$set["background"] = $background;
 		$set["time_bal"] = $time_change_balance;
 		$set["transparency"] = $transparency;
+		$set["pj_change"] = $pj_change;
+		$set["pj_hidden"] = $pj_hidden;
+		$set["aside_hidden"] = $aside_hidden;
 		$set["caducidad"] = $caducidad;
 
 		$set = json_encode($set);

@@ -33,3 +33,19 @@ function getDevicePixelRatio() {
         return 1;
     }
 }
+
+
+const import_configuracion = () => {
+  //------------------------------  Import configuration -------------------------------- 
+  let c = document.getElementById("cngfirst")
+  if (c !== undefined && c !== null){
+    window.config = c.getAttribute("value")
+    window.config = JSON.parse(window.config)
+  }
+  // ------------------------------------------------------------------------------------
+}
+
+
+
+
+import_configuracion()

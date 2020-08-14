@@ -186,6 +186,37 @@ main{
 	border-bottom: 2px solid #750EDE;
 }
 
+.accordion, .modulos{
+	transition: ease all 0.3s;
+}
+
+.accordion:hover{
+	transition: ease all 0.3s;
+}
+.modulos:hover{
+	transition: ease all 0.3s;
+}
+
+.pj{
+	transition: ease all 0.3s;
+	border: 4px solid transparent;
+}
+
+.pj:hover{
+	transition: ease all 0.3s;
+	border: 4px solid #bbb;
+}
+.check{
+	padding: 15px;
+	border-radius: 100%;
+	background: transparent;
+	box-shadow: inset 0px 0px 0px 3px #1DE2C3;
+	color: transparent;
+	user-select: none;
+	width: 10px;
+	height: 10px;
+	cursor: pointer;
+}
 
 /*-----------------CALCULADORA-------------------------*/
 

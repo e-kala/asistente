@@ -67,7 +67,7 @@ session_start();
                break;
 
                case 'home':
-                   echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
+                   echo '<img src="./content/img/iconos/load2.gif" width="140px" id="loadingg">';
                    include 'content/php/navbar.php';
                    echo "<div class='containhome'>";
                       echo "<div class='sectionhome'>";
@@ -79,48 +79,48 @@ session_start();
                break;
 
                case 'registro'://registro de usuarios
-                  echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
+                  echo '<img src="./content/img/iconos/load2.gif" width="140px" id="loadingg">';
                   include 'content/php/registro/registro_form.php';
                break;
 
                case 'registros'://registros, ingresos y gastos
-                  echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
+                  echo '<img src="./content/img/iconos/load2.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
                   include 'content/php/registros.php';
                break;
 
                case 'configuracion':
-                  echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
+                  echo '<img src="./content/img/iconos/load2.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
                   include 'content/php/user_config.php';
                break;
                 
                case 'cuentas':
-                  echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
+                  echo '<img src="./content/img/iconos/load2.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
                   include 'content/php/modulos/cuentas/cuentas.php';
                break;
 
                case 'editar_ingresos': 
-                  echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
+                  echo '<img src="./content/img/iconos/load2.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
                   include 'content/php/modulos/movimientos/ingresos/ingresos.php';   
                break;
 
                case 'editar_gastos': 
-                  echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
+                  echo '<img src="./content/img/iconos/load2.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
                   include 'content/php/modulos/movimientos/gastos/gastos.php';   
                break;
 
                case 'transferencias':
-                   echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
+                   echo '<img src="./content/img/iconos/load2.gif" width="140px" id="loadingg">';
                    include 'content/php/navbar.php';
                     include 'content/php/modulos/transferencias/transferencias.php';   
                break;
 
                case 'cerrar_sesion':
-                  echo '<img src="./content/img/íconos/load2.gif" width="140px" id="loadingg">';
+                  echo '<img src="./content/img/iconos/load2.gif" width="140px" id="loadingg">';
                   if (isset($_SESSION['login'])) {
                      echo "<script>window.location.href = 'index.php';</script>";
                      unset ($_SESSION ['login']);

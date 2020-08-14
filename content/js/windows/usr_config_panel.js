@@ -1,10 +1,9 @@
 let mode_client = ""
 bg_session = ""
 let change_use_mode_init_or_client = false
-
 let [time, bg, transparency] = ["hour", "", document.getElementById("slide_transparency").value]
-let files = ""
-let caducidad = ""
+let [files, caducidad, pj, personaje_hidden, panelizquierdo_hidden] = ["","", "", false, false]
+
 
 const element_to_change_style_mode = () =>{
 	const navbar = document.getElementsByClassName("navbar")[0]
@@ -122,6 +121,59 @@ const get_background = e => {
 	}
 }
 
+
+const check_hidden_elements = () => {
+	const check_aside = document.getElementsByClassName("check_aside")[0]
+	const check_pj = document.getElementsByClassName("check_pj")[0]
+
+	$(()=>{
+		if (window.config !== undefined && window.config !== null && window.config !== ""){
+			
+			panelizquierdo_hidden = window.config[1].aside_hidden == "true" ? true : false
+			personaje_hidden = window.config[1].pj_hidden == "true" ? true : false
+
+			check_pj.onpointerdown = o => {
+				personaje_hidden = !personaje_hidden
+				if (personaje_hidden){
+					check_pj.style.background = "radial-gradient(circle, #1F9885, #1BCEB2)"
+				} else {
+					check_pj.style.background = "" 
+				}
+			}
+
+			check_aside.onpointerdown = o => {
+				panelizquierdo_hidden = !panelizquierdo_hidden
+				if (panelizquierdo_hidden){
+					check_aside.style.background = "radial-gradient(circle, #1F9885, #1BCEB2)"
+				} else {
+					check_aside.style.background = "" 
+				}
+			}
+		}
+		
+	})
+
+
+}
+
+check_hidden_elements()
+
+const select_pj = e => {
+	for (let y = 0; y < e.length; y++){
+		e[y].onpointerdown = () =>{
+			e[y].style.border = "4px solid #1DE2C3"
+			pj = e[y].getAttribute("src")
+			for (let x = 0; x < e.length; x++){
+				if (x !== y){
+					e[x].style.border =  "4px solid transparent"
+				}
+			}
+		}
+	}
+}
+
+select_pj(document.getElementsByClassName("pj"))
+
 const iter = (fx, ar) => {
 	for (let x = 0; x < ar.length; x++){
 		fx(ar[x])
@@ -182,6 +234,9 @@ function send_config(){
 		mode: bg_session !== "" ? bg_session : alma_config[1].mode,
 		transparency: transparency !== "" && transparency !== null ? transparency : alma_config[1].transparency,
 		background: bg,
+		pj_change: pj !== "" ? pj : alma_config[1].pj_change,
+		pj_hidden: personaje_hidden,
+		aside_hidden: panelizquierdo_hidden,
 		caducidad: caducidad !== "" ? caducidad : alma_config[1].caducidad,
 		time_bal: time !== "" ? time : "hour"
 	}).done(d => {

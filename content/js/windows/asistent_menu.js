@@ -167,16 +167,20 @@ functions = [
       caducidad = document.getElementById("caducidad-slide").value
     }
 
+
     const post_save_change = (mode) => {
       $.post("./content/php/usr/update_cnfg.php", {
         usuario : alma_config[0].usuario,
         background : alma_config[1].background,
+        pj_change: alma_config[1].pj_change,
+        pj_hidden: alma_config[1].pj_hidden,
+        aside_hidden: alma_config[1].aside_hidden,
         transparency: alma_config[1].transparency,
         mode : mode,
         caducidad : caducidad !== "" ? caducidad : alma_config[1].caducidad,
         time_bal : alma_config[1].time_bal
       }).done(e => {
-        console.log(e,"actualizado")
+        // console.log(e,"actualizado")
       })
     }
 
@@ -428,6 +432,7 @@ functions = [
   }
 ]
 
+alert("wo")
 for (let x=0; x < options.length; x++){
   if (x === 0){ //Inicio
     const optdiv = document.createElement("a")
@@ -440,6 +445,7 @@ for (let x=0; x < options.length; x++){
     optdiv.addEventListener("click",functions[x])
     optdiv.className += "  btn btn-inherit"
     div_men.appendChild(optdiv)
+    optdiv.innerHTML +='<i class="fa fa-home ml-2 text-primary" aria-hidden="true"></i>'
   } else if (x === 1){ //Configuración
     const optdiv = document.createElement("a")
     optdiv.innerHTML = options[x]
@@ -451,6 +457,7 @@ for (let x=0; x < options.length; x++){
     optdiv.addEventListener("click",functions[x])
     optdiv.className += "  btn btn-inherit"
     div_men.appendChild(optdiv)
+    optdiv.innerHTML +='<i class="fa fa-cogs ml-2 text-primary" aria-hidden="true"></i>'
   } else if (x === 2){ //Mode Dark / light
     const optdiv = document.createElement("div")
     optdiv.innerHTML = options[x]
@@ -482,6 +489,7 @@ for (let x=0; x < options.length; x++){
     optdiv.addEventListener("click",functions[x])
     optdiv.className += "  btn btn-inherit"
     div_men.appendChild(optdiv)
+    optdiv.innerHTML +='<i class="fa fa-long-arrow-right text-primary ml-2" aria-hidden="true"></i>'
   }
 }
 if (menu_btn !== null) menu_btn.appendChild(div_men);

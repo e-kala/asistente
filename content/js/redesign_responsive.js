@@ -21,23 +21,44 @@ const resize_modulos = () => {
 	}
 
 	if (window.screen.width >= 800){
-		if(modulos[0] !== undefined){
-			// modulos[0].style.width = "80%"
-			modulos[0].className = "accordion pl-4 modulos"
-		}
-		if (modulos[1] !== undefined){
-			// modulos[1].style.width = "80%"
-			modulos[1].className = "accordion pl-4 pr-4 modulos"
-		}
-	} else {
-		if (modulos[0] !== undefined){
-			
-			modulos[0].className = "accordion pb-4 modulos"
-		}
-		if (modulos[1] !== undefined){
+		if (window.config !== undefined){
+			if (window.config[1].aside_hidden == "false"){
+				if (modulos[0] !== undefined){
+					// modulos[0].style.width = "80%"
+					modulos[0].className = "accordion pl-4 modulos"
+				}
+				if (modulos[1] !== undefined){
+					// modulos[1].style.width = "80%"
+					modulos[1].className = "accordion pl-4 pr-4 modulos"
+				}
+			} else {
+				if(modulos[0] !== undefined){
+					// modulos[0].style.width = "80%"
+					modulos[0].className = "accordion modulos container"
+				}
+				if (modulos[1] !== undefined){
+					// modulos[1].style.width = "80%"
+					modulos[1].className = "accordion pr-4 modulos container"
+				}
+			}
+		} else {
+			if(modulos[0] !== undefined){
+				// modulos[0].style.width = "80%"
+				modulos[0].className = "accordion pl-4 modulos "
+			}
+			if (modulos[1] !== undefined){
+				// modulos[1].style.width = "80%"
+				modulos[1].className = "accordion pl-4 pr-4 modulos "
 				
-			modulos[1].className = "accordion pb-4 modulos"
-		}
+			}
+		}	
+	} else {
+			if (modulos[0] !== undefined){
+				modulos[0].className = "accordion pb-4 modulos"
+			}
+			if (modulos[1] !== undefined){
+				modulos[1].className = "accordion pb-4 modulos"
+			}
 	}
 
 	// if (modulos[0] !== undefined){
@@ -162,15 +183,15 @@ function menu_header_top_adjust(screen){
 		container_screen_desktop !== null && menu_header_container !== undefined &&
 		menu_header_container !== null){
 		if (screen >= 670){
-			menu_header_container.className = "m-2 d-flex flex-wrap justify-content-end align-content-center align-items-cente menu-header-top"
+			menu_header_container.className = "m-2 d-flex flex-wrap font-weight-bold justify-content-end align-content-center align-items-cente menu-header-top"
 			
 			container_screen_desktop.appendChild(menu_header_container)
 			for (let x = 0; x < cotextmennavtop_.length; x++){
-				if (alma_config !== undefined){
-					if (alma_config[1].mode === "dark"){
-			            cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit text-light"
+				if ( bg_session !== "" && bg_session !==undefined && bg_session !== null){
+					if (bg_session === "dark"){
+			            cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-light"
 				    } else {
-				    	cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit text-dark"    
+				    	cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-dark"    
 				    }
 				}
 			}
@@ -207,7 +228,7 @@ function div_opa_init_dark_wait(){
   document.body.appendChild(divopa)
 
   const loading = document.createElement("img")
-  loading.setAttribute("src", "./content/img/íconos/load2.gif")
+  loading.setAttribute("src", "./content/img/iconos/load2.gif")
   loading.setAttribute("width", "100px")
   divopa.appendChild(loading)
 

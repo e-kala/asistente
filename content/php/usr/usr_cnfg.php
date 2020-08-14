@@ -157,6 +157,61 @@
 			document.body.style.backgroundAttachment = "fixed"
 		}
 
+		//pj change pj
+		if (json[1].pj_change !== "" && json[1].pj_change !== null & json[1].pj_change !== undefined){
+			const xiang = document.getElementById("pjxiang")
+			const buer = document.getElementById("pjbuer")
+			const oficial_pj = document.getElementsByClassName("cara")[0]
+
+			if (xiang !== null && xiang !== undefined && json[1].pj_change.match(/face/gim)) xiang.style.border = "4px solid rgb(29,226,195)"
+			if (buer !== null && buer !== undefined && json[1].pj_change.match(/bau/gim)) buer.style.border = "4px solid rgb(29,226,195)"
+
+		} else {
+			const xiang = document.getElementById("pjxiang")
+			const buer = document.getElementById("pjbuer")
+			if (xiang !== null && xiang !== undefined) xiang.style.border = ""
+			if (buer !== null && buer !== undefined) buer.style.border = ""
+		}
+
+
+		//pj hidden status
+		if (json[1].pj_hidden !== "" && json[1].pj_hidden !== null && json[1].pj_hidden !== undefined){
+				const pj_h = document.getElementsByName("personaje")[0]
+			
+				let imgcontainer = document.getElementsByClassName("imgcontainer")[0]
+
+				if (json[1].pj_hidden == "true"){
+					if (pj_h !== undefined && pj_h !== null) pj_h.style.background = "radial-gradient(circle, #1F9885, #1BCEB2)"
+					if (imgcontainer !== null && imgcontainer !== undefined){
+						imgcontainer.style.display = "none"
+					}
+				} else {
+					if (pj_h !== undefined && pj_h !== null)  pj_h.style.background = ""
+					if (imgcontainer !== null && imgcontainer !== undefined){
+						imgcontainer.style.display = "block"
+					}
+				}
+			
+		
+		}
+
+		//aside hidden status
+		if (json[1].aside_hidden !== "" && json[1].aside_hidden !== null && json[1].aside_hidden !== undefined){
+			const check_aside = document.getElementsByName("panelizquierdo")[0]
+		
+			let aside = document.getElementsByClassName("containeraside")[0]
+			if (json[1].aside_hidden == "true"){
+				//Esconder aside
+				if (aside !== undefined && aside !== null) aside.style.display = "none"
+				if (check_aside !== null && check_aside !== undefined) check_aside.style.background = "radial-gradient(circle, #1F9885, #1BCEB2)"
+			} else {
+				//Mostrar aside
+				if (aside !== undefined && aside !== null) aside.style.display = "block"
+				if (check_aside !== null && check_aside !== undefined) check_aside.style.background = ""
+			}
+		
+		}
+
 		//Caducidad
 		if (json !== ""){
 			if (json[1].caducidad !== "" && json[1].caducidad !== undefined && json[1].caducidad !== null){
@@ -179,9 +234,9 @@
 		if (email !== undefined && email !== null) email.innerHTML = json[0].email
 
 		//******************************************
-		
 
 		console.log(json, "domo")
+		console.log(json[1].pj_change,)
 
 
 	}

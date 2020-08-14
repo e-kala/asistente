@@ -5,6 +5,95 @@ let calcumoving = false
 let calenmoving = false
 let conversormoving = false
 let calcuresizemoving = false
+
+
+
+const resize_window_aside = aside => {
+	let modss = document.getElementsByClassName("accordion")
+	let navbar = document.getElementsByClassName("navbar")[0]
+	navbar.onpointerover = e => {
+		document.body.style.cursor = ""
+	}
+
+
+	let pase = true
+	aside.ondragstart = () => false
+
+
+
+	document.body.onpointermove = e => {
+		if (aside.style.display === "none"){ //show
+			if (e.clientX < 20){
+				if (window.config[1].aside_hidden == "false"){
+					if (aside.style.display === "none"){
+						document.body.style.cursor = "grabbing"
+						document.body.setAttribute("title", "Mostrar barra lateral")
+					}
+					aside.onpointerdown = () => false
+				}
+				document.body.onpointerdown = o => {
+					if (modss[0] !== null && modss[0] !== undefined && window.config[1].aside_hidden == "false"){
+						modss[0].className = "accordion pl-4 modulos"
+					}
+					if (window.config[1].aside_hidden == "false" && pase === false){
+						aside.style.display = "block"
+						aside.style.opacity = "1"
+						aside.animate([{
+							opacity:0,
+							transform:"translateX(-10%)"
+						},{
+							opacity:1,
+							transform:"translateX(0%)"
+						}],{duration:400, iterations:1})
+						pase = true
+					} 
+				}
+			} else {
+				document.body.setAttribute("title", "")
+				document.body.style.cursor = ""
+				aside.style.cursor = ""
+			}
+		}
+	}
+
+	aside.onpointermove = e => { //Hide
+		document.body.setAttribute("title", "")
+		if (e.clientX > aside.clientWidth - 3 && pase){
+			if (window.config[1].aside_hidden == "false"){
+				if (aside.style.display === "block"){
+					aside.style.cursor = "grabbing"
+					aside.setAttribute("title", "Ocultar barra lateral")
+				}
+			}
+			aside.onpointerdown = o => {
+				if (window.config[1].aside_hidden == "false"){
+					document.body.onpointerdown = () => false
+				}
+				if (modss[0] !== null && modss[0] !== undefined && window.config[1].aside_hidden == "false"){
+					modss[0].className = "accordion modulos"
+				}
+				setTimeout(()=>{
+					aside.style.display = "none"
+				},410)
+				aside.animate([{
+					opacity:1,
+					transform:"translateX(0%)"
+				},{
+					opacity:0,
+					transform:"translateX(-10%)"
+				}],{duration:400, iterations:1})
+				aside.style.opacity = "0"
+				pase = false
+			}
+		} else {
+			aside.setAttribute("title", "")
+			document.body.style.cursor = ""
+			aside.style.cursor = ""	
+			aside.style.width = ""
+			aside.onpointerdown = () => false
+		}	
+	}
+}
  
 const maction_window = (state) =>{
 	window.onpointerup = () => {
@@ -419,7 +508,7 @@ const calculator = () => {
 		contacal.appendChild(header_icons)
 
 		const move = document.createElement("img") // Mover
-		move.setAttribute("src", "./content/img/íconos/move.png")
+		move.setAttribute("src", "./content/img/iconos/move.png")
 		move.setAttribute("width", "90px")
 		move.setAttribute("id", "move_calculator")
 		move.ondragstart = () => false
@@ -434,7 +523,7 @@ const calculator = () => {
 		header_icons.appendChild(move)
 
 		const nueva_calc = document.createElement("img") //Nueva calculadora
-		nueva_calc.setAttribute("src", "./content/img/íconos/nuevo.png")
+		nueva_calc.setAttribute("src", "./content/img/iconos/nuevo.png")
 		nueva_calc.setAttribute("width", "60px")
 		nueva_calc.setAttribute("height", "45px")
 		nueva_calc.ondragstart = () => false
@@ -460,7 +549,7 @@ const calculator = () => {
 
 		const resize = document.createElement("img")// Resize 
 		resize.className = "btn-transparent text-light font-weight-bold btn resize_calculator"
-		resize.setAttribute("src","./content/img/íconos/resize.png")
+		resize.setAttribute("src","./content/img/iconos/resize.png")
 		resize.setAttribute("width", "80px")
 		resize.setAttribute("height", "60px")
 		resize.style.cursor = "pointer"
@@ -474,7 +563,7 @@ const calculator = () => {
 		// maction_window(contacal, resize, move, "calculator")
 
 		const cerrar_general = document.createElement("img") //Cerrar todas
-		cerrar_general.setAttribute("src","./content/img/íconos/close.png")
+		cerrar_general.setAttribute("src","./content/img/iconos/close.png")
 		cerrar_general.setAttribute("width", "40px")
 		cerrar_general.setAttribute("height", "40px")
 		cerrar_general.style.cursor = "pointer"
@@ -599,7 +688,7 @@ const calender = () => {
 		header_icons.appendChild(menicons)
 
 		const move = document.createElement("img") // Mover
-		move.setAttribute("src", "./content/img/íconos/move.png")
+		move.setAttribute("src", "./content/img/iconos/move.png")
 		move.setAttribute("width", "90px")
 		move.ondragstart = () => false
 		move.style.userSelect = "none"
@@ -617,7 +706,7 @@ const calender = () => {
 		maction_window("calender")
 
 		const cerrar_general = document.createElement("img") //Cerrar todas
-		cerrar_general.setAttribute("src","./content/img/íconos/close.png")
+		cerrar_general.setAttribute("src","./content/img/iconos/close.png")
 		cerrar_general.setAttribute("width", "40px")
 		cerrar_general.setAttribute("height", "40px")
 		cerrar_general.style.cursor = "pointer"
@@ -826,7 +915,7 @@ const conversor = () => {
 		header_icons.appendChild(menicons)
 
 		const move = document.createElement("img") // Mover
-		move.setAttribute("src", "./content/img/íconos/move.png")
+		move.setAttribute("src", "./content/img/iconos/move.png")
 		move.setAttribute("width", "90px")
 		move.ondragstart = () => false
 		move.style.userSelect = "none"
@@ -843,7 +932,7 @@ const conversor = () => {
 		maction_window("calender")
 
 		const cerrar_general = document.createElement("img") //Cerrar todas
-		cerrar_general.setAttribute("src","./content/img/íconos/close.png")
+		cerrar_general.setAttribute("src","./content/img/iconos/close.png")
 		cerrar_general.setAttribute("width", "40px")
 		cerrar_general.setAttribute("height", "40px")
 		cerrar_general.style.cursor = "pointer"
@@ -886,6 +975,8 @@ const Aside = (username) => {
 	const containhome = document.getElementsByClassName("containhome")[0]
 	const contacal = document.createElement("div")
 	contacal.className += "contacalaside card asidechancolor"
+
+	resize_window_aside(contacal)
 	
 	const header = document.createElement("div")
 	header.setAttribute("align", "center")
@@ -897,7 +988,7 @@ const Aside = (username) => {
 	if (header !== undefined) header.appendChild(h1)
 
 	const imgcontainer = document.createElement("div")
-	imgcontainer.className = "position-relative "
+	imgcontainer.className = "position-relative imgcontainer"
 	const img = document.createElement("img")
 	img.className += "caras"
 	img.setAttribute("width", "50%")
@@ -920,10 +1011,19 @@ const Aside = (username) => {
 
 	let balcontent = document.getElementsByClassName("balactual")[0]
 
+	let confpj = window.config[1].pj_change
 	if (balcontent !== undefined && balcontent !==null){
 		const divnoti = document.createElement("span")
 		if (balcontent.textContent.match(/\-/gim)){
-			img.setAttribute("src","./content/img/íconos/bauangry.gif")
+			if (confpj !== "" && confpj !== null && confpj !== undefined){
+				if (confpj.match(/bau/gim)){
+					img.setAttribute("src","./content/img/iconos/bauangry.gif")
+				} else if (confpj.match(/face/gim)){
+					img.setAttribute("src","./content/img/iconos/faceangry.gif")
+				}
+			} else {
+				img.setAttribute("src", "./content/img/iconos/bauangry.gif")
+			}
 			btn_notificacion.className = "p-4 m-2 alert-warning font-weight-bold text-center"
 			
 			btn_notificacion.style.wordWrap = "break-word"
@@ -944,7 +1044,7 @@ const Aside = (username) => {
 			}
 
 			//Notify pj
-			// divnoti.setAttribute("src", "./content/img/íconos/notifi_danger.png")
+			// divnoti.setAttribute("src", "./content/img/iconos/notifi_danger.png")
 			divnoti.className = "m-3  btn badge badge-danger  align-items-center justify-content-center"
 			divnoti.style.position = "absolute"
 			divnoti.style.display = "flex"
@@ -972,7 +1072,16 @@ const Aside = (username) => {
 			header.appendChild(btn_notificacion)
 			imgcontainer.appendChild(divnoti)
 		} else {
-			img.setAttribute("src","./content/img/íconos/bau.gif")
+			if (confpj !== "" && confpj !== null && confpj !== undefined){
+				if (confpj.match(/bau/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/face/gim)){
+					img.setAttribute("src",confpj)
+				}
+			} else {
+				img.setAttribute("src","./content/img/iconos/bauhappy.gif")
+			}
+
 			btn_notificacion.className = "p-4 m-2 alert-success font-weight-bold text-center"
 			
 			btn_notificacion.style.wordWrap = "break-word"
@@ -993,7 +1102,7 @@ const Aside = (username) => {
 			}
 
 			//Notify pj
-			// divnoti.setAttribute("src", "./content/img/íconos/notifi_danger.png")
+			// divnoti.setAttribute("src", "./content/img/iconos/notifi_danger.png")
 			divnoti.className = "m-3  btn badge badge-primary  align-items-center justify-content-center"
 			divnoti.style.position = "absolute"
 			divnoti.style.display = "flex"
@@ -1027,7 +1136,7 @@ const Aside = (username) => {
 	menuaside.style.flexFlow = "wrap row"
 
 	const boton_calc = document.createElement("img")
-	boton_calc.setAttribute("src", "./content/img/íconos/calc.png")
+	boton_calc.setAttribute("src", "./content/img/iconos/calc.png")
 	boton_calc.setAttribute("width", "80px")
 	boton_calc.setAttribute("title", "Calculadora")
 	boton_calc.className = "btnmenaside p-1 m-2  mt-0 btn btn-light"
@@ -1046,7 +1155,7 @@ const Aside = (username) => {
 	}
 
 	const boton_calendario = document.createElement("img")
-	boton_calendario.setAttribute("src", "./content/img/íconos/calender.png")
+	boton_calendario.setAttribute("src", "./content/img/iconos/calender.png")
 	boton_calendario.setAttribute("width", "80px")
 	boton_calendario.style.borderRadius = "100%"
 	boton_calendario.className = "btnmenaside p-1 m-2  mt-0 btn  btn-light"
@@ -1064,7 +1173,7 @@ const Aside = (username) => {
 	}
 
 	const boton_conversor = document.createElement("img")
-	boton_conversor.setAttribute("src", "./content/img/íconos/conversor.png")
+	boton_conversor.setAttribute("src", "./content/img/iconos/conversor.png")
 	boton_conversor.style.borderRadius = "100%"
 	boton_conversor.setAttribute("width", "80px")
 	boton_conversor.className = "btnmenaside p-1 m-2  mt-0 btn btn-light"

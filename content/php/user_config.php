@@ -16,7 +16,7 @@
 				</div>
 				<div class="card-body bg-transparent collapse show p-0 " data-parent="#accordion" id="cuenta">
 					<div class="personal-data card bg-transparent border-0">
-						<h4 class="m-4 text-center">Cuenta</h4>
+						<h4 class="m-4 pt-4 text-center">Cuenta</h4>
 						<div class="datosph p-2 mb-4  d-flex justify-content-center align-content-center align-items-center flex-wrap">
 							<div class="dattx d-flex flex-column justify-content-start">
 								<span>
@@ -32,6 +32,43 @@
 							</div>
 							<script type="text/javascript" src="./content/js/pattern_imitate.js"></script>
 						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- asistente pj collapse -->
+			<div class="card bg-transparent border-0">
+				<div class="card-header bg-transparent">
+					<div class="btn btn-link btn-block font-weight-bold text-left fg-color-menu-option-configpanel" data-toggle="collapse"  href="#asistente" role="button" aria-expanded="false" aria-controls="asistente">Asistente</div>
+				</div>
+				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="asistente">
+					<div class="personal-data card bg-transparent border-0 pb-4">
+						<h4 class="m-4 pt-4 text-center">Cambiar personaje</h4>
+						<div class="container-pj d-flex justify-content-center flex-wrap">
+							<div class="conj_pj d-flex flex-column xiang">
+								<label> Xiang </label>
+								<img id="pjxiang" src="./content/img/iconos/facehappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer; background: #f2f2f2;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label> Buer </label>
+								<img id="pjbuer" src="./content/img/iconos/bau.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Interfaz hidden elements and more collapse -->
+			<div class="card bg-transparent border-0">
+				<div class="card-header bg-transparent">
+					<div class="btn btn-link btn-block font-weight-bold text-left fg-color-menu-option-configpanel" data-toggle="collapse"  href="#interfaz" role="button" aria-expanded="false" aria-controls="interfaz">Interfaz</div>
+				</div>
+				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="interfaz">
+					<h4 class="m-4 pt-4 mb-0 text-center">Ocultar elementos</h4>
+					<div class="hidden_elements d-flex flex-wrap justify-content-center pl-4 pr-4 pt-0 pb-0">
+						<div class="d-flex justify-content-center align-items-center p-3 pt-0 align-content-center m-2"><label class="mr-3">Panel izquierdo</label><div class="check_aside check" name="panelizquierdo">_</div></div>
+						
+						<div class="d-flex justify-content-center align-items-center p-3 pt-0 align-content-center m-2"><label class="mr-3">Personaje</label><div class="check_pj check" name="personaje">_</div></div>
 					</div>
 				</div>
 			</div>
@@ -178,7 +215,7 @@
 				</div>
 				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="sesion">
 					<div class="sesion_time_caducidad pb-4 pt-4 card bg-transparent border-0">
-						<h4>Cierre de sesión automático</h4>
+						<h4 class="pt-4 pb-4">Cierre de sesión automático</h4>
 						<label>Tiempo Minimo 5min - Max 1 hora</label>
 						<div class="d-flex flex-wrap p-2 align-content-center align-items-center">
 							<input type="range" id="caducidad-slide" min="5" max="60">

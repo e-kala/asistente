@@ -7,7 +7,7 @@
     <div class="card-body content-balance">
       <div class="justify-content-between d-flex">
         <h5 class="card-title" >Balance</h5>
-        <img class="float-right" src="./content/img/íconos/modal_info_balances.png" width="60px" height="60px">
+        <img class="float-right" src="./content/img/iconos/modal_info_balances.png" width="60px" height="60px">
       </div>
       <p class="card-text text-left">
       	<?php include 'content/php/ingresos_query.php'; ?>
@@ -23,7 +23,7 @@
     <div class="card-body">
       <div class="justify-content-between d-flex">
         <h5 class="card-title">Último ingreso</h5>
-        <img class="float-right" src="./content/img/íconos/modal_info_ingresos.png" width="60px" height="60px">
+        <img class="float-right" src="./content/img/iconos/modal_info_ingresos.png" width="60px" height="60px">
       </div>
       <p class="card-text text-left" id="info"></p>
     </div>
@@ -37,7 +37,7 @@
     <div class="card-body">
       <div class="justify-content-between d-flex">
         <h5 class="card-title">Último Gasto</h5>
-        <img class="float-right" src="./content/img/íconos/modal_info_gastos.png" width="60px" height="60px">
+        <img class="float-right" src="./content/img/iconos/modal_info_gastos.png" width="60px" height="60px">
       </div>
       <p class="card-text text-left" id="ultimoGasto"></p>
     </div>

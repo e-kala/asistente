@@ -19,7 +19,7 @@ body{background: white;}
           Información
         </div>
        </h2>
-       <img src="./content/img/íconos/info.png" class="ml-2" width="30px">
+       <img src="./content/img/iconos/info.png" class="ml-2" width="30px">
      </div>
        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="card-body">
@@ -37,7 +37,7 @@ body{background: white;}
           Movimientos
         </div>  
        </h2>
-       <img src="./content/img/íconos/configur.png" class="ml-2" width="30px">
+       <img src="./content/img/iconos/configur.png" class="ml-2" width="30px">
      </div>
 
      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
@@ -151,7 +151,7 @@ body{background: white;}
            Collapsible Group Item #3
          </button>
        </h2>
-       <img src="./content/img/íconos/configur.png" class="ml-2" width="30px">
+       <img src="./content/img/iconos/configur.png" class="ml-2" width="30px">
      </div>
      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
        <div class="card-body">
