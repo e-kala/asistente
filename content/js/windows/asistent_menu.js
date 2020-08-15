@@ -442,7 +442,7 @@ for (let x=0; x < options.length; x++){
     optdiv.style.fontWeight ="bold"
     optdiv.setAttribute("id", "btn_"+(x+1))
     optdiv.addEventListener("click",functions[x])
-    optdiv.className += "  btn btn-inherit"
+    optdiv.className += "  btn btn-inherit text-dark"
     div_men.appendChild(optdiv)
     optdiv.innerHTML +='<i class="fa fa-home ml-2 text-primary" aria-hidden="true"></i>'
   } else if (x === 1){ //Configuración
@@ -454,7 +454,7 @@ for (let x=0; x < options.length; x++){
     optdiv.setAttribute("id", "btn_"+(x+1))
     optdiv.style.fontWeight ="bold"
     optdiv.addEventListener("click",functions[x])
-    optdiv.className += "  btn btn-inherit"
+    optdiv.className += "  btn btn-inherit text-dark"
     div_men.appendChild(optdiv)
     optdiv.innerHTML +='<i class="fa fa-cogs ml-2 text-primary" aria-hidden="true"></i>'
   } else if (x === 2){ //Mode Dark / light
@@ -486,7 +486,7 @@ for (let x=0; x < options.length; x++){
     optdiv.setAttribute("name", options[x])
     optdiv.setAttribute("id", "btn_"+(x+1))
     optdiv.addEventListener("click",functions[x])
-    optdiv.className += "  btn btn-inherit"
+    optdiv.className += "  btn btn-inherit text-dark"
     div_men.appendChild(optdiv)
     optdiv.innerHTML +='<i class="fa fa-long-arrow-right text-primary ml-2" aria-hidden="true"></i>'
   }

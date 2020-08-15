@@ -20,7 +20,7 @@ const resize_modulos = () => {
 		modsco_especify_moduls[1].style.flexGrow = "0"
 	}
 
-	if (window.screen.width >= 800){
+	if (window.innerWidth >= 800){
 		if (window.config !== undefined){
 			if (window.config[1].aside_hidden == "false"){
 				if (modulos[0] !== undefined){
@@ -73,10 +73,10 @@ const resize_modulos = () => {
 
 window.onload = () => {
 	resize_modulos()
-	menu_header_top_adjust(window.screen.width)
+	menu_header_top_adjust(window.innerWidth)
 }
 resize_modulos()
-menu_header_top_adjust(window.screen.width)
+menu_header_top_adjust(window.innerWidth)
 
 window.onresize = () => {
 	resize_modulos()
@@ -150,7 +150,7 @@ window.onresize = () => {
 		} else if (devip.toString().match(/0\.89/gim)){
 			menu_registros.style.display = "flex"
 		} 
-		if (window.screen.width <= 400){
+		if (window.innerWidth <= 400){
 			if (registros_men_respon !== undefined) registros_men_respon.style.display = "flex";
         }
 		
@@ -160,7 +160,7 @@ window.onresize = () => {
 	// ** Restructuración móvil tablas registros
 	const tered = document.getElementsByClassName("tered")[0]
     const tado = document.getElementsByClassName("tado")[0]
-    if (window.screen.width >= 580){
+    if (window.innerWidth >= 580){
     	if (tado !== undefined) tado.style.display = "none";
     	if (tered !== undefined) tered.style.display = "block";
     } else {
@@ -168,7 +168,7 @@ window.onresize = () => {
     	if (tado !== undefined) tado.style.display = "block";
     }
 
-    menu_header_top_adjust(window.screen.width)
+    menu_header_top_adjust(window.innerWidth)
 
 }
 
@@ -182,18 +182,17 @@ function menu_header_top_adjust(screen){
 		&& container_screen_desktop !== undefined && 
 		container_screen_desktop !== null && menu_header_container !== undefined &&
 		menu_header_container !== null){
-		if (screen >= 670){
+		if (screen >= 1000){
 			menu_header_container.className = "m-2 d-flex flex-wrap font-weight-bold justify-content-end align-content-center align-items-cente menu-header-top"
 			
 			container_screen_desktop.appendChild(menu_header_container)
 			for (let x = 0; x < cotextmennavtop_.length; x++){
-				if ( bg_session !== "" && bg_session !==undefined && bg_session !== null){
-					if (bg_session === "dark"){
-			            cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-light"
-				    } else {
-				    	cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-dark"    
-				    }
-				}
+				if (window.config[1].mode === "dark"){
+		            cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-light"
+			    } else {
+			    	cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-dark"    
+			    }
+			
 			}
 		} else {
 			menu_header_container.className = "m-2 d-flex flex-column justify-content-center align-content-center align-items-cente menu-header-top"
@@ -203,7 +202,7 @@ function menu_header_top_adjust(screen){
 			menu_rallas.appendChild(menu_header_container)
 			if (cotextmennavtop_ !== undefined && cotextmennavtop_ !== null){
 				for (let x = 0; x < cotextmennavtop_.length; x++){
-					cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit text-dark"
+					cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-dark"
 				}
 			} 
 		}

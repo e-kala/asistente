@@ -30,8 +30,6 @@
     <link rel="stylesheet" type="text/css" href="./content/js/alertifyjs/alertify.js">
 
     <script type="text/javascript" src="./content/js/windows/aside.js"></script>
-   
-
 
 
     <?php include "./content/php/consults_info/query_config_to_init.php"; ?>

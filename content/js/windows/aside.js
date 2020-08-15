@@ -7,7 +7,6 @@ let conversormoving = false
 let calcuresizemoving = false
 
 
-
 const resize_window_aside = aside => {
 	let modss = document.getElementsByClassName("accordion")
 	let navbar = document.getElementsByClassName("navbar")[0]
@@ -15,83 +14,102 @@ const resize_window_aside = aside => {
 		document.body.style.cursor = ""
 	}
 
-
 	let pase = true
 	aside.ondragstart = () => false
 
+	const asideicon = document.createElement("img")
+	asideicon.setAttribute("id", "asideicono")
+	asideicon.setAttribute("src","./content/img/iconos/asideicono.png")
+	asideicon.setAttribute("width", "50px")
+	asideicon.style.left = "0px"
+	asideicon.style.position = "fixed"
+	asideicon.style.top = "150px"
+	asideicon.style.display = "none"
+
+	document.body.appendChild(asideicon)
 
 
-	document.body.onpointermove = e => {
-		if (aside.style.display === "none"){ //show
-			if (e.clientX < 20){
+	if (window.screen.width >= 780){
+		document.body.onpointermove = e => {
+			if (aside.style.display === "none"){ //sho
 				if (window.config[1].aside_hidden == "false"){
 					if (aside.style.display === "none"){
-						document.body.style.cursor = "grabbing"
-						document.body.setAttribute("title", "Mostrar barra lateral")
+						asideicon.style.cursor = "grabbing"
+						asideicon.setAttribute("title", "Mostrar panel lateral")
+					
 					}
 					aside.onpointerdown = () => false
 				}
-				document.body.onpointerdown = o => {
-					if (modss[0] !== null && modss[0] !== undefined && window.config[1].aside_hidden == "false"){
-						modss[0].className = "accordion pl-4 modulos"
+
+				if (asideicon !== undefined && asideicon !== null){
+					asideicon.onpointerdown = o => {
+						if (modss[0] !== null && modss[0] !== undefined && window.config[1].aside_hidden == "false"){
+							modss[0].className = "accordion pl-4 modulos"
+						}
+						if (window.config[1].aside_hidden == "false" && pase === false){
+							
+							setTimeout(()=>asideicon.style.display = "none",410)
+							asideicon.animate([{
+								transform:"translateX(0%)"},{
+								transform:"translateX(-100%)"}],{duration:410, iterations:1})
+
+							aside.style.display = "block"
+							aside.style.opacity = "1"
+							aside.animate([{
+								opacity:0,
+								transform:"translateX(-10%)"
+							},{
+								opacity:1,
+								transform:"translateX(0%)"
+							}],{duration:400, iterations:1})
+							pase = true
+						} 
 					}
-					if (window.config[1].aside_hidden == "false" && pase === false){
-						aside.style.display = "block"
-						aside.style.opacity = "1"
-						aside.animate([{
-							opacity:0,
-							transform:"translateX(-10%)"
-						},{
-							opacity:1,
-							transform:"translateX(0%)"
-						}],{duration:400, iterations:1})
-						pase = true
-					} 
 				}
-			} else {
-				document.body.setAttribute("title", "")
-				document.body.style.cursor = ""
-				aside.style.cursor = ""
 			}
 		}
-	}
 
-	aside.onpointermove = e => { //Hide
-		document.body.setAttribute("title", "")
-		if (e.clientX > aside.clientWidth - 3 && pase){
-			if (window.config[1].aside_hidden == "false"){
-				if (aside.style.display === "block"){
-					aside.style.cursor = "grabbing"
-					aside.setAttribute("title", "Ocultar barra lateral")
-				}
-			}
-			aside.onpointerdown = o => {
+		aside.onpointermove = e => { //Hide
+			document.body.setAttribute("title", "")
+			if (e.clientX > aside.clientWidth - 3 && pase){
 				if (window.config[1].aside_hidden == "false"){
-					document.body.onpointerdown = () => false
+					if (aside.style.display === "block"){
+						aside.style.cursor = "grabbing"
+						aside.setAttribute("title", "Ocultar panel lateral")
+					}
 				}
-				if (modss[0] !== null && modss[0] !== undefined && window.config[1].aside_hidden == "false"){
-					modss[0].className = "accordion modulos"
+				aside.onpointerdown = o => {
+					if (window.config[1].aside_hidden == "false"){
+						document.body.onpointerdown = () => false
+						asideicon.style.display = "block"
+						asideicon.animate([{
+							transform:"translateX(-100%)"},{
+							transform:"translateX(0%)"}],{duration:400, iterations:1})
+					}
+					if (modss[0] !== null && modss[0] !== undefined && window.config[1].aside_hidden == "false"){
+						modss[0].className = "accordion modulos"
+					}
+					setTimeout(()=>{
+						aside.style.display = "none"
+					},410)
+					aside.animate([{
+						opacity:1,
+						transform:"translateX(0%)"
+					},{
+						opacity:0,
+						transform:"translateX(-10%)"
+					}],{duration:400, iterations:1})
+					aside.style.opacity = "0"
+					pase = false
 				}
-				setTimeout(()=>{
-					aside.style.display = "none"
-				},410)
-				aside.animate([{
-					opacity:1,
-					transform:"translateX(0%)"
-				},{
-					opacity:0,
-					transform:"translateX(-10%)"
-				}],{duration:400, iterations:1})
-				aside.style.opacity = "0"
-				pase = false
-			}
-		} else {
-			aside.setAttribute("title", "")
-			document.body.style.cursor = ""
-			aside.style.cursor = ""	
-			aside.style.width = ""
-			aside.onpointerdown = () => false
-		}	
+			} else {
+				aside.setAttribute("title", "")
+				document.body.style.cursor = ""
+				aside.style.cursor = ""	
+				aside.style.width = ""
+				aside.onpointerdown = () => false
+			}	
+		}
 	}
 }
  
@@ -956,13 +974,13 @@ const conversor = () => {
 		form.className = "p-1"
 		form.onsubmit = e => e.preventDefault()
 		
-
 		let conversor_tasa = document.getElementById("conversor_tasa")
 		if (conversor_tasa !== null) {
-			conversor_tasa.style.display = "block"
 			form.appendChild(conversor_tasa)
+			conversor_tasa.style.display = "block"
+			conversor_tasa.setAttribute("align", "center")
 		}
-		
+	
 		body.appendChild(form)
 
 		contacal.appendChild(body)

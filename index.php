@@ -140,10 +140,12 @@ session_start();
          
             <?php include 'content/php/footer.php'; ?>
       </div>
+
       <!-- Firts W -->
-      <div id="conversor_tasa" style="display: none; background-color: #bbb;">
-        <script type="text/javascript" src="//www.forextime.com/widget.js?type=currency-converter&theme=light&p=&pt=no&l=/es&h=250&"></script> 
+      <div id="conversor_tasa" style="display: none;">
+      <!-- Currency Converter Script - FxExchangeRate.com  --><script type="text/javascript" src="https://w.fxexchangerate.com/converter.php?fm=USD&ft=EUR&lg=es&am=1&ty=1"></script></div> <!--  End of Currency Converter Script -  FxExchangeRate.com -->
       </div>
+
    </body>
 </html>
 

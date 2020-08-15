@@ -51,7 +51,7 @@
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
 								<label> Buer </label>
-								<img id="pjbuer" src="./content/img/iconos/bau.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+								<img id="pjbuer" src="./content/img/iconos/bauhappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 						</div>
 					</div>
