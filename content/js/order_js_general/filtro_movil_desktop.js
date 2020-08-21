@@ -4,30 +4,54 @@ let menreg = document.getElementsByClassName("menreg")[0]
 let find = document.getElementsByClassName("find")[0]
 
 
-const search = (formreg, tadores, menreg, find, config) => {
+function search = (formreg, tadores, menreg, find, config){
     if (config.mode === "desktop"){
       tadores.style.display = "flex"
+      tadores.style.webkitDisplay = "flex";
+      tadores.style.MozDisplay = "flex";
+      tadores.style.msDisplay = "flex";
+      tadores.style.oDisplay = "flex";
+
       tadores.style.justifyContent = "flex-start"
+      tadores.style.webkitJustifyContent = "flex-start";
+      tadores.style.MozJustifyContent = "flex-start";
+      tadores.style.msJustifyContent = "flex-start";
+      tadores.style.oJustifyContent = "flex-start";
+
       tadores.style.alignContent = "flex-start"
+      tadores.style.webkitAlignContent = "flex-start";
+      tadores.style.MozAlignContent = "flex-start";
+      tadores.style.msAlignContent = "flex-start";
+      tadores.style.oAlignContent = "flex-start";
+
       tadores.style.flexFlow = "wrap row"
+      tadores.style.webkitFlexFlow = "wrap row";
+      tadores.style.MozFlexFlow = "wrap row";
+      tadores.style.msFlexFlow = "wrap row";
+      tadores.style.oFlexFlow = "wrap row";
+
     }
 
     // tadores.style.background = "#474A64"
     tadores.style.borderBottom = "2px solid #dbdbdb"
+    tadores.style.webkitBottom = "2px solid #dbdbdb";
+    tadores.style.MozBottom = "2px solid #dbdbdb";
+    tadores.style.msBottom = "2px solid #dbdbdb";
+    tadores.style.oBottom = "2px solid #dbdbdb";
 
     let selected = "Ingresos"
-    menreg.addEventListener("click", (e)=>{
+    menreg.addEventListener("click", function(e){
         selected = e.target.options[e.target.selectedIndex].text
     })
 
 
-    const action = () => {
+    function action(){
       if (word !== ""){
             $.post("./content/php/consults_info/regs.php",
                 { 
                     name:word,
                     category: selected.toLowerCase() !== "" ? selected.toLowerCase() : "ingresos"
-                }).done(data =>{
+                }).done(function(data){
                     data = JSON.parse(data)
                     let co = ""
                     if (config.mode === "desktop"){
@@ -76,7 +100,7 @@ const search = (formreg, tadores, menreg, find, config) => {
                             tadores.innerHTML = ""
                             tadores.style.justifyContent = "flex-start"
                             let n = 0;
-                            Object.keys(data).map((e,i) => {
+                            Object.keys(data).map(function(e,i){
 
                                 if (e !== "multiple" && e !== "category"){
                                     n += 1
@@ -131,14 +155,14 @@ const search = (formreg, tadores, menreg, find, config) => {
         }
     }
 
-    formreg.onsubmit = e => {
+    formreg.onsubmit = function(e){
       e.preventDefault()
       word = find.value
       if (word !== "")action()
     }
 
 
-    find.onkeydown = e => {
+    find.onkeydown = function(e){
         word = find.value
         word += e.key !== "Backspace" ? e.key : " "
         if (word !== "")action()
@@ -159,6 +183,10 @@ function closeclick(e){
 
     if (document.getElementsByClassName("datawindow")[n] !== undefined){
       document.getElementsByClassName("datawindow")[n].style.display = "none"
+      document.getElementsByClassName("datawindow")[n].style.webkitDisplay = "none";
+      document.getElementsByClassName("datawindow")[n].style.MozDisplay = "none";
+      document.getElementsByClassName("datawindow")[n].style.msDisplay = "none";
+      document.getElementsByClassName("datawindow")[n].style.oDisplay = "none";
     }
 }
 

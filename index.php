@@ -16,6 +16,7 @@ session_start();
       
    </head>
    <body>
+    <noscript>Al parecer no tienes activado Javascript. Javascript es esencial para el funcionamiento de este sitio. Necesitas activarlo</noscript>
       <!-- Second W Marquee -->
       <div id="criptowidget" class="p-3 overflow" style="display: none;">
         <div class="tradingview-widget-container">

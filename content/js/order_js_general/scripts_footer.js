@@ -59,35 +59,60 @@ if (document.getElementsByClassName("panel-log-reg")[0] !== undefined &&
   window.location.href = "index.php"
 } 
 
-const dark = () => {
+function dark(){
     header_session.className = "navbar mb-4 p-4"
     header_session.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
-    
+    header_session.style.webkitBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
+    header_session.style.MozBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
+    header_session.style.msBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
+    header_session.style.oBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
+
     text_he.className = "navbar-brand text-light text-he font-weight-bold"
  
     if (modscodown !== undefined){
       modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow text-dark";
       modscodown.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+      modscodown.style.webkitBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
+      modscodown.style.MozBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
+      modscodown.style.msBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
+      modscodown.style.oBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
+
     }
 
     if (bguserconfigchange !== undefined && bguserconfigchange !== null){
       bguserconfigchange.className = "card bguserconfigchange text-light"
       bguserconfigchange.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+      bguserconfigchange.style.webkitBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
+      bguserconfigchange.style.MozBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
+      bguserconfigchange.style.msBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
+      bguserconfigchange.style.oBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
     }
 
     const asidechancolor = document.getElementsByClassName("asidechancolor")[0]
     if (asidechancolor !== undefined){
        asidechancolor.className = "containeraside card asidechancolor text-light"
        asidechancolor.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+       asidechancolor.style.webkitBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
+       asidechancolor.style.MozBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
+       asidechancolor.style.msBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
+       asidechancolor.style.oBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
     }
 
     if (containeringasedi !== undefined && containeringasedi !== null){
       containeringasedi.className = "container containeringasedi p-4 text-light"
       containeringasedi.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+      containeringasedi.style.webkitBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
+      containeringasedi.style.MozBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
+      containeringasedi.style.msBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
+      containeringasedi.style.oBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
     }
 
     if (document.getElementsByClassName("footcolor")[0] !== undefined && document.getElementsByClassName("footcolor")[0] !== null){
       document.getElementsByClassName("footcolor")[0].style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+      document.getElementsByClassName("footcolor")[0].style.webkitBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`
+      document.getElementsByClassName("footcolor")[0].style.MozBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`
+      document.getElementsByClassName("footcolor")[0].style.msBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`
+      document.getElementsByClassName("footcolor")[0].style.oBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`
       document.getElementsByClassName("footcolor")[0].className = "card footcolor text-light font-weight-bold"
     }
 
@@ -98,11 +123,19 @@ const dark = () => {
 
     if (modingresogasto[0] !== undefined){ //Modal ingreso
         modingresogasto[0].style.background = `rgb(52,52,69)`
+        modingresogasto[0].style.webkitBackground = `rgb(52,52,69)`
+        modingresogasto[0].style.MozBackground = `rgb(52,52,69)`
+        modingresogasto[0].style.msBackground = `rgb(52,52,69)`
+        modingresogasto[0].style.oBackground = `rgb(52,52,69)`
         modingresogasto[0].className = "modal-content modingresogasto text-light"
     }
 
     if (modingresogasto[1] !== undefined){ //Modal Gasto
         modingresogasto[1].style.background = `rgb(52,52,69)`
+        modingresogasto[1].style.webkitBackground = `rgb(52,52,69)`
+        modingresogasto[1].style.MozBackground = `rgb(52,52,69)`
+        modingresogasto[1].style.msBackground = `rgb(52,52,69)`
+        modingresogasto[1].style.oBackground = `rgb(52,52,69)`
         modingresogasto[1].className = "modal-content modingresogasto text-light"
     }
 
@@ -110,6 +143,10 @@ const dark = () => {
     if (bgtransferencias_ventana !== undefined && bgtransferencias_ventana !== null){
         bgtransferencias_ventana.className = "p-4 mt-4 rounded bgtransferencias_ventana text-light"
         bgtransferencias_ventana.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+        bgtransferencias_ventana.style.webkitBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`
+        bgtransferencias_ventana.style.MozBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`
+        bgtransferencias_ventana.style.msBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`
+        bgtransferencias_ventana.style.oBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`
     }
 
     iters(
@@ -133,10 +170,15 @@ const dark = () => {
     registrosgasin.className = "p-4 m-4 text-white tered registrosgasin text-light text-white cotxtlight"
 }
 
-const light = () => {
+function light(){
     if (header_session !== undefined) {
       header_session.className = "navbar mb-4 p-4 header-home-lightinit"
       header_session.style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      header_session.style.webkitBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      header_session.style.MozBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      header_session.style.msBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      header_session.style.oBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+
     }
 
     if (text_he !== undefined) text_he.className = "navbar-brand text-dark text-he font-weight-bold"
@@ -147,12 +189,22 @@ const light = () => {
     if (bguserconfigchange !== undefined && bguserconfigchange !== null){
       bguserconfigchange.className = "card bguserconfigchange lightinit text-dark"
       bguserconfigchange.style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      bguserconfigchange.style.webkitBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      bguserconfigchange.style.MozBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      bguserconfigchange.style.msBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      bguserconfigchange.style.oBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+
     }
 
     const asidechancolor = document.getElementsByClassName("asidechancolor")[0]
     if (asidechancolor !== undefined) {
       asidechancolor.className = "containeraside card asidechancolor text-dark"
       asidechancolor.style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      asidechancolor.style.webkitBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      asidechancolor.style.MozBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      asidechancolor.style.msBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      asidechancolor.style.oBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+
     }
 
     if (containeringasedi !== undefined && containeringasedi !== null){
@@ -161,20 +213,40 @@ const light = () => {
 
     if (document.getElementsByClassName("footcolor")[0] !== undefined && document.getElementsByClassName("footcolor")[0] !== null){
       document.getElementsByClassName("footcolor")[0].style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      document.getElementsByClassName("footcolor")[0].style.webkitBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      document.getElementsByClassName("footcolor")[0].style.MozBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      document.getElementsByClassName("footcolor")[0].style.msBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      document.getElementsByClassName("footcolor")[0].style.oBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+
       document.getElementsByClassName("footcolor")[0].className = "card footcolor text-dark font-weight-bold"
     }
 
     if (document.getElementsByClassName("color_ventana_graficos")[0] !== undefined && document.getElementsByClassName("color_ventana_graficos")[0] !== null){
       document.getElementsByClassName("color_ventana_graficos")[0].style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      document.getElementsByClassName("color_ventana_graficos")[0].style.webkitBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      document.getElementsByClassName("color_ventana_graficos")[0].style.MozBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      document.getElementsByClassName("color_ventana_graficos")[0].style.msBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      document.getElementsByClassName("color_ventana_graficos")[0].style.oBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+
       document.getElementsByClassName("color_ventana_graficos")[0].className = "card mt-4 p-4 color_ventana_graficos text-dark"
     }
     if (modingresogasto[0] !== undefined){ //Modal ingreso
         modingresogasto[0].style.background = `rgb(255,255,255)`
+        modingresogasto[0].style.webkitBackground = `rgb(255,255,255)`
+        modingresogasto[0].style.MozBackground = `rgb(255,255,255)`
+        modingresogasto[0].style.msBackground = `rgb(255,255,255)`
+        modingresogasto[0].style.oBackground = `rgb(255,255,255)`
+
         modingresogasto[0].className = "modal-content modingresogasto text-dark"
     }
 
     if (modingresogasto[1] !== undefined){ //Modal Gasto
         modingresogasto[1].style.background = `rgb(255,255,255)`
+        modingresogasto[1].style.webkitBackground = `rgb(255,255,255)`
+        modingresogasto[1].style.MozBackground = `rgb(255,255,255)`
+        modingresogasto[1].style.msBackground = `rgb(255,255,255)`
+        modingresogasto[1].style.oBackground = `rgb(255,255,255)`
+
         modingresogasto[1].className = "modal-content modingresogasto text-dark"
     }
 
@@ -182,6 +254,11 @@ const light = () => {
     if (bgtransferencias_ventana !== undefined && bgtransferencias_ventana !== null){
         bgtransferencias_ventana.className = "p-4 mt-4 rounded bgtransferencias_ventana text-dark"
         bgtransferencias_ventana.style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+        bgtransferencias_ventana.style.webkitBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+        bgtransferencias_ventana.style.MozBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+        bgtransferencias_ventana.style.msBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+        bgtransferencias_ventana.style.oBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+
     }
 
     iters(
@@ -205,34 +282,64 @@ const light = () => {
 }
 
 
-const colorear_balances = () => {
+function colorear_balances(){
   let balactualco = document.getElementsByClassName("balactual_co")[0]
   let totalgastosfiltro = document.getElementsByClassName("togasinitfil")[0]
   let totalIngresFiltro = document.getElementsByClassName("toingresinitfil")[0]
   let balancefiltro = document.getElementsByClassName("balancefiltro")[0]
-  const apply_color_balance = (obj, state) =>{
+  const apply_color_balance = function(obj, state){
     if (obj !== undefined){
       obj.style.fontWeight = "bold"
       if (state === "gastostotal"){
         obj.style.color = "red"
+        obj.style.webkitColor = "red"
+        obj.style.MozColor = "red"
+        obj.style.msColor = "red"
+        obj.style.oColor = "red"
+
       } else if(obj.getAttribute("value").match(/\-/gim) === null && state === "gastostotal"){
         obj.style.color = "#50d53a"
+        obj.style.webkitColor = "#50d53a"
+        obj.style.MozColor = "#50d53a"
+        obj.style.msColor = "#50d53a"
+        obj.style.oColor = "#50d53a"
+
       }
 
       if (obj.getAttribute("value").match(/\-/gim) && state === "ingresostotal"){
         obj.style.color = "red"
+        obj.style.webkitColor = "red"
+        obj.style.MozColor = "red"
+        obj.style.msColor = "red"
+        obj.style.oColor = "red"
       } else if (obj.getAttribute("value").match(/\-/gim) === null && state === "ingresostotal") {
         obj.style.color = "#50d53a"
+        obj.style.webkitColor = "#50d53a"
+        obj.style.MozColor = "#50d53a"
+        obj.style.msColor = "#50d53a"
+        obj.style.oColor = "#50d53a"
       }
 
       if (obj.getAttribute("value").match(/\-/gim) && state === "balactualco"){
         obj.style.color = "red"
+        obj.style.webkitColor = "red"
+        obj.style.MozColor = "red"
+        obj.style.msColor = "red"
+        obj.style.oColor = "red"
       } else if (obj.getAttribute("value").match(/\-/gim) === null && state === "balactualco") {
         obj.style.color = "#50d53a"
+        obj.style.webkitColor = "#50d53a"
+        obj.style.MozColor = "#50d53a"
+        obj.style.msColor = "#50d53a"
+        obj.style.oColor = "#50d53a"
       }
 
       if (state === "balancefiltro"){
         obj.style.color = "#0CC9D5"
+        obj.style.webkitColor = "#0CC9D5"
+        obj.style.MozColor = "#0CC9D5"
+        obj.style.msColor = "#0CC9D5"
+        obj.style.oColor = "#0CC9D5"
       } 
     }
   }

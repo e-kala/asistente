@@ -64,7 +64,7 @@
 					<div class="btn btn-link btn-block font-weight-bold text-left fg-color-menu-option-configpanel" data-toggle="collapse"  href="#interfaz" role="button" aria-expanded="false" aria-controls="interfaz">Interfaz</div>
 				</div>
 				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="interfaz">
-					<h4 class="m-4 pt-4 mb-0 text-center">Ocultar elementos</h4>
+					<h4 class="m-4 pt-4 mb-0 text-center">Mostrar elementos</h4>
 					<div class="hidden_elements d-flex flex-wrap justify-content-center pl-4 pr-4 pt-0 pb-0">
 						<div class="d-flex justify-content-center align-items-center p-3 pt-0 align-content-center m-2"><label class="mr-3">Panel izquierdo</label><div class="check_aside check" name="panelizquierdo">_</div></div>
 						
@@ -149,6 +149,7 @@
 							<div class="conjunt_images m-4 p-4 " style="display: none; flex-wrap: nowrap; flex-direction: row; height: 300px; overflow: auto; ">
 								<img src="./content/img/fondos/2/6.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
 								<img src="./content/img/fondos/2/9.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
+								<img src="./content/img/fondos/2/10.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
 								<img src="./content/img/fondos/2/4.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
 								<img src="./content/img/fondos/2/2.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">
 								<img src="./content/img/fondos/2/3.png" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="300px" height="180px">

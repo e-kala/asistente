@@ -52,10 +52,25 @@
 				destiny = document.querySelector(destiny)
 				let div = document.createElement("div")
 				div.style.position = "absolute"
+				div.style.webkitPosition = "absolute";
+				div.style.MozPosition = "absolute";
+				div.style.msPosition = "absolute";
+				div.style.oPosition = "absolute";
+
 				div.classList.add("divmestype")
 				div.style.left = "0"
-				div.style.order = "0"
+				div.style.webkitLeft = "0";
+				div.style.MozLeft = "0";
+				div.style.msLeft = "0";
+				div.style.oLeft = "0";
+
 				div.style.top = "200px"
+				div.style.webkitTop = "200px";
+				div.style.MozTop = "200px";
+				div.style.msTop = "200px";
+				div.style.oTop = "200px";
+
+				div.style.order = "0"
 				div.style.width = "50%"
 				div.style.zIndex = "-80"
 				// div.style.height = "60%"
@@ -120,7 +135,17 @@
 				const divflo = document.createElement("div")
 				divflo.classList.add("divflomes")
 				divflo.style.display = "flex"
+				divflo.style.webkitDisplay = "flex";
+				divflo.style.MozDisplay = "flex";
+				divflo.style.msDisplay = "flex";
+				divflo.style.oDisplay = "flex";
+
 				divflo.style.zIndex = "-50"
+				divflo.style.webkitzIndex = "-50";
+				divflo.style.MozzIndex = "-50";
+				divflo.style.mszIndex = "-50";
+				divflo.style.ozIndex = "-50";
+
 				// divflo.style.width = "340px"
 				// divflo.style.wordWrap = "break-wordW"
 				div.appendChild(divflo)
@@ -142,38 +167,6 @@
 			}
 
 			publici("body")
-
-			function getDevicePixelRatio() {
-			    var mediaQuery;
-			    var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-			    if (window.devicePixelRatio !== undefined && !is_firefox) {
-			        return window.devicePixelRatio;
-			    } else if (window.matchMedia) {
-			        mediaQuery = "(-webkit-min-device-pixel-ratio: 1.5),\
-			          (min--moz-device-pixel-ratio: 1.5),\
-			          (-o-min-device-pixel-ratio: 3/2),\
-			          (min-resolution: 1.5dppx)";
-			        if (window.matchMedia(mediaQuery).matches) {
-			            return 1.5;
-			        }
-			        mediaQuery = "(-webkit-min-device-pixel-ratio: 2),\
-			          (min--moz-device-pixel-ratio: 2),\
-			          (-o-min-device-pixel-ratio: 2/1),\
-			          (min-resolution: 2dppx)";
-			        if (window.matchMedia(mediaQuery).matches) {
-			            return 2;
-			        }
-			        mediaQuery = "(-webkit-min-device-pixel-ratio: 0.75),\
-			          (min--moz-device-pixel-ratio: 0.75),\
-			          (-o-min-device-pixel-ratio: 3/4),\
-			          (min-resolution: 0.75dppx)";
-			        if (window.matchMedia(mediaQuery).matches) {
-			            return 0.7;
-			        }
-			    } else {
-			        return 1;
-			    }
-			}
 
 		</script>
 

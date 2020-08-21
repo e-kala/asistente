@@ -1,6 +1,6 @@
 if (document.getElementsByClassName("headerinit")[0] !== undefined && document.getElementsByClassName("headerinit")[0] !== null){
 	document.getElementsByClassName("headerinit")[0].style.opacity = "0"
-	setTimeout(()=>{
+	setTimeout(function(){
 		document.getElementsByClassName("headerinit")[0].style.opacity = "1"
 		document.getElementsByClassName("headerinit")[0].animate([{
 			transform:"scale(0)"
@@ -22,9 +22,7 @@ if (document.getElementsByClassName("headerinit")[0] !== undefined && document.g
 }
 
 
-
-
-const banplan = destiny => {
+function banplan(destiny){
 	destiny = document.querySelector(destiny)
 
 	const img = document.createElement("img")
@@ -33,12 +31,39 @@ const banplan = destiny => {
 	img.setAttribute("width", "20%")
 
 	img.style.position = "fixed"
+	img.style.webkitPosition = "fixed";
+	img.style.MozPosition = "fixed";
+	img.style.msPosition = "fixed";
+	img.style.oPosition = "fixed";
+
 	img.style.margin = "auto"
+	img.style.webkitMargin = "auto";
+	img.style.MozMargin = "auto";
+	img.style.msMargin = "auto";
+	img.style.oMargin = "auto";
+
 	img.style.opacity = "0.7"
+	img.style.webkitOpacity = "0.7";
+	img.style.MozOpacity = "0.7";
+	img.style.msOpacity = "0.7";
+	img.style.oOpacity = "0.7";
+
 	img.style.right= "-10%"
+	img.style.webkitRight = "-10%";
+	img.style.MozRight = "-10%";
+	img.style.msRight = "-10%";
+	img.style.oRight = "-10%";
+
 	img.style.bottom = "-15%"
+	img.style.webkitBottom = "-15%";
+	img.style.MozBottom = "-15%";
+	img.style.msBottom = "-15%";
+	img.style.oBottom = "-15%";
+
 	img.style.zIndex = "-3"
-	img.ondragstart = () => false;
+	img.ondragstart = function(){ 
+		return false;
+	}
 
 	img.animate([{
 		transform: "rotate(0deg)"
@@ -50,7 +75,7 @@ const banplan = destiny => {
 
 }
 
-const edifi = destiny => {
+function edifi(destiny){
 	destiny = document.querySelector(destiny)
 
 	const edif = document.createElement("img")
@@ -58,10 +83,32 @@ const edifi = destiny => {
 	edif.setAttribute("width", "50%")
 	edif.style.zIndex = "-30"
 	edif.style.position = "fixed"
+	edif.style.webkitPosition = "fixed";
+	edif.style.MozPosition = "fixed";
+	edif.style.msPosition = "fixed";
+	edif.style.oPosition = "fixed";
+
 	edif.style.bottom = "0"
+	edif.style.webkitBottom = "0";
+	edif.style.MozBottom = "0";
+	edif.style.msBottom = "0";
+	edif.style.oBottom = "0";
+
 	edif.style.right = "0"
+	edif.style.webkitRight = "0";
+	edif.style.MozRight = "0";
+	edif.style.msRight = "0";
+	edif.style.oRight = "0";
+
 	edif.style.opacity = "1"
-	edif.ondragstart = () => false;
+	edif.style.webkitOpacity = "1";
+	edif.style.MozOpacity = "1";
+	edif.style.msOpacity = "1";
+	edif.style.oOpacity = "1";
+
+	edif.ondragstart = function(){ 
+		return false;
+	}
 
 	edif.animate([{
 		opacity:0,

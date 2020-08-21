@@ -1,6 +1,7 @@
 let usuariop = ""
 let bg_session = ""
 let caducidad_session = ""
+let modebg_to_nav = ""
         
 function getDevicePixelRatio() {
     var mediaQuery;

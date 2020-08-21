@@ -1,11 +1,46 @@
 body{
 	position: relative;
+	-moz-position: relative;
+    -ms-position: relative;
+    -o-position: relative;
+    -webkit-position: relative;
+
 	background: url(../img/bg6.gif);
+	-moz-position: url(../img/bg6.gif);
+    -ms-position: url(../img/bg6.gif);
+    -o-position: url(../img/bg6.gif);
+    -webkit-position: url(../img/bg6.gif);
+
 	background-size: cover;
+	-moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+
 	background-attachment: fixed;
+	-moz-background-attachment: fixed;
+    -ms-background-attachment: fixed;
+    -o-background-attachment: fixed;
+    -webkit-background-attachment: fixed;
+
 	background-repeat: no-repeat;
+	-moz-background-repeat: no-repeat;
+    -ms-background-repeat: no-repeat;
+    -o-background-repeat: no-repeat;
+    -webkit-background-repeat: no-repeat;
+
 	background-position: left 0% bottom 300%;
+	-moz-background-position: left 0% bottom 300%;
+    -ms-background-position: left 0% bottom 300%;
+    -o-background-position: left 0% bottom 300%;
+    -webkit-background-position: left 0% bottom 300%;
+
 	background-color: #070f3c;
+	-moz-background-color: #070f3c;
+    -ms-background-color: #070f3c;
+    -o-background-color: #070f3c;
+    -webkit-background-color: #070f3c;
+
 }
 
 .header_inicio{
@@ -20,10 +55,30 @@ body{
 	/*background: linear-gradient(to  left, #452F67, #593B8D);*/
 	/*box-shadow: inset -10px -50px 80px -10px #3b4660;*/
 	display: flex;
+	-moz-display: flex;
+    -ms-display: flex;
+    -o-display: flex;
+    -webkit-display: flex;
+
 	flex-flow: wrap row;
+	-moz-flex-flow: wrap row;
+    -ms-flex-flow: wrap row;
+    -o-flex-flow: wrap row;
+    -webkit-flex-flow: wrap row;
+
 	/*justify-content: space-between;*/
 	align-content: center;
+	-moz-align-content: center;
+    -ms-align-content: center;
+    -o-align-content: center;
+    -webkit-align-content: center;
+
 	align-items: center;
+	-moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    -webkit-align-items: center;
+
 	transition: ease all 0.3s;
 	padding: 20px;
 }
@@ -34,6 +89,11 @@ body{
 .state_init_mainpage_label{
 	color: #6B45B6;
 	position: absolute;
+	-moz-position: absolute;
+    -ms-position: absolute;
+    -o-position: absolute;
+    -webkit-position: absolute;
+
 	top: 100px;
 	left: 0;
 	margin: 50px;
@@ -47,11 +107,51 @@ body{
 	font-size: 30px;
 	width: 255px;
 	padding: 10px;
+	-moz-padding: 10px;
+    -ms-padding: 10px;
+    -o-padding: 10px;
+    -webkit-padding: 10px;
+
+	-moz-padding: 10px;
+	-moz-padding: 10px;
+    -ms-padding: 10px;
+    -o-padding: 10px;
+    -webkit-padding: 10px;
+
+    -ms-padding: 10px;
+    -moz-padding: 10px;
+    -ms-padding: 10px;
+    -o-padding: 10px;
+    -webkit-padding: 10px;
+
+    -o-padding: 10px;
+    -moz-padding: 10px;
+    -ms-padding: 10px;
+    -o-padding: 10px;
+    -webkit-padding: 10px;
+
+    -webkit-padding: 10px;
+    -moz-padding: 10px;
+    -ms-padding: 10px;
+    -o-padding: 10px;
+    -webkit-padding: 10px;
+
+
 	
 	/*position: fixed;*/
 
 	display: flex;
+	-moz-display: flex;
+    -ms-display: flex;
+    -o-display: flex;
+    -webkit-display: flex;
+
 	justify-content: flex-start;
+	-moz-justify-content: flex-start;
+    -ms-justify-content: flex-start;
+    -o-justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+
 	text-align: center;
 }
 .headerinitregistrate{
@@ -61,6 +161,36 @@ body{
 	font-size: 30px;
 	
 	padding: 10px;
+	-moz-padding: 10px;
+	    -ms-padding: 10px;
+	    -o-padding: 10px;
+	    -webkit-padding: 10px;
+
+	-moz-padding: 10px;
+	-moz-padding: 10px;
+	    -ms-padding: 10px;
+	    -o-padding: 10px;
+	    -webkit-padding: 10px;
+
+    -ms-padding: 10px;
+    -moz-padding: 10px;
+	    -ms-padding: 10px;
+	    -o-padding: 10px;
+	    -webkit-padding: 10px;
+
+    -o-padding: 10px;
+    -moz-padding: 10px;
+	    -ms-padding: 10px;
+	    -o-padding: 10px;
+	    -webkit-padding: 10px;
+
+    -webkit-padding: 10px;
+    -moz-padding: 10px;
+	    -ms-padding: 10px;
+	    -o-padding: 10px;
+	    -webkit-padding: 10px;
+
+
 	font-family: 'Fondamento', cursive;
 
 }
@@ -158,6 +288,36 @@ body{
 
 .panel-log-reg{
 	position: absolute;
+	-moz-position: absolute;
+    -ms-position: absolute;
+    -o-position: absolute;
+    -webkit-position: absolute;
+
+	-moz-position: absolute;
+	-moz-position: absolute;
+    -ms-position: absolute;
+    -o-position: absolute;
+    -webkit-position: absolute;
+
+    -ms-position: absolute;
+    -moz-position: absolute;
+    -ms-position: absolute;
+    -o-position: absolute;
+    -webkit-position: absolute;
+
+    -o-position: absolute;
+    -moz-position: absolute;
+    -ms-position: absolute;
+    -o-position: absolute;
+    -webkit-position: absolute;
+
+    -webkit-position: absolute;
+    -moz-position: absolute;
+    -ms-position: absolute;
+    -o-position: absolute;
+    -webkit-position: absolute;
+
+
 	right: 0;
 	top: 20px;
 	
@@ -206,12 +366,31 @@ body{
 
 .tapbtn{
 	margin: 4px;
+	-moz-margin: 4px;
+	-ms-margin: 4px;
+	-o-margin: 4px;
+	-webkit-margin: 4px;
 }
 
 .panbtn{
 	margin-top: 4px;
 	margin-bottom: 4px;
 	margin-right: 4px;
+
+	-moz-margin-top: 4px;
+	-ms-margin-top: 4px;
+	-o-margin-top: 4px;
+	-webkit-margin-top: 4px;
+
+	-moz-margin-bottom: 4px;
+	-ms-margin-bottom: 4px;
+	-o-margin-bottom: 4px;
+	-webkit-margin-bottom: 4px;
+
+	-moz-margin-right: 4px;
+	-ms-margin-right: 4px;
+	-o-margin-right: 4px;
+	-webkit-margin-right: 4px;
 }
 
 
@@ -245,6 +424,11 @@ body{
 .menu_container{
 	right: 0;
 	position: absolute;
+	-moz-position: absolute;
+    -ms-position: absolute;
+    -o-position: absolute;
+    -webkit-position: absolute;
+
 	z-index: 4;
 	background: #fff;
 	padding: 14px;
@@ -252,6 +436,10 @@ body{
 	box-shadow: 0px 0px 10px rgb(0,0,0,0.10);
 	margin-top: 10px;
 	display: flex;
+	-moz-display: flex;
+    -ms-display: flex;
+    -o-display: flex;
+    -webkit-display: flex;
 	flex-direction: column;
 }
 .options_men{
@@ -259,17 +447,34 @@ body{
 	padding: 8px;
 	/*margin-top: 4px;*/
 	transition: ease all 0.3s;
+	-moz-transition: ease all 0.3s;
+    -ms-transition: ease all 0.3s;
+    -o-transition: ease all 0.3s;
+    -webkit-transition: ease all 0.3s;
+
 }
 
 .options_men:hover{
 	transition: ease all 0.3s;
+	-moz-transition: ease all 0.3s;
+    -ms-transition: ease all 0.3s;
+    -o-transition: ease all 0.3s;
+    -webkit-transition: ease all 0.3s;
 	border-bottom: 2px solid #750EDE;
 }
 
 
 .containhome{
 	display: flex;
+	-moz-display: flex;
+    -ms-display: flex;
+    -o-display: flex;
+    -webkit-display: flex;
 	flex-flow: wrap row;
+	-moz-flex-flow: wrap row;
+    -ms-flex-flow: wrap row;
+    -o-flex-flow: wrap row;
+    -webkit-flex-flow: wrap row;
 	/*border: 1px solid #2D303C;*/
 	/*border: 3px solid #808080;*/
 	/*background: rgb(41,54,108,0.80);*/
@@ -285,12 +490,38 @@ body{
 }
 .containeraside{
 	flex-grow: 1;
+	-moz-flex-grow: 1;
+	-ms-flex-grow: 1;
+	-o-flex-grow: 1;
+	-webkit-flex-grow: 1;
 	flex-basis: 100%;
+	-moz-flex-basis: 100%;
+	-ms-flex-basis: 100%;
+	-o-flex-basis: 100%;
+	-webkit-flex-basis: 100%;
+	-moz-transition: ease all 0.1s;
+    -ms-transition: ease all 0.1s;
+    -o-transition: ease all 0.1s;
+    -webkit-transition: ease all 0.1s;
+}
+.containeraside:hover{
+	-moz-transition: ease all 0.3s;
+    -ms-transition: ease all 0.3s;
+    -o-transition: ease all 0.3s;
+    -webkit-transition: ease all 0.3s;
 }
 
 .sectionhome{
 	flex-grow: 1;
+	-moz-flex-grow: 1;
+	-ms-flex-grow: 1;
+	-o-flex-grow: 1;
+	-webkit-flex-grow: 1;
 	flex-basis: 100%;
+	-moz-flex-basis: 100%;
+	-ms-flex-basis: 100%;
+	-o-flex-basis: 100%;
+	-webkit-flex-basis: 100%;
 }
 
 .databalanc{
@@ -308,6 +539,11 @@ body{
 		width: 70px;
 		height: 70px;
 		padding: 10px;
+		-moz-padding: 10px;
+	    -ms-padding: 10px;
+	    -o-padding: 10px;
+	    -webkit-padding: 10px;
+
 	}
 }
 
@@ -316,6 +552,11 @@ body{
 		width: 130px;
 		height: 130px;
 		padding: 10px;
+		-moz-padding: 10px;
+	    -ms-padding: 10px;
+	    -o-padding: 10px;
+	    -webkit-padding: 10px;
+
 	}
 }
 
@@ -324,6 +565,11 @@ body{
 		width: 140px;
 		height: 140px;
 		padding: 10px;
+		-moz-padding: 10px;
+	    -ms-padding: 10px;
+	    -o-padding: 10px;
+	    -webkit-padding: 10px;
+
 	}
 	.box-rounded{
 		width: 25px; height: auto;
@@ -335,6 +581,11 @@ body{
 		width: 250px;
 		height: 250px;
 		padding: 10px;
+		-moz-padding: 10px;
+	    -ms-padding: 10px;
+	    -o-padding: 10px;
+	    -webkit-padding: 10px;
+
 	}
 
 	.box-rounded{
@@ -349,6 +600,11 @@ body{
 		width: 350px;
 		height: 350px;
 		padding: 20px;
+		-moz-padding: 20px;
+	    -ms-padding: 20px;
+	    -o-padding: 20px;
+	    -webkit-padding: 20px;
+
 	}
 	
 	.box-rounded{
@@ -361,9 +617,18 @@ body{
 		width: 400px;
 		height: 400px;
 		padding: 20px;
+		-moz-padding: 20px;
+	    -ms-padding: 20px;
+	    -o-padding: 20px;
+	    -webkit-padding: 20px;
+
 	}
 	#root{
 		flex: 1 1 auto;
+		-moz-flex: 1 1 auto;
+	    -ms-flex: 1 1 auto;
+	    -o-flex: 1 1 auto;
+	    -webkit-flex: 1 1 auto;
 	}
 	.box-rounded{
 		width: 105px; height: auto;
@@ -371,9 +636,17 @@ body{
 
 	.containeraside{
 		flex: 1 1 auto;
+		-moz-flex: 1 1 auto;
+	    -ms-flex: 1 1 auto;
+	    -o-flex: 1 1 auto;
+	    -webkit-flex: 1 1 auto;
 	}
 	.sectionhome{
 		flex: 1 1 auto;
+		-moz-flex: 1 1 auto;
+	    -ms-flex: 1 1 auto;
+	    -o-flex: 1 1 auto;
+	    -webkit-flex: 1 1 auto;
 	}
 
 }
@@ -384,10 +657,20 @@ body{
 	#pattern{
 		width: 300px; height: 300px;
 		padding: 20px;
+		-moz-padding: 20px;
+	    -ms-padding: 20px;
+	    -o-padding: 20px;
+	    -webkit-padding: 20px;
+
 	}
 
 	#root{
 		flex:3 0;
+		-moz-flex: 3 0;
+	    -ms-flex: 3 0;
+	    -o-flex: 3 0;
+	    -webkit-flex: 3 0;
+
 	}
 	.box-rounded{
 		width: 80px; height: auto;
@@ -395,17 +678,33 @@ body{
 
 	.containeraside{
 		flex: 0.5 0;
+		-moz-flex: 0.5 0;
+	    -ms-flex: 0.5 0;
+	    -o-flex: 0.5 0;
+	    -webkit-flex: 0.5 0;
 
 	}
 	.sectionhome{
 		flex: 2 0;
+		-moz-flex: 2 0;
+	    -ms-flex: 2 0;
+	    -o-flex: 2 0;
+	    -webkit-flex: 2 0;
 	}
 
 	.containeraside{
 		order: 1;
+		-moz-order: 1;
+	    -ms-order: 1;
+	    -o-order: 1;
+	    -webkit-order: 1;
 	}
 	.sectionhome{
 		order: 2;
+		-moz-order: 2;
+	    -ms-order: 2;
+	    -o-order: 2;
+	    -webkit-order: 2;
 	}
 
 }

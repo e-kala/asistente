@@ -7,54 +7,108 @@ let conversormoving = false
 let calcuresizemoving = false
 
 
-const resize_window_aside = aside => {
+function resize_window_aside(aside){
 	let modss = document.getElementsByClassName("accordion")
 	let navbar = document.getElementsByClassName("navbar")[0]
-	navbar.onpointerover = e => {
+	navbar.onpointerover = function(e){
 		document.body.style.cursor = ""
 	}
 
 	let pase = true
-	aside.ondragstart = () => false
+	aside.ondragstart = function(){
+		return false
+	}
 
 	const asideicon = document.createElement("img")
 	asideicon.setAttribute("id", "asideicono")
 	asideicon.setAttribute("src","./content/img/iconos/asideicono.png")
 	asideicon.setAttribute("width", "50px")
+
 	asideicon.style.left = "0px"
+	asideicon.style.webkitLeft = "0px";
+    asideicon.style.MozLeft = "0px";
+    asideicon.style.msLeft = "0px";
+    asideicon.style.oLeft = "0px";
+
 	asideicon.style.position = "fixed"
+	asideicon.style.webkitPosition = "fixed";
+    asideicon.style.MozPosition = "fixed";
+    asideicon.style.msPosition = "fixed";
+    asideicon.style.oPosition = "fixed";
+
 	asideicon.style.top = "150px"
+	asideicon.style.webkitTop = "150px";
+    asideicon.style.MozTop = "150px";
+    asideicon.style.msTop = "150px";
+    asideicon.style.oTop = "150px";
+
 	asideicon.style.display = "none"
+	asideicon.style.webkitDisplay = "none";
+    asideicon.style.MozDisplay = "none";
+    asideicon.style.msDisplay = "none";
+    asideicon.style.oDisplay = "none";
 
 	document.body.appendChild(asideicon)
 
 
+	//btn hide aside
+
+	const btnhideaside = document.createElement("button")
+	btnhideaside.className="btn p-1 btnhideaside "
+	btnhideaside.style.display = "none"
+	btnhideaside.style.webkitDisplay = "none";
+    btnhideaside.style.MozDisplay = "none";
+    btnhideaside.style.msDisplay = "none";
+    btnhideaside.style.oDisplay = "none";
+    aside.className += " d-flex "
+	aside.appendChild(btnhideaside)
+	//-------------
+
 	if (window.screen.width >= 780){
-		document.body.onpointermove = e => {
-			if (aside.style.display === "none"){ //sho
-				if (window.config[1].aside_hidden == "false"){
+		document.body.onpointermove = function(e){
+			if (aside.style.display === "none"){ //show
+				if (window.config[1].aside_hidden == "true"){
 					if (aside.style.display === "none"){
 						asideicon.style.cursor = "grabbing"
+						asideicon.style.webkitCursor = "grabbing";
+					    asideicon.style.MozCursor = "grabbing";
+					    asideicon.style.msCursor = "grabbing";
+					    asideicon.style.oCursor = "grabbing";
+
 						asideicon.setAttribute("title", "Mostrar panel lateral")
 					
 					}
-					aside.onpointerdown = () => false
+					aside.onpointerdown = function() {
+						return false
+					}
 				}
 
 				if (asideicon !== undefined && asideicon !== null){
-					asideicon.onpointerdown = o => {
-						if (modss[0] !== null && modss[0] !== undefined && window.config[1].aside_hidden == "false"){
+					asideicon.onpointerdown = function(o){
+						if (modss[0] !== null && modss[0] !== undefined && window.config[1].aside_hidden == "true"){
 							modss[0].className = "accordion pl-4 modulos"
 						}
-						if (window.config[1].aside_hidden == "false" && pase === false){
+						if (window.config[1].aside_hidden == "true" && pase === false){
 							
-							setTimeout(()=>asideicon.style.display = "none",410)
+							setTimeout(function(){
+								asideicon.style.display = "none"
+							},410)
 							asideicon.animate([{
 								transform:"translateX(0%)"},{
 								transform:"translateX(-100%)"}],{duration:410, iterations:1})
 
 							aside.style.display = "block"
+							aside.style.webkitDisplay = "block"
+						    aside.style.MozDisplay = "block";
+						    aside.style.msDisplay = "block";
+						    aside.style.oDisplay = "block";
+
 							aside.style.opacity = "1"
+							aside.style.webkitOpacity = "1";
+							aside.style.MozOpacity = "1";
+							aside.style.msOpacity = "1";
+							aside.style.oOpacity = "1";
+
 							aside.animate([{
 								opacity:0,
 								transform:"translateX(-10%)"
@@ -69,28 +123,56 @@ const resize_window_aside = aside => {
 			}
 		}
 
-		aside.onpointermove = e => { //Hide
+		aside.onpointerout = function(e){
+			btnhideaside.style.display = "none"
+			btnhideaside.style.webkitDisplay = "none";
+		    btnhideaside.style.MozDisplay = "none";
+		    btnhideaside.style.msDisplay = "none";
+		    btnhideaside.style.oDisplay = "none";
+		}
+
+		aside.onpointermove = function(e){ //Hide
 			document.body.setAttribute("title", "")
-			if (e.clientX > aside.clientWidth - 3 && pase){
-				if (window.config[1].aside_hidden == "false"){
+			if (e.clientX > aside.clientWidth + 10 && pase){
+				if (window.config[1].aside_hidden == "true"){
 					if (aside.style.display === "block"){
-						aside.style.cursor = "grabbing"
-						aside.setAttribute("title", "Ocultar panel lateral")
+
+						btnhideaside.setAttribute("title", "Ocultar panel lateral")
+						btnhideaside.style.display = "block"
+						btnhideaside.style.webkitDisplay = "block";
+					    btnhideaside.style.MozDisplay = "block";
+					    btnhideaside.style.msDisplay = "block";
+					    btnhideaside.style.oDisplay = "block";
+
+					    btnhideaside.style.cursor = "col-resize"
+						btnhideaside.style.webkitCursor = "col-resize";
+					    btnhideaside.style.MozCursor = "col-resize";
+					    btnhideaside.style.msCursor = "col-resize";
+					    btnhideaside.style.oCursor = "col-resize";
 					}
 				}
-				aside.onpointerdown = o => {
-					if (window.config[1].aside_hidden == "false"){
-						document.body.onpointerdown = () => false
+				btnhideaside.onpointerdown = function(o){
+					if (window.config[1].aside_hidden == "true"){
 						asideicon.style.display = "block"
+						asideicon.style.webkitDisplay = "block";
+					    asideicon.style.MozDisplay = "block";
+					    asideicon.style.msDisplay = "block";
+					    asideicon.style.oDisplay = "block";
+
 						asideicon.animate([{
 							transform:"translateX(-100%)"},{
 							transform:"translateX(0%)"}],{duration:400, iterations:1})
 					}
-					if (modss[0] !== null && modss[0] !== undefined && window.config[1].aside_hidden == "false"){
+					if (modss[0] !== null && modss[0] !== undefined && window.config[1].aside_hidden == "true"){
 						modss[0].className = "accordion modulos"
 					}
-					setTimeout(()=>{
+					setTimeout(function(){
 						aside.style.display = "none"
+						aside.style.webkitDisplay = "none";
+					    aside.style.MozDisplay = "none";
+					    aside.style.msDisplay = "none";
+					    aside.style.oDisplay = "none";
+
 					},410)
 					aside.animate([{
 						opacity:1,
@@ -99,22 +181,45 @@ const resize_window_aside = aside => {
 						opacity:0,
 						transform:"translateX(-10%)"
 					}],{duration:400, iterations:1})
+
 					aside.style.opacity = "0"
+					aside.style.webkitOpacity = "0";
+				    aside.style.MozOpacity = "0";
+				    aside.style.msOpacity = "0";
+				    aside.style.oOpacity = "0";
+
 					pase = false
 				}
 			} else {
 				aside.setAttribute("title", "")
 				document.body.style.cursor = ""
 				aside.style.cursor = ""	
+				aside.style.webkitCursor = "";
+			    aside.style.MozCursor = "";
+			    aside.style.msCursor = "";
+			    aside.style.oCursor = "";
+
 				aside.style.width = ""
-				aside.onpointerdown = () => false
+				aside.style.webkitWidth = "";
+			    aside.style.MozWidth = "";
+			    aside.style.msWidth = "";
+			    aside.style.oWidth = "";
+			    btnhideaside.style.display = "none"
+				btnhideaside.style.webkitDisplay = "none";
+			    btnhideaside.style.MozDisplay = "none";
+			    btnhideaside.style.msDisplay = "none";
+			    btnhideaside.style.oDisplay = "none";
+
+				aside.onpointerdown = function(){
+					return false
+				} 
 			}	
 		}
 	}
 }
  
-const maction_window = (state) =>{
-	window.onpointerup = () => {
+function maction_window(state){
+	window.onpointerup = function(){
 		let calendario = document.getElementsByClassName("contain_calender")[0]
 		let calculadora = document.getElementsByClassName("container_calculadora")[0]
 		let conversor = document.getElementsByClassName("container_conversor")[0]
@@ -127,7 +232,7 @@ const maction_window = (state) =>{
 			}
 		}
 	}
-	window.onclick = () => {
+	window.onclick = function(){
 		calcumoving = false
 		calenmoving = false
 		conversormoving = false
@@ -145,7 +250,7 @@ const maction_window = (state) =>{
 		if (calendario === undefined && 
 			calculadora === undefined && conversor === undefined){
 			btn_reposition.style.opacity = "0"
-			setTimeout(()=>{
+			setTimeout(function(){
 				btn_reposition.style.display = "none"
 			},430)
 			btn_reposition.animate([{
@@ -199,7 +304,7 @@ const maction_window = (state) =>{
 		}
 	}
 
-	window.onpointerdown = e =>{
+	window.onpointerdown = function(e){
 		let calculadora = document.getElementsByClassName("container_calculadora")[0]
 		let calendario = document.getElementsByClassName("contain_calender")[0]
 		let conversor = document.getElementsByClassName("container_conversor")[0]
@@ -247,7 +352,7 @@ const maction_window = (state) =>{
 		}
 	}
 
-	window.onpointermove = e =>{
+	window.onpointermove = function(e){
 		let pixrad = getDevicePixelRatio()
 		//Pendiente PENDIENTE segun el pixelradio configurar el cursor cuando se expande o disminuye la escala de un widget de momento la calculadora
 		let calculadora = document.getElementsByClassName("container_calculadora")[0]
@@ -322,18 +427,18 @@ const maction_window = (state) =>{
 		if (calcuresizemoving){ //Resize calculator
 			if ((e.clientX / 100 * 0.1).toFixed(1) >= 0.4 && (e.clientX / 100 * 0.1).toFixed(1) <= 1.3){
 				if (e.clientX / 1000 * 0.0001 <= 5){
-					calculadora.style.transform = `scale(${(e.clientX / 100 * 0.1).toFixed(1)})`
+					calculadora.style.transform = "scale(" + (e.clientX / 100 * 0.1).toFixed(1) + ")"
 					console.log(calculadora.style.transform)
-				}else if(e.clientX / 1000 * 0.0001 >= -5){
-					calculadora.style.transform = `scale(${(e.clientX / 100 * 0.1).toFixed(1)})`
+				}else if(e.clientX / 1000 * 0.0001 >= -5){x
+					calculadora.style.transform = "scale(" + (e.clientX / 100 * 0.1).toFixed(1) + ")"
 				}
 			}
 		}
 	}
 }
 
-const calculator = () => {
-	const calc = (contacal, ide, contacprimge) => {
+function calculator(){
+	function calc(contacal, ide, contacprimge){
 		const contcalorigin = document.createElement("div")
 		contcalorigin.className = "border p-3 mb-3"
 		contcalorigin.setAttribute("name", ide)
@@ -350,7 +455,7 @@ const calculator = () => {
 		close.style.cursor = "pointer"
 		close.className = "btn-danger btn"
 		close.innerHTML = "Cerrar"
-		close.onclick = () =>{
+		close.onclick = function(){
 			openedcalculator = false
 			document.getElementsByName(ide)[0].remove()
 			if (document.getElementsByName(ide)[0] == undefined && contacal.children.length === 1) contacprimge.style.width = "450px"
@@ -382,7 +487,7 @@ const calculator = () => {
 			number.style.fontSize = "140%"
 			number.innerHTML = x
 			number.value = x
-			number.onclick = () => {
+			number.onclick = function(){
 				input_and_result.value += number.value
 				input_and_result.focus()
 			}
@@ -401,7 +506,7 @@ const calculator = () => {
 			menbtnfx.appendChild(btn_fx)
 			if (x === 5){ // Resolver
 				btn_fx.className = "btn btn-secondary w-100 p-2 m-1 flex-grow-1 font-weight-bold"
-				const processo = () => {
+				const processo = function(){
 					let gettext = input_and_result.value
 					if (gettext !== ""){
 						gettext = gettext.match(/(\d+|\D+)/gim) ? gettext : "ERROR"
@@ -415,7 +520,7 @@ const calculator = () => {
 					}
 				}
 
-				const apply_processo = (e) => {
+				const apply_processo = function(e){
 					e.preventDefault()
 					let res = processo()
 					try{
@@ -426,43 +531,47 @@ const calculator = () => {
 					}
 				}
 
-				form.onsubmit = e => apply_processo(e) // Resolver
-				btn_fx.onclick = e => apply_processo(e) //Resolver
+				form.onsubmit = function(e) {
+					apply_processo(e) // Resolver
+				}
 
+				btn_fx.onclick = function(e){ 
+					apply_processo(e) //Resolver
+				}
 				
 			}else{
 				btn_fx.className = "btn btn-primary p-2 m-1 flex-grow-1 font-weight-bold"
 			}
 
-			if (x === 0) btn_fx.onclick = () =>{
+			if (x === 0) btn_fx.onclick = function(){
 				input_and_result.value = ""
 				input_and_result.focus()
 			}
-			if (x === 1) btn_fx.onclick = () =>{
+			if (x === 1) btn_fx.onclick = function(){
 				input_and_result.value += "+"
 				input_and_result.focus()
 			}
-			if (x === 2) btn_fx.onclick = () =>{
+			if (x === 2) btn_fx.onclick = function(){
 				input_and_result.value += "-"
 				input_and_result.focus()
 			}
-			if (x === 3) btn_fx.onclick = () =>{
+			if (x === 3) btn_fx.onclick = function(){
 				input_and_result.value += "*"
 				input_and_result.focus()
 			}
-			if (x === 4) btn_fx.onclick = () =>{ 
+			if (x === 4) btn_fx.onclick = function(){ 
 				input_and_result.value += "/"
 				input_and_result.focus()
 			}
-			if (x === 6) btn_fx.onclick = () =>{
+			if (x === 6) btn_fx.onclick = function(){
 				input_and_result.value = input_and_result.value.substring(0, input_and_result.value.length - 1);
 				input_and_result.focus()
 			}
-			if (x === 7) btn_fx.onclick = () =>{
+			if (x === 7) btn_fx.onclick = function(){
 				input_and_result.value += "("
 				input_and_result.focus()
 			}
-			if (x === 8) btn_fx.onclick = () => {
+			if (x === 8) btn_fx.onclick = function(){
 				input_and_result.value += ")"
 				input_and_result.focus()
 			}	
@@ -511,7 +620,7 @@ const calculator = () => {
 			opacity:1
 		}],{duration:400, iterations:1})
 
-		contacal.onclick = () => {
+		contacal.onclick = function(){
 			if (document.getElementsByClassName("contain_calender")[0] !== undefined) document.getElementsByClassName("contain_calender")[0].style.zIndex = "0"
 				contacal.style.zIndex = "20"
 		}
@@ -529,29 +638,38 @@ const calculator = () => {
 		move.setAttribute("src", "./content/img/iconos/move.png")
 		move.setAttribute("width", "90px")
 		move.setAttribute("id", "move_calculator")
-		move.ondragstart = () => false
+		move.ondragstart = function(){
+			return false
+		}
 		move.style.userSelect = "none"
 		move.setAttribute("height", "40px")
 		move.style.cursor = "pointer"
 		move.className = "btn-transparent text-light font-weight-bold btn"
 		move.style.fontSize = "150%"
 		move.innerHTML = "Mover"
-		move.onpointerdown = () => calcumoving = true
-		move.onpointerup = () => calcumoving = false
+		move.onpointerdown = function() {
+			calcumoving = true
+		}
+		move.onpointerup = function() {
+			calcumoving = false
+		}
 		header_icons.appendChild(move)
 
 		const nueva_calc = document.createElement("img") //Nueva calculadora
 		nueva_calc.setAttribute("src", "./content/img/iconos/nuevo.png")
 		nueva_calc.setAttribute("width", "60px")
 		nueva_calc.setAttribute("height", "45px")
-		nueva_calc.ondragstart = () => false
+		nueva_calc.ondragstart = function() {
+			return false
+		}
+
 		nueva_calc.style.userSelect = "none"
 		nueva_calc.style.cursor = "pointer"
 		nueva_calc.className = "btn-transparent text-light font-weight-bold btn"
 		nueva_calc.style.fontSize = "150%"
 		nueva_calc.innerHTML = "Nuevo"
 		header_icons.appendChild(nueva_calc)
-		nueva_calc.onclick = () => {
+		nueva_calc.onclick = function(){
 			calc(_general_conten_cals, "calcuno"+Math.random(), contacal)
 			_general_conten_cals.scrollTo(0,window.screen.height*1000)
 			if (window.screen.width >= 500){
@@ -572,11 +690,17 @@ const calculator = () => {
 		resize.setAttribute("height", "60px")
 		resize.style.cursor = "pointer"
 		resize.style.userSelect = "none"
-		resize.ondragstart = () => false
+		resize.ondragstart = function(){
+			return false
+		}
 		resize.style.fontSize = "150%"
 		header_icons.appendChild(resize)
-		resize.onpointerdown = () => calcuresizemoving = true
-		resize.onpointerup = () => calcuresizemoving = false
+		resize.onpointerdown = function() {
+			calcuresizemoving = true
+		}
+		resize.onpointerup = function() {
+			calcuresizemoving = false
+		}
 		maction_window("calculator")
 		// maction_window(contacal, resize, move, "calculator")
 
@@ -586,10 +710,12 @@ const calculator = () => {
 		cerrar_general.setAttribute("height", "40px")
 		cerrar_general.style.cursor = "pointer"
 		cerrar_general.style.userSelect = "none"
-		cerrar_general.ondragstart = () => false
+		cerrar_general.ondragstart = function(){
+			return false
+		}
 		cerrar_general.style.fontSize = "150%"
 		header_icons.appendChild(cerrar_general)
-		cerrar_general.onclick = () => {
+		cerrar_general.onclick = function(){
 			if (document.getElementsByClassName("container_calculadora")[0] !== undefined && document.getElementsByClassName("container_calculadora")[0] !== null){
 				openedcalculator = false
 				document.getElementsByClassName("container_calculadora")[0].remove()
@@ -601,8 +727,8 @@ const calculator = () => {
 	}
 }
 
-const calender = () => {
-	const get_whole_days_this_month = () =>{
+function calender(){
+	function get_whole_days_this_month(){
 		let  dat_whole = new Date()
 		let mes = dat_whole.getMonth() + 1;
 		let year = dat_whole.getFullYear();
@@ -645,9 +771,6 @@ const calender = () => {
 			}
 		}
 
-		console.log(almadaysnames, "Je")
-
-	
 		return {
 			diaNombre : diasSemana[dat_whole.getDay()],
 			diaNumberRealHoy : getdaynuntoday,
@@ -692,7 +815,7 @@ const calender = () => {
 			opacity:1
 		}],{duration:400, iterations:1})
 
-		contacal.onclick = () => {
+		contacal.onclick = function(){
 			if (document.getElementsByClassName("container_calculadora")[0] !== undefined) document.getElementsByClassName("container_calculadora")[0].style.zIndex = "0"
 				contacal.style.zIndex = "20"
 		}
@@ -708,17 +831,22 @@ const calender = () => {
 		const move = document.createElement("img") // Mover
 		move.setAttribute("src", "./content/img/iconos/move.png")
 		move.setAttribute("width", "90px")
-		move.ondragstart = () => false
+		move.ondragstart = function(){
+			return false
+		}
 		move.style.userSelect = "none"
 		move.setAttribute("height", "40px")
 		move.style.cursor = "pointer"
 		move.className = "btn-transparent text-light font-weight-bold btn move_calender"
 		move.style.fontSize = "150%"
 		move.innerHTML = "Mover"
-		move.onpointerdown = () => {
+		move.onpointerdown = function(){
 			calenmoving = true
 		}
-		move.onpointerup = () => calenmoving = false
+		move.onpointerup = function(){
+			calenmoving = false
+		}
+
 		menicons.appendChild(move)
 
 		maction_window("calender")
@@ -729,15 +857,17 @@ const calender = () => {
 		cerrar_general.setAttribute("height", "40px")
 		cerrar_general.style.cursor = "pointer"
 		cerrar_general.style.userSelect = "none"
-		cerrar_general.ondragstart = () => false
+		cerrar_general.ondragstart = function(){
+			return false
+		}
+
 		cerrar_general.style.fontSize = "150%"
 		menicons.appendChild(cerrar_general)
-		cerrar_general.onclick = () => {
+		cerrar_general.onclick = function(){
 			if (document.getElementsByClassName("contain_calender")[0] !== undefined && document.getElementsByClassName("contain_calender")[0] !== null){
 				openedcalender = false
 				document.getElementsByClassName("contain_calender")[0].remove()
 			}
-			
 		}
 
 		const body = document.createElement("div")
@@ -769,7 +899,9 @@ const calender = () => {
 
 
 		let arcontainnunssems = [containnunssemana1, containnunssemana2, containnunssemana3, containnunssemana4, containnunssemana5]
-		arcontainnunssems.map(e => e.className = "d-flex justify-content-between")
+		arcontainnunssems.map(function(e){
+			e.className = "d-flex justify-content-between"
+		})
 
 		for (let x = 0; x < time.allDays; x++){
 			let day_nun = document.createElement("div")
@@ -780,15 +912,15 @@ const calender = () => {
 			day_nun.style.userSelect = "none"
 			day_nun.setAttribute("name", x+1)
 
-			day_nun.onpointerover = () =>{
+			day_nun.onpointerover = function(){
 				day_nun.style.background = "#dbdbdb"
 				day_nun.animate([{background:"#fff"},{background:"#dbdbdb"}],{duration:400, iterations:1})
 			}
-			day_nun.onpointerout = () =>{
+			day_nun.onpointerout = function(){
 				day_nun.style.background = "#fff"
 				day_nun.animate([{background:"#dbdbdb"},{background:"#fff"}],{duration:400, iterations:1})
 			}
-			day_nun.onclick = e => {
+			day_nun.onclick = function(e){
 				let mes = time.mesNumero.toString().split("").length === 1 ? "0" + time.mesNumero  : time.mesNumero
 			
 				timeo = time.year + "-" + mes + "-" + e.target.getAttribute("name")
@@ -796,7 +928,7 @@ const calender = () => {
 				$.post("./content/php/consults_info/ingresos_query_ajax.php", {
 					usuario: alma_config[0].usuario,
 					time_bal: timeo !== "" ? timeo : "hour"
-				}).done(d => {
+				}).done(function(d){
 					d = JSON.parse(d)
 					document.getElementsByClassName("balactual")[0].innerHTML = `<span class='font-weight-bold'>Balance Real</span>: <span class='	font-weight-bold' style='color:${d.BalanceActual.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.BalanceActual+"</span>"
 					document.getElementsByClassName("togasfil")[0].innerHTML = `<span class='font-weight-bold'>Total Gastos</span>: <span class='font-weight-bold' style='color:red;'>$ ` + d.TotalGastosFiltro+"</span><br>"
@@ -848,11 +980,11 @@ const calender = () => {
 		const btn_default_restablish = document.createElement("button")
 		btn_default_restablish.className ="btn btn-dark p-2 ml-3 mr-3 m-2 "
 		btn_default_restablish.innerHTML = "Reestablecer filtros de configuración"
-		btn_default_restablish.onclick = () =>{
+		btn_default_restablish.onclick = function(){
 			$.post("./content/php/consults_info/ingresos_query_ajax.php", {
 				usuario: alma_config[0].usuario,
 				time_bal: alma_config[1].time_bal
-			}).done(d => {
+			}).done(function(d){
 				d = JSON.parse(d)
 				document.getElementsByClassName("balactual")[0].innerHTML = `<span class='font-weight-bold'>Balance Real</span>: <span class='	font-weight-bold' style='color:${d.BalanceActual.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.BalanceActual+"</span>"
 				document.getElementsByClassName("togasfil")[0].innerHTML = `<span class='font-weight-bold'>Total Gastos</span>: <span class='font-weight-bold' style='color:red;'>$ ` + d.TotalGastosFiltro+"</span><br>"
@@ -877,17 +1009,21 @@ const calender = () => {
 //Funcion del conversor
 let monedaBase = "Dólar USA"
 let monedaDeConversion = "Euro"
-const cotasaproresult = () => {
+function cotasaproresult(){
 	let numConverTasa = document.getElementById("montotoChange")
 	alert(numConverTasa.value)
 	alert(monedaBase)
 	alert(monedaDeConversion)
 }
 //Seleccion de Moneda Base
-const select_init_moneda = (e) => monedaBase = e.options[e.selectedIndex].text // De
-const select_moneda_conver = (e) => monedaDeConversion = e.options[e.selectedIndex].text // A
+function select_init_moneda(e){ 
+	monedaBase = e.options[e.selectedIndex].text // De
+}
+function select_moneda_conver(e){ 
+	monedaDeConversion = e.options[e.selectedIndex].text // A
+}
 
-const conversor = () => {
+function conversor(){
 	if (openedconversor) {
 		let contacal = document.createElement("div")
 		contacal.className = "container_conversor"
@@ -920,7 +1056,7 @@ const conversor = () => {
 			opacity:1
 		}],{duration:400, iterations:1})
 
-		contacal.onclick = () => {
+		contacal.onclick = function(){
 			if (document.getElementsByClassName("container_conversor")[0] !== undefined) document.getElementsByClassName("container_conversor")[0].style.zIndex = "0"
 				contacal.style.zIndex = "20"
 		}
@@ -935,17 +1071,24 @@ const conversor = () => {
 		const move = document.createElement("img") // Mover
 		move.setAttribute("src", "./content/img/iconos/move.png")
 		move.setAttribute("width", "90px")
-		move.ondragstart = () => false
+		move.ondragstart = function(){
+			return false
+		}
+
 		move.style.userSelect = "none"
 		move.setAttribute("height", "40px")
 		move.style.cursor = "pointer"
 		move.className = "btn-transparent text-light font-weight-bold btn move_conversor"
 		move.style.fontSize = "150%"
 		move.innerHTML = "Mover"
-		move.onpointerdown = () => {
+		move.onpointerdown = function(){
 			conversormoving = true
 		}
-		move.onpointerup = () => conversormoving = false
+
+		move.onpointerup = function(){
+			conversormoving = false
+		}
+
 		menicons.appendChild(move)
 		maction_window("calender")
 
@@ -955,10 +1098,13 @@ const conversor = () => {
 		cerrar_general.setAttribute("height", "40px")
 		cerrar_general.style.cursor = "pointer"
 		cerrar_general.style.userSelect = "none"
-		cerrar_general.ondragstart = () => false
+		cerrar_general.ondragstart = function(){
+			return false
+		}
+
 		cerrar_general.style.fontSize = "150%"
 		menicons.appendChild(cerrar_general)
-		cerrar_general.onclick = () => {
+		cerrar_general.onclick = function(){
 			document.body.appendChild(document.getElementById("conversor_tasa"))
 			document.getElementById("conversor_tasa").style.display = "none"
 			if (document.getElementsByClassName("container_conversor")[0] !== undefined && document.getElementsByClassName("container_conversor")[0] !== null){
@@ -972,7 +1118,9 @@ const conversor = () => {
 		body.className ="p-3"
 		const form = document.createElement("form")
 		form.className = "p-1"
-		form.onsubmit = e => e.preventDefault()
+		form.onsubmit = function(e){
+			e.preventDefault()
+		}
 		
 		let conversor_tasa = document.getElementById("conversor_tasa")
 		if (conversor_tasa !== null) {
@@ -989,7 +1137,7 @@ const conversor = () => {
 }
 
 
-const Aside = (username) => {
+function Aside(username){
 	const containhome = document.getElementsByClassName("containhome")[0]
 	const contacal = document.createElement("div")
 	contacal.className += "contacalaside card asidechancolor"
@@ -1013,7 +1161,9 @@ const Aside = (username) => {
 
 	img.style.background = "#909090"
 	img.style.borderRadius = "100%"
-	img.ondragstart = () => false
+	img.ondragstart = function(){
+		return false
+	} 
 	img.style.userSelect = "none"
 	imgcontainer.appendChild(img)
 
@@ -1051,12 +1201,18 @@ const Aside = (username) => {
 			btn_notificacion.style.borderRadius = "100px"
 			btn_notificacion.style.zIndex = "200"
 			btn_notificacion.style.cursor = "pointer"
-			btn_notificacion.onpointerover = ()=> btn_notificacion.style.border = "1px solid #f35b5c"
-			btn_notificacion.onpointerout = ()=> btn_notificacion.style.border = "1px solid transparent"
+			btn_notificacion.onpointerover = function(){
+				btn_notificacion.style.border = "1px solid #f35b5c"
+			}
+			btn_notificacion.onpointerout = function(){
+				btn_notificacion.style.border = "1px solid transparent"
+			}
 			btn_notificacion.innerHTML = "Actualmente posees deudas"
-			btn_notificacion.ondragstart = () => false
+			btn_notificacion.ondragstart = function(){
+				return false
+			}
 			btn_notificacion.style.userSelect = "none"
-			btn_notificacion.onclick = () => {
+			btn_notificacion.onclick = function(){
 				divnoti.style.display = "flex"
 				btn_notificacion.style.display = "none"
 			}
@@ -1073,7 +1229,10 @@ const Aside = (username) => {
 			divnoti.setAttribute("title", "Tienes una notificación")
 			divnoti.innerHTML = "1"
 			divnoti.style.fontSize = "130%"
-			divnoti.ondragstart = () => false
+			divnoti.ondragstart = function(){
+				return false
+			}
+
 			divnoti.style.userSelect = "none"
 			divnoti.animate([{
 				boxShadow:" 0px 0px 0px #ff6666"
@@ -1082,7 +1241,7 @@ const Aside = (username) => {
 			}],{duration:400, iterations:Infinity})
 			// divnoti.setAttribute("width", "36px")
 			divnoti.style.borderRadius ="100%"
-			divnoti.onclick = () => {
+			divnoti.onclick = function(){
 				btn_notificacion.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
 				btn_notificacion.style.display = "block"
 				divnoti.style.display = "none"
@@ -1109,12 +1268,18 @@ const Aside = (username) => {
 			btn_notificacion.style.borderRadius = "100px"
 			btn_notificacion.style.zIndex = "200"
 			btn_notificacion.style.cursor = "pointer"
-			btn_notificacion.onpointerover = ()=> btn_notificacion.style.border = "1px solid #358e1a"
-			btn_notificacion.onpointerout = ()=> btn_notificacion.style.border = "1px solid transparent"
+			btn_notificacion.onpointerover = function(){
+				btn_notificacion.style.border = "1px solid #358e1a"
+			}
+			btn_notificacion.onpointerout = function(){
+				btn_notificacion.style.border = "1px solid transparent"
+			}
 			btn_notificacion.innerHTML = "Un gusto saludarte"
-			btn_notificacion.ondragstart = () => false
+			btn_notificacion.ondragstart = function(){ 
+				return false
+			}
 			btn_notificacion.style.userSelect = "none"
-			btn_notificacion.onclick = () => {
+			btn_notificacion.onclick = function(){
 				divnoti.style.display = "flex"
 				btn_notificacion.style.display = "none"
 			}
@@ -1131,11 +1296,13 @@ const Aside = (username) => {
 			divnoti.setAttribute("title", "Tienes una notificación")
 			divnoti.innerHTML = "1"
 			divnoti.style.fontSize = "130%"
-			divnoti.ondragstart = () => false
+			divnoti.ondragstart = function(){
+				return false
+			}
 			divnoti.style.userSelect = "none"
 			// divnoti.setAttribute("width", "36px")
 			divnoti.style.borderRadius ="100%"
-			divnoti.onclick = () => {
+			divnoti.onclick = function(){
 				btn_notificacion.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
 				btn_notificacion.style.display = "block"
 				divnoti.style.display = "none"
@@ -1158,10 +1325,12 @@ const Aside = (username) => {
 	boton_calc.setAttribute("width", "80px")
 	boton_calc.setAttribute("title", "Calculadora")
 	boton_calc.className = "btnmenaside p-1 m-2  mt-0 btn btn-light"
-	boton_calc.ondragstart = () => false
+	boton_calc.ondragstart = function(){
+		return false
+	}
 	boton_calc.style.userSelect = "none"
 	boton_calc.style.borderRadius = "100%"
-	boton_calc.onclick = () => {
+	boton_calc.onclick = function(){
 		if (!openedcalculator){
 			openedcalculator = true
 			if (document.getElementsByClassName("btn_reposition")[0].style.opacity == "0") document.getElementsByClassName("btn_reposition")[0].animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
@@ -1177,10 +1346,12 @@ const Aside = (username) => {
 	boton_calendario.setAttribute("width", "80px")
 	boton_calendario.style.borderRadius = "100%"
 	boton_calendario.className = "btnmenaside p-1 m-2  mt-0 btn  btn-light"
-	boton_calendario.ondragstart = () => false
+	boton_calendario.ondragstart = function(){
+		return false
+	}
 	boton_calendario.setAttribute("title", "Mes actual")
 	boton_calendario.style.userSelect = "none"
-	boton_calendario.onclick = () => {
+	boton_calendario.onclick = function(){
 		if (!openedcalender){
 			openedcalender = true
 			if (document.getElementsByClassName("btn_reposition")[0].style.opacity == "0") document.getElementsByClassName("btn_reposition")[0].animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
@@ -1195,10 +1366,12 @@ const Aside = (username) => {
 	boton_conversor.style.borderRadius = "100%"
 	boton_conversor.setAttribute("width", "80px")
 	boton_conversor.className = "btnmenaside p-1 m-2  mt-0 btn btn-light"
-	boton_conversor.ondragstart = () => false
+	boton_conversor.ondragstart = function(){
+		return false
+	}
 	boton_conversor.setAttribute("title", "Conversor de divisas")
 	boton_conversor.style.userSelect = "none"
-	boton_conversor.onclick = () => {
+	boton_conversor.onclick = function(){
 		if (!openedconversor){
 			openedconversor = true
 			if (document.getElementsByClassName("btn_reposition")[0].style.opacity == "0") document.getElementsByClassName("btn_reposition")[0].animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
@@ -1208,8 +1381,8 @@ const Aside = (username) => {
 		}
 	}
 
-	const btnhover = btn => {
-		btn.onpointerover = () => {
+	const btnhover = function(btn){
+		btn.onpointerover = function(){
 			btn.style.transform = "scale(1.1)"
 			btn.animate([{
 				transform: "scale(1)"
@@ -1217,7 +1390,7 @@ const Aside = (username) => {
 				transform: "scale(1.1)"
 			}],{duration:400, iterations:1})
 		}
-		btn.onpointerout = () => {
+		btn.onpointerout = function(){
 			btn.style.transform = "scale(1)"
 			btn.animate([{
 				transform: "scale(1.1)"
@@ -1245,7 +1418,7 @@ const Aside = (username) => {
 	alignment_invisible_widgets.style.borderTop = "4px solid #fff"
 	// alignment_invisible_widgets.style.borderBottom = "4px solid #fff"
 	
-	btn_reposition.onclick = () =>{
+	btn_reposition.onclick = function(){
 		document.body.appendChild(alignment_invisible_widgets)
 		alignment_invisible_widgets.style.display = "flex"
 		alignment_invisible_widgets.animate([{

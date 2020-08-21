@@ -181,14 +181,15 @@
 				let imgcontainer = document.getElementsByClassName("imgcontainer")[0]
 
 				if (json[1].pj_hidden == "true"){
-					if (pj_h !== undefined && pj_h !== null) pj_h.style.background = "radial-gradient(circle, #1F9885, #1BCEB2)"
-					if (imgcontainer !== null && imgcontainer !== undefined){
-						imgcontainer.style.display = "none"
-					}
-				} else {
-					if (pj_h !== undefined && pj_h !== null)  pj_h.style.background = ""
 					if (imgcontainer !== null && imgcontainer !== undefined){
 						imgcontainer.style.display = "block"
+					}
+					if (pj_h !== undefined && pj_h !== null) pj_h.style.background = "radial-gradient(circle, #1F9885, #1BCEB2)"
+				} else {
+
+					if (pj_h !== undefined && pj_h !== null)  pj_h.style.background = ""
+					if (imgcontainer !== null && imgcontainer !== undefined){
+						imgcontainer.style.display = "none"
 					}
 				}
 			
@@ -201,12 +202,12 @@
 		
 			let aside = document.getElementsByClassName("containeraside")[0]
 			if (json[1].aside_hidden == "true"){
-				//Esconder aside
-				if (aside !== undefined && aside !== null) aside.style.display = "none"
+				//Mostrar aside
+				if (aside !== undefined && aside !== null) aside.style.display = "block"	
 				if (check_aside !== null && check_aside !== undefined) check_aside.style.background = "radial-gradient(circle, #1F9885, #1BCEB2)"
 			} else {
-				//Mostrar aside
-				if (aside !== undefined && aside !== null) aside.style.display = "block"
+				//Esconder aside
+				if (aside !== undefined && aside !== null) aside.style.display = "none"
 				if (check_aside !== null && check_aside !== undefined) check_aside.style.background = ""
 			}
 		

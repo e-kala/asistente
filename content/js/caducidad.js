@@ -3,10 +3,11 @@
 
 let ifClick = false
 
-document.body.onpointerdown = e => ifClick = true
+document.body.onpointerdown = function(e){
+	ifClick = true
+}
 
-
-document.body.onload = e => {
+document.body.onload = function(e){
 	let interval_30, interval_60, time_config;
 	let [start, isPaused] = [false, false]
 
@@ -20,12 +21,12 @@ document.body.onload = e => {
 				//Solo empieza a ejecutarse el intérvalo al iniciar sesión
 				if (document.getElementsByClassName("fot")[0] !== undefined && document.getElementsByClassName("fot")[0] !== null){
 					if (time_config !== "" && time_config !== null && time_config !== undefined){ //Solo si la caducidad esta programada / definida arranca el intervalo
-						interval_30 = setInterval( () => {
+						interval_30 = setInterval( function(){
 							$.post("content/php/inactividad.php", 
 								{
 									state:"cerrar"
 								}
-							).done( data => { 	
+							).done( function(data){ 	
 								if (!isPaused){ //Procesa los datos una vez antes de volver a llamar un cuadro emergente de nuevo	
 									isPaused = true //Mantener pausa para no llamar mas de una vez una ventana emergente habiendo una existente con su cuenta regresiva
 									let valor = JSON.parse(data) //Convertir datos recibidos en formato JSON, a objeto utilizable en javascript
@@ -52,7 +53,7 @@ function mensaje_caducar(action){
 
 	if (alma_config[1].caducidad !== "" && alma_config[1].caducidad !== null && alma_config[1].caducidad !== undefined){
 		let cuenta_regresiva = 60;
-		interval_60 = setInterval(()=> {
+		interval_60 = setInterval( function(){
 			if (cuenta_regresiva > 0){ //Mientras sea mayor que 0, restar 1 a cuenta_regresiva
 				cuenta_regresiva -= 1
 				alertify.alert()
@@ -60,7 +61,7 @@ function mensaje_caducar(action){
 				  	'title' : "Mensaje",
 				    'label':'Mantener abierta sesion',
 				    'message': `Su sesión expirará en ${cuenta_regresiva} segundos`,
-				    'onok': () => {
+				    'onok': function(){
 				    	isPaused = false
 				    	ifClick = false
 				    	clearInterval(interval_60)

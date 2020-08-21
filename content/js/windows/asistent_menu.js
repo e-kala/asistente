@@ -7,6 +7,10 @@ let alma_config; //Almacena configuración cuando el último script se cargue pa
 div_men = document.createElement("div")
 div_men.classList.add("menu_container")
 div_men.style.display = "none"
+div_men.style.webkitDisplay = "none";
+div_men.style.MozDisplay = "none";
+div_men.style.msDisplay = "none";
+div_men.style.ODisplay = "none";
 
 
 mods = document.getElementsByClassName("modsco") //Modulos
@@ -36,7 +40,7 @@ logo = '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-circle-ha
 
 options = ["Inicio", "Configuración", logo, "Cerrar Sesión"]
 
-iters = (status, modss, boxes_inn, registrosg, txtcolor, tadoreschangemod) => {
+function iters(status, modss, boxes_inn, registrosg, txtcolor, tadoreschangemod){
   if (mods !== undefined){
     for (let x = 0; x < mods.length; x++){
       if (mods[x] !== undefined){
@@ -125,7 +129,7 @@ iters = (status, modss, boxes_inn, registrosg, txtcolor, tadoreschangemod) => {
 
 let once_config = false
 functions = [
-  () =>{ // ---------------- Inicio
+  function(){ // ---------------- Inicio
     if (!check){
       check = true
       for (let x = 0; x < mods.length; x++){
@@ -140,16 +144,16 @@ functions = [
       div_men.style.display = "none"
     } 
   },
-  () =>{ //----------------  Configuración
+  function(){ //----------------  Configuración
     check = false
     boolam = false
   }, 
-  () => { // ------------------- Mode light / dark
+  function(){ // ------------------- Mode light / dark
     const btn_mode_men = document.getElementById("btn_3")
     
     btn_mode_men.innerHTML = !mode_light_dark ? logo : logo
 
-    const impo = (im) => {
+    function impo(im){
       mode_light_dark = im
     }
 
@@ -165,10 +169,12 @@ functions = [
 
     if (document.getElementById("caducidad-slide") !== undefined && document.getElementById("caducidad-slide") !== null){
       caducidad = document.getElementById("caducidad-slide").value
+    } else {
+      caducidad = ""
     }
 
 
-    const post_save_change = (mode) => {
+    function post_save_change(mode){
       $.post("./content/php/usr/update_cnfg.php", {
         usuario : alma_config[0].usuario,
         background : alma_config[1].background,
@@ -179,13 +185,14 @@ functions = [
         mode : mode,
         caducidad : caducidad !== "" ? caducidad : alma_config[1].caducidad,
         time_bal : alma_config[1].time_bal
-      }).done(e => {
+      }).done(function(e){
         // console.log(e,"actualizado")
       })
     }
 
     if (mode_light_dark){ // ----------------- Dark
       bg_session = "dark"
+      modebg_to_nav = "dark"
       post_save_change("dark")
         header_session.className = "navbar mb-4 p-4"
         header_session.style.background = `rgb(52,52,69,${transparency}5)`
@@ -303,6 +310,7 @@ functions = [
 
     } else { // ----------------------------- Light
       bg_session = "white"
+      modebg_to_nav = "white"
       post_save_change("white")
         header_session.className = "navbar mb-4 p-4 header-home-asistent"
         header_session.style.background = `rgb(255,255,255,${transparency}5)`
@@ -425,7 +433,7 @@ functions = [
     boolam = false
     div_men.style.display = "none"
   },
-  () =>{ //----------------- Cerrar Sesión
+  function(){ //----------------- Cerrar Sesión
     // window.location.href +=  "?action=cerrar_sesion"
     boolam = false
     div_men.style.display = "none"
@@ -495,7 +503,7 @@ if (menu_btn !== null) menu_btn.appendChild(div_men);
 
 btn_img_men = document.getElementById("btn_img_men")
 if (btn_img_men !== null){
-    btn_img_men.onclick = () => {
+    btn_img_men.onclick = function(){
       boolam = !boolam
       if (boolam){
         div_men.style.display = "flex"
@@ -508,7 +516,7 @@ if (btn_img_men !== null){
           transform:"translateY(0%)"
         }],{duration:400, iterations:1})
       } else {
-        setTimeout(()=>{
+        setTimeout( function(){
           div_men.style.display = "none"
         },380)
         div_men.style.opacity = "1"

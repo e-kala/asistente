@@ -5,7 +5,7 @@ let [time, bg, transparency] = ["hour", "", document.getElementById("slide_trans
 let [files, caducidad, pj, personaje_hidden, panelizquierdo_hidden] = ["","", "", false, false]
 
 
-const element_to_change_style_mode = () =>{
+function element_to_change_style_mode(){
 	const navbar = document.getElementsByClassName("navbar")[0]
 	const panel_config = document.getElementsByClassName("bguserconfigchange")[0]
 	const footer = document.getElementsByClassName("footcolor")[0]
@@ -21,7 +21,7 @@ const element_to_change_style_mode = () =>{
 }
 
 const slide_transparency = document.getElementById("slide_transparency")
-slide_transparency.onpointermove = e => {
+slide_transparency.onpointermove = function(e){
 	let valor = e.target.value
 	value_slide_transparency = document.getElementById("value_slide_transparency")
 	value_slide_transparency.innerHTML = valor
@@ -44,7 +44,7 @@ slide_transparency.onpointermove = e => {
 	element_to_change_style_mode()
 }
 
-slide_transparency.onclick = e => {
+slide_transparency.onclick = function(e){
 	let valor = e.target.value
 	value_slide_transparency = document.getElementById("value_slide_transparency")
 	value_slide_transparency.innerHTML = valor
@@ -68,11 +68,11 @@ slide_transparency.onclick = e => {
 const data_time_customized_balance = document.getElementsByName("data_balanc_custom")[0]
 const default_value_data = data_time_customized_balance.defaultValue
 
-const time_balance = () => {
+function time_balance(){
 	const timedef = document.getElementsByClassName("timedefbalc")
 
 	for (let y = 0; y < timedef.length; y++){
-		timedef[y].onclick = () =>{
+		timedef[y].onclick = function(){
 			time = timedef[y].children[0].getAttribute("name")
 			timedef[y].children[0].className = "ml-2 btn btn-success flex-grow-1"
 			console.log(time)
@@ -86,14 +86,14 @@ const time_balance = () => {
 	}
 }
 
-const get_inactividad = () => {
+function get_inactividad(){
 	const caducidad_slide = document.getElementById("caducidad-slide")
 	const value_caduci = document.getElementById("value_caducidad")
-	caducidad_slide.onpointermove = e => {
+	caducidad_slide.onpointermove = function(e){
 		caducidad = e.target.value
 		value_caduci.innerHTML = e.target.value
 	}
-	caducidad_slide.onpointerdown = e => {
+	caducidad_slide.onpointerdown = function(e){
 		caducidad = e.target.value
 		value_caduci.innerHTML = e.target.value
 	}
@@ -102,14 +102,18 @@ const get_inactividad = () => {
 
 get_inactividad()
 
-const hover_select_bg = e => {
+function hover_select_bg(e){
 	e.style.cursor = "pointer"
-	e.onpointerover = () => e.style.border = "2px solid #999999"
-	e.onpointerout = () => e.style.border = "2px solid #dbdbdb"
+	e.onpointerover = function(){
+		e.style.border = "2px solid #999999"
+	}
+	e.onpointerout = function(){
+		e.style.border = "2px solid #dbdbdb"
+	}
 }
 
-const get_background = e => {
-	e.onclick = () =>{
+function get_background(e){
+	e.onclick = function(){
 		src = e.src
 		src = src.match(/\w+\/\w+\.(png|jpg|gif)/gim).toString()
 		bg = src // Full, use
@@ -122,17 +126,17 @@ const get_background = e => {
 }
 
 
-const check_hidden_elements = () => {
+function check_hidden_elements(){
 	const check_aside = document.getElementsByClassName("check_aside")[0]
 	const check_pj = document.getElementsByClassName("check_pj")[0]
 
-	$(()=>{
+	$(function(){
 		if (window.config !== undefined && window.config !== null && window.config !== ""){
 			
 			panelizquierdo_hidden = window.config[1].aside_hidden == "true" ? true : false
 			personaje_hidden = window.config[1].pj_hidden == "true" ? true : false
 
-			check_pj.onpointerdown = o => {
+			check_pj.onpointerdown = function(o){
 				personaje_hidden = !personaje_hidden
 				if (personaje_hidden){
 					check_pj.style.background = "radial-gradient(circle, #1F9885, #1BCEB2)"
@@ -141,7 +145,7 @@ const check_hidden_elements = () => {
 				}
 			}
 
-			check_aside.onpointerdown = o => {
+			check_aside.onpointerdown = function(o){
 				panelizquierdo_hidden = !panelizquierdo_hidden
 				if (panelizquierdo_hidden){
 					check_aside.style.background = "radial-gradient(circle, #1F9885, #1BCEB2)"
@@ -158,9 +162,9 @@ const check_hidden_elements = () => {
 
 check_hidden_elements()
 
-const select_pj = e => {
+function select_pj(e){
 	for (let y = 0; y < e.length; y++){
-		e[y].onpointerdown = () =>{
+		e[y].onpointerdown = function(){
 			e[y].style.border = "4px solid #1DE2C3"
 			pj = e[y].getAttribute("src")
 			for (let x = 0; x < e.length; x++){
@@ -174,7 +178,7 @@ const select_pj = e => {
 
 select_pj(document.getElementsByClassName("pj"))
 
-const iter = (fx, ar) => {
+function iter(fx, ar){
 	for (let x = 0; x < ar.length; x++){
 		fx(ar[x])
 	}
@@ -186,9 +190,9 @@ iter(hover_select_bg, imgdefa)
 iter(get_background, imgdefa)
 
 	
-const get_files = () => { //Previous view
+function get_files(){ //Previous view
 	const input_file = document.getElementById("loadimage")
-	input_file.onchange = e => { 
+	input_file.onchange = function(e){ 
 		
 		files = input_file.files //Nuevo bg
 		bg = "" //Por defecto
@@ -203,7 +207,7 @@ const get_files = () => { //Previous view
 		   data: formData,
 		   processData: false,
 		   contentType: false,
-		   success: response => {
+		   success: function(response){
 		   	response = response.split("/")
 		   	response = response[1] + "/" + response[2] + "/" + response[3] + "/" + response[4] + "/" + response[5]
 		   	// console.log(response, "JAJAJAJAJ")
@@ -239,7 +243,7 @@ function send_config(){
 		aside_hidden: panelizquierdo_hidden,
 		caducidad: caducidad !== "" ? caducidad : alma_config[1].caducidad,
 		time_bal: time !== "" ? time : "hour"
-	}).done(d => {
+	}).done(function(d){
 		if (d.match(/\<success\>/gim)){
 			$("#save-changes-config").notify("Sus cambios han sido guardados", {position:"left", className:"success"});
 		} 
@@ -257,7 +261,7 @@ function send_config(){
 		   data: formData,
 		   processData: false,
 		   contentType: false,
-		   success: ruta => {
+		   success: function(ruta){
 		   	 document.body.style.background = `url(../asistente/content/${alma_config[0].usuario}/img/${ruta})`
 		   	 document.body.style.backgroundSize = "cover"
 			 document.body.style.backgroundPosition = "center center"
@@ -274,7 +278,7 @@ function send_config(){
 					transparency: transparency !== "" ? transparency : alma_config[1].transparency,
 					background: rutaedit,
 					time_bal: time !== "" ? time : "hour"
-				}).done(d => {
+				}).done(function(d){
 					$("#save-changes-config").notify("Sus cambios han sido guardados", {position:"left", className:"success"});
 				})
 		  	 } else {
@@ -291,9 +295,11 @@ function send_config(){
 }
 
 const save_btn = document.getElementById("save-changes-config")
-save_btn.onclick = () => send_config()	
+save_btn.onclick = function(){
+	send_config()	
+}
 
-data_time_customized_balance.onchange = e => {
+data_time_customized_balance.onchange = function(e){
 	const timedef = document.getElementsByClassName("timedefbalc")
 	for (let x = 0; x < timedef.length; x++){
 		timedef[x].children[0].className = "ml-2 btn btn-info flex-grow-1"
@@ -307,7 +313,7 @@ let right = document.getElementsByClassName("rightimg")[0]
 let conjunt_images = document.getElementsByClassName("conjunt_images")
 //------------------- Al iniciar----------------------
 let scrollhormas = 0;
-left.onpointerdown = () => {
+left.onpointerdown = function(){
 	let maxscroll = conjunt_images[0].scrollWidth - 200
 	if (scrollhormas > 0 && scrollhormas <= maxscroll){
 		scrollhormas -= window.screen.width <= 390 ? 100 : 600  
@@ -317,7 +323,7 @@ left.onpointerdown = () => {
 		scrollhormas = maxscroll
 	}
 }
-right.onpointerdown = () => {
+right.onpointerdown = function(){
 	let maxscroll = conjunt_images[0].scrollWidth - 200
 	if (scrollhormas < maxscroll ){
 		scrollhormas +=  window.screen.width <= 390 ? 100 : 600  
@@ -334,13 +340,13 @@ conjunt_images[2].style.display = "none"
 //--------------------------------------------------
 
 //Al cambiar de conjunto de imagenes
-const show_1 = () => {
+function show_1(){
 	const show_1 = document.getElementById("show_1")
 	let scrollhormas = 0
-	show_1.onclick = () => {
+	show_1.onclick = function(){
 		// left.style.display = "block"
 		// right.style.display = "block"
-		left.onpointerdown = () => {
+		left.onpointerdown = function(){
 			let maxscroll = conjunt_images[0].scrollWidth - 200
 			if (scrollhormas > 0 && scrollhormas <= maxscroll){
 				scrollhormas -= window.screen.width <= 390 ? 100 : 600  
@@ -351,7 +357,7 @@ const show_1 = () => {
 			}
 			console.log(scrollhormas, maxscroll, conjunt_images[0].scrollWidth)
 		}
-		right.onpointerdown = () => {
+		right.onpointerdown = function(){
 			let maxscroll = conjunt_images[0].scrollWidth - 200
 
 			if (scrollhormas < maxscroll ){
@@ -372,13 +378,13 @@ const show_1 = () => {
 	}
 }
 
-const show_2 = () => {
+function show_2(){
 	const show_2 = document.getElementById("show_2")
 	let scrollhormas = 0
-	show_2.onclick = () => {
+	show_2.onclick = function(){
 		// left.style.display = "block"
 		// right.style.display = "block"
-		left.onpointerdown = () => {
+		left.onpointerdown = function(){
 			let maxscroll = conjunt_images[1].scrollWidth - 200
 			if (scrollhormas > 0 && scrollhormas <= maxscroll){
 				scrollhormas -= window.screen.width <= 390 ? 100 : 600  
@@ -389,7 +395,7 @@ const show_2 = () => {
 			}
 			console.log(scrollhormas, maxscroll, conjunt_images[1].scrollWidth)
 		}
-		right.onpointerdown = () => {
+		right.onpointerdown = function(){
 			let maxscroll = conjunt_images[1].scrollWidth - 200
 
 			if (scrollhormas < maxscroll ){
@@ -411,13 +417,13 @@ const show_2 = () => {
 	}
 }
 
-const show_3 = () => {
+function show_3(){
 	const show_3 = document.getElementById("show_3")
 	let scrollhormas = 0
-	show_3.onclick = () => {
+	show_3.onclick = function(){
 		// left.style.display = "block"
 		// right.style.display = "block"
-		left.onpointerdown = () => {
+		left.onpointerdown = function(){
 			let maxscroll = conjunt_images[2].scrollWidth - 200
 			if (scrollhormas > 0 && scrollhormas <= maxscroll){
 				scrollhormas -= window.screen.width <= 390 ? 100 : 600  
@@ -428,7 +434,7 @@ const show_3 = () => {
 			}
 			console.log(scrollhormas, maxscroll, conjunt_images[2].scrollWidth)
 		}
-		right.onpointerdown = () => {
+		right.onpointerdown = function(){
 			let maxscroll = conjunt_images[2].scrollWidth - 200
 
 			if (scrollhormas < maxscroll ){
@@ -450,14 +456,14 @@ const show_3 = () => {
 }
 
 
-const show_myphothos = () => {
+function show_myphothos(){
 	const show_myphothos = document.getElementById("show_myphothos")
 	let scrollhormas = 0
 
-	show_myphothos.onclick = () => {
+	show_myphothos.onclick = function(){
 		// left.style.display = "block"
 		// right.style.display = "block"
-		left.onpointerdown = () => {
+		left.onpointerdown = function(){
 			let maxscroll = conjunt_images[3].scrollWidth - 200
 			if (scrollhormas > 0 && scrollhormas <= maxscroll){
 				scrollhormas -= window.screen.width <= 390 ? 100 : 600  
@@ -468,7 +474,7 @@ const show_myphothos = () => {
 			}
 			console.log(scrollhormas, maxscroll, conjunt_images[3].scrollWidth)
 		}
-		right.onpointerdown = () => {
+		right.onpointerdown = function(){
 			let maxscroll = conjunt_images[3].scrollWidth - 200
 
 			if (scrollhormas < maxscroll ){

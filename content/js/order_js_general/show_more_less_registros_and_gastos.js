@@ -38,27 +38,59 @@ load_all_reg.onclick = () => {
 }
 
 const registros_men_respon = document.getElementsByClassName("men_data_registros")[0]
-const show_men = () => {
+function show_men(){
     const devipo = getDevicePixelRatio()
     if (devipo.toString() === "1" && window.screen.width >= 1024){
     } else if (devipo.toString().match(/0\.5/gim)){
         registros_men_respon.style.display = "none"
+        registros_men_respon.style.webkitDisplay = "none";
+        registros_men_respon.style.MozDisplay = "none";
+        registros_men_respon.style.msDisplay = "none";
+        registros_men_respon.style.oDisplay = "none";
     } else if (devipo.toString().match(/0\.25/gim)){
         registros_men_respon.style.display = "none"
+        registros_men_respon.style.webkitDisplay = "none";
+        registros_men_respon.style.MozDisplay = "none";
+        registros_men_respon.style.msDisplay = "none";
+        registros_men_respon.style.oDisplay = "none";
     } else if (devipo.toString().match(/0\.33/gim)){
         registros_men_respon.style.display = "none"
+        registros_men_respon.style.webkitDisplay = "none";
+        registros_men_respon.style.MozDisplay = "none";
+        registros_men_respon.style.msDisplay = "none";
+        registros_men_respon.style.oDisplay = "none";
     } else if (devipo.toString().match(/0\.6/gim)){
         registros_men_respon.style.display = "none"
+        registros_men_respon.style.webkitDisplay = "none";
+        registros_men_respon.style.MozDisplay = "none";
+        registros_men_respon.style.msDisplay = "none";
+        registros_men_respon.style.oDisplay = "none";
     } else if (devipo.toString().match(/0\.7/gim)){
         registros_men_respon.style.display = "none"
+        registros_men_respon.style.webkitDisplay = "none";
+        registros_men_respon.style.MozDisplay = "none";
+        registros_men_respon.style.msDisplay = "none";
+        registros_men_respon.style.oDisplay = "none";
     } else if (devipo.toString().match(/0\.80/gim)){
         registros_men_respon.style.display = "none"
+        registros_men_respon.style.webkitDisplay = "none";
+        registros_men_respon.style.MozDisplay = "none";
+        registros_men_respon.style.msDisplay = "none";
+        registros_men_respon.style.oDisplay = "none";
     } else if (devipo.toString().match(/0\.89/gim)){
         registros_men_respon.style.display = "flex"
+        registros_men_respon.style.webkitDisplay = "flex";
+        registros_men_respon.style.MozDisplay = "flex";
+        registros_men_respon.style.msDisplay = "flex";
+        registros_men_respon.style.oDisplay = "flex";
     } 
 
     if (window.screen.width <= 400){
         registros_men_respon.style.display = "flex"
+        registros_men_respon.style.webkitDisplay = "flex";
+        registros_men_respon.style.MozDisplay = "flex";
+        registros_men_respon.style.msDisplay = "flex";
+        registros_men_respon.style.oDisplay = "flex";
     }
 }
 show_men()
