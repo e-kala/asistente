@@ -16,12 +16,14 @@
 				$cnf_result = $conexion->query($consulta_cnf);
 				$fila = $cnf_result->fetch_object();
 
+				$status_account = $fila->privilegios;
 				$email = $fila->correo_usuario;
 				$data_cnf = $fila->usr_config;// obtiene configuracion en json
 				//$json = json_decode($data_cnf, TRUE); //lo convierte DE json A array
 				
 				$array = ["usuario" => $usuario]; //crea un array con el usuario
 				$array["email"] = $email;
+				$array["plan"] = $status_account; 
 				//array_push($array, $json);
 				$json_user = json_encode($array, TRUE); //convierte el array con el usuario a json
 				$deco = json_decode($data_cnf, TRUE);

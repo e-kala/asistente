@@ -46,12 +46,84 @@
 						<h4 class="m-4 pt-4 text-center">Cambiar personaje</h4>
 						<div class="container-pj d-flex justify-content-center flex-wrap">
 							<div class="conj_pj d-flex flex-column xiang">
-								<label> Xiang </label>
+								<label class="p-2 m-2 badge"> Xiang </label>
 								<img id="pjxiang" src="./content/img/iconos/facehappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer; background: #f2f2f2;" width="100px" height="100px">
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
-								<label> Buer </label>
+								<label class="p-2 m-2 badge"> Zump </label>
+								<img id="pjzump" src="./content/img/iconos/zumphappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="p-2 m-2 badge"> Voot </label>
+								<img id="pjvoot" src="./content/img/iconos/voothappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="p-2 m-2 badge"> Alird </label>
+								<img id="pjalird" src="./content/img/iconos/alirdhappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="badge badge-pill bg-transparent border border-warning p-2 font-weight-bold text-light m-2"> Buer <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
 								<img id="pjbuer" src="./content/img/iconos/bauhappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="badge badge-pill bg-transparent border border-warning p-2 font-weight-bold text-light m-2"> Mosaich <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<img id="pjmosaich" src="./content/img/iconos/mosaichappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="badge badge-pill bg-transparent border border-warning p-2 font-weight-bold text-light m-2"> Panwit <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<img id="pjpanwit" src="./content/img/iconos/panwithappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="badge badge-pill bg-transparent border border-warning p-2 font-weight-bold text-light m-2"> Yuno <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<img id="pjyuno" src="./content/img/iconos/yunohappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="badge badge-pill bg-transparent border border-warning p-2 font-weight-bold text-light m-2"> Mary <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<img id="pjmary" src="./content/img/iconos/maryhappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="badge badge-pill bg-transparent border border-warning p-2 font-weight-bold text-light m-2"> Toni <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<img id="pjplutoni" src="./content/img/iconos/plutonihappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="badge badge-pill bg-transparent border border-warning p-2 font-weight-bold text-light m-2"> Raw <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<img id="pjraw" src="./content/img/iconos/rawhappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="badge badge-pill bg-transparent border border-warning p-2 font-weight-bold text-light m-2"> Simga <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<img id="pjsimga" src="./content/img/iconos/simgahappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="badge badge-pill bg-transparent border border-warning p-2 font-weight-bold text-light m-2"> Bromo <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<img id="pjbromo" src="./content/img/iconos/bromohappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="badge badge-pill bg-transparent border border-warning p-2 font-weight-bold text-light m-2"> Vurb <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<img id="pjvurb" src="./content/img/iconos/vurbhappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="badge badge-pill bg-transparent border border-warning p-2 font-weight-bold text-light m-2"> Palie <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<img id="pjpalie" src="./content/img/iconos/paliehappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="badge badge-pill bg-transparent border border-warning p-2 font-weight-bold text-light m-2"> Jaino <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<img id="pjjaino" src="./content/img/iconos/jainohappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="badge badge-pill bg-transparent border border-warning p-2 font-weight-bold text-light m-2"> Komobit <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<img id="pjkomobit" src="./content/img/iconos/komobithappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="badge badge-pill bg-transparent border border-warning p-2 font-weight-bold text-light m-2"> Pacmin <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<img id="pjpacman" src="./content/img/iconos/pacmanhappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="badge badge-pill bg-transparent border border-warning p-2 font-weight-bold text-light m-2"> Dyn <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<img id="pjdyn" src="./content/img/iconos/dynhappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
+							</div>
+							<div class="conj_pj d-flex flex-column buer">
+								<label class="badge badge-pill bg-transparent border border-warning p-2 font-weight-bold text-light m-2"> Grenmo <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<img id="pjgrenmo" src="./content/img/iconos/grenmohappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 						</div>
 					</div>
@@ -109,9 +181,9 @@
 				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="apariencia">
 					<div class="apariencia pb-4 card bg-transparent border-0 d-flex flex-column">
 						<h4 class="m-4 pt-4 text-center"> Personalizar estilo </h4>
-						<div class="d-flex flex-wrap justify-content-center">
-							<h4 class="m-4 pl-4 text-center"> Transparencia </h4>
-							<input class="flex-grow-1 ml-4 mr-4" min="0" max="1" type="range" name="slide_transparency" step="0.1" id="slide_transparency">
+						<div class="d-flex flex-wrap justify-content-center transparencia-div">
+							<h4 class="m-4 pl-4 text-center"> Transparencia <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i></h4>
+							<input class="flex-grow-1 ml-4 mr-4" min="0" max="1" type="range" name="slide_transparency" step="0.1" id="slide_transparency" style="cursor:pointer;">
 							<span id="value_slide_transparency" class="p-4 mr-4"></span>
 						</div>
 						<h4 class="m-4 text-center"> Cambiar fondo </h4>

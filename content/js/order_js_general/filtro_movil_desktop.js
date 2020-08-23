@@ -171,9 +171,6 @@ function search = (formreg, tadores, menreg, find, config){
 
 search(formreg, tadores, menreg, find, { mode: "movil"})
 
-    
-
-
 function closeclick(e){
     let n = e.getAttribute("name")
 

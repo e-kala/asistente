@@ -104,7 +104,7 @@ function iters(status, modss, boxes_inn, registrosg, txtcolor, tadoreschangemod)
 
     if (cotextmennavtop_color_bottons_header !== undefined) {
       for (let x = 0; x < cotextmennavtop_color_bottons_header.length; x++){  
-        if (window.screen.width >= 670){
+        if (window.innerWidth >= 1000){
           if (status === "dark"){
             cotextmennavtop_color_bottons_header[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-light"
           } else {

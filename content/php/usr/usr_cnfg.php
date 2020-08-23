@@ -161,16 +161,69 @@
 		if (json[1].pj_change !== "" && json[1].pj_change !== null & json[1].pj_change !== undefined){
 			const xiang = document.getElementById("pjxiang")
 			const buer = document.getElementById("pjbuer")
+			const mosaich = document.getElementById("pjmosaich")
+			const voot = document.getElementById("pjvoot")
+			const zump = document.getElementById("pjzump")
+			const alird = document.getElementById("pjalird")
+			const panwit = document.getElementById("pjpanwit")
+			const yuno = document.getElementById("pjyuno")
+			const raw = document.getElementById("pjraw")
+			const simga = document.getElementById("pjsimga")
+			const bromo = document.getElementById("pjbromo")
+			const plutoni = document.getElementById("pjplutoni")
+			const vurb = document.getElementById("pjvurb")
+			const palie = document.getElementById("pjpalie")
+			const jaino = document.getElementById("pjjaino")
+			const komobit = document.getElementById("pjkomobit")
+			const mary = document.getElementById("pjmary")
+			const pacman = document.getElementById("pjpacman")
+			const dyn = document.getElementById("pjdyn")
+			const grenmo = document.getElementById("pjgrenmo")
 			const oficial_pj = document.getElementsByClassName("cara")[0]
 
 			if (xiang !== null && xiang !== undefined && json[1].pj_change.match(/face/gim)) xiang.style.border = "4px solid rgb(29,226,195)"
 			if (buer !== null && buer !== undefined && json[1].pj_change.match(/bau/gim)) buer.style.border = "4px solid rgb(29,226,195)"
-
+			if (mosaich !== null && mosaich !== undefined && json[1].pj_change.match(/mosaic/gim)) mosaich.style.border = "4px solid rgb(29,226,195)"
+			if (voot !== null && voot !== undefined && json[1].pj_change.match(/voot/gim)) voot.style.border = "4px solid rgb(29,226,195)"
+			if (zump !== null && zump !== undefined && json[1].pj_change.match(/zump/gim)) zump.style.border = "4px solid rgb(29,226,195)"
+			if (alird !== null && alird !== undefined && json[1].pj_change.match(/alird/gim)) alird.style.border = "4px solid rgb(29,226,195)"
+			if (panwit !== null && panwit !== undefined && json[1].pj_change.match(/panwit/gim)) panwit.style.border = "4px solid rgb(29,226,195)"
+			if (yuno !== null && yuno !== undefined && json[1].pj_change.match(/yuno/gim)) yuno.style.border = "4px solid rgb(29,226,195)"
+			if (raw !== null && raw !== undefined && json[1].pj_change.match(/raw/gim)) raw.style.border = "4px solid rgb(29,226,195)"
+			if (simga !== null && simga !== undefined && json[1].pj_change.match(/simga/gim)) simga.style.border = "4px solid rgb(29,226,195)"
+			if (bromo !== null && bromo !== undefined && json[1].pj_change.match(/bromo/gim)) bromo.style.border = "4px solid rgb(29,226,195)"
+			if (plutoni !== null && plutoni !== undefined && json[1].pj_change.match(/plutoni/gim)) plutoni.style.border = "4px solid rgb(29,226,195)"
+			if (vurb !== null && vurb !== undefined && json[1].pj_change.match(/vurb/gim)) vurb.style.border = "4px solid rgb(29,226,195)"
+			if (palie !== null && palie !== undefined && json[1].pj_change.match(/palie/gim)) palie.style.border = "4px solid rgb(29,226,195)"
+			if (jaino !== null && jaino !== undefined && json[1].pj_change.match(/jaino/gim)) jaino.style.border = "4px solid rgb(29,226,195)"
+			if (komobit !== null && komobit !== undefined && json[1].pj_change.match(/komobit/gim)) komobit.style.border = "4px solid rgb(29,226,195)"
+			if (mary !== null && mary !== undefined && json[1].pj_change.match(/mary/gim)) mary.style.border = "4px solid rgb(29,226,195)"
+			if (pacman !== null && pacman !== undefined && json[1].pj_change.match(/pacman/gim)) pacman.style.border = "4px solid rgb(29,226,195)"
+			if (dyn !== null && dyn !== undefined && json[1].pj_change.match(/dyn/gim)) dyn.style.border = "4px solid rgb(29,226,195)"
+			if (grenmo !== null && grenmo !== undefined && json[1].pj_change.match(/grenmo/gim)) grenmo.style.border = "4px solid rgb(29,226,195)"
 		} else {
 			const xiang = document.getElementById("pjxiang")
 			const buer = document.getElementById("pjbuer")
 			if (xiang !== null && xiang !== undefined) xiang.style.border = ""
 			if (buer !== null && buer !== undefined) buer.style.border = ""
+			if (mosaich !== null && mosaich !== undefined) mosaich.style.border = ""
+			if (voot !== null && voot !== undefined) voot.style.border = ""
+			if (zump !== null && zump !== undefined) zump.style.border = ""
+			if (alird !== null && alird !== undefined) alird.style.border = ""
+			if (panwit !== null && panwit !== undefined) panwit.style.border = ""
+			if (yuno !== null && yuno !== undefined) yuno.style.border = ""
+			if (raw !== null && raw !== undefined) raw.style.border = ""
+			if (simga !== null && simga !== undefined) simga.style.border = ""
+			if (bromo !== null && bromo !== undefined) bromo.style.border = ""
+			if (plutoni !== null && plutoni !== undefined) plutoni.style.border = ""
+			if (vurb !== null && vurb !== undefined) vurb.style.border = ""
+			if (palie !== null && palie !== undefined) palie.style.border = ""
+			if (jaino !== null && jaino !== undefined) jaino.style.border = ""
+			if (komobit !== null && komobit !== undefined) komobit.style.border = ""
+			if (mary !== null && mary !== undefined) mary.style.border = ""
+			if (pacman !== null && pacman !== undefined) pacman.style.border = ""
+			if (dyn !== null && dyn !== undefined) dyn.style.border = ""
+			if (grenmo !== null && grenmo !== undefined) grenmo.style.border = ""
 		}
 
 

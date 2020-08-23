@@ -10,7 +10,6 @@ function readjust_pattern(){
 }
 
 
-
 function resize_modulos(){
 	//Restricción de flexibilidad para modulos superiores Info y Movimientos
 	if (modsco_especify_moduls[0] !== undefined){ //Modulos no flexibles, flexible solo la seccion de grafico
@@ -415,11 +414,9 @@ function menu_header_top_adjust(screen){
 				    	cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-dark"    
 				    }
 			    }
-				
-			
 			}
 		} else {
-			menu_header_container.className = "m-2 d-flex flex-column justify-content-center align-content-center align-items-center menu-header-top"
+			menu_header_container.className = "m-2 d-flex flex-column justify-content-center align-content-center align-items-center menu-header-top text-dark"
 			menu_header_container.style.listStyleType = "none"
 			menu_header_container.style.webkitListStyleType = "none";
 			menu_header_container.style.MozListStyleType = "none";
@@ -441,11 +438,11 @@ function menu_header_top_adjust(screen){
 			menu_rallas.appendChild(menu_header_container)
 			if (cotextmennavtop_ !== undefined && cotextmennavtop_ !== null){
 				for (let x = 0; x < cotextmennavtop_.length; x++){
-					if (window.config[1].mode === "dark"){
-						cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-light"
-					} else {
+					// if (window.config[1].mode === "dark"){
+					// 	cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-light"
+					// } else {
 						cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-dark"
-					}
+					// }
 				}
 			} 
 		}

@@ -59,6 +59,7 @@ if (document.getElementsByClassName("panel-log-reg")[0] !== undefined &&
   window.location.href = "index.php"
 } 
 
+
 function dark(){
     header_session.className = "navbar mb-4 p-4"
     header_session.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
@@ -68,6 +69,8 @@ function dark(){
     header_session.style.oBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
 
     text_he.className = "navbar-brand text-light text-he font-weight-bold"
+
+  
  
     if (modscodown !== undefined){
       modscodown.className = window.screen.width >=800 ? "accordion pl-4 pr-4 pb-4  modulos modscodow text-dark" : "accordion  modulos modscodow text-dark";

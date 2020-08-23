@@ -4,6 +4,7 @@ let change_use_mode_init_or_client = false
 let [time, bg, transparency] = ["hour", "", document.getElementById("slide_transparency").value]
 let [files, caducidad, pj, personaje_hidden, panelizquierdo_hidden] = ["","", "", false, false]
 
+const slide_transparency = document.getElementById("slide_transparency")
 
 function element_to_change_style_mode(){
 	const navbar = document.getElementsByClassName("navbar")[0]
@@ -20,50 +21,61 @@ function element_to_change_style_mode(){
 	}
 }
 
-const slide_transparency = document.getElementById("slide_transparency")
-slide_transparency.onpointermove = function(e){
-	let valor = e.target.value
-	value_slide_transparency = document.getElementById("value_slide_transparency")
-	value_slide_transparency.innerHTML = valor
 
-	if (valor !== "0"){
-		transparency = valor
-	} else if (valor === ""){
-		transparency = alma_config[1].transparency
-	} else {
-		transparency = "0.0"
-	}
-	console.log(transparency, "transparency")
-	
-	if (mode_client === ""){
-		mode_client = alma_config[1].mode === "dark" ? true : false
-	} else {
-		mode_client = mode_client
-	}
-	
-	element_to_change_style_mode()
-}
+$(function(){
+	if (window.config[0].plan === "premium"){
+		document.getElementById("slide_transparency").disabled = false
+		document.getElementById("slide_transparency").title = ""
+		slide_transparency.onpointermove = function(e){
+			let valor = e.target.value
+			value_slide_transparency = document.getElementById("value_slide_transparency")
+			value_slide_transparency.innerHTML = valor
 
-slide_transparency.onclick = function(e){
-	let valor = e.target.value
-	value_slide_transparency = document.getElementById("value_slide_transparency")
-	value_slide_transparency.innerHTML = valor
+			if (valor !== "0"){
+				transparency = valor
+			} else if (valor === ""){
+				transparency = alma_config[1].transparency
+			} else {
+				transparency = "0.0"
+			}
+			console.log(transparency, "transparency")
+			
+			if (mode_client === ""){
+				mode_client = alma_config[1].mode === "dark" ? true : false
+			} else {
+				mode_client = mode_client
+			}
+			
+			element_to_change_style_mode()
+		}
+		slide_transparency.onclick = function(e){
+			let valor = e.target.value
+			value_slide_transparency = document.getElementById("value_slide_transparency")
+			value_slide_transparency.innerHTML = valor
 
-	if (valor !== "0"){
-		transparency = valor
-	} else if (valor === ""){
-		transparency = alma_config[1].transparency
-	} else {
-		transparency = "0.0"
-	}
+			if (valor !== "0"){
+				transparency = valor
+			} else if (valor === ""){
+				transparency = alma_config[1].transparency
+			} else {
+				transparency = "0.0"
+			}
 
-	if (mode_client === ""){
-		mode_client = alma_config[1].mode === "dark" ? true : false
+			if (mode_client === ""){
+				mode_client = alma_config[1].mode === "dark" ? true : false
+			} else {
+				mode_client = mode_client
+			}
+			element_to_change_style_mode()
+		}
+
 	} else {
-		mode_client = mode_client
+		document.getElementById("slide_transparency").disabled = true
+		document.getElementById("slide_transparency").title = "Reservado para el modo premium"
 	}
-	element_to_change_style_mode()
-}
+})
+
+
 
 const data_time_customized_balance = document.getElementsByName("data_balanc_custom")[0]
 const default_value_data = data_time_customized_balance.defaultValue
@@ -163,17 +175,34 @@ function check_hidden_elements(){
 check_hidden_elements()
 
 function select_pj(e){
-	for (let y = 0; y < e.length; y++){
-		e[y].onpointerdown = function(){
-			e[y].style.border = "4px solid #1DE2C3"
-			pj = e[y].getAttribute("src")
-			for (let x = 0; x < e.length; x++){
-				if (x !== y){
-					e[x].style.border =  "4px solid transparent"
+	$(function(){
+		let count = 0; //Hasta el 4
+		for (let y = 0; y < e.length; y++){
+			if (count < 4 && window.config[0].plan != "premium" ){
+				count += 1
+				e[y].onpointerdown = function(){
+					e[y].style.border = "4px solid #1DE2C3"
+					pj = e[y].getAttribute("src")
+					for (let x = 0; x < e.length; x++){
+						if (x !== y){
+							e[x].style.border =  "4px solid transparent"
+						}
+					}
 				}
+			} else if (window.config[0].plan === "premium") {
+				e[y].onpointerdown = function(){
+					e[y].style.border = "4px solid #1DE2C3"
+					pj = e[y].getAttribute("src")
+					for (let x = 0; x < e.length; x++){
+						if (x !== y){
+							e[x].style.border =  "4px solid transparent"
+						}
+					}
+				}
+				document.getElementsByTagName("label")[y].className = "p-2 m-2 badge"
 			}
 		}
-	}
+	})
 }
 
 select_pj(document.getElementsByClassName("pj"))
@@ -500,4 +529,9 @@ show_1()
 show_2()
 show_3()
 show_myphothos()
+
+
+
+
+
 

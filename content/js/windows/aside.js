@@ -24,6 +24,10 @@ function resize_window_aside(aside){
 	asideicon.setAttribute("src","./content/img/iconos/asideicono.png")
 	asideicon.setAttribute("width", "50px")
 
+	asideicon.ondragstart = function (){
+		return false
+	}
+
 	asideicon.style.left = "0px"
 	asideicon.style.webkitLeft = "0px";
     asideicon.style.MozLeft = "0px";
@@ -1159,7 +1163,6 @@ function Aside(username){
 	img.className += "caras"
 	img.setAttribute("width", "50%")
 
-	img.style.background = "#909090"
 	img.style.borderRadius = "100%"
 	img.ondragstart = function(){
 		return false
@@ -1188,6 +1191,42 @@ function Aside(username){
 					img.setAttribute("src","./content/img/iconos/bauangry.gif")
 				} else if (confpj.match(/face/gim)){
 					img.setAttribute("src","./content/img/iconos/faceangry.gif")
+				} else if (confpj.match(/mosaich/gim)){
+					img.setAttribute("src","./content/img/iconos/mosaicangry.gif")
+				} else if (confpj.match(/voot/gim)){
+					img.setAttribute("src","./content/img/iconos/vootangry.gif")
+				} else if (confpj.match(/zump/gim)){
+					img.setAttribute("src","./content/img/iconos/zumpangry.gif")
+				} else if (confpj.match(/alird/gim)){
+					img.setAttribute("src","./content/img/iconos/alirdangry.gif")
+				} else if (confpj.match(/panwit/gim)){
+					img.setAttribute("src","./content/img/iconos/panwitangry.gif")
+				} else if (confpj.match(/yuno/gim)){
+					img.setAttribute("src","./content/img/iconos/yunoangry.gif")
+				} else if (confpj.match(/raw/gim)){
+					img.setAttribute("src","./content/img/iconos/rawangry.gif")
+				} else if (confpj.match(/simga/gim)){
+					img.setAttribute("src","./content/img/iconos/simgaangry.gif")
+				} else if (confpj.match(/bromo/gim)){
+					img.setAttribute("src","./content/img/iconos/bromoangry.gif")
+				} else if (confpj.match(/plutoni/gim)){
+					img.setAttribute("src","./content/img/iconos/plutoniangry.gif")
+				} else if (confpj.match(/vurb/gim)){
+					img.setAttribute("src","./content/img/iconos/vurbangry.gif")
+				} else if (confpj.match(/palie/gim)){
+					img.setAttribute("src","./content/img/iconos/palieangry.gif")
+				} else if (confpj.match(/jaino/gim)){
+					img.setAttribute("src","./content/img/iconos/jainoangry.gif")
+				} else if (confpj.match(/komobit/gim)){
+					img.setAttribute("src","./content/img/iconos/komobitangry.gif")
+				} else if (confpj.match(/mary/gim)){
+					img.setAttribute("src","./content/img/iconos/maryangry.gif")
+				} else if (confpj.match(/pacman/gim)){
+					img.setAttribute("src","./content/img/iconos/pacmanangry.gif")
+				} else if (confpj.match(/dyn/gim)){
+					img.setAttribute("src","./content/img/iconos/dynangry.gif")
+				} else if (confpj.match(/grenmo/gim)){
+					img.setAttribute("src","./content/img/iconos/grenmoangry.gif")
 				}
 			} else {
 				img.setAttribute("src", "./content/img/iconos/bauangry.gif")
@@ -1253,6 +1292,42 @@ function Aside(username){
 				if (confpj.match(/bau/gim)){
 					img.setAttribute("src",confpj)
 				} else if (confpj.match(/face/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/mosaic/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/voot/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/zump/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/alird/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/panwit/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/yuno/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/raw/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/simga/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/bromo/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/plutoni/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/vurb/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/palie/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/jaino/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/komobit/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/mary/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/pacman/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/dyn/gim)){
+					img.setAttribute("src",confpj)
+				} else if (confpj.match(/grenmo/gim)){
 					img.setAttribute("src",confpj)
 				}
 			} else {

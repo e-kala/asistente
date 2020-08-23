@@ -114,6 +114,12 @@ session_start();
                   include 'content/php/modulos/movimientos/gastos/gastos.php';   
                break;
 
+               case 'premium': 
+                  echo '<img src="./content/img/iconos/load2.gif" width="140px" id="loadingg">';
+                  include 'content/php/navbar.php';
+                  include 'content/php/premium.php';   
+               break;
+
                case 'transferencias':
                    echo '<img src="./content/img/iconos/load2.gif" width="140px" id="loadingg">';
                    include 'content/php/navbar.php';
