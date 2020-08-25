@@ -1,27 +1,31 @@
 
 <div class=" inicio-container">
 	<div>
-		<div class="header_inicio">
-			<div class="headerinit">
-				<span class="loinan">E</span>
-				<span class="loinan">k</span>
-				<span class="loinan">a</span>
-				<span class="loinan">s</span>
-				<span class="loinan">i</span>
-				<span class="loinan">s</span>
-				<span class="loinan">t</span>
-				<span class="loinan">e</span>
-				<span class="loinan">n</span>
-				<span class="loinan">t</span>
-			</div>
-			<!-- <div class=" text-center state_init_mainpage_label">
-				<h2>Iniciar Sesión</h2>
-			</div> -->
-			<div class="panel-log-reg">
-				<a class="btn btn-light float-right login-btn" role="button">Iniciar Sesión</a>
-				<a class="btn btn-light mr-2 float-right registro-btn" href="?action=registro" role="button">Registrarse</a>
+		<div class="container-fluid header_inicio ">
+			<div class="row">
+				<div class="headerinit col-md-9 ">
+					<img src="./content/img/logoAsistentev0.6.2.png" width="50px" height="50px" class="p-2">
+					<span class="loinan">E</span>
+					<span class="loinan">k</span>
+					<span class="loinan">a</span>
+					<span class="loinan">s</span>
+					<span class="loinan">i</span>
+					<span class="loinan">s</span>
+					<span class="loinan">t</span>
+					<span class="loinan">e</span>
+					<span class="loinan">n</span>
+					<span class="loinan">t</span>
+				</div>
+				<!-- <div class=" text-center state_init_mainpage_label">
+					<h2>Iniciar Sesión</h2>
+				</div> -->
+				<div class="panel-log-reg m-0 p-0  col-md-3 d-flex align-items-center justify-content-center flex-wrap">
+					<a class="border rounded btn-link p-1 text-light flex-grow-1 m-1 login-btn" role="button" href="#">Iniciar Sesión</a>
+					<a class="border rounded btn-link p-1 text-light flex-grow-1 m-1 registro-btn" href="?action=registro" role="button">Registrarse</a>
+				</div>
 			</div>
 		</div>
+
 		<div id="logpan" style="display: none;" align="center">
 			<div id="root" class=" p-3 text-center" align="center" > 
 			</div>
@@ -30,13 +34,57 @@
 			</div>
 		</div>
 		<div class="divbgmain">
-			
+		</div>
+
+		<!-- bodyfond -->
+		<div class="backgpais container-fluid align-items-center d-flex justify-content-center">
+			<div class=" p-4 " style="border-radius: 40px; -webkit-border-radius:40px; -moz-border-radius:40px; -o-border-radius:40px; -ms-border-radius:40px;  background: rgb(255,255,255,0.50);">
+				<div class=" p-4" >
+					<img src="./content/img/logoAsistentev0.14.png" width="150px" class="p-1 animarbologinicio">
+					<h3 class="p-4 mb-3 text-dark font-weight-bold" style="border-bottom: 4px solid #fff;">Una semilla cuidada es un fruto infinito</h3>
+					<a href="#" class="btn mt-3 text-light btn-success btn-lg font-weight-bold badge-pill login-btn" >
+						Acceder
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- footerini -->
+		<div class="container-fluid bg-light">
+			<div class="bg-transparent border-0">
+				<div class="p-4 row ">
+					<div class="col-md-4 col-sm-6 col-xs-12 p-4 d-flex flex-column  align-items-center justify-content-center " >
+						<img src="./content/img/collagepj.png" width="200px">
+						<h4 class="text-center p-4 text-dark">Un personaje que siempre estará pendiente de tus finanzas</h4>
+						<span class="badge-pill border p-2 text-dark font-weight-bold"><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i></span>
+					</div>
+					<div class="col-md-4 col-sm-6 col-xs-12 p-4 d-flex flex-column align-items-center justify-content-center " >
+						<img src="./content/img/balico.png" width="200px">
+						<h4 class="text-center p-4 text-dark">Datos estadísticos y predictivos acerca de tus gastos e ingresos</h4>
+						<span class="badge-pill border p-2 text-dark font-weight-bold"><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i></span>
+					</div>
+					<div class="col-md-4 col-sm-12 col-xs-12 p-4 d-flex flex-column align-items-center justify-content-center " >
+						<img src="./content/img/organiz.png" width="200px">
+						<h4 class="text-center p-4 text-dark">Herramientas y recursos interactivos para complementar las operaciones</h4>
+						<span class="badge-pill border p-2 text-dark font-weight-bold"><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i></span>
+					</div>
+				</div>
+			</div>
 		</div>
 		<script type="text/javascript">
-				const login_btn = document.getElementsByClassName("login-btn")[0]
+				const login_btn = document.getElementsByClassName("login-btn")
+
 				const logpan = document.getElementById("logpan")
 				logpan.style.zIndex = "20"
-				login_btn.onclick = () => {
+				login_btn[0].onclick = () => {
+					logpan.style.display = "block"
+					logpan.animate([{
+						opacity:0
+					},{
+						opacity:1
+					}],{duration:1000, iterations:1})	
+				}
+				login_btn[1].onclick = () => {
 					logpan.style.display = "block"
 					logpan.animate([{
 						opacity:0
@@ -166,7 +214,7 @@
 				destiny.appendChild(div)
 			}
 
-			publici("body")
+			// publici("body")
 
 		</script>
 

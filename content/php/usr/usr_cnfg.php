@@ -204,6 +204,26 @@
 		} else {
 			const xiang = document.getElementById("pjxiang")
 			const buer = document.getElementById("pjbuer")
+			const mosaich = document.getElementById("pjmosaich")
+			const voot = document.getElementById("pjvoot")
+			const zump = document.getElementById("pjzump")
+			const alird = document.getElementById("pjalird")
+			const panwit = document.getElementById("pjpanwit")
+			const yuno = document.getElementById("pjyuno")
+			const raw = document.getElementById("pjraw")
+			const simga = document.getElementById("pjsimga")
+			const bromo = document.getElementById("pjbromo")
+			const plutoni = document.getElementById("pjplutoni")
+			const vurb = document.getElementById("pjvurb")
+			const palie = document.getElementById("pjpalie")
+			const jaino = document.getElementById("pjjaino")
+			const komobit = document.getElementById("pjkomobit")
+			const mary = document.getElementById("pjmary")
+			const pacman = document.getElementById("pjpacman")
+			const dyn = document.getElementById("pjdyn")
+			const grenmo = document.getElementById("pjgrenmo")
+			const oficial_pj = document.getElementsByClassName("cara")[0]
+
 			if (xiang !== null && xiang !== undefined) xiang.style.border = ""
 			if (buer !== null && buer !== undefined) buer.style.border = ""
 			if (mosaich !== null && mosaich !== undefined) mosaich.style.border = ""

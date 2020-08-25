@@ -5,11 +5,11 @@ body{
     -o-position: relative;
     -webkit-position: relative;
 
-	background: url(../img/bg6.gif);
-	-moz-position: url(../img/bg6.gif);
-    -ms-position: url(../img/bg6.gif);
-    -o-position: url(../img/bg6.gif);
-    -webkit-position: url(../img/bg6.gif);
+	background: url(../img/fondoplan.png);
+	-moz-background: url(../img/fondoplan.png);
+    -ms-background: url(../img/fondoplan.png);
+    -o-background: url(../img/fondoplan.png);
+    -webkit-background: url(../img/fondoplan.png);
 
 	background-size: cover;
 	-moz-background-size: cover;
@@ -29,18 +29,46 @@ body{
     -o-background-repeat: no-repeat;
     -webkit-background-repeat: no-repeat;
 
-	background-position: left 0% bottom 300%;
-	-moz-background-position: left 0% bottom 300%;
-    -ms-background-position: left 0% bottom 300%;
-    -o-background-position: left 0% bottom 300%;
-    -webkit-background-position: left 0% bottom 300%;
+	background-position: center center;
+	-moz-background-position: center center;
+    -ms-background-position: center center;
+    -o-background-position: center center;
+    -webkit-background-position: center center;
 
-	background-color: #070f3c;
-	-moz-background-color: #070f3c;
-    -ms-background-color: #070f3c;
-    -o-background-color: #070f3c;
-    -webkit-background-color: #070f3c;
+	background-color: #FFF818;
+	-moz-background-color: #FFF818;
+    -ms-background-color: #FFF818;
+    -o-background-color: #FFF818;
+    -webkit-background-color: #FFF818;
 
+}
+
+.backgpais{
+	 background: url(../img/fondoplan.png);
+	-moz-background: url(../img/fondoplan.png);
+    -ms-background: url(../img/fondoplan.png);
+    -o-background: url(../img/fondoplan.png);
+    -webkit-background: url(../img/fondoplan.png);
+
+	background-size: cover;
+	-moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+
+	background-repeat: no-repeat;
+	-moz-background-repeat: no-repeat;
+    -ms-background-repeat: no-repeat;
+    -o-background-repeat: no-repeat;
+    -webkit-background-repeat: no-repeat;
+
+	background-position: center center;
+	-moz-background-position: center center;
+    -ms-background-position: center center;
+    -o-background-position: center center;
+    -webkit-background-position: center center;
+
+    min-height: 100vh;
 }
 
 .header_inicio{
@@ -54,7 +82,7 @@ body{
 	/*border-bottom: 2px solid #fff;*/
 	/*background: linear-gradient(to  left, #452F67, #593B8D);*/
 	/*box-shadow: inset -10px -50px 80px -10px #3b4660;*/
-	display: flex;
+	/*display: flex;
 	-moz-display: flex;
     -ms-display: flex;
     -o-display: flex;
@@ -67,7 +95,7 @@ body{
     -webkit-flex-flow: wrap row;
 
 	/*justify-content: space-between;*/
-	align-content: center;
+	/*align-content: center;
 	-moz-align-content: center;
     -ms-align-content: center;
     -o-align-content: center;
@@ -77,10 +105,10 @@ body{
 	-moz-align-items: center;
     -ms-align-items: center;
     -o-align-items: center;
-    -webkit-align-items: center;
+    -webkit-align-items: center;*/
 
 	transition: ease all 0.3s;
-	padding: 20px;
+	/*padding: 20px;*/
 }
 .header_inicio:hover{
 	transition: ease all 0.3s;
@@ -288,42 +316,17 @@ body{
 }
 
 .panel-log-reg{
-	position: absolute;
+	/*position: absolute;
 	-moz-position: absolute;
     -ms-position: absolute;
     -o-position: absolute;
-    -webkit-position: absolute;
+    -webkit-position: absolute;*/
 
-	-moz-position: absolute;
-	-moz-position: absolute;
-    -ms-position: absolute;
-    -o-position: absolute;
-    -webkit-position: absolute;
-
-    -ms-position: absolute;
-    -moz-position: absolute;
-    -ms-position: absolute;
-    -o-position: absolute;
-    -webkit-position: absolute;
-
-    -o-position: absolute;
-    -moz-position: absolute;
-    -ms-position: absolute;
-    -o-position: absolute;
-    -webkit-position: absolute;
-
-    -webkit-position: absolute;
-    -moz-position: absolute;
-    -ms-position: absolute;
-    -o-position: absolute;
-    -webkit-position: absolute;
-
-
-	right: 0;
-	top: 20px;
+	/*right: 0;*/
+	/*top: 20px;*/
 	
-	margin: 15px;
-	flex-grow: 1;
+	/*margin: 15px;*/
+	/*flex-grow: 1;*/
 }
 
 .login-change-way{
@@ -532,6 +535,22 @@ body{
 	border-radius: 14px;
 }
 
+.animarbologinicio{
+	border-radius: 100%;
+	animation: animarbolog linear 2s infinite;
+}
+
+@keyframes animarbolog{
+	from{
+		transform:  scale(0.9);
+	}
+	50%{
+		transform: scale(1);
+	}
+	to{
+		transform:  scale(0.9);
+	}
+}
 
 
  /*-----------------------------------------------------*/

@@ -1,25 +1,25 @@
-if (document.getElementsByClassName("headerinit")[0] !== undefined && document.getElementsByClassName("headerinit")[0] !== null){
-	document.getElementsByClassName("headerinit")[0].style.opacity = "0"
-	setTimeout(function(){
-		document.getElementsByClassName("headerinit")[0].style.opacity = "1"
-		document.getElementsByClassName("headerinit")[0].animate([{
-			transform:"scale(0)"
-		},{
-			transform:"scale(1)"
-		}],{duration:400, iterations:1})
-		for (let x = 0; x < document.getElementsByClassName("loinan").length; x++){
-			document.getElementsByClassName("loinan")[x].animate([{
-				opacity:Math.random(),
-				marginLeft:"14px",
-				transform:`scale(${Math.random()}) rotate(${ Math.random()* -150 }deg) translate(${x % 2? Math.random()* -150 : 150}%, ${x % 2? Math.random()* -150 : 150}%)`
-			},{
-				opacity:1,
-				marginLeft:"1px",
-				transform:`scaleX(${1})`
-			}],{duration:3000, iterations:1})
-		}
-	},500)
-}
+// if (document.getElementsByClassName("headerinit")[0] !== undefined && document.getElementsByClassName("headerinit")[0] !== null){
+// 	document.getElementsByClassName("headerinit")[0].style.opacity = "0"
+// 	setTimeout(function(){
+// 		document.getElementsByClassName("headerinit")[0].style.opacity = "1"
+// 		document.getElementsByClassName("headerinit")[0].animate([{
+// 			transform:"scale(0)"
+// 		},{
+// 			transform:"scale(1)"
+// 		}],{duration:400, iterations:1})
+// 		for (let x = 0; x < document.getElementsByClassName("loinan").length; x++){
+// 			document.getElementsByClassName("loinan")[x].animate([{
+// 				opacity:Math.random(),
+// 				marginLeft:"14px",
+// 				transform:`scale(${Math.random()}) rotate(${ Math.random()* -150 }deg) translate(${x % 2? Math.random()* -150 : 150}%, ${x % 2? Math.random()* -150 : 150}%)`
+// 			},{
+// 				opacity:1,
+// 				marginLeft:"1px",
+// 				transform:`scaleX(${1})`
+// 			}],{duration:3000, iterations:1})
+// 		}
+// 	},500)
+// }
 
 
 function banplan(destiny){

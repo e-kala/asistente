@@ -10,8 +10,10 @@ let calcuresizemoving = false
 function resize_window_aside(aside){
 	let modss = document.getElementsByClassName("accordion")
 	let navbar = document.getElementsByClassName("navbar")[0]
-	navbar.onpointerover = function(e){
-		document.body.style.cursor = ""
+	if (navbar !== undefined && navbar !== null){
+		navbar.onpointerover = function(e){
+			document.body.style.cursor = ""
+		}
 	}
 
 	let pase = true
@@ -1182,8 +1184,8 @@ function Aside(username){
 
 	let balcontent = document.getElementsByClassName("balactual")[0]
 
-	let confpj = window.config[1].pj_change
 	if (balcontent !== undefined && balcontent !==null){
+		let confpj =  window.config[1].pj_change
 		const divnoti = document.createElement("span")
 		if (balcontent.textContent.match(/\-/gim)){
 			if (confpj !== "" && confpj !== null && confpj !== undefined){
@@ -1209,6 +1211,7 @@ function Aside(username){
 					img.setAttribute("src","./content/img/iconos/simgaangry.gif")
 				} else if (confpj.match(/bromo/gim)){
 					img.setAttribute("src","./content/img/iconos/bromoangry.gif")
+					img.setAttribute("width", "70%")
 				} else if (confpj.match(/plutoni/gim)){
 					img.setAttribute("src","./content/img/iconos/plutoniangry.gif")
 				} else if (confpj.match(/vurb/gim)){
@@ -1221,6 +1224,7 @@ function Aside(username){
 					img.setAttribute("src","./content/img/iconos/komobitangry.gif")
 				} else if (confpj.match(/mary/gim)){
 					img.setAttribute("src","./content/img/iconos/maryangry.gif")
+					img.setAttribute("width", "70%")
 				} else if (confpj.match(/pacman/gim)){
 					img.setAttribute("src","./content/img/iconos/pacmanangry.gif")
 				} else if (confpj.match(/dyn/gim)){
@@ -1311,6 +1315,7 @@ function Aside(username){
 					img.setAttribute("src",confpj)
 				} else if (confpj.match(/bromo/gim)){
 					img.setAttribute("src",confpj)
+					img.setAttribute("width", "60%")
 				} else if (confpj.match(/plutoni/gim)){
 					img.setAttribute("src",confpj)
 				} else if (confpj.match(/vurb/gim)){
@@ -1323,6 +1328,7 @@ function Aside(username){
 					img.setAttribute("src",confpj)
 				} else if (confpj.match(/mary/gim)){
 					img.setAttribute("src",confpj)
+					img.setAttribute("width", "60%")
 				} else if (confpj.match(/pacman/gim)){
 					img.setAttribute("src",confpj)
 				} else if (confpj.match(/dyn/gim)){

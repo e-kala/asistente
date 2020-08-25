@@ -522,8 +522,8 @@ function div_opa_init_dark_wait(){
   document.body.appendChild(divopa)
 
   const loading = document.createElement("img")
-  loading.setAttribute("src", "./content/img/iconos/load2.gif")
-  loading.setAttribute("width", "100px")
+  loading.setAttribute("src", "./content/img/iconos/load3.gif")
+  loading.setAttribute("width", "150px")
   divopa.appendChild(loading)
 
   setTimeout(function(){
