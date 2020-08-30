@@ -13,6 +13,7 @@
 		$pj_hidden = $_POST['pj_hidden'];
 		$aside_hidden = $_POST['aside_hidden'];
 		$caducidad = $_POST['caducidad'];
+		$ingreso_minimo_mensual = $_POST['ingreso_minimo_mensual'];
 
 		//Array contenedor de todos los datos
 		$set["mode"] = $mode;
@@ -23,6 +24,7 @@
 		$set["pj_hidden"] = $pj_hidden;
 		$set["aside_hidden"] = $aside_hidden;
 		$set["caducidad"] = $caducidad;
+		$set["ingreso_minimo_mensual"] = $ingreso_minimo_mensual;
 
 		$set = json_encode($set);
 

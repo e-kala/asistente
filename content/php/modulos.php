@@ -10,7 +10,7 @@ include 'inactividad.php';
 body{background: white;}
 </style>
 
- <div class="accordion modulos " style="display: none;" id="accordionExample">
+ <div class="accordion modulos" style="display: none;" id="accordionExample">
   <!--información in-->
    <div class="card bg-blue modsco">
      <div class="card-header d-flex justify-content-between align-content-center align-items-center" id="headingOne">
@@ -141,7 +141,7 @@ body{background: white;}
      </div>
    </div>
   <!--Módulos END -->
-  <!--  include "graficos.php"; ?> --> 
+   <?php include "graficos.php"; ?> 
 
 
    <!--<div class="card bg-blue modsco ">

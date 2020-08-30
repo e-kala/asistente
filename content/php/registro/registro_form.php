@@ -118,7 +118,7 @@
                                             if (dat.match(/\<successfully\>/gim)){
                                                 // alert("Registro satisfactorio")
                                                 
-                                                $(".btn-volver-log-tap").notify(`Registro satisfactorio ${userValue}`, "success");
+                                                $(".btn-volver-log-tap").notify(`Registro satisfactorio`, "success");
                                                 setTimeout(()=>{
                                                     window.location.href = "index.php"
                                                 },1400)

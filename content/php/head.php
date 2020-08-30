@@ -1,5 +1,5 @@
-    <title>Asistente</title>
-    <link rel="icon" type="image/png" href="content/img/logoAsistentev0.1.png"/>
+    <title>Asistente Bonsai</title>
+    <link rel="icon" type="image/png" href="content/img/logoAsistentev0.14.png"/>
 
     <!-- Required meta tags -->
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />

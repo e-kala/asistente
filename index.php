@@ -120,6 +120,12 @@ session_start();
                   include 'content/php/premium.php';   
                break;
 
+               case 'insigl':
+                  echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
+                  include 'content/php/navbar.php';
+                  include 'content/php/insigniasylogros.php';  
+               break;
+
                case 'transferencias':
                    echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
                    include 'content/php/navbar.php';

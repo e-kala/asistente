@@ -25,6 +25,8 @@ color_ventana_graficos = document.getElementsByClassName("color_ventana_graficos
 modingresogasto = document.getElementsByClassName("modingresogasto")
 bgtransferencias_ventana = document.getElementsByClassName("bgtransferencias_ventana")[0]
 menu_option_config_panel_collapsable = document.getElementsByClassName("fg-color-menu-option-configpanel")
+bgpremiumchange = document.getElementsByClassName("bgpremiumchange") //bgchange premium window
+bgcorinsilogro = document.getElementsByClassName("bgcorinsilogro") //section badges and logrs
 
 //tadores, registro
 bgchan = document.getElementsByClassName("bgchan") //Tadores use change mode dark / light
@@ -125,6 +127,32 @@ function iters(status, modss, boxes_inn, registrosg, txtcolor, tadoreschangemod)
         }
       }
     }
+
+    //change bg premium 
+    if (bgpremiumchange !== undefined){
+      for (let x = 0; x < bgpremiumchange.length; x++){
+        if (status === "light"){
+          bgpremiumchange[x].style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+          bgpremiumchange[x].className = "card mb-2 bgpremiumchange text-dark"
+          
+        } else {
+          bgpremiumchange[x].style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+          bgpremiumchange[x].className = "card mb-2 bgpremiumchange text-light"
+        }
+      }
+    }
+
+    if (bgcorinsilogro !== undefined){
+      for (let x = 0; x < bgcorinsilogro.length; x++){
+        if (status === "light"){
+          bgcorinsilogro[x].style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+          bgcorinsilogro[x].className = "row p-4 bgcorinsilogro text-dark"
+        } else {
+          bgcorinsilogro[x].style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+          bgcorinsilogro[x].className = "row p-4 bgcorinsilogro text-light"
+        }
+      }
+    }
 }
 
 let once_config = false
@@ -184,7 +212,8 @@ functions = [
         transparency: alma_config[1].transparency,
         mode : mode,
         caducidad : caducidad !== "" ? caducidad : alma_config[1].caducidad,
-        time_bal : alma_config[1].time_bal
+        time_bal : alma_config[1].time_bal,
+        ingreso_minimo_mensual: alma_config[1].ingreso_minimo_mensual
       }).done(function(e){
         // console.log(e,"actualizado")
       })
@@ -286,6 +315,28 @@ functions = [
           },{
             background:`rgb(52,52,69,${transparency}5)`
           }],{duration:400, iterations:1})
+        }
+
+        //bgpremium
+        if (bgpremiumchange !== undefined){
+          for (let x = 0; x < bgpremiumchange.length; x++){
+            bgpremiumchange[x].animate([{
+              background:`rgb(255,255,255,${alma_config[1].transparency}5)`
+            },{
+              background:`rgb(52,52,69,${alma_config[1].transparency}5)`
+            }],{duration:400, iterations:1})
+          }
+        }
+
+        //bgbadgesandlogros 
+        if (bgcorinsilogro !== undefined){
+          for (let x = 0; x < bgcorinsilogro.length; x++){
+            bgcorinsilogro[x].animate([{
+              background:`rgb(255,255,255,${alma_config[1].transparency}5)`
+            },{
+              background:`rgb(52,52,69,${alma_config[1].transparency}5)`
+            }],{duration:400, iterations:1})
+          }
         }
 
         iters(
@@ -408,6 +459,28 @@ functions = [
           },{
             background:`rgb(255,255,255,${transparency}5)`
           }],{duration:400, iterations:1})
+        }
+
+        // bgpremium
+        if (bgpremiumchange !== undefined){
+          for (let x = 0; x < bgpremiumchange.length; x++){
+            bgpremiumchange[x].animate([{
+              background:`rgb(52,52,69,${alma_config[1].transparency}5)`
+            },{
+              background:`rgb(255,255,255,${alma_config[1].transparency}5)`
+            }],{duration:400, iterations:1})
+          }
+        }
+
+        //bgbadgesandlogros 
+        if (bgcorinsilogro !== undefined){
+          for (let x = 0; x < bgcorinsilogro.length; x++){
+            bgcorinsilogro[x].animate([{
+              background:`rgb(52,52,69,${alma_config[1].transparency}5)`
+            },{
+              background:`rgb(255,255,255,${alma_config[1].transparency}5)`
+            }],{duration:400, iterations:1})
+          }
         }
 
         iters(

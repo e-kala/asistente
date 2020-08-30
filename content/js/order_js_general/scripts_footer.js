@@ -53,6 +53,53 @@ success:function(r){
 
 
 
+function imgdragnot(){
+  const img = document.getElementsByTagName("img")
+  for (let x = 0; x < img.length; x++){
+    img[x].ondragstart = function(){
+      return false
+    }
+  }
+}
+
+imgdragnot()
+
+function prueba_three_month(){
+  const fecha = new Date()
+  const tmp = fecha.getMonth() + 4 //+ 3 months
+  const year = fecha.getFullYear()
+  if (tmp === 13){
+    year += 1
+    tmp = 1 //next year and month +3
+  } else if (tmp === 14){
+    year += 1
+    tmp = 2 //next year and month +3
+  } else if (tmp === 15){
+    year += 1
+    tmp = 3 //next year and month +3
+  }
+  let mes = tmp.toString().split("").length > 1 ? tmp : "0" + tmp
+
+  const fechaActualCompleta = year + "-" + mes + "-" + fecha.getDate()
+
+  const pruebathremonthbtn = document.getElementsByClassName("pruebathremonth")[0]
+  if (pruebathremonthbtn !== undefined && pruebathremonthbtn !== null){
+    pruebathremonthbtn.onclick = function(){
+      $.post("./content/php/usr/update_plan_prueba.php", {
+        usuario: window.config[0].usuario,
+        fechaExpiracion: fechaActualCompleta
+      }).done(function(e){
+        if (e.match(/success/gim)){
+          window.location.reload(false)
+        }
+      })
+    }
+  }
+}
+
+prueba_three_month()
+
+
 if (document.getElementsByClassName("panel-log-reg")[0] !== undefined && 
   document.getElementsByClassName("panel-log-reg")[0] !== null &&
   window.location.href.match(/action\=cerrar\_sesion/gim) !== null) {
@@ -211,7 +258,13 @@ function light(){
     }
 
     if (containeringasedi !== undefined && containeringasedi !== null){
-      containeringasedi.className = "container containeringasedi p-4 lightinit text-dark"
+      containeringasedi.className = "container containeringasedi p-4 text-dark"
+      containeringasedi.style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      containeringasedi.style.webkitBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      containeringasedi.style.MozBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      containeringasedi.style.msBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      containeringasedi.style.oBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+
     }
 
     if (document.getElementsByClassName("footcolor")[0] !== undefined && document.getElementsByClassName("footcolor")[0] !== null){
@@ -233,7 +286,9 @@ function light(){
 
       document.getElementsByClassName("color_ventana_graficos")[0].className = "card mt-4 p-4 color_ventana_graficos text-dark"
     }
+
     if (modingresogasto[0] !== undefined){ //Modal ingreso
+
         modingresogasto[0].style.background = `rgb(255,255,255)`
         modingresogasto[0].style.webkitBackground = `rgb(255,255,255)`
         modingresogasto[0].style.MozBackground = `rgb(255,255,255)`

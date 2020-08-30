@@ -3,8 +3,14 @@ bg_session = ""
 let change_use_mode_init_or_client = false
 let [time, bg, transparency] = ["hour", "", document.getElementById("slide_transparency").value]
 let [files, caducidad, pj, personaje_hidden, panelizquierdo_hidden] = ["","", "", false, false]
-
+let ingreso_minimo_mensual = ""
 const slide_transparency = document.getElementById("slide_transparency")
+
+function encuesta(){
+	const ingreso_min_mens = document.getElementById("ingremin")
+	const ingreminval = ingreso_min_mens.value
+	ingreso_minimo_mensual = ingreminval
+}
 
 function element_to_change_style_mode(){
 	const navbar = document.getElementsByClassName("navbar")[0]
@@ -23,8 +29,7 @@ function element_to_change_style_mode(){
 
 
 $(function(){
-	if (window.config[0].plan === "premium"){
-		document.getElementById("slide_transparency").disabled = false
+	if (window.config[0].plan.match(/premium/gim)){
 		document.getElementById("slide_transparency").title = ""
 		slide_transparency.onpointermove = function(e){
 			let valor = e.target.value
@@ -70,7 +75,7 @@ $(function(){
 		}
 
 	} else {
-		document.getElementById("slide_transparency").disabled = true
+		document.getElementById("slide_transparency").setAttribute("disabled",true)
 		document.getElementById("slide_transparency").title = "Reservado para el modo premium"
 	}
 })
@@ -189,7 +194,8 @@ function select_pj(e){
 						}
 					}
 				}
-			} else if (window.config[0].plan === "premium") {
+			} 
+			if (window.config[0].plan.match(/premium/gim)) {
 				e[y].onpointerdown = function(){
 					e[y].style.border = "4px solid #1DE2C3"
 					pj = e[y].getAttribute("src")
@@ -199,7 +205,11 @@ function select_pj(e){
 						}
 					}
 				}
-				document.getElementsByTagName("label")[y].className = "p-2 m-2 badge"
+				if (document.getElementsByClassName("labelbadgepremi") !== undefined){
+					for (let z = 0; z < document.getElementsByClassName("labelbadgepremi").length; z++){
+						document.getElementsByClassName("labelbadgepremi")[z].className = "p-2 m-2 badge"
+					}
+				}
 			}
 		}
 	})
@@ -221,36 +231,41 @@ iter(get_background, imgdefa)
 	
 function get_files(){ //Previous view
 	const input_file = document.getElementById("loadimage")
-	input_file.onchange = function(e){ 
-		
-		files = input_file.files //Nuevo bg
-		bg = "" //Por defecto
-		let formData = new FormData();
-		formData.append("usuario", alma_config[0].usuario)
-  		formData.append("nameimg", files[0]);
-  		formData.append("send", true)
+	$(function(){
+		if (window.config[0].plan.match(/premium/gim)){
+			input_file.onchange = function(e){ 
+				files = input_file.files //Nuevo bg
+				bg = "" //Por defecto
+				let formData = new FormData();
+				formData.append("usuario", alma_config[0].usuario)
+		  		formData.append("nameimg", files[0]);
+		  		formData.append("send", true)
 
-		$.ajax({ // Vista previa
-		   url: "./content/php/consults_info/load_config_img.php",
-		   type: "POST",
-		   data: formData,
-		   processData: false,
-		   contentType: false,
-		   success: function(response){
-		   	response = response.split("/")
-		   	response = response[1] + "/" + response[2] + "/" + response[3] + "/" + response[4] + "/" + response[5]
-		   	// console.log(response, "JAJAJAJAJ")
-		   	document.body.style.background = `url(${response})`
-		   	document.body.style.backgroundSize = "cover"
-			document.body.style.backgroundPosition = "center center"
-		  	document.body.style.backgroundAttachment = "fixed"
-		   },
-		   error: function(jqXHR, textStatus, errorMessage) {
-		       console.log(errorMessage); // Optional
-		   }
-		});	
-
-	}
+				$.ajax({ // Vista previa
+				   url: "./content/php/consults_info/load_config_img.php",
+				   type: "POST",
+				   data: formData,
+				   processData: false,
+				   contentType: false,
+				   success: function(response){
+				   	response = response.split("/")
+				   	response = response[1] + "/" + response[2] + "/" + response[3] + "/" + response[4] + "/" + response[5]
+				   	// console.log(response, "JAJAJAJAJ")
+				   	document.body.style.background = `url(${response})`
+				   	document.body.style.backgroundSize = "cover"
+					document.body.style.backgroundPosition = "center center"
+				  	document.body.style.backgroundAttachment = "fixed"
+				   },
+				   error: function(jqXHR, textStatus, errorMessage) {
+				       console.log(errorMessage); // Optional
+				   }
+				});	
+			}
+		} else {
+			input_file.setAttribute("disabled", true)
+			input_file.setAttribute("title", "Reservado para el modo Premium")
+		}
+	})
 }
 
 get_files()
@@ -258,6 +273,7 @@ get_files()
 
 //Enviar configuración del usuario
 function send_config(){
+	encuesta()
 	if (bg.match(/content\/usuarios\/\w+\//gim) && files === ""){
 		bg = bg.replace(`content/usuarios/${alma_config[0].usuario}/`, "")
 	}
@@ -271,7 +287,8 @@ function send_config(){
 		pj_hidden: personaje_hidden,
 		aside_hidden: panelizquierdo_hidden,
 		caducidad: caducidad !== "" ? caducidad : alma_config[1].caducidad,
-		time_bal: time !== "" ? time : "hour"
+		time_bal: time !== "" ? time : "hour",
+		ingreso_minimo_mensual: ingreso_minimo_mensual !== "" ? ingreso_minimo_mensual : alma_config[1].ingreso_minimo_mensual
 	}).done(function(d){
 		if (d.match(/\<success\>/gim)){
 			$("#save-changes-config").notify("Sus cambios han sido guardados", {position:"left", className:"success"});
@@ -306,7 +323,8 @@ function send_config(){
 					mode: bg_session !== "" ? bg_session : alma_config[1].mode,
 					transparency: transparency !== "" ? transparency : alma_config[1].transparency,
 					background: rutaedit,
-					time_bal: time !== "" ? time : "hour"
+					time_bal: time !== "" ? time : "hour",
+					ingreso_minimo_mensual: alma_config[1].ingreso_minimo_mensual
 				}).done(function(d){
 					$("#save-changes-config").notify("Sus cambios han sido guardados", {position:"left", className:"success"});
 				})

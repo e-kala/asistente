@@ -57,7 +57,7 @@
 		$consultaIngresos = $conexion->query("SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND fecha_ingreso >= '$fecha_deseada_atras'");
 
 		$state = "Actividad 1 mes atrás";
-		$statemonthweek = "1 mes atrás";
+		$statemonthweek = "desde 1 mes atrás";
 	} else if ($time_filter_balance === "3"){
 		if ($diaActual > 7){
 			$case = $diaActual - 21; //1/4 del ultimo mes, ultimas 3 semanas

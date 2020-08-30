@@ -15,13 +15,15 @@
 				$consulta_cnf = "SELECT * FROM usuarios WHERE nombre_usuario = '$usuario'";
 				$cnf_result = $conexion->query($consulta_cnf);
 				$fila = $cnf_result->fetch_object();
-	
+				
+				$status_account = $fila->privilegios;
 				$email = $fila->correo_usuario;
 				$data_cnf = $fila->usr_config;// obtiene configuracion en json
 				//$json = json_decode($data_cnf, TRUE); //lo convierte DE json A array
 				
 				$array = ["usuario" => $usuario]; //crea un array con el usuario
 				$array["email"] = $email;
+				$array["plan"] = $status_account; 
 				//array_push($array, $json);
 				$json_user = json_encode($array, TRUE); //convierte el array con el usuario a json
 
@@ -81,6 +83,10 @@
 		document.getElementsByClassName("fot")[0].style.display = "block"
 	}
 
+	if (document.getElementsByClassName("containerinsilogr")[0] !== undefined && document.getElementsByClassName("containerinsilogr")[0] !== null){
+		document.getElementsByClassName("containerinsilogr")[0].style.display = "block"
+	}
+
 	const load_gif = document.getElementById("loadingg")
 	if (load_gif !== undefined && load_gif !== null) {
 		load_gif.style.display = "none"
@@ -136,6 +142,21 @@
 			}
 		}
 	 	
+		if (document.getElementById("bgpremiumchange") !== undefined && document.getElementById("bgpremiumchange") !== null){
+			document.getElementById("bgpremiumchange").style.display = "block"
+		}
+
+		//Loading config premium init general PPPPPPPPP1931820
+		try{
+			let plan_pri = JSON.parse(json[0].plan)
+			if (plan_pri.state === "premium"){
+				if (document.getElementById("graficos") !== undefined && document.getElementById("graficos") !== null ){
+					document.getElementById("graficos").style.display = "block"
+				}
+			} 
+		} catch(_){
+			
+		}
 
 		if (json[1].background !== "" && json[1].background !== undefined){
 			if (json[1].background.match(/img/gim)===null){
@@ -298,6 +319,16 @@
 					value_caduci.innerHTML = json[1].caducidad
 				}
 				caducidad = json[1].caducidad
+			}
+		}
+
+		//Ingreso minimo men
+		if (json !== ""){
+			if (json[1].ingreso_minimo_mensual !== null && json[1].ingreso_minimo_mensual !== undefined && json[1].ingreso_minimo_mensual !== ""){
+				if (document.getElementById("ingremin") !== undefined && document.getElementById("ingremin") !== null){
+
+					document.getElementById("ingremin").value = json[1].ingreso_minimo_mensual
+				}
 			}
 		}
 

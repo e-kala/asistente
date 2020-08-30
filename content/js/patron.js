@@ -86,6 +86,8 @@ function Pattmo(container, config){
 			bolshowhide = !bolshowhide
 			if (window.location.href.match(/action\=registro/gim)){
 				change_tap_pan_signup()
+			} else if (window.location.href.match(/action\=configuracion/gim)){
+				change_tap_pan_updatepassword()
 			} else {
 				change_tap_pan_login()
 			}
@@ -368,10 +370,10 @@ function Pattmo(container, config){
 					btn_volver.style.oDisplay = "block";
 
 					pattern.style.opacity = "1"
-					pattern.style.webkitOpacity = "0";
-					pattern.style.MozOpacity = "0";
-					pattern.style.msOpacity = "0";
-					pattern.style.oOpacity = "0";
+					pattern.style.webkitOpacity = "1";
+					pattern.style.MozOpacity = "1";
+					pattern.style.msOpacity = "1";
+					pattern.style.oOpacity = "1";
 
 					pattern.animate([
 						{opacity:0},
@@ -1592,7 +1594,10 @@ function Pattmo(container, config){
 								$.post( "./content/php/registro/registrando.php", { mail: dat_post.email, usuario: dat_post.usuario, pass: ver_pass.first_char_pass + ver_pass.trytwo})
 								  .done( function(dat){
 								  	if (dat.match(/\<successfully\>/gim)){
-								  		document.getElementsByClassName("label_state")[0].style.color = "#fff"
+								  		if (document.getElementsByClassName("label_state")[0] !== null && document.getElementsByClassName("label_state")[0] !== undefined){
+
+								  			document.getElementsByClassName("label_state")[0].style.color = "#fff"
+								  		}
 								  		$("#root").notify(`Registro satisfactorio`, "success");
 								  		setTimeout(function(){
 											window.location.href = "index.php"
@@ -1606,8 +1611,10 @@ function Pattmo(container, config){
 									bfixAnActiveInput = false
 								  });
 							} else {
-								document.getElementsByClassName("label_state")[0].style.color = "red"
-								document.getElementsByClassName("label_state")[0].innerHTML =  `* Error de coincidencia, vuelva a intentar`
+								if (document.getElementsByClassName("label_state")[0] !== null && document.getElementsByClassName("label_state")[0] !== undefined){
+									document.getElementsByClassName("label_state")[0].style.color = "red"
+									document.getElementsByClassName("label_state")[0].innerHTML =  `* Error de coincidencia, vuelva a intentar`
+								}
 								//Reinicio de oportunidad
 								count_try_for_signup = 0
 								ver_pass= {}
@@ -1847,9 +1854,674 @@ function Pattmo(container, config){
 			// --------------------- END MOVIL --------------------------------
 		}
 	}
-	 
+
+
+	function change_tap_pan_updatepassword(){ // FOR SIGN UP
+		// if (!once_navigator_dichrome){
+		// 	once_navigator_dichrome = true
+		// 	if (window.screen.width <= 560){
+		// 		if (document.getElementsByClassName("login-change-way")[0] !== undefined){
+		//             document.getElementsByClassName("login-change-way")[0].click()
+		//         }
+		// 	}
+		// }
+
+		if (bolshowhide){ //Tap
+			document.getElementsByClassName("aceptartap")[0].style.display = "block"
+			let btn_registrarse = document.getElementsByClassName("registrarse-btn")[0]
+			btn_registrarse.style.display = "block"
+			btn_registrarse.style.webkitDisplay = "block";
+			btn_registrarse.style.MozDisplay = "block";
+			btn_registrarse.style.msDisplay = "block";
+			btn_registrarse.style.oDisplay = "block";
+
+			if (btn_mode_loginn !== undefined){
+				btn_mode_loginn.innerHTML = "Tap"
+				btn_mode_loginn.value = "Tap"
+			}
+			if (container !== null){
+
+				container.innerHTML = ""
+			}
+
+			if (container !== null){
+				container.style.display="flex"
+				container.style.webkitDisplay = "flex";
+				container.style.MozDisplay = "flex";
+				container.style.msDisplay = "flex";
+				container.style.oDisplay = "flex";
+
+				container.style.justifyContent = "center"
+				container.style.webkitJustifyContent = "center";
+				container.style.MozJustifyContent = "center";
+				container.style.msJustifyContent = "center";
+				container.style.oJustifyContent = "center";
+
+				container.style.alignItems ="center"
+				container.style.webkitAlignItems = "center";
+				container.style.MozAlignItems = "center";
+				container.style.msAlignItems = "center";
+				container.style.oAlignItems = "center";
+			}
+
+		
+			let pattern = document.createElement("div")
+			pattern.setAttribute("id","pattern")
+			pattern.animate([{
+				transform: "rotate(-3deg) scale(0.9)"
+			},{
+				transform: "rotate(0deg) scale(1)"
+			}],{duration:700, iterations:1})
+
+			
+
+			//----------------------------------------------------------
+		
+
+
+			let bool = false; let boolMouseOver = false; //Don't touch
+			let pass = "";  let bfixAnActiveInput = false;
+
+
+			let tryNumber = 0; //Número de intentos
+
+			let abc = ["a","b","c","d","e","f","g","h","i"] //Valores de los cuadros
+
+			for (let x = 0; x < 9; x++){ //Crear divs, asignarles valores, estilo, animaciones, y configuración
+				const div = document.createElement("div");
+				div.classList.add("box-rounded");
+				div.className += " br-" + (x+1)
+				div.setAttribute("name", abc[x]);
+				
+				div.style.background = "#fff"
+				div.style.webkitBackground = "#fff";
+				div.style.MozBackground = "#fff";
+				div.style.msBackground = "#fff";
+				div.style.oBackground = "#fff";
+
+				div.style.borderRadius = "20px"
+				div.style.webkitBorderRadius = "20px";
+				div.style.MozBorderRadius = "20px";
+				div.style.msBorderRadius = "20px";
+				div.style.oBorderRadius = "20px";
+
+				if (config.config.letters === true){
+					div.innerHTML = abc[x]
+				}
+
+				pattern.appendChild(div);
+
+				// ---------------------- FOR DESKTOP ------------------------------
+
+				pattern.addEventListener("pointerdown", function(){
+					bool = true; 
+					boolMouseOver = true;
+					bfixAnActiveInput = true;
+
+				
+
+					document.querySelector("html").addEventListener("pointerup", function(){
+						tryNumber += 1;
+						bool = false;
+						boolMouseOver = false;
+						bfixAnActiveInput = false;
+					});
+					
+				});
+
+				pattern.ondragstart = function(){
+					return false;
+				}
+
+				if (container !== null) container.appendChild(pattern);
+			};
+
+			let div = document.getElementsByClassName("box-rounded")
+
+			//Detect combination for create password
+			for (let x=0; x < 9; x++){
+				if (div[x] !== undefined){
+					div[x].addEventListener("pointerdown", function(){
+						pass += div[x].getAttribute("name");
+
+						passg = pass
+
+						div[x].style.background = "rgb(125,27,233,0.40)"
+						div[x].style.webkitBackground = "rgb(125,27,233,0.40)";
+						div[x].style.MozBackground = "rgb(125,27,233,0.40)";
+						div[x].style.msBackground = "rgb(125,27,233,0.40)";
+						div[x].style.oBackground = "rgb(125,27,233,0.40)";
+
+						div[x].animate([
+							{
+								background:"rgb(75,54,124,0.80)"
+							},{
+								background:"rgb(125,27,233,0.40)"
+							}
+						],{duration:350, iterations:1})
+						// console.log(pass, tryNumber, "try")
+					})
+				
+				}
+			}
+
+
+			//Detect first char at the pass
+			for (let x=0; x < 9; x++){
+				if (div[x] !== undefined){
+					div[x].addEventListener("pointerdown", function(e){
+						// if (boolMouseOver){
+							first_char_pass += div[x].getAttribute("name");
+							first_char_pass = first_char_pass.replace("undefined", "")
+							// console.log(first_char_pass)
+							// console.log(first_char_pass, "zzzaaaaaaaaaaaakak")
+							// console.log(pass, tryNumber, "try")
+						// }
+					})
+				}
+			}
+			
+			// ------------------------- END FOR DESKTOP ------------------------------
+
+			
+		} else { //Pan
+			let btn_registrarse = document.getElementsByClassName("registrarse-btn")[0]
+			if (btn_registrarse !== undefined){
+				if (btn_registrarse.value !== "Siguiente"){
+					btn_registrarse.style.display = "none"
+					btn_registrarse.style.webkitDisplay = "none";
+					btn_registrarse.style.MozDisplay = "none";
+					btn_registrarse.style.msDisplay = "none";
+					btn_registrarse.style.oDisplay = "none";
+				}
+			}
+
+			if (btn_mode_loginn !== undefined){
+				btn_mode_loginn.innerHTML = "Pan"
+				btn_mode_loginn.value ="Pan"
+			}
+			if (container !== null){
+				container.innerHTML = ""
+			}
+
+			if (container !== null){
+				container.style.display="flex"
+				container.style.webkitDisplay = "flex";
+				container.style.MozDisplay = "flex";
+				container.style.msDisplay = "flex";
+				container.style.oDisplay = "flex";
+
+				container.style.justifyContent = "center"
+				container.style.webkitJustifyContent = "center";
+				container.style.MozJustifyContent = "center";
+				container.style.msJustifyContent = "center";
+				container.style.oJustifyContent = "center";
+
+				container.style.alignItems ="center"
+				container.style.webkitAlignItems = "center";
+				container.style.MozAlignItems = "center";
+				container.style.msAlignItems = "center";
+				container.style.oAlignItems = "center";
+			}
+
+		
+			let pattern = document.createElement("div")
+			pattern.setAttribute("id","pattern")
+			pattern.animate([{
+				transform: "rotate(-3deg) scale(0.9)"
+			},{
+				transform: "rotate(0deg) scale(1)"
+			}],{duration:700, iterations:1})
+
+
+			let bool = false; let boolMouseOver = false; //Don't touch
+			let pass = "";  let bfixAnActiveInput = false;
+
+
+			let tryNumber = 0; //Número de intentos
+
+			let abc = ["a","b","c","d","e","f","g","h","i"] //Valores de los cuadros
+
+			for (let x = 0; x < 9; x++){ //Crear divs, asignarles valores, estilo, animaciones, y configuración
+				const div = document.createElement("div");
+				div.classList.add("box-rounded");
+				div.className += " br-" + (x+1)
+				div.setAttribute("name", abc[x]);
+				
+				div.style.background = "#fff"
+				div.style.webkitBackground = "#fff";
+				div.style.MozBackground = "#fff";
+				div.style.msBackground = "#fff";
+				div.style.oBackground = "#fff";
+
+				div.style.borderRadius = "20px"
+				div.style.webkitBorderRadius = "20px";
+				div.style.MozBorderRadius = "20px";
+				div.style.msBorderRadius = "20px";
+				div.style.oBorderRadius = "20px";
+
+				if (config.config.letters === true){
+					div.innerHTML = abc[x]
+				}
+
+				pattern.appendChild(div);
+
+				// ---------------------- FOR DESKTOP ------------------------------
+
+				pattern.addEventListener("pointerdown", function(){
+					bool = true; 
+					boolMouseOver = true;
+					bfixAnActiveInput = true;
+
+					div.addEventListener("pointermove", function(){
+						if (bool){
+							div.style.background = "rgb(125,27,233,0.40)"
+							div.style.webkitBackground = "rgb(125,27,233,0.40)";
+							div.style.MozBackground = "rgb(125,27,233,0.40)";
+							div.style.msBackground = "rgb(125,27,233,0.40)";
+							div.style.oBackground = "rgb(125,27,233,0.40)";
+
+							div.animate([
+								{
+									background:"rgb(75,54,124,0.80)"
+								},{
+									background:"rgb(125,27,233,0.40)"
+								}
+							],{duration:350, iterations:1})
+						} 
+					})
+
+					document.querySelector("html").addEventListener("pointerup", function(){
+						tryNumber += 1;
+						bool = false;
+						boolMouseOver = false;
+						bfixAnActiveInput = false;
+						div.style.background = "#f2f2f2";
+						div.style.webkitBackground = "#f2f2f2";
+						div.style.MozBackground = "#f2f2f2";
+						div.style.msBackground = "#f2f2f2";
+						div.style.oBackground = "#f2f2f2";
+
+					});
+					
+				});
+
+				pattern.ondragstart = function(){
+					return false;
+				}
+
+				if (container !== null) container.appendChild(pattern);
+			};
+
+			let div = document.getElementsByClassName("box-rounded")
+
+			//Detect combination for create password
+			for (let x=0; x < 9; x++){
+				if (div[x] !== undefined){
+					div[x].addEventListener("pointerover",function(){
+						if (boolMouseOver){
+							pass += div[x].getAttribute("name");
+							// console.log(pass, tryNumber, "try")
+						} 
+					})
+				}
+			}
+
+
+			//Detect first char at the pass
+			for (let x=0; x < 9; x++){
+				if (div[x] !== undefined){
+					div[x].addEventListener("pointerdown", function(e){
+						// if (boolMouseOver){
+							first_char_pass += div[x].getAttribute("name");
+							first_char_pass = first_char_pass.replace("undefined", "")
+							// console.log(first_char_pass)
+							// console.log(first_char_pass, "zzzaaaaaaaaaaaakak")
+							// console.log(pass, tryNumber, "try")
+						// }
+					})
+				}
+			}
+
+			let count_try_for_signup = 0
+			let ver_pass = {}
+
+			document.querySelector("html").addEventListener("pointerup", function(){
+				if (config.config.showPasswordInConsole){
+					console.log(pass)
+				}
+				
+				// if (config.user_data_from_db){
+					if (bfixAnActiveInput){ //Requerir nombre de usuario
+						// console.log(pass, tryNumber, "try")
+						if (tryNumber > 230 && pass !== config.login.passwordReference) { 
+						 	// errorUserPage(config, itext); //Demasiados intentos, accede a pagina de error, ayuda/soporte
+						}
+
+						// ------------------------ Validation-----------------------------
+						
+						count_try_for_signup += 1
+
+						if (count_try_for_signup === 1){
+							ver_pass.first_char_pass = first_char_pass
+							ver_pass.tryone = pass
+							pass = ""
+							if (document.getElementsByClassName("label_state")[0] !== undefined){
+								document.getElementsByClassName("label_state")[0].style.color = "white"
+								document.getElementsByClassName("label_state")[0].innerHTML =  "* Repita clave por favor"
+							}
+							document.getElementById("label_state").innerHTML = "* Repita clave por favor"
+							document.getElementById("label_state").style.color = "#fff"
+						} else if (count_try_for_signup === 2){
+							ver_pass.first_char_pass = first_char_pass
+							ver_pass.trytwo = pass
+							pass =""
+						}
+
+						if (count_try_for_signup === 2){
+							if (ver_pass.tryone === ver_pass.trytwo ){
+								if (dat_post.usuario === window.config[0].usuario){
+									$.post( "./content/php/usr/update_pass.php", {usuario: dat_post.usuario, pass: ver_pass.first_char_pass + ver_pass.trytwo})
+									  .done( function(dat){
+									  	if (dat.match(/\<success\>/gim)){
+									  		document.getElementById("label_state").style.color = "#fff"
+									  		let countefect = -1;
+									  		let pal = "Procesando...".split("")
+									  		document.getElementById("label_state").innerHTML = ""
+									  		let inter = setInterval(function(){
+									  			countefect += 1
+									  			if (countefect < pal.length){
+
+									  				document.getElementById("label_state").innerHTML += pal[countefect]
+									  			} else {
+									  				clearInterval(inter)
+									  			}
+									  		}, 70)
+									  		if (document.getElementsByClassName("label_state")[0] !== null && document.getElementsByClassName("label_state")[0] !== undefined){
+
+									  			document.getElementsByClassName("label_state")[0].style.color = "#fff"
+									  		}
+									  		setTimeout(function(){
+												window.location.reload(false)
+									  		},2200)
+											boolMouseOver = false
+											tryNumber = 0
+									  	}
+									  		
+										pass = "" //Reinicio de variable password para nuevo intento
+										// first_char_pass = ""
+										bfixAnActiveInput = false
+									  });
+								} else {
+									document.getElementById("label_state").innerHTML = "* Usuario no corresponde con la cuenta"
+									document.getElementById("label_state").style.color = "red"
+									if (document.getElementsByClassName("label_state")[0] !== null && document.getElementsByClassName("label_state")[0] !== undefined){
+										document.getElementsByClassName("label_state")[0].style.color = "red"
+										document.getElementsByClassName("label_state")[0].innerHTML =  `Usuario inválido`
+									}
+								}
+							} else {
+								document.getElementById("label_state").innerHTML = "* Error de coincidencia, vuelva a intentar"
+								document.getElementById("label_state").style.color = "red"
+								if (document.getElementsByClassName("label_state")[0] !== null && document.getElementsByClassName("label_state")[0] !== undefined){
+									document.getElementsByClassName("label_state")[0].style.color = "red"
+									document.getElementsByClassName("label_state")[0].innerHTML =  `* Error de coincidencia, vuelva a intentar`
+								}
+								//Reinicio de oportunidad
+								count_try_for_signup = 0
+								ver_pass= {}
+								pass = ""
+								// first_char_pass = ""
+							}
+						}  else if (count_try_for_signup === 3){
+							count_try_for_signup = 0
+							ver_pass= {}
+							pass = ""
+						}
+						first_char_pass = ""
+						pass = ""
+					} else {
+						pass = "" //Reinicio de variable password para nuevo intento
+						// console.log("Necesitas escribir tu nombre de usuario")
+						// first_char_pass = ""
+					}
+					pass = ""
+					bfixAnActiveInput = false
+				// }
+			})
+			// ------------------------- END FOR DESKTOP ------------------------------
+			
+
+			// --------------------- FOR MÓVIL ------------------------------------
+
+			let boxes = document.getElementsByClassName("box-rounded")
+
+			if (navigator.userAgent.match(/chrome/gim) !== null){
+				pattern.ontouchmove = function(){
+					pattern.onpointermove = function(e){
+						// if (chantap === false){ //Mode pan
+
+						// 	window.scrollTo(0,0)
+						// }
+
+						let x = e.touches ? e.touches[0].pageX : e.pageX
+						let y = e.touches ? e.touches[0].pageY : e.pageY
+
+						// y = y + window.scrollTop
+
+						// get element in coordinates:
+						var targetElement = document.elementFromPoint(x, y);
+
+						let letter = targetElement !== null ? targetElement.getAttribute("name") : null
+
+						if (letter !== null && letter !== undefined){
+						  if (letter === "a"){
+						  	boxes[0].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "b"){
+						  	boxes[1].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "c"){
+						  	boxes[2].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "d"){
+						  	boxes[3].setPointerCapture(e.pointerId)
+						  }
+						  if (letter === "e"){
+						  	boxes[4].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "f"){
+						  	boxes[5].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "g"){
+						  	boxes[6].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "h"){
+						  	boxes[7].setPointerCapture(e.pointerId)
+						  } 
+						  if (letter === "i"){
+						  	boxes[8].setPointerCapture(e.pointerId)
+						  }
+
+						}
+					}
+				}
+			} else {
+				let adv_signal = false
+				let sign_for_sume_point = false //Don't repeat in concaten
+				let boxes = document.getElementsByClassName("box-rounded")
+				// let get_to_pass = "" //For independient verssion
+				
+				pattern.onpointerdown = function(e){
+					adv_signal = true
+				}
+					
+				pattern.addEventListener("touchmove", function(tm){
+					window.addEventListener("pointermove", function(event){
+						event.preventDefault()
+					const del_first = function(){
+						let pro = get_to_pass.split("")
+						pro = pro.filter(function(e,i){
+							if (i !== 0) return e;
+						})
+						pro = pro.toString().replace(/,/gim, "")
+						get_to_pass = pro
+					}
+
+						//It's required to fix a problem about the first char on passwords
+						//For now, that is no necesary, due to the use of the setPointerCapture, but
+						//For an independient version movil, is required detect complete passwords 
+						//without the use of the setPointerCapture
+						
+						if (adv_signal){
+							//setPointerCapture activa el elemento cuando el touch se toca en algun otro punto
+
+
+							let xof = event.offsetX
+							let yof = event.offsetY
+
+							let x_layer = event.layerX 
+							let y_layer = event.layerY 
+
+
+							let advoff = false
+
+							if (xof >= 0 && xof <= 87){
+								advoff = true
+							} else {
+							}
+
+								let xi_ball = 107  //Included margin | xi = x_init position inside ball
+								let xl_ball = 170  //Included margin | xl = x_last position inside ball
+								let yi_ball = 45  //Included margin | yi = y_init position inside ball
+								let yl_ball = 120   //Included margin | yl = y_last position inside ball
+								if (x_layer === 40 && x_layer === 200){
+									alert("jas")
+								}
+								if (
+									// x_layer > xi_ball && //Ball 1
+									x_layer < xl_ball && 
+									y_layer > yi_ball && 
+									y_layer < yl_ball){
+									if (!sign_for_sume_point){ // Evit repeat 
+										sign_for_sume_point = true
+										boxes[0].setPointerCapture(event.pointerId) 
+										// get_to_pass += boxes[0].getAttribute("name")
+									} 
+								
+								} else if ( //Ball 2
+									x_layer > xi_ball * 2 - 40  && 
+									x_layer < xl_ball * 2 - 100 &&
+									y_layer > yi_ball  &&
+									y_layer < yl_ball){
+									if (!sign_for_sume_point){ // Evit repeat 
+										sign_for_sume_point = true
+										boxes[1].setPointerCapture(event.pointerId) 
+										// get_to_pass += boxes[1].getAttribute("name")
+										
+									} 
+								} else if ( //Ball 3
+									x_layer > xi_ball * 3 - 50 && 
+									x_layer < xl_ball * 3 - 100 &&
+									y_layer > yi_ball  &&
+									y_layer < yl_ball){
+									if (!sign_for_sume_point){ // Evit repeat 
+										sign_for_sume_point = true
+										boxes[2].setPointerCapture(event.pointerId) 
+										// get_to_pass += boxes[2].getAttribute("name")
+									} 
+								} else if ( //Ball 4
+									// x_layer > xi_ball && 
+									x_layer < xl_ball &&
+									y_layer > yi_ball * 3 &&
+									y_layer < yl_ball * 2 - 25){
+									if (!sign_for_sume_point){ // Evit repeat 
+										sign_for_sume_point = true
+										boxes[3].setPointerCapture(event.pointerId) 
+										// get_to_pass += boxes[3].getAttribute("name")
+									}  
+								} else if ( //Ball 5
+									x_layer > xi_ball * 2 - 40  && 
+									x_layer < xl_ball * 2 - 100 &&
+									y_layer > yi_ball * 3 &&
+									y_layer < yl_ball * 2 - 25){
+									if (!sign_for_sume_point){ // Evit repeat 
+										sign_for_sume_point = true
+										boxes[4].setPointerCapture(event.pointerId) 
+										// get_to_pass += boxes[4].getAttribute("name")
+									}  
+								} else if ( //Ball 6
+									x_layer > xi_ball * 3 - 50 && 
+									x_layer < xl_ball * 3 - 100 &&
+									y_layer > yi_ball * 3 &&
+									y_layer < yl_ball * 2 - 25){
+									if (!sign_for_sume_point){ // Evit repeat 
+										sign_for_sume_point = true
+										boxes[5].setPointerCapture(event.pointerId) 
+										// get_to_pass += boxes[5].getAttribute("name")
+									}  
+								} else if ( //Ball 7
+									// x_layer > xi_ball && 
+									x_layer < xl_ball &&
+									y_layer > yi_ball * 4 + 45 &&
+									y_layer < yl_ball * 3 - 60){
+									if (!sign_for_sume_point){ // Evit repeat 
+										sign_for_sume_point = true
+										boxes[6].setPointerCapture(event.pointerId) 
+										// get_to_pass += boxes[6].getAttribute("name")
+									}  
+								} else if ( //Ball 8
+									x_layer > xi_ball * 2 - 40  && 
+									x_layer < xl_ball * 2 - 100 &&
+									y_layer > yi_ball * 4 + 45 &&
+									y_layer < yl_ball * 3 - 60){
+									if (!sign_for_sume_point){ // Evit repeat 
+										sign_for_sume_point = true
+										boxes[7].setPointerCapture(event.pointerId) 
+										// get_to_pass += boxes[7].getAttribute("name")
+									}  
+								} else if ( //Ball 9
+									x_layer > xi_ball * 3 - 50 && 
+									x_layer < xl_ball * 3 - 100 &&
+									y_layer > yi_ball * 4 + 45 &&
+									y_layer < yl_ball * 3 - 60){
+									if (!sign_for_sume_point){ // Evit repeat 
+										sign_for_sume_point = true
+										boxes[8].setPointerCapture(event.pointerId) 
+										// get_to_pass += boxes[8].getAttribute("name")
+									}  
+								} else {
+									sign_for_sume_point = false
+									adv_to_delete_first_char = false
+								}
+								if (event.pointerId === 2){
+									// get_to_pass = ""
+								}
+							// console.log(event)
+						}
+					})
+				})
+
+				pattern.onpointerup = function(event){
+					adv_signal = false
+					// del_first() //For independient verssion
+					// console.log(get_to_pass, "get_to_pass, movil")
+					// get_to_pass = ""
+				}
+			}
+			// --------------------- END MOVIL --------------------------------
+			document.getElementsByClassName("aceptartap")[0].style.display = "none"
+			
+		}
+	}
+
+
+
 	if (window.location.href.match(/action\=registro/gim)){
 		change_tap_pan_signup()
+	} else if (window.location.href.match(/action\=configuracion/gim) && document.getElementsByClassName("panel-config")[0] !== null && document.getElementsByClassName("panel-config")[0] !== undefined){
+		change_tap_pan_updatepassword()
+		//poner alerta de confirmacion previa
 	} else {
 		change_tap_pan_login()
 	}
@@ -1888,7 +2560,7 @@ function managerPassword(db){
 
 
 
-if (window.location.href.match(/registro/gim) === null){
+if (window.location.href.match(/(registro|configuracion)/gim) === null){
 	let root = document.getElementById("root")
 	if (root !== undefined && root !== null){
 		root.style.position = "fixed"
@@ -1897,6 +2569,15 @@ if (window.location.href.match(/registro/gim) === null){
 		root.style.top = "40px"
 		root.style.left = "0"
 		root.style.right = "0"
+	}
+} else if (window.location.href.match(/configuracion/gim)){
+	let root = document.getElementById("root")
+	if (root !== undefined && root !== null){
+		root.style.position = ""
+		root.style.borderRadius = "20px"
+		root.style.margin = "auto"
+		root.style.padding = "20px"
+		root.style.top = "30px"
 	}
 } else {
 	let root = document.getElementById("root")

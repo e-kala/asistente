@@ -795,6 +795,16 @@ main{
 	z-index: 100;
 }
 
+.patternconfigupdatepass{
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	z-index: 101;
+	background: linear-gradient(to bottom right, rgb(20,20,20), rgb(20,20,20,0.40), rgb(20,20,20))
+}
+
 
 /*----------------------------------------------------*/
 

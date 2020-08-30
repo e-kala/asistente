@@ -7,12 +7,17 @@
 	</a>
 	<div class="d-flex flex-wrap justify-content-end align-content-center align-items-center container_menues_navbar">
 		<ul class="m-2 d-flex flex-wrap justify-content-end align-content-center align-items-center menu-header-top" style="order:1;">
-			<li class="navbar-option-general-show-top m-2 flex-grow-1">
-	        	<a class="cotextmennavtop btn btn-inherit" href="?action=premium">Premium<i class="fa fa-star ml-2 text-warning" aria-hidden="true"></i></a>
+			<li class="navbar-option-general-show-top m-0 p-0 flex-grow-1">
+				<a class="btn btn-inherit" href="?action=insigl">
+	        		<img src="./content/img/iconos/logrosinsig.png" width="50px" style="cursor: pointer;">
+				</a>
 		  	</li>
 			<li class="navbar-option-general-show-top m-2 flex-grow-1">
+	        	<a class="cotextmennavtop  btn btn-inherit" href="?action=premium" style="border:2px solid yellow; border-radius: 40px;">Premium<i class="fa fa-star ml-2 text-warning" aria-hidden="true"></i></a>
+		  	</li>
+			<!-- <li class="navbar-option-general-show-top m-2 flex-grow-1">
 	        	<a class="cotextmennavtop btn btn-inherit" href="#">Educación Financiera<i class="fa fa-bar-chart ml-2 text-primary" aria-hidden="true"></i></a>
-		  	</li>
+		  	</li> -->
 		  	<li class="navbar-option-general-show-top m-2 flex-grow-1">
 	        	<a class="cotextmennavtop btn btn-inherit" href="#">¿Quiénes Somos?<i class="fa fa-globe ml-2 text-primary" aria-hidden="true"></i></a>
 		  	</li>

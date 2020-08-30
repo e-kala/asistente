@@ -12,7 +12,7 @@
 ?>
 
 
-<div class="container containeringasedi p-4" style="display: none;">
+<div class="container containeringasedi p-4" style="display: none; min-height: 100vh;">
     <h1>Cuentas</h1>
     <div class="p-2 pb-4 mt-2 border-bottom d-flex justify-content-center" role="alert">
         
