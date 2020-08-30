@@ -494,7 +494,7 @@ function div_opa_init_dark_wait(){
   divopa.style.msBackground = "rgb(0,0,0,0.90)";
   divopa.style.oBackground = "rgb(0,0,0,0.90)";
 
-  divopa.style.zIndex = 100
+  divopa.style.zIndex = 1100
   divopa.style.display = "flex"
   divopa.style.webkitDisplay = "flex";
   divopa.style.MozDisplay = "flex";

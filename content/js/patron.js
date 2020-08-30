@@ -1590,7 +1590,6 @@ function Pattmo(container, config){
 						
 						if (count_try_for_signup === 2){
 							if (ver_pass.tryone === ver_pass.trytwo){
-
 								$.post( "./content/php/registro/registrando.php", { mail: dat_post.email, usuario: dat_post.usuario, pass: ver_pass.first_char_pass + ver_pass.trytwo})
 								  .done( function(dat){
 								  	if (dat.match(/\<successfully\>/gim)){

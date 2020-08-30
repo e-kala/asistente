@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-between flex-wrap w-100 p-4 " style="position: fixed; top:0; left:0;">
-    <div class="headerinitregistrate">Ekasistent</div>
+    <div class="headerinitregistrate">Asistente Bonsai</div>
     <a class="btn btn-link text-light text-center font-weight-bold d-flex align-items-center align-content-center " href="index.php">Volver</a>
 </div>
 <div class="row pt-5  m-auto">
