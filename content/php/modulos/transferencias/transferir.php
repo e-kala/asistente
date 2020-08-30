@@ -8,7 +8,7 @@
         
         $conectar = new conexion();
         $conexion = $conectar->conectar();
-        echo "alert 'se estableció la conexion'";
+        echo "<script> alert 'se estableció la conexion'<script\>";
 
         $usuario = $_SESSION['user'];
         $deCuenta = $_POST['de'];
