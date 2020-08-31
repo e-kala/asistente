@@ -532,8 +532,8 @@
 				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="encuesta">
 					<div class="encuesta_time_caducidad pb-4 pt-4 card bg-transparent border-0">
 						<h5 class="pt-4 pb-4 alert alert-info text-primary">Proporciona datos ajustados a tu situación actual para garantizar que tu asistente te ofrezca los mejores resultados</h5>
-						<div class="d-flex flex-wrap p-2 align-content-center align-items-center">
-							<span class=" pb-4 m-3">Ingreso mensual mínimo para las necesidades</span>
+						<div class="d-flex flex-wrap p-2 align-content-center justify-content-center align-items-center">
+							<span class=" pb-4 m-3">Ingreso mensual mínimo para las necesidades: $</span>
 							<input type="number" value="1000" name="ingremin" id="ingremin">
 						</div>
 					</div>

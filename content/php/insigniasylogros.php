@@ -12,73 +12,121 @@
 			$json_config = json_decode($premioinactividad, true);
 
 			if (isset($json_config["premioinactividad"])){
-				$premioinactividad = $json_config["premioinactividad"];
+				if ($json_config["premioinactividad"]){
+					$premioinactividad = 1;
+				} else {
+					$premioinactividad = 0;
+				}
 			} else {
 				$premioinactividad = 0;
 			}
 
 			if (isset($json_config["constanciasaludable"])){
-				$constanciasaludable = $json_config["constanciasaludable"];
+				if ($json_config["constanciasaludable"]){
+					$constanciasaludable = 1;
+				} else {
+					$constanciasaludable = 0;
+				}
 			} else {
 				$constanciasaludable= 0;
 			}
 
 			if (isset($json_config["crecimientosuperior"])){
-				$crecimientosuperior = $json_config["crecimientosuperior"];
+				if ($json_config["crecimientosuperior"]){
+					$crecimientosuperior = 1;
+				} else {
+					$crecimientosuperior = 0;
+				}
 			} else {
 				$crecimientosuperior = 0;
 			}
 
 			if (isset($json_config["crecimientoexponencial"])){
-				$crecimientoexponencial = $json_config["crecimientoexponencial"];
+				if ($json_config["crecimientoexponencial"]){
+					$crecimientoexponencial = 1;
+				} else {
+					$crecimientoexponencial = 0;
+				}
 			} else {
 				$crecimientoexponencial = 0;
 			}
 
 			if (isset($json_config["huracandedinero"])){
-				$huracandedinero = $json_config["huracandedinero"];
+				if ($json_config["huracandedinero"]){
+					$huracandedinero = 1;
+				} else {
+					$huracandedinero = 0;
+				}
 			} else {
 				$huracandedinero = 0;
 			}
 
 			if (isset($json_config["excelenciafinanciera"])){
-				$excelenciafinanciera = $json_config["excelenciafinanciera"];
+				if ($json_config["excelenciafinanciera"]){
+					$excelenciafinanciera = 1;
+				} else {
+					$excelenciafinanciera = 0;
+				}
 			} else {
 				$excelenciafinanciera = 0;
 			}
 
 			if (isset($json_config["buenafortuna"])){
-				$buenafortuna = $json_config["buenafortuna"];
+				if ($json_config["buenafortuna"]){
+					$buenafortuna = 1;
+				} else {
+					$buenafortuna = 0;
+				}
 			} else {
 				$buenafortuna = 0;
 			}
 
 			if (isset($json_config["gastadorjunior"])){
-				$gastadorjunior = $json_config["gastadorjunior"];
+				if ($json_config["gastadorjunior"]){
+					$gastadorjunior = 1;
+				} else {
+					$gastadorjunior = 0;
+				}
 			} else {
 				$gastadorjunior = 0;
 			}
 
 			if (isset($json_config["gastadorsenior"])){
-				$gastadorsenior = $json_config["gastadorsenior"];
+				if ($json_config["gastadorsenior"]){
+					$gastadorsenior = 1;
+				} else {
+					$gastadorsenior = 0;
+				}
 			} else {
 				$gastadorsenior = 0;
 			}
 
 			if (isset($json_config["gastadorcompulsivo"])){
-				$gastadorcompulsivo = $json_config["gastadorcompulsivo"];
+				if ($json_config["gastadorcompulsivo"]){
+					$gastadorcompulsivo = 1;
+				} else {
+					$gastadorcompulsivo = 0;
+				}
 			} else {
 				$gastadorcompulsivo = 0;
 			} 
 
 			if (isset($json_config["elorganizador"])){
-				$elorganizador = $json_config["elorganizador"];
+				if ($json_config["elorganizador"]){
+					$elorganizador = 1;
+				} else {
+					$elorganizador = 0;
+				}
 			} else {
 				$elorganizador = 0;
 			} 
 
 			if (isset($json_config["usuarioactivo"])){
-				$usuarioactivo = $json_config["usuarioactivo"];
+				if ($json_config["usuarioactivo"]){
+					$usuarioactivo = 1;
+				} else {
+					$usuarioactivo = 0;
+				}
 			} else {
 				$usuarioactivo = 0;
 			}
@@ -96,7 +144,7 @@
 				<?php
 					//Si esta null se muestra bloqueo de lo contrario no
 					// here lock
-					if ($excelenciafinanciera == "null"){?> 
+					if ($excelenciafinanciera != 1){?> 
 						<div class="col-xs-12 col-md-4">
 							<div class="position-relative m-2   p-2 " >
 								<img src="./content/img/insignias/excelenciafinanciera.png" class="bshadow   bg-dark bradius-100" width="150px" >
@@ -122,7 +170,7 @@
 				<!-- Buena fortuna -->
 				<?php
 					//Si esta null se muestra bloqueo de lo contrario no
-					if ($buenafortuna == "null"){?>
+					if ($buenafortuna != 1){?>
 						<div class="col-xs-12 col-md-4">
 							<div class="position-relative m-2   p-2 " >
 								<img src="./content/img/insignias/buenafortuna.png" class="bshadow   bg-dark bradius-100" width="150px" >
@@ -149,7 +197,7 @@
 				<!-- Constancias Saludable -->
 				<?php
 					//Si esta null se muestra bloqueo de lo contrario no
-					if ($constanciasaludable == "null"){?>
+					if ($constanciasaludable != 1){?>
 						<div class="col-xs-12 col-md-4">
 							<div class="position-relative m-2   p-2 " >
 								<img src="./content/img/insignias/constanciasaludable.png" class="bshadow   bg-dark bradius-100" width="150px" >
@@ -176,7 +224,7 @@
 				<!-- El organizador -->
 				<?php
 					//Si esta null se muestra bloqueo de lo contrario no
-					if ($elorganizador == "null"){?>
+					if ($elorganizador != 1){?>
 						<div class="col-xs-12 col-md-4">
 							<div class="position-relative m-2   p-2 " >
 								<img src="./content/img/insignias/organizador.png" class="bshadow   bg-dark bradius-100" width="150px" >
@@ -203,7 +251,7 @@
 				<!-- Huracán de dinero -->
 				<?php
 					//Si esta null se muestra bloqueo de lo contrario no
-					if ($huracandedinero == "null"){?>
+					if ($huracandedinero != 1){?>
 						<div class="col-xs-12 col-md-4">
 							<div class="position-relative m-2   p-2 " >
 								<img src="./content/img/insignias/huracandedinero.png" class="bshadow   bg-dark bradius-100" width="150px" >
@@ -229,7 +277,7 @@
 				<!-- Crecimiento Superior -->
 				<?php
 					//Si esta null se muestra bloqueo de lo contrario no
-					if ($crecimientosuperior == "null"){?>
+					if ($crecimientosuperior != 1){?>
 						<div class="col-xs-12 col-md-4">
 							<div class="position-relative m-2   p-2 " >
 								<img src="./content/img/insignias/crecimientosuperior.png" class="bshadow   bg-dark bradius-100" width="150px" >
@@ -256,7 +304,7 @@
 				<!-- Crecimiento Exponencial -->
 				<?php
 					//Si esta null se muestra bloqueo de lo contrario no
-					if ($crecimientoexponencial == "null"){?>
+					if ($crecimientoexponencial != 1){?>
 						<div class="col-xs-12 col-md-4">
 							<div class="position-relative m-2   p-2 " >
 								<img src="./content/img/insignias/crecimientoexponencial.png" class="bshadow   bg-dark bradius-100" width="150px" >
@@ -283,7 +331,7 @@
 				<!-- Gastador Junior -->
 				<?php
 					//Si esta null se muestra bloqueo de lo contrario no
-					if ($gastadorjunior == "null"){?>
+					if ($gastadorjunior != 1){?>
 						<div class="col-xs-12 col-md-4">
 							<div class="position-relative m-2   p-2 " >
 								<img src="./content/img/insignias/gastadorjunior.png" class="bshadow   bg-dark bradius-100" width="150px" >
@@ -310,7 +358,7 @@
 				<!-- Gastador Senior -->
 				<?php
 					//Si esta null se muestra bloqueo de lo contrario no
-					if ($gastadorsenior == "null"){?>
+					if ($gastadorsenior != 1){?>
 						<div class="col-xs-12 col-md-4">
 							<div class="position-relative m-2   p-2 " >
 								<img src="./content/img/insignias/gastadorsenior.png" class="bshadow   bg-dark bradius-100" width="150px" >
@@ -337,7 +385,7 @@
 				<!-- Gastador Compulsivo -->
 				<?php
 					//Si esta null se muestra bloqueo de lo contrario no
-					if ($gastadorcompulsivo == "null"){?>
+					if ($gastadorcompulsivo != 1){?>
 						<div class="col-xs-12 col-md-4">
 							<div class="position-relative m-2   p-2 " >
 								<img src="./content/img/insignias/gastadorcompulsivo.png" class="bshadow   bg-dark bradius-100" width="150px" >
@@ -364,7 +412,7 @@
 				<!-- Premio Inactividad -->
 				<?php
 					//Si esta null se muestra bloqueo de lo contrario no
-					if ($premioinactividad == "null"){?>
+					if ($premioinactividad != 1){?>
 						<div class="col-xs-12 col-md-4">
 							<div class="position-relative m-2   p-2 " >
 								<img src="./content/img/insignias/premioinactividad.png" class="bshadow   bg-dark bradius-100" width="150px" >
@@ -391,7 +439,7 @@
 				<!-- Usuario Activo -->
 				<?php
 					//Si esta null se muestra bloqueo de lo contrario no
-					if ($usuarioactivo == "null"){?>
+					if ($usuarioactivo != 1){?>
 						<div class="col-xs-12 col-md-4">
 							<div class="position-relative m-2   p-2 " >
 								<img src="./content/img/insignias/usuarioactivo.png" class="bshadow   bg-dark bradius-100" width="150px" >

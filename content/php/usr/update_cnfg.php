@@ -42,22 +42,52 @@
 		$set["aside_hidden"] = $aside_hidden;
 		$set["caducidad"] = $caducidad;
 		$set["ingreso_minimo_mensual"] = $ingreso_minimo_mensual;
-		
-		$set["constanciasaludable"] = $constanciasaludable;
-		$set["buenafortuna"] = $buenafortuna;
-		$set["excelenciafinanciera"] = $excelenciafinanciera;
-		$set["crecimientoexponencial"] = $crecimientoexponencial;
-		$set["elorganizador"] = $elorganizador;
-		$set["crecimientosuperior"] = $crecimientosuperior;
-		$set["huracandedinero"] = $huracandedinero;
-		$set["usuarioactivo"] = $usuarioactivo;
-		$set["premioinactividad"] = $premioinactividad;
-		$set["gastadorjunior"] = $gastadorjunior;
-		$set["gastadorsenior"] = $gastadorsenior;
-		$set["gastadorcompulsivo"] = $gastadorcompulsivo;
-		$set["sombreromagico"] = $sombreromagico;
-		$set["reservadepoderi"] = $reservadepoderi;
-		$set["reservadepoderii"] = $reservadepoderii;
+
+		if (isset($constanciasaludable)){
+			$set["constanciasaludable"] = $constanciasaludable;
+		}
+		if (isset($buenafortuna)){
+			$set["buenafortuna"] = $buenafortuna;
+		}
+		if (isset($excelenciafinanciera)){
+			$set["excelenciafinanciera"] = $excelenciafinanciera;
+		}
+		if (isset($crecimientoexponencial)){
+			$set["crecimientoexponencial"] = $crecimientoexponencial;
+		}
+		if (isset($elorganizador)){
+			$set["elorganizador"] = $elorganizador;
+		}
+		if (isset($crecimientosuperior)){
+			$set["crecimientosuperior"] = $crecimientosuperior;
+		}
+		if (isset($huracandedinero)){
+			$set["huracandedinero"] = $huracandedinero;
+		}
+		if (isset($usuarioactivo)){
+			$set["usuarioactivo"] = $usuarioactivo;
+		}
+		if (isset($premioinactividad)){
+			$set["premioinactividad"] = $premioinactividad;
+		}
+		if (isset($gastadorjunior)){
+			$set["gastadorjunior"] = $gastadorjunior;
+		}
+		if (isset($gastadorsenior)){
+			$set["gastadorsenior"] = $gastadorsenior;
+		}
+		if (isset($gastadorcompulsivo)){
+			$set["gastadorcompulsivo"] = $gastadorcompulsivo;
+		}
+		if (isset($reservadepoderi)){
+			$set["reservadepoderi"] = $reservadepoderi;
+		}
+		if (isset($sombreromagico)){
+			$set["sombreromagico"] = $sombreromagico;
+		}
+		if (isset($reservadepoderii)){
+			$set["reservadepoderii"] = $reservadepoderii;
+		}
 
 
 		$set = json_encode($set);
