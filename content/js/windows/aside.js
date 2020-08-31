@@ -1337,7 +1337,7 @@ function Aside(username){
 					img.setAttribute("src",confpj)
 				}
 			} else {
-				img.setAttribute("src","./content/img/iconos/bauhappy.gif")
+				img.setAttribute("src","./content/img/iconos/facehappy.gif")
 			}
 
 			btn_notificacion.className = "p-4 m-2 alert-success font-weight-bold text-center"

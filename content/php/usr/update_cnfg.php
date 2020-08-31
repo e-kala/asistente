@@ -15,6 +15,23 @@
 		$caducidad = $_POST['caducidad'];
 		$ingreso_minimo_mensual = $_POST['ingreso_minimo_mensual'];
 
+		$constanciasaludable = $_POST["constanciasaludable"];
+        $buenafortuna = $_POST["buenafortuna"];
+        $excelenciafinanciera = $_POST["excelenciafinanciera"];
+        $crecimientosuperior = $_POST["crecimientosuperior"];
+        $crecimientoexponencial = $_POST["crecimientoexponencial"];
+        $elorganizador = $_POST["elorganizador"];
+        $huracandedinero = $_POST["huracandedinero"];
+        $usuarioactivo = $_POST["usuarioactivo"];
+        $premioinactividad = $_POST["premioinactividad"];
+        $gastadorjunior = $_POST["gastadorjunior"];
+        $gastadorsenior = $_POST["gastadorsenior"];
+        $gastadorcompulsivo = $_POST["gastadorcompulsivo"];
+        $sombreromagico = $_POST["sombreromagico"];
+        $reservadepoderi = $_POST["reservadepoderi"];
+        $reservadepoderii = $_POST["reservadepoderii"];
+
+
 		//Array contenedor de todos los datos
 		$set["mode"] = $mode;
 		$set["background"] = $background;
@@ -25,6 +42,23 @@
 		$set["aside_hidden"] = $aside_hidden;
 		$set["caducidad"] = $caducidad;
 		$set["ingreso_minimo_mensual"] = $ingreso_minimo_mensual;
+		
+		$set["constanciasaludable"] = $constanciasaludable;
+		$set["buenafortuna"] = $buenafortuna;
+		$set["excelenciafinanciera"] = $excelenciafinanciera;
+		$set["crecimientoexponencial"] = $crecimientoexponencial;
+		$set["elorganizador"] = $elorganizador;
+		$set["crecimientosuperior"] = $crecimientosuperior;
+		$set["huracandedinero"] = $huracandedinero;
+		$set["usuarioactivo"] = $usuarioactivo;
+		$set["premioinactividad"] = $premioinactividad;
+		$set["gastadorjunior"] = $gastadorjunior;
+		$set["gastadorsenior"] = $gastadorsenior;
+		$set["gastadorcompulsivo"] = $gastadorcompulsivo;
+		$set["sombreromagico"] = $sombreromagico;
+		$set["reservadepoderi"] = $reservadepoderi;
+		$set["reservadepoderii"] = $reservadepoderii;
+
 
 		$set = json_encode($set);
 

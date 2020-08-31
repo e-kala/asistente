@@ -64,6 +64,12 @@ body{
 	-o-position: fixed;
 	-webkit-position: fixed;
 
+	z-index: 1100;
+	-moz-z-index: 1100;
+	-ms-z-index: 1100;
+	-o-z-index: 1100;
+	-webkit-z-index: 1100;
+
 
 	top: 0;
 	-moz-top: 0;
@@ -782,6 +788,106 @@ main{
 	-o-transition: ease all 0.1s;
 	-webkit-transition: ease all 0.1s;
 }
+
+.goldglowbri{
+	animation: goldglowbrian linear infinite 5s;
+	-moz-animation: goldglowbrian linear infinite 5s;
+	-ms-animation: goldglowbrian linear infinite 5s;
+	-o-animation: goldglowbrian linear infinite 5s;
+	-webkit-animation: goldglowbrian linear infinite 5s;
+}
+@keyframes goldglowbrian{
+	from{
+		box-shadow: inset 0px 0px 20px #E5D32B;
+	}
+	50%{
+		box-shadow: inset 20px 20px 10px #FFF6A1;
+	}
+	to{
+		box-shadow: inset 0px 0px 20px #E5D32B;
+	} 
+
+}
+
+.animaunlockinsig{
+	border: 10px double #214BF1;
+	-moz-border: 10px double #214BF1;
+	-ms-border: 10px double #214BF1;
+	-o-border: 10px double #214BF1;
+	-webkit-border: 10px double #214BF1;
+}
+
+.animaanunlockinpu{
+	border-radius: 100%;
+	-moz-border-radius: 100%;
+	-ms-border-radius: 100%;
+	-o-border-radius: 100%;
+	-webkit-border-radius: 100%;
+
+	animation: animaunlockin linear infinite 0.3s;
+	-moz-animation: animaunlockin linear infinite 0.3s;
+	-ms-animation: animaunlockin linear infinite 0.3s;
+	-o-animation: animaunlockin linear infinite 0.3s;
+	-webkit-animation: animaunlockin linear infinite 0.3s;
+}
+
+@keyframes animaunlockin{
+	from{
+		border: 8px solid #FFD634;
+	} 
+	50%{
+		border: 8px solid white;
+	}
+	to{
+		border: 8px solid #FFD634;
+	}
+}
+.unlockstate{
+	border: 10px double #FCFF34;
+}
+.bg-advi-unlock-insig{
+	background: linear-gradient(to left top, #BB34FF,#4034FF);
+	color: #fff;
+}
+.unlock_advice_new_insig{
+	position: fixed;
+	-moz-position: fixed;
+	-ms-position: fixed;
+	-o-position: fixed;
+	-webkit-position: fixed;
+
+	background: white;
+	-moz-background: white;
+	-ms-background: white;
+	-o-background: white;
+	-webkit-background: white;
+
+	z-index: 23;
+	-moz-z-index: 23;
+	-ms-z-index: 23;
+	-o-z-index: 23;
+	-webkit-z-index: 23;
+
+	top: 50%;
+	-moz-top: 50%;
+	-ms-top: 50%;
+	-o-top: 50%;
+	-webkit-top: 50%;
+
+	left: 50%;
+	-moz-left: 50%;
+	-ms-left: 50%;
+	-o-left: 50%;
+	-webkit-left: 50%;
+
+	transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+}
+
+
 .opt_hea_win_asi{
 	/*border-radius: 14px;*/
 	position: absolute;
@@ -856,4 +962,21 @@ main{
 	outline: none;
 	border: none;
 	border-radius: 5px;
+}
+
+
+.bradius-100{
+	border-radius: 100%;
+	-moz-border-radius: 100%;
+	-ms-border-radius: 100%;
+	-o-border-radius: 100%;
+	-webkit-border-radius: 100%;
+}
+
+.bshadow{
+	box-shadow: 0px 0px 20px #FFE100;
+	-moz-box-shadow: 0px 0px 20px #FFE100;
+	-ms-box-shadow: 0px 0px 20px #FFE100;
+	-o-box-shadow: 0px 0px 20px #FFE100;
+	-webkit-box-shadow: 0px 0px 20px #FFE100;
 }

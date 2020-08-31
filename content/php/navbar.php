@@ -9,7 +9,7 @@
 		<ul class="m-2 d-flex flex-wrap justify-content-end align-content-center align-items-center menu-header-top" style="order:1;">
 			<li class="navbar-option-general-show-top m-0 p-0 flex-grow-1">
 				<a class="btn btn-inherit" href="?action=insigl">
-	        		<img src="./content/img/iconos/logrosinsig.png" width="50px" style="cursor: pointer;">
+	        		<img src="./content/img/iconos/logrosinsig.gif" width="50px" style="cursor: pointer;">
 				</a>
 		  	</li>
 			<li class="navbar-option-general-show-top m-2 flex-grow-1">

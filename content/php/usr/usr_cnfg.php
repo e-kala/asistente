@@ -340,7 +340,7 @@
 
 		//******************************************
 
-		console.log(json, "domo")
+		console.log(json, "domo", "chicoao")
 		console.log(json[1].pj_change,)
 
 
