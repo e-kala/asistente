@@ -19,9 +19,10 @@
 
         echo $cantidadIngreso;
 
-        $sql = "INSERT INTO ingresos(usuario_ingreso, cantidad_ingreso, cuenta_ingreso, fecha_ingreso, categoria_ingreso, descripcion_ingreso)
-                VALUES('$usuario', '$cantidadIngreso', '$cuenta', '$fecha', '$categoriaIngreso', '$descripcionIngreso')";
-        $datos = utf8_encode($sql);
+        //$sql = "INSERT INTO ingresos(usuario_ingreso, cantidad_ingreso, cuenta_ingreso, fecha_ingreso, categoria_ingreso, descripcion_ingreso)
+        //        VALUES('$usuario', '$cantidadIngreso', '$cuenta', '$fecha', '$categoriaIngreso', '$descripcionIngreso')";
+        $sql = "CALL Ingreso('$usuario', '$cantidadIngreso', '$cuenta', '$fecha', '$descripcionIngreso', '$categoriaIngreso')";
+	$datos = utf8_encode($sql);
         //$result = mysqli_query($conexion, $datos);
         //echo $result;
 

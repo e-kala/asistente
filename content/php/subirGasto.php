@@ -19,11 +19,12 @@
         echo $cantidadGasto;
         echo $fecha;
 
-        $sql = "INSERT INTO gastos(usuario_gasto, cantidad_gasto, cuenta_gasto, fecha_gasto, categoria_gasto, descripcion_gasto)
-                VALUES('$usuario', '$cantidadGasto', '$cuenta', '$fecha', '$categoriaGasto', '$descripcionGasto')";
+        //$sql = "INSERT INTO gastos(usuario_gasto, cantidad_gasto, cuenta_gasto, fecha_gasto, categoria_gasto, descripcion_gasto)
+        //        VALUES('$usuario', '$cantidadGasto', '$cuenta', '$fecha', '$categoriaGasto', '$descripcionGasto')";
         /*$sql = "INSERT INTO gastos(cantidad_gasto, fecha_gasto)
                 VALUES('$cantidadGasto', '$fecha')";*/
-        $datos = utf8_encode($sql);
+        $sql = "CALL Gasto('$usuario', '$cantidadGasto', '$cuenta', '$fecha', '$descripcionGasto', '$categoriaGasto')";
+	$datos = utf8_encode($sql);
         //$result = mysqli_query($conexion, $datos);
         //echo $result;
 
