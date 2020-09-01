@@ -34,6 +34,40 @@
 	$diaActual = date('d');
 	$añoActual = date('Y');
 
+	//---------------------------------CALCULO DE BALANCE REAL-----------------------------------
+	//-----------------------------------LISTADO DE CUENTAS---------------------------------
+	$rescuenta = $conexion->query("SELECT * FROM cuentas WHERE usuario_cuenta = '$usuario'");
+	$balacrealact = 0;
+	$baldeud = 0;
+	while ($filacuenta = $rescuenta->fetch_object()) { // Ingresos totales
+		//Cuentas del usuario
+		$cuenta = $filacuenta->nombre_cuenta;
+		$cIngresosGen = "SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND cuenta_ingreso = '$cuenta'";
+	
+		$cGastosGen = "	SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND cuenta_gasto = '$cuenta'";
+		
+		$rIngresosGeneral = $conexion->query($cIngresosGen);
+		$rGastosGeneral = $conexion->query($cGastosGen);
+	
+		$tIngresosGeneral = 0;
+		$tGastosGeneral = 0;
+
+		while ($fila = $rIngresosGeneral->fetch_object()) { // Ingresos totales
+			$tIngresosGeneral += $fila->cantidad_ingreso;
+		}
+		while ($fila = $rGastosGeneral->fetch_object()) { // Gastos totales
+			$tGastosGeneral += $fila->cantidad_gasto;
+		}
+		$calculo = $tIngresosGeneral - $tGastosGeneral;
+		//Sumar solamente numeros positivos, si hay un negativo no sumarlo
+		if ($calculo > 0){
+			$balacrealact += $calculo;
+		} else {
+			$baldeud += $calculo;
+		}
+	}
+	//------------------------------------------------------------------------------------
+
 	if ($time_filter_balance === "5"){ // 2 meses atrás
 		$month_before = $mesActual - 2; // 2 meses atrás
 		$dias_total = getMonthDays($month_before, $añoActual); //Dias totales dle mes anterior
@@ -145,7 +179,8 @@
 			}
 		}
 
-		echo "<span class='balactual'><span class='font-weight-bold'>Balance Real</span>: <span class='balactual_co' value='".$totali = $totalIngresosGeneral - $totalGastosGeneral."'>$ ". $totali = $totalIngresosGeneral - $totalGastosGeneral . "</span></span>";
+		echo "<span class='balactual'><span class='font-weight-bold'>Balance Real</span>: <span class='balactual_co' value='".$balacrealact."'>$ ". $balacrealact . "</span></span><br>";
+		echo "<span class='baldeudas'><span class='font-weight-bold'>Deudas Acumuladas</span>: <span class='baldeudas_co' value='".$baldeud."'>$ ". $baldeud . "</span></span>";
 		echo "<br><br><span class='font-weight-bold text-secondary font-italic'>Valores según filtro</span>";
 		echo "<br><br><span class='togasfil'><span class='font-weight-bold font-italic'>Total Gastos</span>: <span class='togasinitfil' value='{$totalGastos}'>$ {$totalGastos} </span><br></span>";
 		echo "<span class='toinfil'><span class='font-weight-bold font-italic'>Total Ingresos</span>: <span class='toingresinitfil' value='{$totalIngresos}'>$ ". $totalIngresos . "</span><br></span>";

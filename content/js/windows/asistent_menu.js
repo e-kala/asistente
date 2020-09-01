@@ -42,7 +42,7 @@ logo = '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-circle-ha
 
 options = ["Inicio", "Configuración", logo, "Cerrar Sesión"]
 
-function iters(status, modss, boxes_inn, registrosg, txtcolor, tadoreschangemod){
+function iters(status, modss, boxes_inn, txtcolor){
   if (mods !== undefined){
     for (let x = 0; x < mods.length; x++){
       if (mods[x] !== undefined){
@@ -76,31 +76,18 @@ function iters(status, modss, boxes_inn, registrosg, txtcolor, tadoreschangemod)
   }
     if (registrosgasin !== undefined) {
       for (let x = 0; x < registrosgasin.length; x++){
-        registrosgasin[x].className = registrosg[0]
-        registrosgasin[x].style.background = registrosg[1]
         if (status === "dark"){
-          registrosgasin[x].animate([{
-            background:`rgb(255,255,255,${alma_config[1].transparency}5)`
-          },{
-            background:registrosg[1]
-          }],{duration:400, iterations:1})
+          registrosgasin[x].style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+          registrosgasin[x].className = "p-4 m-4 tered registrosgasin   text-light"
         } else {
-          registrosgasin[x].animate([{
-            background:`rgb(52,52,69,${alma_config[1].transparency}5)`
-          },{
-            background:registrosg[1]
-          }],{duration:400, iterations:1})
+          registrosgasin[x].style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+          registrosgasin[x].className =  "p-4 m-4 tered registrosgasin   text-dark"
         }
       }
     }
     if (colorchangetxt !== undefined) {
       for (let x = 0; x < colorchangetxt.length; x++){
         colorchangetxt[x].className = txtcolor
-      }
-    }
-    if (bgchan !== undefined){
-      for (let x = 0; x < bgchan.length; x++){
-        bgchan[x].className = tadoreschangemod
       }
     }
 
@@ -239,7 +226,7 @@ functions = [
       bg_session = "dark"
       modebg_to_nav = "dark"
       post_save_change("dark")
-        header_session.className = "navbar mb-4 p-4"
+        header_session.className = "navbar mb-4 p-4 card-header "
         header_session.style.background = `rgb(52,52,69,${transparency}5)`
         header_session.animate([{
           background:`rgb(255,255,255,${transparency}5)`
@@ -355,13 +342,22 @@ functions = [
           }
         }
 
+        //registrosgasin
+        if (registrosgasin !== undefined){
+          for (let x = 0; x < registrosgasin.length; x++){
+            registrosgasin[x].animate([{
+              background:`rgb(255,255,255,${alma_config[1].transparency}5)`
+            },{
+              background:`rgb(52,52,69,${alma_config[1].transparency}5)`
+            }],{duration:400, iterations:1})
+          }
+        }
+
         iters(
           "dark",
           ["card modsco text-light flexbg",`rgb(52,52,69,${transparency}5)`], 
           ["card boxes-in text-light flexbg",`rgb(52,52,69,${transparency}5)`],
-          ["p-4 m-4 text-white tered registrosgasin text-light text-white cotxtlight",`rgb(52,52,69,${transparency}5)`],
-          'text-center colorchangetxt text-light',
-          "containeraside card asidechancolor text-light"
+          'text-center colorchangetxt text-light'
         )
         let asidechancolor = document.getElementsByClassName("asidechancolor")[0]
         if (asidechancolor !== undefined) {
@@ -379,7 +375,7 @@ functions = [
       bg_session = "white"
       modebg_to_nav = "white"
       post_save_change("white")
-        header_session.className = "navbar mb-4 p-4 header-home-asistent"
+        header_session.className = "navbar mb-4 p-4 card-header header-home-asistent"
         header_session.style.background = `rgb(255,255,255,${transparency}5)`
         header_session.animate([{
           background:`rgb(52,52,69,${transparency}5)`
@@ -499,14 +495,25 @@ functions = [
           }
         }
 
+        //registrosgasin
+        if (registrosgasin !== undefined){
+          for (let x = 0; x < registrosgasin.length; x++){
+            registrosgasin[x].animate([{
+              background:`rgb(52,52,69,${alma_config[1].transparency}5)`
+            },{
+              background:`rgb(255,255,255,${alma_config[1].transparency}5)`
+            }],{duration:400, iterations:1})
+          }
+        }
+
+
         iters(
           "light",
           ["card modsco text-dark flexbg",`rgb(255,255,255,${transparency}5)`], 
           ["card boxes-in text-dark", `rgb(255,255,255,${transparency}5)`],
-          ["p-4 m-4 tered registrosgasin text-dark cotxtdark", `rgb(255,255,255,${transparency}5)`],
-          'text-center colorchangetxt text-dark',
-          "containeraside card asidechancolor text-dark"
+          'text-center colorchangetxt text-dark'
         )
+
         let asidechancolor = document.getElementsByClassName("asidechancolor")[0]
         if (asidechancolor !== undefined){
           asidechancolor.className = "containeraside card asidechancolor text-dark"

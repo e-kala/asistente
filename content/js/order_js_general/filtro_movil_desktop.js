@@ -4,7 +4,7 @@ let menreg = document.getElementsByClassName("menreg")[0]
 let find = document.getElementsByClassName("find")[0]
 
 
-function search = (formreg, tadores, menreg, find, config){
+function search(formreg, tadores, menreg, find, config){
     if (config.mode === "desktop"){
       tadores.style.display = "flex"
       tadores.style.webkitDisplay = "flex";
@@ -29,15 +29,14 @@ function search = (formreg, tadores, menreg, find, config){
       tadores.style.MozFlexFlow = "wrap row";
       tadores.style.msFlexFlow = "wrap row";
       tadores.style.oFlexFlow = "wrap row";
-
     }
 
     // tadores.style.background = "#474A64"
     tadores.style.borderBottom = "2px solid #dbdbdb"
-    tadores.style.webkitBottom = "2px solid #dbdbdb";
-    tadores.style.MozBottom = "2px solid #dbdbdb";
-    tadores.style.msBottom = "2px solid #dbdbdb";
-    tadores.style.oBottom = "2px solid #dbdbdb";
+    tadores.style.webkitBorderBottom = "2px solid #dbdbdb";
+    tadores.style.MozBorderBottom = "2px solid #dbdbdb";
+    tadores.style.msBorderBottom = "2px solid #dbdbdb";
+    tadores.style.oBorderBottom = "2px solid #dbdbdb";
 
     let selected = "Ingresos"
     menreg.addEventListener("click", function(e){

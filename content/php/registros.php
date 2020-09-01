@@ -18,7 +18,7 @@
 
 
 <!-- Escritorio -->
-<div class="registromodsco p-4 m-4  tered registrosgasin registros" style="display: none;">
+<div class="registromodsco p-4 m-4 tered registrosgasin registros" style="display: none;">
     <div class="menu-reg-top">
         <a href="index.php#?#movimientos" class="backs colorchange font-weight-bold">Atrás</a>
     </div>
@@ -44,12 +44,6 @@
         </form>
         <br>
         <div class="tadoress bgchan"></div>
-        <div class="mt-4 float-right">
-            <button class="btn btn-secondary">Comenter</button>
-            <button class="btn btn-secondary">Arrastrar</button>
-            <button class="btn btn-secondary">Crear grupo</button>
-            <button class="btn btn-secondary">Comparar</button>
-        </div>
         <button class="btn btn-danger mt-4" id="load_all_reg">Mostrar menos</button>
     </div>
 

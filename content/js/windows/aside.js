@@ -747,10 +747,9 @@ function calender(){
 		let diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
 
 		let almadaysnames = [];
-		let fdm = new Date(year, dat_whole.getMonth(), 7)
+		let fdm = new Date(year, dat_whole.getMonth(), -1)
 		fdm = fdm.toString()
 		let y = 0;
-		console.log(fdm)
 		if (fdm.match(/Wed/gim)){
 			y = 3 //Miercoels
 		} else if (fdm.match(/Thu/gim)){
@@ -776,6 +775,8 @@ function calender(){
 				almadaysnames.push(diasSemana[y])
 			}
 		}
+
+		console.log(almadaysnames)
 
 		return {
 			diaNombre : diasSemana[dat_whole.getDay()],
@@ -937,6 +938,7 @@ function calender(){
 				}).done(function(d){
 					d = JSON.parse(d)
 					document.getElementsByClassName("balactual")[0].innerHTML = `<span class='font-weight-bold'>Balance Real</span>: <span class='	font-weight-bold' style='color:${d.BalanceActual.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.BalanceActual+"</span>"
+					document.getElementsByClassName("baldeudas")[0].innerHTML = `<span class='font-weight-bold'>Deudas Acumuladas</span>: <span class='	font-weight-bold' style='color:${d.Baldeudas.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.Baldeudas+"</span>"				
 					document.getElementsByClassName("togasfil")[0].innerHTML = `<span class='font-weight-bold'>Total Gastos</span>: <span class='font-weight-bold' style='color:red;'>$ ` + d.TotalGastosFiltro+"</span><br>"
 					document.getElementsByClassName("toinfil")[0].innerHTML = `<span class='font-weight-bold'>Total Ingresos</span>: <span class='font-weight-bold' style='color:${d.TotalIngresosFiltro.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.TotalIngresosFiltro+"</span><br>"
 					document.getElementsByClassName("bafis")[0].innerHTML = `<span class='font-weight-bold'>Flujo ${d.Statebalancefiltro}</span>: <span class='font-weight-bold' style='color:${d.BalanceFiltro.toString().match(/\-/gim) ? "red" : "#0CC9D5"}'>$ ` + d.BalanceFiltro + "</span"
@@ -993,6 +995,7 @@ function calender(){
 			}).done(function(d){
 				d = JSON.parse(d)
 				document.getElementsByClassName("balactual")[0].innerHTML = `<span class='font-weight-bold'>Balance Real</span>: <span class='	font-weight-bold' style='color:${d.BalanceActual.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.BalanceActual+"</span>"
+				document.getElementsByClassName("baldeudas")[0].innerHTML = `<span class='font-weight-bold'>Deudas Acumuladas</span>: <span class='	font-weight-bold' style='color:${d.Baldeudas.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.Baldeudas+"</span>"				
 				document.getElementsByClassName("togasfil")[0].innerHTML = `<span class='font-weight-bold'>Total Gastos</span>: <span class='font-weight-bold' style='color:red;'>$ ` + d.TotalGastosFiltro+"</span><br>"
 				document.getElementsByClassName("toinfil")[0].innerHTML = `<span class='font-weight-bold'>Total Ingresos</span>: <span class='font-weight-bold' style='color:${d.TotalIngresosFiltro.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.TotalIngresosFiltro+"</span><br>"
 				document.getElementsByClassName("bafis")[0].innerHTML = `<span class='font-weight-bold'>Flujo ${d.Statebalancefiltro}</span>: <span class='font-weight-bold' style='color:${d.BalanceFiltro.toString().match(/\-/gim) ? "red" : "#0CC9D5"}'>$ ` + d.BalanceFiltro + "</span"
@@ -1146,7 +1149,7 @@ function conversor(){
 function Aside(username){
 	const containhome = document.getElementsByClassName("containhome")[0]
 	const contacal = document.createElement("div")
-	contacal.className += "contacalaside card asidechancolor"
+	contacal.className += "contacalaside card asidechancolor bg-transparent"
 
 	resize_window_aside(contacal)
 	
@@ -1164,6 +1167,7 @@ function Aside(username){
 	const img = document.createElement("img")
 	img.className += "caras"
 	img.setAttribute("width", "50%")
+	img.setAttribute("height", "50%")
 
 	img.style.borderRadius = "100%"
 	img.ondragstart = function(){
@@ -1182,7 +1186,7 @@ function Aside(username){
 	
 	// if (contacal !== undefined) contacal.appendChild(btn_notificacion)
 
-	let balcontent = document.getElementsByClassName("balactual")[0]
+	let balcontent = document.getElementsByClassName("baldeudas_co")[0]
 
 	if (balcontent !== undefined && balcontent !==null){
 		let confpj =  window.config[1].pj_change

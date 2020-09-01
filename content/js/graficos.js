@@ -20,7 +20,7 @@ function processinggraphic(){
 processinggraphic()
 
 function data_graphic(){
-  let [gvalue, ivalue, brvalue] = ["", "", ""]
+  let [gvalue, ivalue, brvalue, dvalue] = ["", "", "", ""]
   const gastos_read = document.getElementsByClassName("togasinitfil")[0]
   if (gastos_read !== undefined){
     gvalue = gastos_read.textContent.replace("$ ","")
@@ -32,6 +32,10 @@ function data_graphic(){
   const balancereal = document.getElementsByClassName("balactual_co")[0]
   if (balancereal !== undefined){
     brvalue = balancereal.textContent.replace("$ ", "")
+  }
+  const deudas = document.getElementsByClassName("baldeudas_co")[0]
+  if (deudas !== undefined){
+    dvalue = deudas.textContent.replace("$", "")
   }
 
   let balance = ivalue - gvalue
@@ -51,7 +55,7 @@ function data_graphic(){
     } else if (Number(brvalue) === 0) {
       document.getElementById("state_balsalu").style.display = "block"
       document.getElementById("state_balsalu").className = "w-100 alert alert-info text-info font-weight-bold"
-      document.getElementById("state_balsalu").innerHTML = `Tu saldo se encuentra en cero <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>`  
+      document.getElementById("state_balsalu").innerHTML = `Tu saldo real se encuentra en cero <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>`  
     } else if (Number(brvalue) < 0) {
       document.getElementById("state_balsalu").style.display = "block"
       document.getElementById("state_balsalu").className = "w-100 alert alert-danger text-danger font-weight-bold"
@@ -78,6 +82,7 @@ function data_graphic(){
       let minmen = Number(window.config[1].ingreso_minimo_mensual)
 
       let ope = brvalue * 100 / minmen
+      let ode = dvalue * 100 / minmen
         
       if (brvalue <= 0){
         saludbilleterainner.style.width = "0%"
@@ -110,6 +115,14 @@ function data_graphic(){
       let time = new Date()
       let day = time.getDate()
 
+      let pln = ""
+      let day_expi = ""
+      if (window.config[0].plan.match(/\{/gim)){
+        pln = JSON.parse(window.config[0].plan)
+        day_expi = pln.fechaExpiracion.toString().split("-")[2] //Dia de expiracion
+      }
+
+
       if (ope > 0 && ope <= 10){
         document.getElementById("state_balsalu").style.display = "block"
         document.getElementById("state_balsalu").className = "w-100 alert alert-success text-success font-weight-bold"
@@ -126,7 +139,7 @@ function data_graphic(){
         document.getElementById("state_balsalu").style.display = "block"
         document.getElementById("state_balsalu").className = "w-100 alert alert-success text-success font-weight-bold"
         document.getElementById("state_balsalu").innerHTML = `¡Eres un trabajador incansable! <i class="fa fa-smile-o" aria-hidden="true"></i>`  
-      } else if (ope > 75 && ope <= 99){
+      } else if (ope > 75 && ope <= 100){
         document.getElementById("state_balsalu").style.display = "block"
         document.getElementById("state_balsalu").className = "w-100 alert alert-success text-success font-weight-bold"
         document.getElementById("state_balsalu").innerHTML = `Estás cerca de tu meta de ingreso mínimo <i class="fa fa-smile-o" aria-hidden="true"></i>`  
@@ -156,46 +169,48 @@ function data_graphic(){
         document.getElementById("state_balsalu").className = "w-100 alert alert-success text-success font-weight-bold"
         document.getElementById("state_balsalu").innerHTML = `Eres una máquina de dinero, no olvides mantenerte así y crear multiplicadores con tu poder actual <i class="fa fa-smile-o" aria-hidden="true"></i>` 
         asignate_insig("excelenciafinanciera", "Excelencia Financiera")
-      } 
-
-      let pln = JSON.parse(window.config[0].plan)
-      let day_expi = pln.fechaExpiracion.toString().split("-")[2] //Dia de expiracion
-
+      } else if (ope <= 50 && porcentajeGasto >= 60 && ope > 0 && day > day_expi + 10 && day_expi < 20){
       //Si luego de 10 dias hay gastos acumulados e ingresos nulos y probabilidad de estancamiento activa, entonces insignia de inactividad
-      if (ope <= 50 && porcentajeGasto >= 60 && ope > 0 && day > day_expi + 10 && day_expi < 20){
         document.getElementById("probastan").innerHTML = day*0.05 +6+"%"
         document.getElementById("probastan").style.width = day*0.05 +6+"%"
         document.getElementById("statestanca").style.display = "block"
         document.getElementById("statestanca").className = "w-100 alert alert-danger text-danger font-weight-bold"
         document.getElementById("statestanca").innerHTML =  `El dinero no está fluyendo como debería  <i class="fa fa-frown-o" aria-hidden="true"></i>` 
-        asignate_insig("excelenciafinanciera", "Excelencia Financiera")
+        asignate_insig("premioinactividad", "Inactividad Frecuente")
       } else if(ope > 0) {
         document.getElementById("statestanca").style.display = "block"
         document.getElementById("statestanca").className = "w-100 alert alert-success rounded text-success font-weight-bold"
         document.getElementById("statestanca").innerHTML =  `No hay nada de qué preocuparse por ahora  <i class="fa fa-smile-o" aria-hidden="true"></i>` 
-      } else if (ope > -minmen / 2 && ope < -minmen ) {
+       }
+
+      if (+Number(ode.toString().replace("-", "")).toFixed() < +(minmen / 10).toFixed() && firstnunin <= -4) {
         document.getElementById("probastan").innerHTML = day*0.05 +2+"%"
         document.getElementById("probastan").style.width = day*0.05 +2+"%"
         document.getElementById("statestanca").style.display = "block"
         document.getElementById("statestanca").className = "w-100 alert alert-danger text-danger font-weight-bold"
-        document.getElementById("statestanca").innerHTML =  `Tu saldo actual es negativo, según el tiempo en que se mantenga así esta barra se incrementará  <i class="fa fa-frown-o" aria-hidden="true"></i>` 
+        document.getElementById("statestanca").innerHTML =  `Actualmente posees deudas, según el tiempo en que se mantenga así esta barra se incrementará  <i class="fa fa-frown-o" aria-hidden="true"></i>` 
+
         asignate_insig("gastadorjunior", "Gastador Junior")
-      } else if (ope >  -minmen && ope < -minmen + (-minmen / 2)){
+      } else if (+Number(ode.toString().replace("-", "")).toFixed() < +(minmen / 5).toFixed() && firstnunin <= -8){
         document.getElementById("probastan").innerHTML = day*0.05 +4+"%"
         document.getElementById("probastan").style.width = day*0.05 +4+"%"
         document.getElementById("statestanca").style.display = "block"
         document.getElementById("statestanca").className = "w-100 alert alert-danger text-danger font-weight-bold"
-        document.getElementById("statestanca").innerHTML =  `Tu saldo actual es negativo, según el tiempo en que se mantenga así esta barra se incrementará  <i class="fa fa-frown-o" aria-hidden="true"></i>` 
+        document.getElementById("statestanca").innerHTML =  `Actualmente posees deudas, según el tiempo en que se mantenga así esta barra se incrementará  <i class="fa fa-frown-o" aria-hidden="true"></i>` 
         asignate_insig("gastadorsenior", "Gastador Senior")
-      } else if (ope > -3000 && ope < 0){
+      } else if (ode > -8000 && ode > 0){
         document.getElementById("probastan").innerHTML = day*0.05 +60+"%"
         document.getElementById("probastan").style.width = day*0.05 +60+"%"
         document.getElementById("statestanca").style.display = "block"
         document.getElementById("statestanca").className = "w-100 alert alert-danger text-danger font-weight-bold"
-        document.getElementById("statestanca").innerHTML =  `Tu saldo actual es negativo, según el tiempo en que se mantenga así esta barra se incrementará  <i class="fa fa-frown-o" aria-hidden="true"></i>` 
+        document.getElementById("statestanca").innerHTML =  `Actualmente posees deudas, según el tiempo en que se mantenga así esta barra se incrementará  <i class="fa fa-frown-o" aria-hidden="true"></i>` 
+
         asignate_insig("gastadorcompulsivo", "Gastador Compulsivo")
       } 
+
+      console.log(firstnunin,ode, ope)
     }
+
 
     
   })
@@ -235,8 +250,8 @@ function asignate_insig(insignia, name_insign_to_show){
                     <h1 class="flex-grow-1">¡Nueva insignia desbloqueada! <span onclick="close_ad_new_log()" class="btn btn-danger">X</span></h1>
                   </div>
                 </div>
-                <div class="card-body border-0 bg-transparent bg-advi-unlock-insig" align="center">
-                  <div class="d-flex flex-column">
+                <div class="card-body border-0 bg-transparent bg-advi-unlock-insig d-flex justify-content-center" align="center">
+                  <div class="d-flex flex-column justify-content-center align-items-center align-content-center" align="center">
                     <img style="border:4px solid #FFD634;" class="animaanunlockinpu rounded" src="./content/img/insignias/${insinew}.png" width="200px"/>
                     <br>
                     <div class="border border-bottom-0 border-left-0 border-right-0 p-2">
@@ -257,12 +272,16 @@ function asignate_insig(insignia, name_insign_to_show){
 
 function emergent_advice_unlock_insig(msg){
   const opa = document.createElement("div")
-
+  opa.classList.add("opainsignanun")
   opa.style.position = "fixed"
   opa.style.webkitPosition = "fixed";
   opa.style.MozPosition = "fixed";
   opa.style.msPosition = "fixed";
   opa.style.oPosition = "fixed";
+  opa.onpointerdown = function(){
+    opa.remove()
+    document.getElementsByClassName("unlock_advice_new_insig")[0].remove()
+  }
 
   opa.style.background = "rgb(0,0,0,0.40)"
   opa.style.webkitBackground = "rgb(0,0,0,0.40)";
@@ -331,4 +350,5 @@ function emergent_advice_unlock_insig(msg){
 
 function close_ad_new_log(){
   document.getElementsByClassName("unlock_advice_new_insig")[0].remove()
+  document.getElementsByClassName("opainsignanun")[0].remove()
 }
