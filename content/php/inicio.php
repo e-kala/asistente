@@ -41,6 +41,21 @@
 			</div>
 		</div>
 
+
+		<!-- Demos -->
+		<div class="container-fluid p-3 d-flex align-content-center align-items-center d-flex justify-content-center" style="background: #fff; border-top: 4px solid white; min-height: 80vh;">
+			<div class="">
+				<div class="bg-transparent border-0 p-3 row">
+					<div class="col-xs-12 col-md-6 p-2">
+						<img src="./content/img/demo1.png"class="m-3" width="90%">
+					</div>
+					<div class="col-xs-12 col-md-6 p-2">
+						<img src="./content/img/demo2.png"class="m-3" width="90%">
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<!-- footerini -->
 		<div class="container-fluid bg-light">
 			<div class="bg-transparent border-0">
@@ -60,6 +75,15 @@
 						<h4 class="text-center p-4 text-dark">Herramientas y recursos interactivos para complementar las operaciones</h4>
 						<span class="badge-pill border p-2 text-dark font-weight-bold"><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i></span>
 					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footend -->
+		<div class="container-fluid p-3 text-light" style="background: #a66741; border-top: 4px solid white;">
+			<div class="bg-transparent border-0 p-3 row">
+				<div class="col">
+					<h5>Copyright © 2020 Asistente Bonsai</h5>
 				</div>
 			</div>
 		</div>

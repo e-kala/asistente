@@ -12,7 +12,7 @@
 		                var f = new Date();
 		                document.write(f.getFullYear());
 		            </script> 
-	             	<a href="#">Asistente</a>
+	             	<a href="#">Asistente Bonsai</a>
 	        	</p>
 			</div>  		
 			<div class="col-sm-4">

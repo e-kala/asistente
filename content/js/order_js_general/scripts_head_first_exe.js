@@ -47,9 +47,9 @@ const import_configuracion = () => {
 }
 
 
-$(function(){
-console.log(window.config)
+// $(function(){
+// console.log(window.config)
   
-})
+// })
 
 import_configuracion()

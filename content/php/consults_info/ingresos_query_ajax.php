@@ -28,6 +28,41 @@ include "../conexion.php";
 		$diaActual = date('d');
 		$añoActual = date('Y');
 
+		//---------------------------------CALCULO DE BALANCE REAL-----------------------------------
+		//-----------------------------------LISTADO DE CUENTAS---------------------------------
+		$rescuenta = $conexion->query("SELECT * FROM cuentas WHERE usuario_cuenta = '$usuario'");
+		$balacrealact = 0;
+		$baldeud = 0;
+		while ($filacuenta = $rescuenta->fetch_object()) { // Ingresos totales
+			//Cuentas del usuario
+			$cuenta = $filacuenta->nombre_cuenta;
+			$cIngresosGen = "SELECT * FROM ingresos WHERE usuario_ingreso = '$usuario' AND cuenta_ingreso = '$cuenta'";
+		
+			$cGastosGen = "	SELECT * FROM gastos WHERE usuario_gasto = '$usuario' AND cuenta_gasto = '$cuenta'";
+			
+			$rIngresosGeneral = $conexion->query($cIngresosGen);
+			$rGastosGeneral = $conexion->query($cGastosGen);
+		
+			$tIngresosGeneral = 0;
+			$tGastosGeneral = 0;
+
+			while ($fila = $rIngresosGeneral->fetch_object()) { // Ingresos totales
+				$tIngresosGeneral += $fila->cantidad_ingreso;
+			}
+			while ($fila = $rGastosGeneral->fetch_object()) { // Gastos totales
+				$tGastosGeneral += $fila->cantidad_gasto;
+			}
+			$calculo = $tIngresosGeneral - $tGastosGeneral;
+			//Sumar solamente numeros positivos, si hay un negativo no sumarlo
+			if ($calculo > 0){
+				$balacrealact += $calculo;
+			} else {
+				$baldeud += $calculo;
+			}
+		}
+		//------------------------------------------------------------------------------------
+
+
 		if ($time_filter_balance === "5"){ // 2 meses atrás
 			$month_before = $mesActual - 2; // 2 meses atrás
 			$dias_total = getMonthDays($month_before, $añoActual); //Dias totales dle mes anterior
@@ -139,7 +174,8 @@ include "../conexion.php";
 				}
 			}
 
-			$response["BalanceActual"] = $totali = $totalIngresosGeneral - $totalGastosGeneral;
+			$response["BalanceActual"] = $balacrealact;
+			$response["Baldeudas"] = $baldeud;
 			$response["TotalGastosFiltro"] = $totalGastos;
 			$response["TotalIngresosFiltro"] = $totalIngresos;
 			$response["BalanceFiltro"] = $totalIngresos - $totalGastos;

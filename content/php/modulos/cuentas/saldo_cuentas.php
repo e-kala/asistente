@@ -8,9 +8,7 @@
 	
 	//comprobación de resepción de datos.
 	if (isset($_POST)) {
-
 		//echo " si hay post ";
-		
 		if (isset($_POST['cuenta'])) {
 			$cuenta = $_POST['cuenta'];
 			//echo $cuenta . " ";

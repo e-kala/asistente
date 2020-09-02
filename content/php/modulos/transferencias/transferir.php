@@ -4,8 +4,6 @@
 
         session_start();
 
-
-        
         $conectar = new conexion();
         $conexion = $conectar->conectar();
         echo "alert 'se estableció la conexion'";
