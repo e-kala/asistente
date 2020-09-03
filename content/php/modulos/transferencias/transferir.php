@@ -49,7 +49,8 @@
             //    echo "Error: " . $deCuentaSQL . "<br>" . $conexion->error;
             //}
         } else {
-            echo "Error: " . $sql . "<br>" . $conexion->error;
+            //echo "Error: " . $sql . "<br>" . $conexion->error;
+		echo "ERRORSQL";
         }
     }else{
         echo "no hay datos que recibir";
