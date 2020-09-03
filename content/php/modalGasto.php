@@ -11,6 +11,7 @@
       </div>
       <div class="modal-body">
           <form>
+            <div class="p-2 mb-1 font-weight-bold">Saldo disponible: <span id="balacmodalga" class="font-italic font-weight-bold"></span> </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                   <!--Cantidad-->

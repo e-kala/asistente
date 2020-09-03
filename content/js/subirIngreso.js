@@ -7,6 +7,7 @@ $(function(){
         descripcionIngreso=$('#descripcionIngreso').val();
         fecha=$('.fecha').val();
         console.log(cantidadIngreso +cuenta+ categoriaIngreso + descripcionIngreso + fecha);
+        
         agregarDatosIngreso(cantidadIngreso,cuenta,categoriaIngreso,descripcionIngreso,fecha);
     });
 });
@@ -28,13 +29,17 @@ function agregarDatosIngreso(cantidadIngreso,cuenta,categoriaIngreso,descripcion
             cache: false
         }).done(function(res){
             console.log(res);
-            //console.log("correcto");
-            cantidadIngreso=$('#cantidadIngreso').val('');
-            categoriaIngreso=$('#categoriaIngreso').val('');
-            descripcionIngreso=$('#descripcionIngreso').val('');
+            if (res.match(/successfully/gim)){
+                //console.log("correcto");
+                cantidadIngreso=$('#cantidadIngreso').val('');
+                categoriaIngreso=$('#categoriaIngreso').val('');
+                descripcionIngreso=$('#descripcionIngreso').val('');
 
-            $('#ingresoModal').modal('toggle');
-            $.notify("Registro Correcto", "success");
-            location.reload();
+                $('#ingresoModal').modal('toggle');
+                $.notify("Registro Correcto", "success");
+                location.reload();
+            } else if (res.match(/ERRORSQL/gim)) {
+                $.notify("Error de ingreso", "error");
+            }
         });
 }

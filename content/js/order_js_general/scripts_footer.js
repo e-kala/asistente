@@ -68,6 +68,7 @@ function prueba_three_month(){
   const fecha = new Date()
   const tmp = fecha.getMonth() + 4 //+ 3 months
   const year = fecha.getFullYear()
+  const day = fecha.getDate().toString().split("").length > 1 ? fecha.getDate() : "0" + fecha.getDate()
   if (tmp === 13){
     year += 1
     tmp = 1 //next year and month +3
@@ -80,7 +81,7 @@ function prueba_three_month(){
   }
   let mes = tmp.toString().split("").length > 1 ? tmp : "0" + tmp
 
-  const fechaActualCompleta = year + "-" + mes + "-" + fecha.getDate()
+  const fechaActualCompleta = year + "-" + mes + "-" + day
 
   const pruebathremonthbtn = document.getElementsByClassName("pruebathremonth")[0]
   if (pruebathremonthbtn !== undefined && pruebathremonthbtn !== null){
@@ -342,6 +343,7 @@ function light(){
 
 function colorear_balances(){
   let balactualco = document.getElementsByClassName("balactual_co")[0]
+  let baldeudas_co = document.getElementsByClassName("baldeudas_co")[0]
   let totalgastosfiltro = document.getElementsByClassName("togasinitfil")[0]
   let totalIngresFiltro = document.getElementsByClassName("toingresinitfil")[0]
   let balancefiltro = document.getElementsByClassName("balancefiltro")[0]
@@ -392,6 +394,20 @@ function colorear_balances(){
         obj.style.oColor = "#50d53a"
       }
 
+      if (obj.getAttribute("value").match(/\-/gim) && state === "baldeudas_co"){
+        obj.style.color = "red"
+        obj.style.webkitColor = "red"
+        obj.style.MozColor = "red"
+        obj.style.msColor = "red"
+        obj.style.oColor = "red"
+      } else if (obj.getAttribute("value").match(/\-/gim) === null && state === "baldeudas_co") {
+        obj.style.color = "#0CC9D5"
+        obj.style.webkitColor = "#0CC9D5"
+        obj.style.MozColor = "#0CC9D5"
+        obj.style.msColor = "#0CC9D5"
+        obj.style.oColor = "#0CC9D5"
+      }
+
       if (state === "balancefiltro"){
         obj.style.color = "#0CC9D5"
         obj.style.webkitColor = "#0CC9D5"
@@ -402,12 +418,72 @@ function colorear_balances(){
     }
   }
   apply_color_balance(balactualco, "balactualco")
+  apply_color_balance(baldeudas_co, "baldeudas_co")
   apply_color_balance(totalgastosfiltro, "gastostotal")
   apply_color_balance(totalIngresFiltro, "ingresostotal")
   apply_color_balance(balancefiltro, "balancefiltro")
 }
 
 colorear_balances()
+
+
+function obtener_mostrar_saldo_modales_ingreso_gasto(){
+  function obtener_saldo_modal_gasto(){
+    let cuenta = document.getElementById("cuentaGasto")
+    if (document.getElementById("cuentaGasto") !== undefined && document.getElementById("cuentaGasto") !== null){ 
+      if (cuenta.value !== ""){
+        $.post("./content/php/consults_info/mostrar_saldo_nuevo_ingreso_gasto.php", {
+          cuenta : cuenta.value,
+          usuario : window.config[0].usuario
+        }).done(function(e){
+          let balacmodalga = document.getElementById("balacmodalga")
+          if (e.match(/-/gim)){
+            balacmodalga.className = "font-weight-bold font-italic badge badge-danger"
+          } else {
+            balacmodalga.className = "font-weight-bold font-italic badge badge-success"
+          }
+          balacmodalga.innerHTML = "$ " + e
+        })
+      } 
+    }
+  }
+
+  function obtener_saldo_modal_ingreso(){
+    let cuenta = document.getElementById("cuenta")
+    if (document.getElementById("cuenta") !== undefined && document.getElementById("cuenta") !== null){ 
+      if (cuenta.value !== ""){
+        $.post("./content/php/consults_info/mostrar_saldo_nuevo_ingreso_gasto.php", {
+          cuenta : cuenta.value,
+          usuario : window.config[0].usuario
+        }).done(function(e){
+          let balacmodalin = document.getElementById("balacmodalin")
+          if (e.match(/-/gim)){
+            balacmodalin.className = "font-weight-bold font-italic badge badge-danger"
+          } else {
+            balacmodalin.className = "font-weight-bold font-italic badge badge-success"
+          }
+          balacmodalin.innerHTML = "$ " + e
+        })
+      } 
+    }
+  }
+
+  if (document.getElementById("cuentaGasto") !== undefined && document.getElementById("cuentaGasto") !== null){ 
+    document.getElementById("cuentaGasto").onchange = function(e){
+      obtener_saldo_modal_gasto()
+    }
+  }
+  if (document.getElementById("cuenta") !== undefined && document.getElementById("cuenta") !== null){ 
+    document.getElementById("cuenta").onchange = function(e){
+      obtener_saldo_modal_ingreso()
+    }
+  }
+}
+
+obtener_mostrar_saldo_modales_ingreso_gasto()
+
+
+
 
 // Iniciar configuración de la sesión
 

@@ -27,7 +27,7 @@
         //$aCuentaSQL = "INSERT INTO ingresos(usuario_ingreso, cantidad_ingreso, cuenta_ingreso, fecha_ingreso, categoria_ingreso, descripcion_ingreso)
         //        VALUES('$usuario', '$cantidad', '$aCuenta', '$fecha', 'Transferencia', '$descripcion')";
 
-	$sql = "CALL Transfer('$deCuenta','$aCuenta','$cantidad','$usuario','$fecha','$descripcion')";
+	   $sql = "CALL Transfer('$deCuenta','$aCuenta','$cantidad','$usuario','$fecha','$descripcion')";
 	
         $datos = utf8_encode($sql);
 
@@ -41,7 +41,7 @@
                 echo "calculando..";
             //    if ($conexion->query($aCuentaSQL) === TRUE) {
                     echo "transferencia correcta";
-                    header("Location: ../../../../?action=transferencias");
+                    // header("Location: ../../../../?action=transferencias");
             //    } else {
             //        echo "Error: " . $aCuentaSQL . "<br>" . $conexion->error;
             //    }
@@ -50,8 +50,9 @@
             //}
         } else {
             //echo "Error: " . $sql . "<br>" . $conexion->error;
-		echo "ERRORSQL";
-        }
+		      echo "ERRORSQL";
+        } 
+   
     }else{
         echo "no hay datos que recibir";
     }

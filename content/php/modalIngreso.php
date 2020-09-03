@@ -1,4 +1,6 @@
 <!-- Modal Ingreso-->
+
+
 <div class="modal fade text-light" id="ingresoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content modingresogasto">
@@ -10,6 +12,7 @@
       </div>
       <div class="modal-body">
           <form>
+            <div class="p-2 mb-1 font-weight-bold">Saldo disponible: <span id="balacmodalin" class="font-weight-bold font-italic"></span> </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                   <!--Cantidad-->
@@ -36,7 +39,6 @@
                  <input type="date" name="fecha" max="3000-12-31"
                         min="2000-01-01" class="form-control fecha" val=""/>
                 </div>
-
         	</div>
           </form>
       </div>

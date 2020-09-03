@@ -22,7 +22,6 @@
 		}else{
 			echo "no hay usuario";;
 		}
-
 	}else{
 		echo "no hay post";
 	}

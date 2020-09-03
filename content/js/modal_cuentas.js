@@ -17,11 +17,24 @@ $(function(){
                 console.log(val);
                 
             });
+            
+            //Mostrar saldo de la cuenta que este por defecto al abrir modal
+             $.post("./content/php/consults_info/mostrar_saldo_nuevo_ingreso_gasto.php", {
+                cuenta : document.getElementById("cuenta").value,
+                usuario : window.config[0].usuario
+              }).done(function(e){
+                let balacmodalin = document.getElementById("balacmodalin")
+                if (e.match(/-/gim)){
+                    balacmodalin.className = "font-weight-bold font-italic badge badge-danger"
+                } else {
+                    balacmodalin.className = "font-weight-bold font-italic badge badge-success"
+                }
+                balacmodalin.innerHTML = "$ " + e
+              })
         });
     });
     
 });
-
 
 $(function(){
     $("#modalGasto").click(function(){
@@ -40,6 +53,19 @@ $(function(){
                 console.log(val);
                 
             });
+
+            $.post("./content/php/consults_info/mostrar_saldo_nuevo_ingreso_gasto.php", {
+                cuenta : document.getElementById("cuentaGasto").value,
+                usuario : window.config[0].usuario
+              }).done(function(e){
+                let balacmodalga = document.getElementById("balacmodalga")
+                if (e.match(/-/gim)){
+                    balacmodalga.className = "font-weight-bold font-italic badge badge-danger"
+                } else {
+                    balacmodalga.className = "font-weight-bold font-italic badge badge-success"
+                }
+                balacmodalga.innerHTML = "$ " + e
+              })
         });
     });
     

@@ -30,7 +30,7 @@
             echo "New record created successfully";
         } else {
             //echo "Error: " . $sql . "<br>" . $conexion->error;
-		echo "ERRORSQL";
+		  echo "ERRORSQL";
         }
 
     }else{
