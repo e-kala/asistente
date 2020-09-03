@@ -108,7 +108,7 @@ if (document.getElementsByClassName("panel-log-reg")[0] !== undefined &&
 
 
 function dark(){
-    header_session.className = "navbar mb-4 p-4 card-header"
+    header_session.className = "navbar mb-4 p-4"
     header_session.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
     header_session.style.webkitBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
     header_session.style.MozBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
@@ -203,7 +203,9 @@ function dark(){
       "dark",
       ["card modsco text-light flexbg",`rgb(52,52,69,${alma_config[1].transparency}5)`], 
       ["card boxes-in text-light flexbg",`rgb(52,52,69,${alma_config[1].transparency}5)`],
-      'text-center colorchangetxt text-light'
+      ["p-4 m-4 text-white tered registrosgasin text-light text-white cotxtlight", `rgb(52,52,69,${alma_config[1].transparency}5)`],
+      'text-center colorchangetxt text-light',
+      "containeraside card asidechancolor text-light"
       )
     for (let x = 0; x < colorchangetxt.length; x++){
         colorchangetxt[x].className = 'text-center colorchangetxt text-light'
@@ -215,12 +217,12 @@ function dark(){
       }
     }
 
-    registrosgasin.className = "p-4 m-4 tered registrosgasin text-light "
+    registrosgasin.className = "p-4 m-4 text-white tered registrosgasin text-light text-white cotxtlight"
 }
 
 function light(){
     if (header_session !== undefined) {
-      header_session.className = "navbar mb-4 p-4 card-header"
+      header_session.className = "navbar mb-4 p-4 header-home-lightinit"
       header_session.style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
       header_session.style.webkitBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
       header_session.style.MozBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
@@ -235,7 +237,7 @@ function light(){
     }
 
     if (bguserconfigchange !== undefined && bguserconfigchange !== null){
-      bguserconfigchange.className = "card bguserconfigchange text-dark"
+      bguserconfigchange.className = "card bguserconfigchange lightinit text-dark"
       bguserconfigchange.style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
       bguserconfigchange.style.webkitBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
       bguserconfigchange.style.MozBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
@@ -321,7 +323,8 @@ function light(){
       "light",
       ["card modsco text-dark flexbg",`rgb(255,255,255,${alma_config[1].transparency}5)`], 
       ["card boxes-in text-dark", `rgb(255,255,255,${alma_config[1].transparency}5)`],
-      'text-center colorchangetxt text-dark'
+      ["p-4 m-4 tered registrosgasin lightinit text-dark cotxtdark", `rgb(255,255,255,${alma_config[1].transparency}5)`],
+      'text-center colorchangetxt text-dark',
       )
     for (let x = 0; x < colorchangetxt.length; x++){
         colorchangetxt[x].className = 'text-center colorchangetxt text-darks p-4'
@@ -333,12 +336,12 @@ function light(){
       }
     }
 
-    if (registrosgasin !== undefined) registrosgasin.className = "p-4 m-4 tered registrosgasin text-dark"
+    if (registrosgasin !== undefined) registrosgasin.className = "p-4 m-4 tered registrosgasin lightinit text-dark cotxtdark"
 }
+
 
 function colorear_balances(){
   let balactualco = document.getElementsByClassName("balactual_co")[0]
-  let baldeudas = document.getElementsByClassName("baldeudas_co")[0]
   let totalgastosfiltro = document.getElementsByClassName("togasinitfil")[0]
   let totalIngresFiltro = document.getElementsByClassName("toingresinitfil")[0]
   let balancefiltro = document.getElementsByClassName("balancefiltro")[0]
@@ -396,27 +399,12 @@ function colorear_balances(){
         obj.style.msColor = "#0CC9D5"
         obj.style.oColor = "#0CC9D5"
       } 
-
-      if (obj.getAttribute("value").match(/\-/gim) && state === "baldeudas"){
-        obj.style.color = "red"
-        obj.style.webkitColor = "red"
-        obj.style.MozColor = "red"
-        obj.style.msColor = "red"
-        obj.style.oColor = "red"
-      } else  if (obj.getAttribute("value").match(/\-/gim) === null && state === "baldeudas"){
-        obj.style.color = "#0CC9D5"
-        obj.style.webkitColor = "#0CC9D5"
-        obj.style.MozColor = "#0CC9D5"
-        obj.style.msColor = "#0CC9D5"
-        obj.style.oColor = "#0CC9D5"
-      }
     }
   }
   apply_color_balance(balactualco, "balactualco")
   apply_color_balance(totalgastosfiltro, "gastostotal")
   apply_color_balance(totalIngresFiltro, "ingresostotal")
   apply_color_balance(balancefiltro, "balancefiltro")
-  apply_color_balance(baldeudas, "baldeudas")
 }
 
 colorear_balances()

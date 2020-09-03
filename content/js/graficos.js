@@ -122,7 +122,6 @@ function data_graphic(){
         day_expi = pln.fechaExpiracion.toString().split("-")[2] //Dia de expiracion
       }
 
-
       if (ope > 0 && ope <= 10){
         document.getElementById("state_balsalu").style.display = "block"
         document.getElementById("state_balsalu").className = "w-100 alert alert-success text-success font-weight-bold"
@@ -139,36 +138,36 @@ function data_graphic(){
         document.getElementById("state_balsalu").style.display = "block"
         document.getElementById("state_balsalu").className = "w-100 alert alert-success text-success font-weight-bold"
         document.getElementById("state_balsalu").innerHTML = `¡Eres un trabajador incansable! <i class="fa fa-smile-o" aria-hidden="true"></i>`  
-      } else if (ope > 75 && ope <= 100){
+      } else if (ope > 75 && ope <= 100 && ode === 0){
         document.getElementById("state_balsalu").style.display = "block"
         document.getElementById("state_balsalu").className = "w-100 alert alert-success text-success font-weight-bold"
         document.getElementById("state_balsalu").innerHTML = `Estás cerca de tu meta de ingreso mínimo <i class="fa fa-smile-o" aria-hidden="true"></i>`  
-        asignate_insig("constanciasaludable", "Constancia Saludable")
-      } else if (ope > 100 && ope <= 150){
+        asignate_insig("constanciasaludable", "Constancia Saludable", "Por tus ingresos constantes")
+      } else if (ope > 100 && ope <= 150 && ode === 0){
         document.getElementById("state_balsalu").style.display = "block"
         document.getElementById("state_balsalu").className = "w-100 alert alert-success text-success font-weight-bold"
         document.getElementById("state_balsalu").innerHTML = `Crecimiento superior desbloqueado, ahora puedes ir más allá de tu meta <i class="fa fa-smile-o" aria-hidden="true"></i>`  
-        asignate_insig("crecimientosuperior", "Crecimiento Superior")
-      } else if (ope > 150 && ope <= 200){
+        asignate_insig("crecimientosuperior", "Crecimiento Superior", "Superaste tu meta establecida de ingresos")
+      } else if (ope > 150 && ope <= 200 && ode === 0){
         document.getElementById("state_balsalu").style.display = "block"
         document.getElementById("state_balsalu").className = "w-100 alert alert-success text-success font-weight-bold"
         document.getElementById("state_balsalu").innerHTML = `Probablemente puedas adquirir bienes adicionales a tus gastos de primera necesidad, <span class="badge badge-warning">FELICIDADES</span> <i class="fa fa-smile-o" aria-hidden="true"></i>` 
-        asignate_insig("crecimientoexponencial", "Crecimiento Exponencial ")
-      } else if (ope > 200 && ope <= 300){
+        asignate_insig("crecimientoexponencial", "Crecimiento Exponencial ", "Por mantener y aumentar tus niveles superiores a la meta establecida")
+      } else if (ope > 200 && ope <= 300 && ode === 0){
         document.getElementById("state_balsalu").style.display = "block"
         document.getElementById("state_balsalu").className = "w-100 alert alert-success text-success font-weight-bold"
-        document.getElementById("state_balsalu").innerHTML = `Tu crecimiento es exponencial, no olvides mantenerte así y crear multiplicadores con tu poder actual <i class="fa fa-smile-o" aria-hidden="true"></i>` 
-        asignate_insig("huracandedinero", "Huracán de Dinero")
-      } else if (ope > 300 && ope <= 400){
+        document.getElementById("state_balsalu").ifnnerHTML = `Tu crecimiento es exponencial, no olvides mantenerte así y crear multiplicadores con tu poder actual <i class="fa fa-smile-o" aria-hidden="true"></i>` 
+        asignate_insig("huracandedinero", "Huracán de Dinero", "Por aumentar +200% los ingresos superiores a la meta establecida")
+      } else if (ope > 300 && ope <= 400 && ode === 0){
         document.getElementById("state_balsalu").style.display = "block"
         document.getElementById("state_balsalu").className = "w-100 alert alert-success text-success font-weight-bold"
         document.getElementById("state_balsalu").innerHTML = `Tu crecimiento es muy elevado, no olvides mantenerte así y crear multiplicadores con tu poder actual <i class="fa fa-smile-o" aria-hidden="true"></i>` 
-        asignate_insig("excelenciafinanciera", "Excelencia Financiera")
+        asignate_insig("buenafortuna", "Buena Fortuna", "Por triplicar los ingresos superiores a la meta establecida")
       } else if (ope > 400){
         document.getElementById("state_balsalu").style.display = "block"
         document.getElementById("state_balsalu").className = "w-100 alert alert-success text-success font-weight-bold"
         document.getElementById("state_balsalu").innerHTML = `Eres una máquina de dinero, no olvides mantenerte así y crear multiplicadores con tu poder actual <i class="fa fa-smile-o" aria-hidden="true"></i>` 
-        asignate_insig("excelenciafinanciera", "Excelencia Financiera")
+        asignate_insig("excelenciafinanciera", "Excelencia Financiera", "Por multiplicar tu dinero +400% superior a la meta establecida")
       } else if (ope <= 50 && porcentajeGasto >= 60 && ope > 0 && day > day_expi + 10 && day_expi < 20){
       //Si luego de 10 dias hay gastos acumulados e ingresos nulos y probabilidad de estancamiento activa, entonces insignia de inactividad
         document.getElementById("probastan").innerHTML = day*0.05 +6+"%"
@@ -176,43 +175,57 @@ function data_graphic(){
         document.getElementById("statestanca").style.display = "block"
         document.getElementById("statestanca").className = "w-100 alert alert-danger text-danger font-weight-bold"
         document.getElementById("statestanca").innerHTML =  `El dinero no está fluyendo como debería  <i class="fa fa-frown-o" aria-hidden="true"></i>` 
-        asignate_insig("premioinactividad", "Inactividad Frecuente")
-      } else if(ope > 0) {
+        asignate_insig("premioinactividad", "Inactividad Frecuente", "Debido a poca actividad")
+      } else if(ope > 0 && ode === 0) {
         document.getElementById("statestanca").style.display = "block"
         document.getElementById("statestanca").className = "w-100 alert alert-success rounded text-success font-weight-bold"
         document.getElementById("statestanca").innerHTML =  `No hay nada de qué preocuparse por ahora  <i class="fa fa-smile-o" aria-hidden="true"></i>` 
        }
 
-      if (+Number(ode.toString().replace("-", "")).toFixed() < +(minmen / 10).toFixed() && firstnunin <= -4) {
-        document.getElementById("probastan").innerHTML = day*0.05 +2+"%"
-        document.getElementById("probastan").style.width = day*0.05 +2+"%"
+      let odeposic = Number(ode.toString().replace("-", ""))
+
+      if (odeposic > 0 && odeposic < 50){
+        document.getElementById("probastan").innerHTML = day*0.05 -ode*0.01+"%"
+        document.getElementById("probastan").style.width = day*0.05 -ode*0.01+"%"
         document.getElementById("statestanca").style.display = "block"
         document.getElementById("statestanca").className = "w-100 alert alert-danger text-danger font-weight-bold"
         document.getElementById("statestanca").innerHTML =  `Actualmente posees deudas, según el tiempo en que se mantenga así esta barra se incrementará  <i class="fa fa-frown-o" aria-hidden="true"></i>` 
 
-        asignate_insig("gastadorjunior", "Gastador Junior")
-      } else if (+Number(ode.toString().replace("-", "")).toFixed() < +(minmen / 5).toFixed() && firstnunin <= -8){
-        document.getElementById("probastan").innerHTML = day*0.05 +4+"%"
-        document.getElementById("probastan").style.width = day*0.05 +4+"%"
-        document.getElementById("statestanca").style.display = "block"
-        document.getElementById("statestanca").className = "w-100 alert alert-danger text-danger font-weight-bold"
-        document.getElementById("statestanca").innerHTML =  `Actualmente posees deudas, según el tiempo en que se mantenga así esta barra se incrementará  <i class="fa fa-frown-o" aria-hidden="true"></i>` 
-        asignate_insig("gastadorsenior", "Gastador Senior")
-      } else if (ode > -8000 && ode > 0){
-        document.getElementById("probastan").innerHTML = day*0.05 +60+"%"
-        document.getElementById("probastan").style.width = day*0.05 +60+"%"
+      } else if (odeposic >= 50  && odeposic < 100) {
+        document.getElementById("probastan").innerHTML = day*0.05 -ode*0.01+"%"
+        document.getElementById("probastan").style.width = day*0.05 -ode*0.01+"%"
         document.getElementById("statestanca").style.display = "block"
         document.getElementById("statestanca").className = "w-100 alert alert-danger text-danger font-weight-bold"
         document.getElementById("statestanca").innerHTML =  `Actualmente posees deudas, según el tiempo en que se mantenga así esta barra se incrementará  <i class="fa fa-frown-o" aria-hidden="true"></i>` 
 
-        asignate_insig("gastadorcompulsivo", "Gastador Compulsivo")
-      } 
+        asignate_insig("gastadorjunior", "Gastador Junior", "Por gastos constantes y algunas deudas")
+      } else if (odeposic >= 100 && odeposic < 200){
+        document.getElementById("probastan").innerHTML = day*0.05 -ode*0.02+"%"
+        document.getElementById("probastan").style.width = day*0.05 -ode*0.02+"%"
+        document.getElementById("statestanca").style.display = "block"
+        document.getElementById("statestanca").className = "w-100 alert alert-danger text-danger font-weight-bold"
+        document.getElementById("statestanca").innerHTML =  `Actualmente posees deudas, según el tiempo en que se mantenga así esta barra se incrementará  <i class="fa fa-frown-o" aria-hidden="true"></i>` 
+        asignate_insig("gastadorsenior", "Gastador Senior", "Por gastos marcados y constantes")
+      } else if (odeposic >= 200){
+        document.getElementById("probastan").innerHTML = day*0.05-ode*0.03+"%"
+        document.getElementById("probastan").style.width = day*0.05-ode*0.03+"%"
+        document.getElementById("statestanca").style.display = "block"
+        document.getElementById("statestanca").className = "w-100 alert alert-danger text-danger font-weight-bold"
+        document.getElementById("statestanca").innerHTML =  `Actualmente posees deudas, según el tiempo en que se mantenga así esta barra se incrementará  <i class="fa fa-frown-o" aria-hidden="true"></i>` 
 
-      console.log(firstnunin,ode, ope)
+        asignate_insig("gastadorcompulsivo", "Gastador Compulsivo", "Por gastos excesivos y deudas elevadas")
+      } else if (firstnunga > 90 && odeposic === 0){
+        document.getElementById("probastan").innerHTML = day*0.05-ode*0.03+"%"
+        document.getElementById("probastan").style.width = day*0.05-ode*0.03+"%"
+        document.getElementById("statestanca").style.display = "block"
+        document.getElementById("statestanca").className = "w-100 alert alert-danger text-danger font-weight-bold"
+        document.getElementById("statestanca").innerHTML =  `Actualmente posees deudas, según el tiempo en que se mantenga así esta barra se incrementará  <i class="fa fa-frown-o" aria-hidden="true"></i>` 
+
+        asignate_insig("gastadorcompulsivo", "Gastador Compulsivo", "Por múltiples gastos elevados, aunque sin deudas")
+     
+      }
+
     }
-
-
-    
   })
 }
 
@@ -220,7 +233,7 @@ data_graphic()
 
 
 let insinew = ""
-function asignate_insig(insignia, name_insign_to_show){
+function asignate_insig(insignia, name_insign_to_show, descripcion){
   //una sola y unica asignacion si no existe asignacion todavia
   if (alma_config[1][insignia] !== "undefined" && alma_config[1][insignia] !== undefined && alma_config[1][insignia] !== "null" && alma_config[1][insignia] !== null && alma_config[1][insignia] !== ""){
     // let insigs = insignia
@@ -256,6 +269,8 @@ function asignate_insig(insignia, name_insign_to_show){
                     <br>
                     <div class="border border-bottom-0 border-left-0 border-right-0 p-2">
                       <h3 class="font-weight-bold text-light">${name_insign_to_show}</h3>
+                      <br>
+                      <label>${descripcion}</label>
                     </div>
                     <a href="?action=insigl" class="btn btn-light">Ver en sala de logros</a>
                   </div>
