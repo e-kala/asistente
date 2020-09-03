@@ -31,21 +31,22 @@ CREATE TABLE `cuentas` (
   `id_cuenta` int(11) NOT NULL,
   `nombre_cuenta` varchar(150) NOT NULL,
   `tipo_cuenta` varchar(150) NOT NULL,
-  `usuario_cuenta` varchar(150) NOT NULL
+  `usuario_cuenta` varchar(150) NOT NULL,
+  `balance`double NOT NULL DEFAULT 0 CHECK (balance >= 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `cuentas`
 --
 
-INSERT INTO `cuentas` (`id_cuenta`, `nombre_cuenta`, `tipo_cuenta`, `usuario_cuenta`) VALUES
-(2, 'Bancomer', 'NULL', 'Eka'),
-(4, 'Efectivo', 'NULL', 'Eka'),
-(6, 'Ahorro', 'NULL', 'Eka'),
-(9, 'Moto', 'NULL', 'Eka'),
-(11, 'pagos', 'NULL', 'Eka'),
-(16, 'prueba', 'NULL', 'Eka'),
-(26, 'comida', 'NULL', 'Eka');
+INSERT INTO `cuentas` (`id_cuenta`, `nombre_cuenta`, `tipo_cuenta`, `usuario_cuenta`, `balance`) VALUES
+(2, 'Bancomer', 'NULL', 'Eka', 1000),
+(4, 'Efectivo', 'NULL', 'Eka', 1000),
+(6, 'Ahorro', 'NULL', 'Eka', 1000),
+(9, 'Moto', 'NULL', 'Eka', 1000),
+(11, 'pagos', 'NULL', 'Eka', 1000),
+(16, 'prueba', 'NULL', 'Eka', 1000),
+(26, 'comida', 'NULL', 'Eka', 1000);
 
 -- --------------------------------------------------------
 
@@ -359,6 +360,64 @@ ALTER TABLE `transferencias`
 ALTER TABLE `usuarios`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
+
+--
+-- STORED PROCEDURES
+--
+DELIMITER //
+
+CREATE PROCEDURE Transfer(
+	IN de_cuenta VARCHAR(150),
+	IN a_cuenta VARCHAR(150),
+	IN cantidad DOUBLE,
+	IN usuario VARCHAR(150),
+	IN fecha DATE,
+	IN descripcion VARCHAR(150)
+)
+BEGIN
+	INSERT INTO transferencias(usuario_transferencia, cantidad_transferencia, de_cuenta, a_cuenta, fecha_transferencia) VALUES(usuario, cantidad, de_cuenta, a_cuenta, fecha);
+	INSERT INTO gastos(usuario_gasto, cantidad_gasto, cuenta_gasto, fecha_gasto, categoria_gasto, descripcion_gasto) VALUES(usuario, cantidad, de_cuenta, fecha, 'Transferencia', descripcion);
+	INSERT INTO ingresos(usuario_ingreso, cantidad_ingreso, cuenta_ingreso, fecha_ingreso, categoria_ingreso, descripcion_ingreso) VALUES(usuario, cantidad, a_cuenta, fecha, 'Transferencia', descripcion);
+	UPDATE cuentas SET balance = balance - cantidad WHERE nombre_cuenta = de_cuenta;
+	UPDATE cuentas SET balance = balance + cantidad WHERE nombre_cuenta = a_cuenta;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE Gasto(
+	IN usuario VARCHAR(150),
+	IN cantidadgasto DECIMAL(50,2),
+	IN cuenta VARCHAR(250),
+	IN fecha DATE,
+	IN descripciongasto VARCHAR(150),
+	IN categoriagasto VARCHAR(50)
+)
+BEGIN
+	INSERT INTO gastos(usuario_gasto, cantidad_gasto, cuenta_gasto, fecha_gasto, categoria_gasto, descripcion_gasto) VALUES(usuario, cantidadgasto, cuenta, fecha, categoriagasto, descripciongasto);
+	UPDATE cuentas SET balance = balance - cantidadgasto WHERE nombre_cuenta = cuenta;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE Ingreso(
+	IN usuario VARCHAR(150),
+	IN cantidadingreso DECIMAL(50,2),
+	IN cuenta VARCHAR(150),
+	IN fecha DATE,
+	IN descripcioningreso VARCHAR(250),
+	IN categoriaingreso VARCHAR(100)
+)
+BEGIN
+	INSERT INTO ingresos(usuario_ingreso, cantidad_ingreso, cuenta_ingreso, fecha_ingreso, categoria_ingreso, descripcion_ingreso) VALUES(usuario, cantidadingreso, cuenta, fecha, categoriaingreso, descripcioningreso);
+	UPDATE cuentas SET balance = balance + cantidadingreso WHERE nombre_cuenta = cuenta;
+END //
+
+DELIMITER ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
