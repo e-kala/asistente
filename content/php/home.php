@@ -11,18 +11,21 @@
 		$fila = $cnf_result->fetch_object();
 		
 		$status_account = $fila->privilegios;
-		$json_state_acc = json_decode($status_account, TRUE);
+		
+		try{
+			$json_state_acc = json_decode($status_account, TRUE);
+			if ($json_state_acc["fechaExpiracion"] !== "" && $json_state_acc["fechaExpiracion"] !== null){
+				if ("20".$fechaActual > $json_state_acc["fechaExpiracion"]){
+					//Expirado, actualizar el modo prueba de premium a free
+					$sql = "UPDATE usuarios SET privilegios = 'free_prueba_usada' WHERE nombre_usuario='$usuario'";
+					$res = mysqli_query($conexion, $sql);
+					if ($res){
+						$conexion->close();
+					} 
+				} 
+			}
+		} catch(Exception $e){
 
-		//Si la fecha actual supera la fecha de expiración, se actualiza el estado de cuenta 
-		if ($json_state_acc["fechaExpiracion"] !== "" && $json_state_acc["fechaExpiracion"] !== null){
-			if ($fechaActual > $json_state_acc["fechaExpiracion"]){
-				//Expirado, actualizar el modo prueba de premium a free
-				$sql = "UPDATE usuarios SET privilegios = 'free_prueba_usada' WHERE nombre_usuario='$usuario'";
-				$res = mysqli_query($conexion, $sql);
-				if ($res){
-					$conexion->close();
-				}
-			} 
 		}
 	}
 

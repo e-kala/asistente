@@ -52,7 +52,7 @@ body{background: white;}
               <!-- Boton de Ingreso In-->
                 <div class="btn-group dropdown m-1">
                   <button type="button" class="btn btn-success" data-toggle="modal" 
-                          data-target="#ingresoModal" id="modalIngreso" title="Hacer nuevo ingreso"   >
+                          data-target="#ingresoModal" id="modalIngreso" title="Hacer nuevo ingreso"  >
                     Ingreso
                   </button>
                   <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
