@@ -2,9 +2,9 @@
 <?php
 	class conexion{
 		private $servidor="localhost";
-		private $usuario="u599230971_asistente";
-		private $bd="u599230971_asistente";
-		private $password="1q-2w-3e-4r-5t-";
+		private $usuario="u539976020_bonsai";
+		private $bd="u539976020_bonsai";
+		private $password=":i9i^Q|N>8w";
 
 		public function __construct(){
 
