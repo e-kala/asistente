@@ -1167,7 +1167,6 @@ function Aside(username){
 	const img = document.createElement("img")
 	img.className += "caras"
 	img.setAttribute("width", "50%")
-	img.setAttribute("height", "50%")
 
 	img.style.borderRadius = "100%"
 	img.ondragstart = function(){

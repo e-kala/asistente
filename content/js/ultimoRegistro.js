@@ -30,7 +30,7 @@ $(function(){
         dataType: "json"
     }).done(function(res){
         $.each(res, function(ix, dat){
-            //console.log(dat);
+            console.log(dat);
             $('#ultimoGasto').append("<b>Cuenta</b>: " + dat.cuenta_gasto+"<br>");
             $('#ultimoGasto').append("<b>Categoría</b>: " + dat.categoria_gasto+"<br>");
             $('#ultimoGasto').append("<b>Cantidad:</b> " + dat.cantidad_gasto+"<br>");

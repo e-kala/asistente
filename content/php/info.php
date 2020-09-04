@@ -5,7 +5,7 @@
 
     $usuario = $_SESSION['user'];
 
-    $mysqli = new mysqli("localhost", "u599230971_asistente", "1q-2w-3e-4r-5t-", "u599230971_asistente");
+    $mysqli = new mysqli("localhost", "u539976020_bonsai", ":i9i^Q|N>8w", "u539976020_bonsai");
 
     if($mysqli->connect_errno){
         $arrRes=array("error"=>"Connection Failed: " . $mysqli->connect_error);
