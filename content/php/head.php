@@ -31,5 +31,16 @@
 
     <script type="text/javascript" src="./content/js/windows/aside.js"></script>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151751036-8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-151751036-8');
+    </script>
+
+
 
     <?php include "./content/php/consults_info/query_config_to_init.php"; ?>
