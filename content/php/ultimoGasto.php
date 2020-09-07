@@ -23,8 +23,6 @@
             $arrayResponse = array("error" => "Ha habido un problema;");
 
         }
-
-
     }
 
     $json = json_encode($arrayResponse);

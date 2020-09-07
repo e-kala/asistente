@@ -2,6 +2,7 @@
 
 
 let ifClick = false
+let isPaused = false //Esto no estaba definido, fue el unico cambio
 
 document.body.onpointerdown = function(e){
 	ifClick = true
@@ -9,7 +10,8 @@ document.body.onpointerdown = function(e){
 
 document.body.onload = function(e){
 	let interval_30, interval_60, time_config;
-	let [start, isPaused] = [false, false]
+	let start = false
+	let advice_to_continue_interval = false
 
 	if (!start){
 		if (alma_config !== undefined){		
@@ -21,12 +23,13 @@ document.body.onload = function(e){
 				//Solo empieza a ejecutarse el intérvalo al iniciar sesión
 				if (document.getElementsByClassName("fot")[0] !== undefined && document.getElementsByClassName("fot")[0] !== null){
 					if (time_config !== "" && time_config !== null && time_config !== undefined){ //Solo si la caducidad esta programada / definida arranca el intervalo
-						interval_30 = setInterval( function(){
+						function alerta(){
 							$.post("content/php/inactividad.php", 
 								{
 									state:"cerrar"
 								}
 							).done( function(data){ 	
+								console.log("shococoococo", isPaused)
 								if (!isPaused){ //Procesa los datos una vez antes de volver a llamar un cuadro emergente de nuevo	
 									isPaused = true //Mantener pausa para no llamar mas de una vez una ventana emergente habiendo una existente con su cuenta regresiva
 									let valor = JSON.parse(data) //Convertir datos recibidos en formato JSON, a objeto utilizable en javascript
@@ -35,16 +38,33 @@ document.body.onload = function(e){
 									}
 								}
 							});
-						}, time_config)//30 min 1800000
+						}
+						setTimeout(function(){
+							advice_to_continue_interval = true
+							alerta()
+						}, time_config)
+
+						function timealert(){
+							if (advice_to_continue_interval){
+								alerta()
+							}
+							interval_30 = setTimeout(timealert, time_config)//30 min 1800000
+						}
+						timealert()
 					}
 				} else {
 					//Solo si no hay una sesion activa, se cancela todo el funcionamiento de la caducidad
-					clearInterval(interval_30)
+					try{
+						clearTimeout(interval_30)
+					} catch(_){
+						
+					}
 				}
 			} 
 		}
 	}
 }
+
 
 
 
@@ -79,3 +99,4 @@ function mensaje_caducar(action){
 		}, 1000)
 	}
 } 
+
