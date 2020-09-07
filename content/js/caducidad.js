@@ -29,7 +29,6 @@ document.body.onload = function(e){
 									state:"cerrar"
 								}
 							).done( function(data){ 	
-								console.log("shococoococo", isPaused)
 								if (!isPaused){ //Procesa los datos una vez antes de volver a llamar un cuadro emergente de nuevo	
 									isPaused = true //Mantener pausa para no llamar mas de una vez una ventana emergente habiendo una existente con su cuenta regresiva
 									let valor = JSON.parse(data) //Convertir datos recibidos en formato JSON, a objeto utilizable en javascript
@@ -57,7 +56,7 @@ document.body.onload = function(e){
 					try{
 						clearTimeout(interval_30)
 					} catch(_){
-						
+
 					}
 				}
 			} 
