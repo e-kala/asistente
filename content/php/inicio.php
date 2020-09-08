@@ -32,7 +32,7 @@
 		<div class="backgpais container-fluid align-items-center d-flex justify-content-center">
 			<div class=" p-4 " style="border-radius: 40px; -webkit-border-radius:40px; -moz-border-radius:40px; -o-border-radius:40px; -ms-border-radius:40px;  background: rgb(255,255,255,0.50);">
 				<div class=" p-4" >
-					<img src="./content/img/logoAsistentev0.14.png" width="150px" class="p-1 animarbologinicio">
+					<img src="./content/img/logoAsistentev0.14_mini.png" width="150px" class="p-1 animarbologinicio">
 					<h3 class="p-4 mb-3 text-dark font-weight-bold" style="border-bottom: 4px solid #fff;">Una semilla cuidada es un fruto infinito</h3>
 					<a href="#" class="btn mt-3 text-light btn-success btn-lg font-weight-bold badge-pill login-btn" >
 						Acceder
@@ -61,7 +61,7 @@
 			<div class="bg-transparent border-0">
 				<div class="p-4 row ">
 					<div class="col-md-4 col-sm-6 col-xs-12 p-4 d-flex flex-column  align-items-center justify-content-center " >
-						<img src="./content/img/collagepj.png" width="200px">
+						<img src="./content/img/collagepj_mini.png" width="200px">
 						<h4 class="text-center p-4 text-dark">Un personaje que siempre estará pendiente de tus finanzas</h4>
 						<span class="badge-pill border p-2 text-dark font-weight-bold"><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i><i class="fa fa-star  text-warning" aria-hidden="true"></i></span>
 					</div>

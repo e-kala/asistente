@@ -4,7 +4,6 @@
     <div id="ingreminmendes" class="font-weight-bold font-italic"></div>
   </div>
   
-
   <div class="d-flex flex-wrap m-2 p-2 mb-4">
     <div class="flex-grow-1 m-3">
       <h4 class="mb-4 font-italic font-weight-bold">Balance Real</h4>

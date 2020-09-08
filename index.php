@@ -19,6 +19,10 @@ session_start();
     <noscript>Al parecer no tienes activado Javascript. Javascript es esencial para el funcionamiento de este sitio. Necesitas activarlo</noscript>
       <!-- Second W Marquee -->
       <div id="criptowidget" class="p-3 overflow" style="display: none;">
+        <?php
+          try{
+
+        ?>
         <div class="tradingview-widget-container">
           <div class="tradingview-widget-container__widget"></div>
           <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
@@ -43,7 +47,13 @@ session_start();
         }
           </script>
         </div>
+        <?php
+          } catch (Exception $e){
+              
+          }
+         ?>
       </div>
+
       <div class="contain" align="center">
          <?php  
             if (isset($_SESSION['login'])) {
@@ -156,7 +166,15 @@ session_start();
 
       <!-- Firts W -->
       <div id="conversor_tasa" style="display: none;">
+        <?php
+          try{
+        ?>
       <!-- Currency Converter Script - FxExchangeRate.com  --><script type="text/javascript" src="https://w.fxexchangerate.com/converter.php?fm=USD&ft=EUR&lg=es&am=1&ty=1"></script></div> <!--  End of Currency Converter Script -  FxExchangeRate.com -->
+        <?php
+          } catch (Exception $e){
+
+          }
+        ?>
       </div>
 
    </body>

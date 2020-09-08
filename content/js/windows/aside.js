@@ -1132,7 +1132,7 @@ function conversor(){
 		}
 		
 		let conversor_tasa = document.getElementById("conversor_tasa")
-		if (conversor_tasa !== null) {
+		if (conversor_tasa !== null && conversor_tasa !== undefined) {
 			form.appendChild(conversor_tasa)
 			conversor_tasa.style.display = "block"
 			conversor_tasa.setAttribute("align", "center")
@@ -1596,8 +1596,10 @@ function Aside(username){
 
 	if (contacal !== undefined) {
 		contacal.appendChild(body)
-		document.getElementById("criptowidget").style.display = "block"
-		contacal.appendChild(document.getElementById("criptowidget"))
+		if (document.getElementById("criptowidget") !== undefined && document.getElementById("criptowidget") !== null){
+			document.getElementById("criptowidget").style.display = "block"
+			contacal.appendChild(document.getElementById("criptowidget"))
+		}
 	}
 	if (document.getElementsByClassName("containhome")[0] !== undefined){
 		document.getElementsByClassName("containhome")[0].appendChild(contacal)
