@@ -31,7 +31,7 @@
         <thead>
             <tr>
                 <th scope="col" class="text-center font-weight-bold">Nombre De Cuenta</th>
-                <!--<th scope="col">Saldo</th>-->
+                <th scope="col" class="text-center font-weight-bold">Saldo</th>
                 <!--<th scope="col">Last</th>-->
                 <th scope="col" class="text-center font-weight-bold">Opciones</th>
             </tr>
@@ -45,6 +45,7 @@
                     
                     <tr class="text-center colorchange">
                         <td class="font-weight-bold p-3" id="nombreCuenta<?php echo $fila->id_cuenta; ?>" value<?php echo $fila->id_cuenta; ?>="<?php echo $fila->nombre_cuenta; ?>"><?php echo $fila->nombre_cuenta ?> </td>
+                        <td class="font-weight-bold p-3" id="balanceCuenta<?php echo $fila->id_cuenta; ?>" value<?php echo $fila->id_cuenta; ?>="<?php echo $fila->balance; ?>"><?php echo $fila->balance ?> </td>
                         <td>
                             <a href="#editar" class="editarCuenta" data-id="<?php echo $fila->id_cuenta; ?>"
                              data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil fa-lg"></i>
