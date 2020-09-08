@@ -87,6 +87,10 @@
 		document.getElementsByClassName("containerinsilogr")[0].style.display = "block"
 	}
 
+	if (document.getElementsByClassName("bgbalanceochange")[0] !== undefined && document.getElementsByClassName("bgbalanceochange")[0] !== null){
+		document.getElementsByClassName("bgbalanceochange")[0].style.display = "block"
+	}
+
 	const load_gif = document.getElementById("loadingg")
 	if (load_gif !== undefined && load_gif !== null) {
 		load_gif.style.display = "none"

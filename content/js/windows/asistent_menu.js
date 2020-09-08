@@ -27,6 +27,7 @@ bgtransferencias_ventana = document.getElementsByClassName("bgtransferencias_ven
 menu_option_config_panel_collapsable = document.getElementsByClassName("fg-color-menu-option-configpanel")
 bgpremiumchange = document.getElementsByClassName("bgpremiumchange") //bgchange premium window
 bgcorinsilogro = document.getElementsByClassName("bgcorinsilogro") //section badges and logrs
+bgbalanceochange = document.getElementsByClassName("bgbalanceochange")[0] //balanceo section
 
 //tadores, registro
 bgchan = document.getElementsByClassName("bgchan") //Tadores use change mode dark / light
@@ -138,6 +139,16 @@ function iters(status, modss, boxes_inn, txtcolor){
           bgcorinsilogro[x].style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
           bgcorinsilogro[x].className = "row p-4 bgcorinsilogro text-light"
         }
+      }
+    }
+
+    if (bgbalanceochange !== undefined){
+      if (status === "light"){
+        bgbalanceochange.style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+        bgbalanceochange.className = "balanceo container bgbalanceochange mt-4 pt-4 text-dark"
+      } else {
+        bgbalanceochange.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+        bgbalanceochange.className = "balanceo container bgbalanceochange mt-4 pt-4 text-light"
       }
     }
 }
@@ -353,6 +364,15 @@ functions = [
           }
         }
 
+        //balanceo
+        if (bgbalanceochange !== undefined){
+          bgbalanceochange.animate([{
+            background:`rgb(255,255,255,${alma_config[1].transparency}5)`
+          },{
+            background:`rgb(52,52,69,${alma_config[1].transparency}5)`
+          }],{duration:400, iterations:1})
+        }
+
         iters(
           "dark",
           ["card modsco text-light flexbg",`rgb(52,52,69,${transparency}5)`], 
@@ -504,6 +524,15 @@ functions = [
               background:`rgb(255,255,255,${alma_config[1].transparency}5)`
             }],{duration:400, iterations:1})
           }
+        }
+
+        //balanceo
+        if (bgbalanceochange !== undefined){
+          bgbalanceochange.animate([{
+              background:`rgb(52,52,69,${alma_config[1].transparency}5)`
+            },{
+              background:`rgb(255,255,255,${alma_config[1].transparency}5)`
+            }],{duration:400, iterations:1})
         }
 
 
