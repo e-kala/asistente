@@ -103,6 +103,12 @@ session_start();
                   include 'content/php/modulos/cuentas/cuentas.php';
                break;
 
+               case 'balanceo':
+                  echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
+                  include 'content/php/navbar.php';
+                  include 'content/php/balancear.php';
+               break;
+
                case 'editar_ingresos': 
                   echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
