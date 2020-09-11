@@ -24,19 +24,11 @@ document.body.onload = function(e){
 				if (document.getElementsByClassName("fot")[0] !== undefined && document.getElementsByClassName("fot")[0] !== null){
 					if (time_config !== "" && time_config !== null && time_config !== undefined){ //Solo si la caducidad esta programada / definida arranca el intervalo
 						function alerta(){
-							$.post("content/php/inactividad.php", 
-								{
-									state:"cerrar"
-								}
-							).done( function(data){ 	
-								if (!isPaused){ //Procesa los datos una vez antes de volver a llamar un cuadro emergente de nuevo	
-									isPaused = true //Mantener pausa para no llamar mas de una vez una ventana emergente habiendo una existente con su cuenta regresiva
-									let valor = JSON.parse(data) //Convertir datos recibidos en formato JSON, a objeto utilizable en javascript
-									if (valor.estado == "cerrar") { //Si la respuesta es cerrar
-										mensaje_caducar("?action=cerrar_sesion") //Abrir ventana emergente cancelable, con cuenta regresiva de 60seg 
-									}
-								}
-							});
+							if (!isPaused){ //Procesa los datos una vez antes de volver a llamar un cuadro emergente de nuevo	
+								isPaused = true //Mantener pausa para no llamar mas de una vez una ventana emergente habiendo una existente con su cuenta regresiva
+								mensaje_caducar("?action=cerrar_sesion") //Abrir ventana emergente cancelable, con cuenta regresiva de 60seg 
+								
+							}
 						}
 						setTimeout(function(){
 							advice_to_continue_interval = true
