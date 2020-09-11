@@ -12,8 +12,6 @@ $(function(){
             $('#info').append("<b>Descripción:</b> " + dat.descripcion_ingreso+"<br>");
             $('#info').append("<b>Fecha</b>: " + dat.fecha_ingreso+"<br>");
             //$('#info').load("php/info.php");
-
-
             //return(i !== 0);
         });
         //console.log(res);

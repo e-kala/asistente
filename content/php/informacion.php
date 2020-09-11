@@ -25,7 +25,9 @@
         <h5 class="card-title">Último ingreso</h5>
         <img class="float-right" src="./content/img/iconos/modal_info_ingresos.png" width="60px" height="60px">
       </div>
-      <p class="card-text text-left" id="info"></p>
+      <p class="card-text text-left" id="info">
+        <?php include 'content/php/info.php'; ?>
+      </p>
     </div>
     <div class="card-footer">
       <small class="text-muted">Last updated 3 mins ago</small>
@@ -39,7 +41,9 @@
         <h5 class="card-title">Último Gasto</h5>
         <img class="float-right" src="./content/img/iconos/modal_info_gastos.png" width="60px" height="60px">
       </div>
-      <p class="card-text text-left" id="ultimoGasto"></p>
+      <p class="card-text text-left" id="ultimoGasto">
+        <?php include 'content/php/ultimoGasto.php'; ?>
+      </p>
     </div>
     <div class="card-footer">
       <small class="text-muted">Last updated 3 mins ago</small>
