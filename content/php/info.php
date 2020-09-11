@@ -33,12 +33,14 @@
     }
 
     $json = $arrayResponse;
-    if (!isset($json[0]["error"])){
-        echo  "<b>Cuenta</b>: " . $json[0]["usuario_ingreso"] . "<br>";
-        echo  "<b>Categoria</b>: " . $json[0]["categoria_ingreso"] . "<br>";
-        echo  "<b>Cantidad</b>: $ " . $json[0]["cantidad_ingreso"] . "<br>";
-        echo  "<b>Descripción</b>: " . $json[0]["descripcion_ingreso"] . "<br>";
-        echo  "<b>Fecha</b>: " . $json[0]["fecha_ingreso"] . "<br>";
+    if (!isset($json["error"])){
+        if (isset($json[0])){ 
+            echo  "<b>Cuenta</b>: " . $json[0]["cuenta_ingreso"] . "<br>";
+            echo  "<b>Categoria</b>: " . $json[0]["categoria_ingreso"] . "<br>";
+            echo  "<b>Cantidad</b>: $ " . $json[0]["cantidad_ingreso"] . "<br>";
+            echo  "<b>Descripción</b>: " . $json[0]["descripcion_ingreso"] . "<br>";
+            echo  "<b>Fecha</b>: " . $json[0]["fecha_ingreso"] . "<br>";
+        }
     }
 
     //json_encode($query_result->fetch_array());
