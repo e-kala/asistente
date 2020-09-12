@@ -1,9 +1,14 @@
 <?php
     include_once'conexion.php';
 
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        # La sesión NO está iniciada
+        session_start();
+        $usuario = $_SESSION['user'];
+    } else {
+        $usuario = $_SESSION['user'];
+    }
 
-    $usuario = $_SESSION['user'];
 
     $mysqli = new mysqli("localhost", "u539976020_bonsai", ":i9i^Q|N>8w", "u539976020_bonsai");
 
@@ -27,8 +32,18 @@
 
     }
 
-    $json = json_encode($arrayResponse);
+    $json = $arrayResponse;
+    if (!isset($json["error"])){
+        if (isset($json[0])){ 
+            echo  "<b>Cuenta</b>: " . $json[0]["cuenta_ingreso"] . "<br>";
+            echo  "<b>Categoria</b>: " . $json[0]["categoria_ingreso"] . "<br>";
+            echo  "<b>Cantidad</b>: $ " . $json[0]["cantidad_ingreso"] . "<br>";
+            echo  "<b>Descripción</b>: " . $json[0]["descripcion_ingreso"] . "<br>";
+            echo  "<b>Fecha</b>: " . $json[0]["fecha_ingreso"] . "<br>";
+        }
+    }
+
     //json_encode($query_result->fetch_array());
     //header('Content-Type: application/json; charset=utf8');
-    echo $json;
+    // echo $json;
  ?>
