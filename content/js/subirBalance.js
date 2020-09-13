@@ -48,15 +48,20 @@ function agregarDatosBalance(cantidadNueva, cuenta, categoria, descripcion, fech
 
 //Saldo balanceo
 //Mostrar saldo de la cuenta que este por defecto al abrir modal
- $.post("./content/php/consults_info/mostrar_saldo_nuevo_ingreso_gasto.php", {
-    cuenta : document.getElementById("cuenta").value,
-    usuario : window.config[0].usuario
-  }).done(function(e){
-    let balacmodalbalanceo = document.getElementById("balacmodalbalanceo")
-    if (e.match(/-/gim)){
-        balacmodalbalanceo.className = "font-weight-bold font-italic badge badge-danger"
-    } else {
-        balacmodalbalanceo.className = "font-weight-bold font-italic badge badge-success"
-    }
-    balacmodalbalanceo.innerHTML = "$ " + e
-  })
+let balacmodalbalanceo = document.getElementById("balacmodalbalanceo")
+
+if (balacmodalbalanceo !== null && balacmodalbalanceo !== undefined){
+    $.post("./content/php/consults_info/mostrar_saldo_nuevo_ingreso_gasto.php", {
+        cuenta : document.getElementById("cuenta").value,
+        usuario : window.config[0].usuario
+      }).done(function(e){
+
+        if (e.match(/-/gim)){
+            balacmodalbalanceo.className = "font-weight-bold font-italic badge badge-danger"
+        } else {
+            balacmodalbalanceo.className = "font-weight-bold font-italic badge badge-success"
+        }
+        balacmodalbalanceo.innerHTML = "$ " + e
+
+      })
+}
