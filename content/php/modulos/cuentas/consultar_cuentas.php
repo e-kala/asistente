@@ -1,6 +1,6 @@
 <?php
     include "../../conexion.php";
-
+    
     $conectar = new conexion();
     $conexion = $conectar ->conectar();
     session_start();

@@ -32,14 +32,14 @@
     }
 
     $json = $arrayResponse;
-    
+
     if (!isset($json["error"])){
         if (isset($json[0])){   
             echo  "<b>Cuenta</b>: " . $json[0]["cuenta_gasto"] . "<br>";
             echo  "<b>Categoria</b>: " . $json[0]["categoria_gasto"] . "<br>";
             echo  "<b>Cantidad</b>: $ " . $json[0]["cantidad_gasto"] . "<br>";
             echo  "<b>Descripción</b>: " . $json[0]["descripcion_gasto"] . "<br>";
-            echo  "<b>Fecha</b>:" . $json[0]["fecha_gasto"] . "<br>";
+            echo  "<b>Fecha</b>: " . $json[0]["fecha_gasto"] . "<br>";
         } 
     } 
 

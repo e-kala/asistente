@@ -1,3 +1,11 @@
+<?php
+  $conectar = new conexion();
+  $conexion = $conectar ->conectar();
+  $usuario = $_SESSION['user'];
+  $consulta_cuentas = "SELECT * FROM cuentas WHERE usuario_cuenta = '$usuario'";
+  $resultado_cuentas = $conexion->query($consulta_cuentas);
+?>
+
 <div class="balanceo container bgbalanceochange mt-4 pt-4" style="min-height: 100vh; display: none;">
 	<div class="modal-dialog" role="document">
     <div class="modal-content modingresogasto">
@@ -9,7 +17,7 @@
       </div>
       <div class="modal-body">
           <form>
-            <div class="p-2 mb-1 font-weight-bold">Saldo disponible: <span id="balacmodalga" class="font-italic font-weight-bold"></span> </div>
+            <div class="p-2 mb-1 font-weight-bold">Saldo disponible: <span id="balacmodalbalanceo" class="font-italic font-weight-bold"></span> </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                   <!--Cantidad-->
@@ -19,6 +27,24 @@
               <div class="form-group col-md-6">
                   <label for="inputState">Cuenta</label>
                   <select id="cuenta" class="form-control" name="cuenta">
+                    <?php
+  
+                      $count = 0;
+                      if(!empty($resultado_cuentas) && $resultado_cuentas->num_rows > 0){
+                          while ($fila_cuentas = $resultado_cuentas->fetch_object()) {
+                            $count += 1;
+                            $cuenta = $fila_cuentas->nombre_cuenta;
+
+                            if ($count === 1){
+                              echo "<option selected>" . $cuenta . "</option>";
+                            } else {
+                              echo "<option>" . $cuenta . "</option>";
+                            }
+                          }
+                      }else{
+                          echo "Error: " . $consulta_cuentas . "<br>" . $conexion->error;
+                      }
+                  ?>
                   </select>
               </div>
             </div>

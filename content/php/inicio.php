@@ -4,7 +4,7 @@
 		<div class="container-fluid header_inicio ">
 			<div class="row">
 				<div class="headerinit col-md-9 d-flex align-content-center align-items-center">
-					<img src="./content/img/logo12.1.png" width="50px" height="60px" class="p-2">
+					<img src="./content/img/logo19.1_mini.png" width="50px" height="60px" class="p-2">
 					<span class="loinan">Asistente Bonsai</span>
 				</div>
 				<!-- <div class=" text-center state_init_mainpage_label">
@@ -32,7 +32,7 @@
 		<div class="backgpais container-fluid align-items-center d-flex justify-content-center">
 			<div class=" p-4 " style="border-radius: 40px; -webkit-border-radius:40px; -moz-border-radius:40px; -o-border-radius:40px; -ms-border-radius:40px;  background: rgb(255,255,255,0.50);">
 				<div class=" p-4" >
-					<img src="./content/img/logo12.1.png" width="150px" class="p-1 animarbologinicio">
+					<img src="./content/img/logo19.1_mini.png" width="150px" class="p-1 animarbologinicio">
 					<h3 class="p-4 mb-3 text-dark font-weight-bold" style="border-bottom: 4px solid #fff;">Una semilla cuidada es un fruto infinito</h3>
 					<a href="#" class="btn mt-3 text-light btn-success btn-lg font-weight-bold badge-pill login-btn" >
 						Acceder

@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg mb-4 p-4 header-home-asistent" style="display: none;">
 	<a class="navbar-brand text-dark text-he font-weight-bold" href="?action=home">
-		<img src="content/img/logoAsistentev0.14.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+		<img src="./content/img/logo19.1_mini.png" width="30" height="35" class="d-inline-block align-top" alt="" loading="lazy">
 		Asistente
 	</a>
 	<div class="d-flex flex-wrap justify-content-end align-content-center align-items-center container_menues_navbar">

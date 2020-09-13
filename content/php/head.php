@@ -1,9 +1,11 @@
     <title>Asistente Bonsai</title>
-    <link rel="icon" type="image/png" href="content/img/logoAsistentev0.14.png"/>
+    <link rel="icon" type="image/png" href="content/img/logo19.1_mini.png"/>
 
     <!-- Required meta tags -->
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    
+    <meta name="description" content="Bonsai Asistente es una aplicación con la que podrás administrar tus finanzas personales de manera práctica, divertida y completa, llevando un control de tus gastos e ingresos monetarios, flujo de dinero, balances y estimaciones sobre los mismos a través de gráficos geniales. Regístrate y organiza tu economía cómodamente en Bonsai"/>
+    <meta name="keywords" content="bonsai, bonsái, Bonsai, BONSAI, Asistente, Asistent, dinero, economía, economia, asistente, finanzas, ingresos, gastos, bienes, administrar, administración, gestion, inversion, inversionista, ganancia, crecimiento, crecer, árbol, arbol, salud financiera, salud económica, salud, economista, ecología"/>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
