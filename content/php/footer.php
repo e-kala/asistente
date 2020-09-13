@@ -33,6 +33,7 @@
 
 <script type="text/javascript" src="./content/js/subirIngreso.js"></script>
 <script type="text/javascript" src="./content/js/subirGasto.js"></script>
+<script type="text/javascript" src="./content/js/subirBalance.js"></script>
 <!-- <script type="text/javascript" src="./content/js/ultimoRegistro.js"></script> -->
 
 <script type="text/javascript" src="./content/js/cuentas.js"></script>

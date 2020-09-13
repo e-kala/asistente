@@ -73,6 +73,44 @@ $(function(){
 
 
 $(function(){
+    $("#modalBalance").click(function(){
+        console.log("ok");
+
+        $("#cuenta").load("content/php/modulos/cuentas/consultar_cuentas.php", function(data){
+            console.log(data);
+            let conversion = JSON.parse(data);
+            console.log(conversion);
+            $.each(conversion, function (i, val) {
+                if(i==0){
+                    $("#cuenta").append("<option selected>"+val+"</option>");
+
+                }else{
+                    $("#cuenta").append("<option>"+val+"</option>");
+                }
+                console.log(val);
+                
+            });
+            
+            //Mostrar saldo de la cuenta que este por defecto al abrir modal
+             $.post("./content/php/consults_info/mostrar_saldo_nuevo_ingreso_gasto.php", {
+                cuenta : document.getElementById("cuenta").value,
+                usuario : window.config[0].usuario
+              }).done(function(e){
+                let balacmodalin = document.getElementById("balacmodalin")
+                if (e.match(/-/gim)){
+                    balacmodalin.className = "font-weight-bold font-italic badge badge-danger"
+                } else {
+                    balacmodalin.className = "font-weight-bold font-italic badge badge-success"
+                }
+                balacmodalin.innerHTML = "$ " + e
+              })
+        });
+    });
+    
+});
+
+
+$(function(){
     console.log("ok");
     $("#aCuentaTransferencia").load("content/php/modulos/cuentas/consultar_cuentas.php", function(data){
         
