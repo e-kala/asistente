@@ -91,7 +91,7 @@ body{background: white;}
           <div class="btn-group" role="group" aria-label="Basic example">
             <a class="btn btn-primary ml-3 mr-3 mt-0" href="?action=registros" role="button" title="Consultar registros">Registros</a>
             <a class="btn btn-info ml-3 mr-3 mt-0" href="?action=cuentas" title="Gestor de cuentas" role="button">Cuentas</a>
-            <a class="btn btnbalanceo text-light ml-3 mr-3 mt-0" href="?action=balanceo" role="button" title="Balancear una cuenta">Balanceo</a>
+            <!--<a class="btn btnbalanceo text-light ml-3 mr-3 mt-0" href="?action=balanceo" role="button" title="Balancear una cuenta">Balanceo</a>-->
           </div>
           
           <h4><br></h4><!--

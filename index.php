@@ -133,6 +133,11 @@ session_start();
                   include 'content/php/insigniasylogros.php';  
                break;
 
+               case 'quienes_somos':
+                  echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
+                  include 'content/php/quienesSomos.php';
+               break;
+
                case 'transferencias':
                    echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
                    include 'content/php/navbar.php';
