@@ -6,71 +6,43 @@
   $resultado_cuentas = $conexion->query($consulta_cuentas);
 ?>
 
-<div class="balanceo container bgbalanceochange mt-4 pt-4" style="min-height: 100vh; display: none;">
-	<div class="modal-dialog" role="document">
-    <div class="modal-content modingresogasto">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Balancear cuenta</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <form>
-            <div class="p-2 mb-1 font-weight-bold">Saldo disponible: <span id="balacmodalbalanceo" class="font-italic font-weight-bold"></span> </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                  <!--Cantidad-->
-                <label for="inputEmail4">Cantidad</label>
-                <input type="number" class="form-control" id="cantidad" name="cantidad">
-              </div>
-              <div class="form-group col-md-6">
-                  <label for="inputState">Cuenta</label>
-                  <select id="cuenta" class="form-control" name="cuenta">
-                    <?php
-  
-                      $count = 0;
-                      if(!empty($resultado_cuentas) && $resultado_cuentas->num_rows > 0){
-                          while ($fila_cuentas = $resultado_cuentas->fetch_object()) {
-                            $count += 1;
-                            $cuenta = $fila_cuentas->nombre_cuenta;
 
-                            if ($count === 1){
-                              echo "<option selected>" . $cuenta . "</option>";
-                            } else {
-                              echo "<option>" . $cuenta . "</option>";
-                            }
-                          }
-                      }else{
-                          echo "Error: " . $consulta_cuentas . "<br>" . $conexion->error;
-                      }
-                  ?>
-                  </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="categoria">Categoría</label>
-              <input type="text" class="form-control" id="categoria" placeholder="" name="categoria">
-            </div>
-            <div class="form-group">
-              <label for="descripcion">Descripción</label>
-              <textarea class="form-control" id="descripcion" placeholder="" name="descripcion"></textarea>
-            </div>
-          <div class="form-row">
-            <div class="form-group col-md-12">
-                 <label >Fecha</label>
-                 <input type="date" name="fecha" max="3000-12-31"
-                        min="2000-01-01" class="form-control fecha"/>
-                </div>
 
-          </div>
-          </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button id="subirBalanceo" type="button" class="btn btn-primary">Guardar Cambios</button>
-      </div>
-    </div>
-  </div>
+
+
+<div class="container text-light" style="min-height: 100vh;">
+
+	<div class="p-4 mt-4 rounded bgtransferencias_ventana">
+		<h1 class="text-center pb-2 pt-4 mt-3">Balancear Cuentas <i class="fa fa-credit-card-alt text-warning" aria-hidden="true"></i></h1>
+		<label class="text-center pb-2">Balancear Cuentas</label>
+		<div class="pt-2 border border-secondary border-left-0 border-top-0 border-right-0" id="saldoDisponible"><p class="badge-primary" id="saldoDisponible"></p></div>
+		<form class="form cuentaTransferencia p-4">
+		  <div class="row">
+		    <div class="col-xs-12 col-md-6">
+		    	<label class="text-center p-2">¿Qué Cuenta Balancear?</label>
+		    	<select id="deCuentaTransferencia" class="form-control" name="de">
+		    		<option selected="">Selecciona una cuenta</option>
+		    	</select>
+		    </div>
+		  
+		    <div class="d-flex flex-wrap justify-content-between  align-items-center align-content-center">
+		    	<div class="m-0 p-0 flex-grow-1">
+		    		<input id="cantidadTransferencia" style="" class="mb-0" type="text" name="cantidad" placeholder="Cantidad Real">
+			    	<button class="btn btn-success mt-4  mb-0" id="registrar_transferencia" type="submit" data-html="true"  data-container="body" data-trigger="focus" data-toggle="popovertrans" data-placement="bottom" >Registrar</button>
+		    	</div>
+		    	<div class="m-0 p-0 flex-grow-1">
+		    	</div>
+		    </div>
+        </div>
+		</form>
+		<script type="text/javascript" src="./content/js/transferir.js"></script>
+	</div>
 </div>
+
+
+
+
+
+
+
 
