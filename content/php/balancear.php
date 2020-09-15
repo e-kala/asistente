@@ -22,6 +22,24 @@
 		    	<label class="text-center p-2">¿Qué Cuenta Balancear?</label>
 		    	<select id="deCuentaTransferencia" class="form-control" name="de">
 		    		<option selected="">Selecciona una cuenta</option>
+		    		<?php
+
+                    	$count = 0;
+                    	if(!empty($resultado_cuentas) && $resultado_cuentas->num_rows > 0){
+                    		while ($fila_cuentas = $resultado_cuentas->fetch_object()) {
+                    			$count += 1;
+                    			$cuenta = $fila_cuentas->nombre_cuenta;
+                    
+                    			if($count === 1){
+                    				echo "<option selected>" . $cuenta . "</option>";
+                    			} else {
+                    				echo "<option>" . $cuenta . "</option>";
+                    			}
+                    		}
+                    	} else {
+                    		echo "Error: " . $consulta_cuentas . "<br>" . $conexion->error;
+                    	}
+                    ?>
 		    	</select>
 		    </div>
 		  
@@ -38,11 +56,6 @@
 		<script type="text/javascript" src="./content/js/transferir.js"></script>
 	</div>
 </div>
-
-
-
-
-
 
 
 
