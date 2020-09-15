@@ -193,6 +193,7 @@ function data_graphic(){
           document.getElementById("statestanca").className = "w-100 alert alert-danger text-danger font-weight-bold"
           document.getElementById("statestanca").innerHTML =  `Actualmente posees deudas, según el tiempo en que se mantenga así esta barra se incrementará  <i class="fa fa-frown-o" aria-hidden="true"></i>` 
 
+          
         } else if (odeposic >= 50  && odeposic < 100) {
           document.getElementById("probastan").innerHTML = day*0.05 -ode*0.01+"%"
           document.getElementById("probastan").style.width = day*0.05 -ode*0.01+"%"
@@ -221,7 +222,7 @@ function data_graphic(){
           document.getElementById("probastan").style.width = day*0.05-ode*0.03+"%"
           document.getElementById("statestanca").style.display = "block"
           document.getElementById("statestanca").className = "w-100 alert alert-danger text-danger font-weight-bold"
-          document.getElementById("statestanca").innerHTML =  `Actualmente posees deudas, según el tiempo en que se mantenga así esta barra se incrementará  <i class="fa fa-frown-o" aria-hidden="true"></i>` 
+          document.getElementById("statestanca").innerHTML =  `Actualmente existe un alto porcentaje de gastos, eso impulsa la barra de estancamiento, pero no se incrementará si los ingresos se mantienen o aumentan<i class="fa fa-frown-o" aria-hidden="true"></i>` 
 
           asignate_insig("gastadorcompulsivo", "Gastador Compulsivo", "Por múltiples gastos elevados, aunque sin deudas")
        

@@ -468,6 +468,26 @@ function obtener_mostrar_saldo_modales_ingreso_gasto(){
     }
   }
 
+  function obtener_saldo_balanceo(){
+    let cuentaBalanceo = document.getElementById("cuentaBalanceo")
+    if (document.getElementById("cuentaBalanceo") !== undefined && document.getElementById("cuentaBalanceo") !== null){ 
+      if (cuentaBalanceo.value !== ""){
+        $.post("./content/php/consults_info/mostrar_saldo_nuevo_ingreso_gasto.php", {
+          cuenta : cuentaBalanceo.value,
+          usuario : window.config[0].usuario
+        }).done(function(e){
+          let balacmodalbalanceo = document.getElementById("balacmodalbalanceo")
+          if (e.match(/-/gim)){
+            balacmodalbalanceo.className = "font-weight-bold font-italic badge badge-danger"
+          } else {
+            balacmodalbalanceo.className = "font-weight-bold font-italic badge badge-success"
+          }
+          balacmodalbalanceo.innerHTML = "$ " + e
+        })
+      } 
+    }
+  }
+
   if (document.getElementById("cuentaGasto") !== undefined && document.getElementById("cuentaGasto") !== null){ 
     document.getElementById("cuentaGasto").onchange = function(e){
       obtener_saldo_modal_gasto()
@@ -476,6 +496,11 @@ function obtener_mostrar_saldo_modales_ingreso_gasto(){
   if (document.getElementById("cuenta") !== undefined && document.getElementById("cuenta") !== null){ 
     document.getElementById("cuenta").onchange = function(e){
       obtener_saldo_modal_ingreso()
+    }
+  }
+  if (document.getElementById("balacmodalbalanceo") !== undefined && document.getElementById("balacmodalbalanceo") !== null){ 
+    document.getElementById("cuentaBalanceo").onchange = function(e){
+      obtener_saldo_balanceo()
     }
   }
 }

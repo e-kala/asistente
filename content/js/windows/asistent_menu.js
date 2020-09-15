@@ -28,6 +28,7 @@ menu_option_config_panel_collapsable = document.getElementsByClassName("fg-color
 bgpremiumchange = document.getElementsByClassName("bgpremiumchange") //bgchange premium window
 bgcorinsilogro = document.getElementsByClassName("bgcorinsilogro") //section badges and logrs
 bgbalanceochange = document.getElementsByClassName("bgbalanceochange")[0] //balanceo section
+colortextmodsprin = document.getElementsByClassName("colortextmodsprin") //color text info and movimient main page
 
 //tadores, registro
 bgchan = document.getElementsByClassName("bgchan") //Tadores use change mode dark / light
@@ -149,6 +150,16 @@ function iters(status, modss, boxes_inn, txtcolor){
       } else {
         bgbalanceochange.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
         bgbalanceochange.className = "balanceo container bgbalanceochange mt-4 pt-4 text-light"
+      }
+    }
+
+    if (colortextmodsprin !== undefined){
+      for (let x = 0; x < colortextmodsprin.length; x++){
+        if (status === "light"){
+          colortextmodsprin[x].className = "colortextmodsprin text-dark"
+        } else {
+          colortextmodsprin[x].className = "colortextmodsprin text-light"
+        }
       }
     }
 }

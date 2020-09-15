@@ -2,24 +2,18 @@
 $(function(){
     $('#subirBalanceo').click(function(){
         cantidadNueva=$('#cantidadNueva').val();
-        cuenta=$('#cuenta').val();
-        categoria=$('#categoria').val();
-        descripcion=$('#descripcion').val();
-        fecha=$('.fecha').val();
-        console.log(cantidadNueva + cuenta + categoria + descripcion + fecha);
-        agregarDatosBalance(cantidadNueva,cuenta,categoria,descripcion,fecha);
+        cuenta=$('#cuentaBalanceo').val();
+        console.log(cantidadNueva + cuenta);
+        agregarDatosBalance(cantidadNueva,cuenta);
 
     });
 }); // ------------------------------------------------------------------------------------------------
 
 
 // <!--Agregar Datos Balance-->
-function agregarDatosBalance(cantidadNueva, cuenta, categoria, descripcion, fecha){
+function agregarDatosBalance(cantidadNueva, cuenta){
     var cadena="cantidadNueva="+cantidadNueva+
-        "&cuenta="+cuenta+
-        "&categoria="+categoria+
-        "&descripcion="+descripcion+
-        "&fecha="+fecha;
+        "&cuenta="+cuenta
         //console.log(cadena);
         $.ajax({
             url:"content/php/subirBalanceo.php",
@@ -32,10 +26,6 @@ function agregarDatosBalance(cantidadNueva, cuenta, categoria, descripcion, fech
             console.log(res);
             //console.log("correcto");
             cantidadNueva=$('#cantidadNueva').val('');
-            cuenta = $('#cuenta').val('');
-            categoria = $('categoria').val('');
-            descripcion=$('#descripcion').val('');
-            fecha=$('#fecha').val('');
 
             $('#modalBalanceo').modal('toggle');
             $.notify("Registro Correcto", "success");
@@ -52,7 +42,7 @@ let balacmodalbalanceo = document.getElementById("balacmodalbalanceo")
 
 if (balacmodalbalanceo !== null && balacmodalbalanceo !== undefined){
     $.post("./content/php/consults_info/mostrar_saldo_nuevo_ingreso_gasto.php", {
-        cuenta : document.getElementById("cuenta").value,
+        cuenta : document.getElementById("cuentaBalanceo").value,
         usuario : window.config[0].usuario
       }).done(function(e){
 

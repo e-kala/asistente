@@ -9,8 +9,9 @@
 ?>
 
 
-<div class="container containeringasedi p-4" style="display: none;">
-    <div class="table-responsive">
+<div class="container containeringasedi p-4" style="min-height: 100vh; display: none;">
+    <div class="table-responsive p-4">
+        <h4 class="pb-4 border-bottom border-secondary">Ingresos <i class="fa fa-arrow-circle-up ml-2" style="color:#42FF29; -webkit-color:#42FF29;" aria-hidden="true"></i></h4>
         <table class="w-100 table-striped">
             <thead>
                 <tr>

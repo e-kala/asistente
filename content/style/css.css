@@ -580,6 +580,32 @@ body{
     -webkit-background: #4B15A3;
 }
 
+.bgcarrow{
+	background: url(../img/brown.png);
+	-moz-background: url(../img/brown.png);
+    -ms-background: url(../img/brown.png);
+    -o-background: url(../img/brown.png);
+    -webkit-background: url(../img/brown.png);
+
+    background-size: cover;
+	-moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+
+	background-repeat: no-repeat;
+	-moz-background-repeat: no-repeat;
+    -ms-background-repeat: no-repeat;
+    -o-background-repeat: no-repeat;
+    -webkit-background-repeat: no-repeat;
+
+	background-position: center center;
+	-moz-background-position: center center;
+    -ms-background-position: center center;
+    -o-background-position: center center;
+    -webkit-background-position: center center;
+}
+
  /*-----------------------------------------------------*/
 @media all and (min-width: 50px){
 	#pattern{

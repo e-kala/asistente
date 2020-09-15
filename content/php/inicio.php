@@ -12,8 +12,7 @@
 				</div> -->
 				<div class="panel-log-reg m-0 col-md-3 d-flex align-items-center justify-content-center flex-wrap">
 					<a class="border rounded btn-link p-1 text-light flex-grow-1 m-1 login-btn" role="button" href="#">Iniciar Sesión</a>
-					<a class="rounded border-warning btn-link p-1 font-weight-bold text-light flex-grow-1 m-1 registro-btn goldglowbri" href="?action=registro" role="button" style="background: linear-gradient(to top, #FFEA12,#92882B);"  data-html="true"  data-container="body" data-toggle="popover" data-placement="bottom" data-content="<h3 class='text-success text-center'>¡Prueba gratuita x 3 meses <i class='fa fa-heart ml-1 text-danger' aria-hidden'true'></i>!</h3>">Registrarse </a>
-
+					<a class="rounded border-warning btn-link p-1 font-weight-bold text-light flex-grow-1 m-1 registro-btn goldglowbri" href="?action=registro" role="button" style="background: linear-gradient(to top, #FFEA12,#92882B);"  data-html="true"  data-container="body" data-toggle="popover" data-placement="bottom" data-content="<h3 class='text-success text-center'>¡Prueba premium gratuita x 3 meses <i class='fa fa-heart ml-1 text-danger' aria-hidden'true'></i>!</h3>">Registrarse </a>
 				</div>
 			</div>
 		</div>
@@ -43,18 +42,51 @@
 
 
 		<!-- Demos -->
-		<div class="container-fluid p-3 d-flex align-content-center align-items-center d-flex justify-content-center" style="background: #fff; border-top: 4px solid white; min-height: 80vh;">
-			<div class="">
-				<div class="bg-transparent border-0 p-3 row">
-					<div class="col-xs-12 col-md-6 p-2">
-						<img src="./content/img/demo1.png"class="m-3" width="90%">
-					</div>
-					<div class="col-xs-12 col-md-6 p-2">
-						<img src="./content/img/demo2.png"class="m-3" width="90%">
-					</div>
+		<div class="container-fluid p-3 bgcarrow" style="border-top: 4px solid white; " align="center">
+			<div class="d-flex p-4 m-4" align="center">
+				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 100%;">
+				  <div class="carousel-inner">
+				    <div class="carousel-item active" align="center">
+				    	<div class="d-flex flex-column justify-content-center align-items-center">
+					    	<h2 class="pl-4 pr-4 pt-4 pb-0">Un modo claro <i class="fa fa-lightbulb-o ml-2 text-warning" aria-hidden="true"></i></h2>
+					      <img src="./content/img/demo3.png"class="m-4 d-block p-4 imademos   flex-grow-1" width="800px" height="400px">
+					  </div>
+				    </div>
+				    <div class="carousel-item " align="center">
+				    	<div class="d-flex flex-column justify-content-center align-items-center">
+					    	<h2 class="pl-4 pr-4 pt-4 pb-0">Un modo oscuro<i class="fa fa-plug ml-2 text-primary" aria-hidden="true"></i></h2>
+					      <img src="./content/img/demo4.png"class="m-4 d-block p-4 imademos   flex-grow-1" width="800px" height="400px">
+					 	</div>
+				    </div>
+				    <div class="carousel-item " align="center">
+				    	<div class="d-flex flex-column justify-content-center align-items-center">
+					    	<h2 class="pl-4 pr-4 pt-4 pb-0">Widgets dinámicos<i class="fa fa-pagelines ml-2 text-success" aria-hidden="true"></i></h2>
+					      	<img src="./content/img/demo6tools.png"class="m-4 d-block p-4 imademos   flex-grow-1" width="800px" height="400px">
+					    </div>
+				    </div>
+				    <div class="carousel-item" align="center">
+				    	<div class="d-flex flex-column justify-content-center align-items-center">
+					    	<h2 class="pl-4 pr-4 pt-4 pb-0">¡Personaliza tu asistente!<i class="fa fa-users ml-3 text-success" aria-hidden="true"></i></h2>
+
+					      <img src="./content/img/demo5pj.png"class="m-4 d-block p-4 imademos   flex-grow-1" width="770px" height="400px">
+				    	</div>
+				    </div>
+				  </div>
+				  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Previous</span>
+				  </a>
+				  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				  </a>
 				</div>
+
+				
 			</div>
 		</div>
+
+		
 
 		<!-- footerini -->
 		<div class="container-fluid bg-light">
@@ -108,6 +140,14 @@
 					}],{duration:1000, iterations:1})	
 				}
 				logpan.ondblclick = () => logpan.style.display = "none"
+
+
+				if (window.innerWidth <= 600){
+					for (let x = 0; x < document.getElementsByClassName("imademos").length; x++){
+						document.getElementsByClassName("imademos")[0].setAttribute("width", "100%")
+						document.getElementsByClassName("imademos")[0].setAttribute("height", "100%")
+					}
+				}
 
 				$(function () {
 				  $('[data-toggle="popover"]').popover("show")

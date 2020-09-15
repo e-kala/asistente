@@ -9,8 +9,9 @@
 
 
 ?>
-<div class="container containeringasedi p-4" style="display: none;">
-    <div class="table-responsive">
+<div class="container containeringasedi p-4" style="display: none; min-height: 100vh;">
+    <div class="table-responsive p-4 ">
+        <h4 class="pb-4 border-bottom border-secondary">Gastos <i class="fa fa-arrow-circle-down ml-2" style="color:red; -webkit-color:red;" aria-hidden="true"></i></h4>
         <table class="w-100 table-striped">
             <thead>
                 <tr>
