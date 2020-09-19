@@ -159,7 +159,11 @@
 				}
 			} 
 		} catch(_){
-			
+			if (json[0].plan.match(/premium/gim)){
+				if (document.getElementById("graficos") !== undefined && document.getElementById("graficos") !== null ){
+					document.getElementById("graficos").style.display = "block"
+				}
+			} 
 		}
 
 		if (json[1].background !== "" && json[1].background !== undefined){

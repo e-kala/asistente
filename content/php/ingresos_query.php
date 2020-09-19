@@ -51,6 +51,8 @@
 			$baldeud += $calculo;
 		}
 	}
+	echo "<span class='balactual'><span class='font-weight-bold'>Balance Real</span>: <span class='balactual_co' value='".$balacrealact."'>$ ". $balacrealact . "</span></span><br>";
+	echo "<span class='baldeudas'><span class='font-weight-bold'>Deudas Acumuladas</span>: <span class='baldeudas_co' value='".$baldeud."'>$ ". $baldeud . "</span></span>";
 	//------------------------------------------------------------------------------------
 
 	if ($time_filter_balance === "5"){ // 2 meses atrás
@@ -166,11 +168,15 @@
 			}
 		}
 
-		echo "<span class='balactual'><span class='font-weight-bold'>Balance Real</span>: <span class='balactual_co' value='".$balacrealact."'>$ ". $balacrealact . "</span></span><br>";
-		echo "<span class='baldeudas'><span class='font-weight-bold'>Deudas Acumuladas</span>: <span class='baldeudas_co' value='".$baldeud."'>$ ". $baldeud . "</span></span>";
+		
 		echo "<br><br><span class='font-weight-bold text-secondary font-italic'>Valores según filtro</span>";
 		echo "<br><br><span class='togasfil'><span class='font-weight-bold font-italic'>Total Gastos</span>: <span class='togasinitfil' value='{$totalGastos}'>$ {$totalGastos} </span><br></span>";
 		echo "<span class='toinfil'><span class='font-weight-bold font-italic'>Total Ingresos</span>: <span class='toingresinitfil' value='{$totalIngresos}'>$ ". $totalIngresos . "</span><br></span>";
 		echo "<span class='bafis'><span class='font-weight-bold font-italic'>Flujo ".$statemonthweek."</span>: <span class='balancefiltro' value='".$total = $totalIngresos - $totalGastos."'>$ " .$total = $totalIngresos - $totalGastos . "</span></span>";
+	} else {
+		echo "<br><br><span class='font-weight-bold text-secondary font-italic'>Valores según filtro</span>";
+		echo "<br><br><span class='togasfil'><span class='font-weight-bold font-italic'>Total Gastos</span>: <span class='togasinitfil' value='0'>$ 0</span><br></span>";
+		echo "<span class='toinfil'><span class='font-weight-bold font-italic'>Total Ingresos</span>: <span class='toingresinitfil' value='0'>$ 0</span><br></span>";
+		echo "<span class='bafis'><span class='font-weight-bold font-italic'>Flujo</span>: <span class='balancefiltro' value='0'>$ 0</span></span>";
 	}
 ?>

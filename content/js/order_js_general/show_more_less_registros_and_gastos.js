@@ -1,3 +1,5 @@
+let almastore = {} //Almacenar lista de objetos para operaciones de grupos de elementos seleccionados en tabla gastos / ingresos
+
 let formregdesktop = document.getElementsByClassName("frguss")[0] 
 let tadoresdesktop = document.getElementsByClassName("tadoress")[0] 
 let menregdesktop = document.getElementsByClassName("menrego")[0]
@@ -10,8 +12,18 @@ let show = true
 load_all_reg.onclick = () => {
     show = !show
     if (show){
-        load_all_reg.innerHTML = "Mostrar menos"
-        load_all_reg.className = "btn btn-danger mt-4"
+        load_all_reg.innerHTML = 'Mostrar menos<i class="fa fa-eye-slash ml-2" aria-hidden="true"></i>'
+        load_all_reg.className = "btn btn-danger mb-2"
+
+        document.getElementById("selectionmultiple").disabled = false
+        document.getElementById("selectionmultiple").setAttribute("stat", "false")
+        document.getElementById("selectionmultiplepintar").disabled = false
+        document.getElementById("selectionmultiplepintar").setAttribute("stat", "false")
+        if (Object.keys(almastore).length > 0){
+            document.getElementById("delete-group").disabled = false
+            document.getElementById("delete-group").setAttribute("stat", "false") 
+        }
+
         document.getElementsByClassName("tab")[0].style.display = "flex"
         document.getElementsByClassName("tab")[0].animate([{
             opacity:0
@@ -23,8 +35,16 @@ load_all_reg.onclick = () => {
         if (!window.location.href.match(/\#gastos/gim)){
             window.location.href = window.location.href + "#gastos"
         } 
-        load_all_reg.innerHTML = "Mostrar más"
-        load_all_reg.className = "btn btn-success mt-4"
+        load_all_reg.innerHTML = 'Mostrar más<i class="fa fa-eye ml-2" aria-hidden="true"></i>'
+        load_all_reg.className = "btn btn-success mb-2"
+
+        document.getElementById("selectionmultiple").disabled = true
+        document.getElementById("selectionmultiple").setAttribute("stat", "true")
+        document.getElementById("selectionmultiplepintar").disabled = true
+        document.getElementById("selectionmultiplepintar").setAttribute("stat", "true")
+        document.getElementById("delete-group").disabled = true
+        document.getElementById("delete-group").setAttribute("stat", "true")
+
         setTimeout(()=>{
             document.getElementsByClassName("tab")[0].style.display = "none"
         },450)

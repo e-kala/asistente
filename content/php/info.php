@@ -40,6 +40,8 @@
             echo  "<b>Cantidad</b>: $ " . $json[0]["cantidad_ingreso"] . "<br>";
             echo  "<b>Descripción</b>: " . $json[0]["descripcion_ingreso"] . "<br>";
             echo  "<b>Fecha</b>: " . $json[0]["fecha_ingreso"] . "<br>";
+        } else {
+            echo "<div class='font-italic text-center' style='min-height:100%;'>No hay datos en su historial de ingresos</div>";
         }
     }
 

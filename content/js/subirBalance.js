@@ -12,8 +12,7 @@ $(function(){
 
 // <!--Agregar Datos Balance-->
 function agregarDatosBalance(cantidadNueva, cuenta){
-    var cadena="cantidadNueva="+cantidadNueva+
-        "&cuenta="+cuenta
+    var cadena="cantidadNueva="+cantidadNueva+"&cuenta="+cuenta
         //console.log(cadena);
         $.ajax({
             url:"content/php/subirBalanceo.php",

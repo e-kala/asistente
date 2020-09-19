@@ -1,3 +1,4 @@
+
 let formreg = document.getElementsByClassName("frgus")[0] 
 let tadores = document.getElementsByClassName("tadores")[0] 
 let menreg = document.getElementsByClassName("menreg")[0]

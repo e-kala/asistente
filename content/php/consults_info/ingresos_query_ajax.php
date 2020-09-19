@@ -45,6 +45,8 @@ include "../conexion.php";
 				$baldeud += $calculo;
 			}
 		}
+		$response["BalanceActual"] = $balacrealact;
+		$response["Baldeudas"] = $baldeud;
 		//------------------------------------------------------------------------------------
 
 
@@ -160,8 +162,7 @@ include "../conexion.php";
 				}
 			}
 
-			$response["BalanceActual"] = $balacrealact;
-			$response["Baldeudas"] = $baldeud;
+			
 			$response["TotalGastosFiltro"] = $totalGastos;
 			$response["TotalIngresosFiltro"] = $totalIngresos;
 			$response["BalanceFiltro"] = $totalIngresos - $totalGastos;
@@ -171,7 +172,16 @@ include "../conexion.php";
 			$json = json_encode($response, TRUE);
 
 			echo $json;
+		} else {
+			$response["TotalGastosFiltro"] = "0";
+			$response["TotalIngresosFiltro"] = "0";
+			$response["BalanceFiltro"] = "0";
+			$response["Status"] = "";
+			$response["Statebalancefiltro"] = "";
 
+			$json = json_encode($response, TRUE);
+
+			echo $json;
 		}
 	}
 ?>

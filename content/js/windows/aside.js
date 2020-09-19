@@ -938,7 +938,7 @@ function calender(){
 				}).done(function(d){
 					d = JSON.parse(d)
 					document.getElementsByClassName("balactual")[0].innerHTML = `<span class='font-weight-bold'>Balance Real</span>: <span class='	font-weight-bold' style='color:${d.BalanceActual.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.BalanceActual+"</span>"
-					document.getElementsByClassName("baldeudas")[0].innerHTML = `<span class='font-weight-bold'>Deudas Acumuladas</span>: <span class='	font-weight-bold' style='color:${d.Baldeudas.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.Baldeudas+"</span>"				
+					document.getElementsByClassName("baldeudas")[0].innerHTML = `<span class='font-weight-bold'>Deudas Acumuladas</span>: <span class='	font-weight-bold' style='color:${d.Baldeudas.toString().match(/\-/gim) ? "red" : "#0CC9D5"}'>$ ` + d.Baldeudas+"</span>"				
 					document.getElementsByClassName("togasfil")[0].innerHTML = `<span class='font-weight-bold'>Total Gastos</span>: <span class='font-weight-bold' style='color:red;'>$ ` + d.TotalGastosFiltro+"</span><br>"
 					document.getElementsByClassName("toinfil")[0].innerHTML = `<span class='font-weight-bold'>Total Ingresos</span>: <span class='font-weight-bold' style='color:${d.TotalIngresosFiltro.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.TotalIngresosFiltro+"</span><br>"
 					document.getElementsByClassName("bafis")[0].innerHTML = `<span class='font-weight-bold'>Flujo ${d.Statebalancefiltro}</span>: <span class='font-weight-bold' style='color:${d.BalanceFiltro.toString().match(/\-/gim) ? "red" : "#0CC9D5"}'>$ ` + d.BalanceFiltro + "</span"
@@ -995,7 +995,7 @@ function calender(){
 			}).done(function(d){
 				d = JSON.parse(d)
 				document.getElementsByClassName("balactual")[0].innerHTML = `<span class='font-weight-bold'>Balance Real</span>: <span class='	font-weight-bold' style='color:${d.BalanceActual.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.BalanceActual+"</span>"
-				document.getElementsByClassName("baldeudas")[0].innerHTML = `<span class='font-weight-bold'>Deudas Acumuladas</span>: <span class='	font-weight-bold' style='color:${d.Baldeudas.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.Baldeudas+"</span>"				
+				document.getElementsByClassName("baldeudas")[0].innerHTML = `<span class='font-weight-bold'>Deudas Acumuladas</span>: <span class='	font-weight-bold' style='color:${d.Baldeudas.toString().match(/\-/gim) ? "red" : "#0CC9D5"}'>$ ` + d.Baldeudas+"</span>"				
 				document.getElementsByClassName("togasfil")[0].innerHTML = `<span class='font-weight-bold'>Total Gastos</span>: <span class='font-weight-bold' style='color:red;'>$ ` + d.TotalGastosFiltro+"</span><br>"
 				document.getElementsByClassName("toinfil")[0].innerHTML = `<span class='font-weight-bold'>Total Ingresos</span>: <span class='font-weight-bold' style='color:${d.TotalIngresosFiltro.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.TotalIngresosFiltro+"</span><br>"
 				document.getElementsByClassName("bafis")[0].innerHTML = `<span class='font-weight-bold'>Flujo ${d.Statebalancefiltro}</span>: <span class='font-weight-bold' style='color:${d.BalanceFiltro.toString().match(/\-/gim) ? "red" : "#0CC9D5"}'>$ ` + d.BalanceFiltro + "</span"

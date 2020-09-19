@@ -40,7 +40,9 @@
             echo  "<b>Cantidad</b>: $ " . $json[0]["cantidad_gasto"] . "<br>";
             echo  "<b>Descripción</b>: " . $json[0]["descripcion_gasto"] . "<br>";
             echo  "<b>Fecha</b>: " . $json[0]["fecha_gasto"] . "<br>";
-        } 
+        } else {
+            echo "<div class='font-italic text-center' style='min-height:100%;'>No hay datos en su historial de gastos</div>";
+        }
     } 
 
 
