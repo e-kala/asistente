@@ -7,6 +7,12 @@ session_start();
    // echo "<script>console.log('".$_SESSION['user']."')</script>";
    //include 'content/php/usr/usr_cnfg.php';
 
+   
+   require_once('vendor/autoload.php');
+
+   \Stripe\Stripe::setApiKey('sk_test_51HPLUALQLtZT0x6xvjlzM0REVB0u9ugnrzGU1L5oYuWz6s9y0jJg0zAp4tTfTgARBigA7FLY7jJI3qwtrPZyoxRP00f3DACczd');
+
+   $customer = \Stripe\Customer::create();
 ?>
 
 <!doctype html>
