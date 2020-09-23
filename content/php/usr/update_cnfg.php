@@ -111,6 +111,7 @@
 				echo $set;
 				echo "<success>";
 			} else {
+				echo $set;
 				echo "<update-error>";
 				echo `<script type="text/javascript">document.body.innerHTML = '';</script>`;
 			}	

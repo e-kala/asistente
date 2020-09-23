@@ -20,9 +20,6 @@
 
 	<!-- Graficos Jquery -->
     <script type="text/javascript" src="./content/js/peity/peity.js"></script>
-    <!-- Graficos chart -->
-    <script type="text/javascript" src="./content/js/chart-g/chart.xkcd/dist/chart.xkcd.min.js"></script>
-    <script type="text/javascript" src="./content/js/chart-g/chart.xkcd/dist/index.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="./content/style/patron.css">
     <link rel="stylesheet" type="text/css" href="./content/style/css.css">

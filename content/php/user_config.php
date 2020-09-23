@@ -483,11 +483,11 @@
 							<div class="conjunt_images m-4 p-4 " style="display: none; flex-wrap: nowrap; flex-direction: row; height: 300px; overflow: auto; ">
 								<?php
 
-								if ($handle = opendir($_SERVER['DOCUMENT_ROOT'] . "/asistente/content/usuarios/".$_SESSION['user']."/img/")) {
+								if ($handle = opendir("content/usuarios/".$_SESSION['user']."/img/")) {
 									$count = 0;
 									while (false !== ($file = readdir($handle))) {
 										$count += 1;
-										if ($count > 2){
+										if ($file !== "." && $file !== ".." && $file !=="..."){
 											echo '<img src="./content/usuarios/'.$_SESSION['user']."/img/".$file.'" class="m-2 p-2 imgdefa " style="border: 2px solid #dbdbdb; border-radius: 14px;" width="250px">';
 										}
 
