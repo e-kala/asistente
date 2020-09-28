@@ -3,6 +3,10 @@ const modsdown = document.getElementsByClassName("modscodown")[0]
 const divmestype = document.getElementsByClassName("divmestype")[0]
 const modsco_especify_moduls = document.getElementsByClassName("modsco")
 const menu_registros = document.getElementsByClassName("men_data_registros")[0]
+const bgbalanceochange = document.getElementsByClassName("bgbalanceochange")[0]
+const registrosgasin = document.getElementsByClassName("registrosgasin")[0]
+const containeringasedi = document.getElementsByClassName("containeringasedi")[0] //Edi gas in account
+const transferencias = document.getElementsByClassName("transferencias")[0]
 
 function readjust_pattern(){
 	const root_pattern = document.getElementById("root")
@@ -78,6 +82,111 @@ resize_modulos()
 menu_header_top_adjust(window.innerWidth)
 
 window.onresize = function(){
+
+
+	//------ aside adjust in modules ------
+	//Balanceo Zon
+	if (bgbalanceochange !== undefined && bgbalanceochange !== null){
+		if (window.config[1].aside_hidden == "true"){
+			if (window.innerWidth > 800){
+				if (window.config[1].mode === "dark" || modebg_to_nav === "dark"){
+					bgbalanceochange.className = 'balanceo ml-4 mr-4 text-light bgbalanceochange'
+				} else{
+					bgbalanceochange.className = 'balanceo ml-4 mr-4 text-dark bgbalanceochange'
+				}
+			} else {
+				if (window.config[1].mode === "dark" || modebg_to_nav === "dark"){
+					bgbalanceochange.className = 'balanceo mr-4 mb-3 text-light bgbalanceochange'
+				} else {
+					bgbalanceochange.className = 'balanceo mr-4 mb-3 text-dark bgbalanceochange'
+				}
+				if (document.getElementsByClassName("contacalaside")[0] !== undefined && document.getElementsByClassName("contacalaside")[0] !== null){
+					if (document.getElementsByClassName("contacalaside")[0].style.display !== "block"){
+						// bgbalanceochange.className = 'balanceo bgbalanceochange'	
+					} else {
+					}
+				} 
+			}
+		}
+	}
+
+	//Registros movs
+	if (registrosgasin !== undefined && registrosgasin !== null){
+		if (window.config[1].aside_hidden == "true"){
+			if (window.innerWidth > 800){
+				if (window.config[1].mode === "dark" || modebg_to_nav === "dark"){
+					registrosgasin.className = ' text-light p-4 m-4 tered registrosgasin registros'
+				} else{
+					registrosgasin.className = ' text-dark p-4 m-4 tered registrosgasin registros'
+				}
+			} else {
+				if (window.config[1].mode === "dark" || modebg_to_nav === "dark"){
+					registrosgasin.className = ' text-light p-4 pr-4 mt-4 mr-4 ml-0 mb-4 tered registrosgasin registros'
+				} else {
+					registrosgasin.className = ' text-dark p-4 pr-4 mt-4 mr-4 ml-0 mb-4 tered registrosgasin registros'
+				}
+				if (document.getElementsByClassName("contacalaside")[0] !== undefined && document.getElementsByClassName("contacalaside")[0] !== null){
+					if (document.getElementsByClassName("contacalaside")[0].style.display !== "block"){
+						// registrosgasin.className = ' text-dark p-4 pb-4 mt-4 mr-4 ml-0 mb-4 tered registrosgasin registros'	
+					} else {
+					}
+				} 
+			}
+		}
+	}
+
+	//edi gas in account
+	if (containeringasedi !== undefined && containeringasedi !== null){
+		if (window.config[1].aside_hidden == "true"){
+			if (window.innerWidth > 800){
+				if (window.config[1].mode === "dark" || modebg_to_nav === "dark"){
+					containeringasedi.className = 'containeringasedi ml-4 mr-4 p-4 text-light'
+				} else{
+					containeringasedi.className = 'containeringasedi ml-4 mr-4 p-4 text-dark'
+				}
+			} else {
+				if (window.config[1].mode === "dark" || modebg_to_nav === "dark"){
+					containeringasedi.className = 'containeringasedi mr-4 mb-4 p-4 text-light'
+				} else {
+					containeringasedi.className = 'containeringasedi mr-4 mb-4 p-4 text-dark'
+				}
+				if (document.getElementsByClassName("contacalaside")[0] !== undefined && document.getElementsByClassName("contacalaside")[0] !== null){
+					if (document.getElementsByClassName("contacalaside")[0].style.display !== "block"){
+
+						containeringasedi.className = 'containeringasedi container mb-4 p-4 text-dark'	
+					} else {
+					}
+				} 
+			}
+		}
+	}
+
+	//transferencias
+	if (transferencias !== undefined && transferencias !== null){
+		if (window.config[1].aside_hidden == "true"){
+			if (window.innerWidth > 800){
+				if (window.config[1].mode === "dark" || modebg_to_nav === "dark"){
+					transferencias.className = 'transferencias ml-4 mr-4  text-light'
+				} else{
+					transferencias.className = 'transferencias ml-4 mr-4  text-dark'
+				}
+			} else {
+				if (window.config[1].mode === "dark" || modebg_to_nav === "dark"){
+					transferencias.className = 'transferencias mr-4 mb-4  text-light'
+				} else {
+					transferencias.className = 'transferencias mr-4 mb-4  text-dark'
+				}
+				if (document.getElementsByClassName("contacalaside")[0] !== undefined && document.getElementsByClassName("contacalaside")[0] !== null){
+					if (document.getElementsByClassName("contacalaside")[0].style.display !== "block"){
+						
+						transferencias.className = 'transferencias container mb-4  text-dark'	
+					} else {
+					}
+				} 
+			}
+		}
+	}
+
 	resize_modulos()
 	const devip = getDevicePixelRatio()
 
@@ -345,6 +454,12 @@ window.onresize = function(){
 			if (registros_men_respon !== undefined) registros_men_respon.style.display = "flex";
         }
 		
+	}
+
+	//close aside icon
+	window.close_aside_icon;
+	if (window.close_aside_icon !== undefined){
+		window.close_aside_icon()
 	}
 
 

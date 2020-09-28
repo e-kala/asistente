@@ -19,7 +19,9 @@ body{background: white;}
           <span class="colortextmodsprin">Información</span>
         </div>
        </h2>
-       <img src="./content/img/iconos/info.png" class="ml-2" width="30px">
+
+       <i class="fa fa-2x text-primary fa-question-circle" aria-hidden="true"></i>
+       <!-- <img src="./content/img/iconos/info.png" class="ml-2" width="30px"> -->
      </div>
        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="card-body">
@@ -37,7 +39,9 @@ body{background: white;}
           <span class="colortextmodsprin">Movimientos</span>
         </div>  
        </h2>
-       <img src="./content/img/iconos/configur.png" class="ml-2" width="30px">
+
+       <i class="fa fa-2x text-primary fa-paperclip" aria-hidden="true"></i>
+       <!-- <img src="./content/img/iconos/configur.png" class="ml-2" width="30px"> -->
      </div>
 
      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
@@ -88,10 +92,10 @@ body{background: white;}
             
         <!-- Sección de movimientos End -->
           <h4 class="p-3">Otros</h4>
-          <div class="btn-group" role="group" aria-label="Basic example">
-            <a class="btn btn-primary ml-3 mr-3 mt-0" href="?action=registros" role="button" title="Consultar registros">Registros</a>
-            <a class="btn btn-info ml-3 mr-3 mt-0" href="?action=cuentas" title="Gestor de cuentas" role="button">Cuentas</a>
-            <a class="btn btnbalanceo text-light ml-3 mr-3 mt-0" href="?action=balanceo" role="button" title="Balancear una cuenta">Balanceo</a>
+          <div class="flex-wrap" role="group" aria-label="Basic example">
+            <a class="btn btn-primary ml-3 mr-3 mt-0 mb-4" href="?action=registros" role="button" title="Consultar registros">Registros</a>
+            <a class="btn btn-info ml-3 mr-3 mt-0 mb-4" href="?action=cuentas" title="Gestor de cuentas" role="button">Cuentas</a>
+            <a class="btn btnbalanceo text-light ml-3 mr-3 mt-0 mb-4" href="?action=balanceo" role="button" title="Balancear una cuenta">Balanceo</a>
           </div>
           
           <h4><br></h4><!--

@@ -74,18 +74,15 @@ function iters(status, modss, boxes_inn, txtcolor){
         }
       }
     }
-    
   }
     if (registrosgasin !== undefined) {
-      for (let x = 0; x < registrosgasin.length; x++){
         if (status === "dark"){
-          registrosgasin[x].style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
-          registrosgasin[x].className = "p-4 m-4 tered registrosgasin   text-light"
+          registrosgasin.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+          registrosgasin.className = "p-4 m-4 tered registrosgasin   text-light"
         } else {
-          registrosgasin[x].style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
-          registrosgasin[x].className =  "p-4 m-4 tered registrosgasin   text-dark"
+          registrosgasin.style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+          registrosgasin.className =  "p-4 m-4 tered registrosgasin   text-dark"
         }
-      }
     }
     if (colorchangetxt !== undefined) {
       for (let x = 0; x < colorchangetxt.length; x++){
@@ -146,10 +143,16 @@ function iters(status, modss, boxes_inn, txtcolor){
     if (bgbalanceochange !== undefined){
       if (status === "light"){
         bgbalanceochange.style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
-        bgbalanceochange.className = "balanceo container bgbalanceochange mt-4 pt-4 text-dark"
+
+        bgbalanceochange.classList.add("text-dark")
+        bgbalanceochange.classList.remove("text-light")
+        // bgbalanceochange.className = "balanceo container bgbalanceochange mt-4 pt-4 text-dark"
       } else {
+
         bgbalanceochange.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
-        bgbalanceochange.className = "balanceo container bgbalanceochange mt-4 pt-4 text-light"
+        bgbalanceochange.classList.add("text-light")
+        bgbalanceochange.classList.remove("text-dark")        
+        // bgbalanceochange.className = "balanceo container bgbalanceochange mt-4 pt-4 text-light"
       }
     }
 
@@ -292,7 +295,8 @@ functions = [
           }],{duration:400, iterations:1})
         }
         if (containeringasedi !== undefined && containeringasedi !== null){
-          containeringasedi.className = "container containeringasedi p-4 text-light"
+          containeringasedi.classList.add("text-light")
+          containeringasedi.classList.remove("text-dark")
           containeringasedi.style.background = `rgb(52,52,69,${transparency}5)`
           containeringasedi.animate([{
             background:`rgb(255,255,255,${transparency}5)`
@@ -334,7 +338,8 @@ functions = [
         //Transferencias
         if (bgtransferencias_ventana !== undefined){
           bgtransferencias_ventana.style.background = `rgb(52,52,69,${transparency}5)`
-          bgtransferencias_ventana.className = "p-4 mt-4 rounded bgtransferencias_ventana text-light"
+          bgtransferencias_ventana.classList.add("text-light")
+          bgtransferencias_ventana.classList.remove("text-dark")
           bgtransferencias_ventana.animate([{
             background:`rgb(255,255,255,${transparency}5)`
           },{
@@ -366,13 +371,13 @@ functions = [
 
         //registrosgasin
         if (registrosgasin !== undefined){
-          for (let x = 0; x < registrosgasin.length; x++){
-            registrosgasin[x].animate([{
+            registrosgasin.animate([{
               background:`rgb(255,255,255,${alma_config[1].transparency}5)`
             },{
               background:`rgb(52,52,69,${alma_config[1].transparency}5)`
             }],{duration:400, iterations:1})
-          }
+          
+          // alert(10)
         }
 
         //balanceo
@@ -453,7 +458,9 @@ functions = [
         }
 
         if (containeringasedi !== undefined && containeringasedi !== null){
-          containeringasedi.className = "container containeringasedi p-4 text-dark"
+          containeringasedi.classList.add("text-dark")
+          containeringasedi.classList.remove("text-light")
+
           containeringasedi.style.background = `rgb(255,255,255,${transparency}5)`
           containeringasedi.animate([{
             background:`rgb(52,52,69,${transparency}5)`
@@ -496,7 +503,8 @@ functions = [
         //Transferencias
         if (bgtransferencias_ventana !== undefined){
           bgtransferencias_ventana.style.background =`rgb(255,255,255,${transparency}5)`
-          bgtransferencias_ventana.className = "p-4 mt-4 rounded bgtransferencias_ventana text-dark"
+            bgtransferencias_ventana.classList.add("text-dark")
+          bgtransferencias_ventana.classList.remove("text-light")
           bgtransferencias_ventana.animate([{
             background:`rgb(52,52,69,${transparency}5)`
           },{
@@ -528,13 +536,11 @@ functions = [
 
         //registrosgasin
         if (registrosgasin !== undefined){
-          for (let x = 0; x < registrosgasin.length; x++){
-            registrosgasin[x].animate([{
+            registrosgasin.animate([{
               background:`rgb(52,52,69,${alma_config[1].transparency}5)`
             },{
               background:`rgb(255,255,255,${alma_config[1].transparency}5)`
             }],{duration:400, iterations:1})
-          }
         }
 
         //balanceo

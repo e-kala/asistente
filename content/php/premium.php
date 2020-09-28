@@ -12,7 +12,21 @@
 	}
 	$prostexp = json_decode($status_account, TRUE);
 	$fechexpi = $prostexp["fechaExpiracion"];
+
+	$intent = \Stripe\SetupIntent::create([
+	  'customer' => $customer->id
+	]);
+	?>
+
 ?>
+<input id="cardholder-name" type="text">
+<!-- placeholder for Elements -->
+<form id="setup-form" data-secret="<?= $intent->client_secret ?>">
+  <div id="card-element"></div>
+  <button id="card-button">
+    Save Card
+  </button>
+</form>
 <div class="container p-4 bg-transparent" id="bgpremiumchange" style="min-height: 100vh; display: none;">
 
 	<?php
@@ -98,5 +112,6 @@
 			}
 		?>
 			</div>
+
 	</div>
 </div>

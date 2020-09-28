@@ -1,8 +1,9 @@
 <?php
 	
-	if (!isset($conectar)){
+	// if (!isset($conectar)){
 		$conectar = new conexion();
 		$conexion = $conectar->conectar();
+	
 		if(isset($_SESSION['user'])){
 			$usuario = $_SESSION['user'];
 			$consulta_cnf = "SELECT * FROM usuarios WHERE nombre_usuario = '$usuario'";
@@ -10,6 +11,7 @@
 			$fila = $cnf_result->fetch_object();
 			$premioinactividad = $fila->usr_config;
 			$json_config = json_decode($premioinactividad, true);
+
 
 			if (isset($json_config["premioinactividad"])){
 				if ($json_config["premioinactividad"]){
@@ -133,7 +135,7 @@
 		} else {
 			$conexion->close();
 		}
-	} 
+	// }
 
 ?>
 

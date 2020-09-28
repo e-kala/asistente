@@ -23,6 +23,7 @@
 
 	<link rel="stylesheet" type="text/css" href="./content/style/patron.css">
     <link rel="stylesheet" type="text/css" href="./content/style/css.css">
+    <link rel="stylesheet" type="text/css" href="./content/style/predef.css">
     <link rel="stylesheet" type="text/css" href="./content/js/alertifyjs/css/alertify.css">
     <link rel="stylesheet" type="text/css" href="./content/js/alertifyjs/css/themes/default.css">
 

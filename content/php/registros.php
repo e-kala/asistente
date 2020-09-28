@@ -32,7 +32,15 @@
 
 <!-- Escritorio -->
 <div style="min-height: 100vh;">
-    <div class="registromodsco p-4 m-4 tered registrosgasin registros" style="display: none;">
+    <?php
+     if ($aside_hidden_status == "true"){
+?>
+        <div class="registromodsco p-4 m-4 tered registrosgasin registros" style="display: none;">
+    <?php } else {
+    ?>
+        <div class="registromodsco p-4 m-4 tered registrosgasin registros" style="display: none;">
+        <?php
+    } ?>
         <div class="menu-reg-top border-0">
             <a href="index.php#?#movimientos" class="backs colorchange font-weight-bold"><span class="colortextmodsprin">Atrás<i class="fa fa-arrow-circle-left ml-2" aria-hidden="true"></i></span></a>
         </div>
@@ -52,7 +60,7 @@
                     </select>
                 </div>
                 <div class="d-flex center-flex w-100" align="center">
-                    <input type="text" class="mt-3 p-3 findd flexgregdesk w-100 bg-inputtextdark1 coholdermes"  placeholder="Escribe aquí!" />
+                    <input type="text" class="mt-3 p-3 findd flexgregdesk w-100 bg-inputtextdark1 coholdermes z-index-0"  placeholder="Escribe aquí!" />
                     <button  class="find- ml-1 mt-3 btn btn-primary">Buscar</button>
                 </div>
             </form>

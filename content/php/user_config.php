@@ -11,8 +11,9 @@
 		<div class="card-body p-4 m-4" id="accordion">
 			<!-- cuenta collapse -->
 			<div class="card bg-transparent border-0">
-				<div class="card-header bg-transparent">
+				<div class="card-header bg-transparent d-flex justify-content-between align-items-center">
 					<div class="btn btn-link btn-block font-weight-bold text-left fg-color-menu-option-configpanel" data-toggle="collapse"  href="#cuenta" role="button" aria-expanded="false" aria-controls="cuenta">Cuenta</div>
+					<i class="fa fa-user-circle ml-2" aria-hidden="true"></i>
 				</div>
 				<div class="card-body bg-transparent collapse show p-0 " data-parent="#accordion" id="cuenta">
 					<div class="personal-data card bg-transparent border-0">
@@ -262,8 +263,9 @@
 
 			<!-- asistente pj collapse -->
 			<div class="card bg-transparent border-0">
-				<div class="card-header bg-transparent">
+				<div class="card-header bg-transparent d-flex justify-content-between align-items-center">
 					<div class="btn btn-link btn-block font-weight-bold text-left fg-color-menu-option-configpanel" data-toggle="collapse"  href="#asistente" role="button" aria-expanded="false" aria-controls="asistente">Asistente</div>
+					<i class="fa fa-smile-o ml-2" aria-hidden="true"></i>
 				</div>
 				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="asistente">
 					<div class="personal-data card bg-transparent border-0 pb-4">
@@ -356,8 +358,9 @@
 
 			<!-- Interfaz hidden elements and more collapse -->
 			<div class="card bg-transparent border-0">
-				<div class="card-header bg-transparent">
+				<div class="card-header bg-transparent d-flex justify-content-between align-items-center">
 					<div class="btn btn-link btn-block font-weight-bold text-left fg-color-menu-option-configpanel" data-toggle="collapse"  href="#interfaz" role="button" aria-expanded="false" aria-controls="interfaz">Interfaz</div>
+					<i class="fa fa-th-large ml-2" aria-hidden="true"></i>
 				</div>
 				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="interfaz">
 					<h4 class="m-4 pt-4 mb-0 text-center">Mostrar elementos</h4>
@@ -372,8 +375,9 @@
 
 			<!-- balance filtro collapse -->
 			<div class="card bg-transparent border-0">
-				<div class="card-header bg-transparent">
+				<div class="card-header bg-transparent d-flex justify-content-between align-items-center">
 					<div class="btn btn-link btn-block font-weight-bold text-left fg-color-menu-option-configpanel" data-toggle="collapse" data-parent="#accordion"  href="#balancetime" role="button" aria-expanded="false" aria-controls="balancetime">Filtro de balances</div>
+					<i class="fa fa-filter ml-2" aria-hidden="true"></i>
 				</div>
 				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="balancetime">
 					<div class="time-mostrar-balance pb-4 card bg-transparent border-0">
@@ -399,8 +403,9 @@
 
 			<!-- estilo collapse  -->
 			<div class="card bg-transparent border-0">
-				<div class="card-header bg-transparent">
+				<div class="card-header bg-transparent d-flex justify-content-between align-items-center">
 					<div class="btn btn-link btn-block font-weight-bold text-left fg-color-menu-option-configpanel" data-toggle="collapse" data-parent="#accordion"  href="#apariencia" role="button" aria-expanded="false" aria-controls="apariencia">Apariencia</div>
+					<i class="fa fa-picture-o ml-2" aria-hidden="true"></i>
 				</div>
 				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="apariencia">
 					<div class="apariencia pb-4 card bg-transparent border-0 d-flex flex-column">
@@ -509,8 +514,9 @@
 
 			<!-- Sesion collapse -->
 			<div class="card bg-transparent border-0">
-				<div class="card-header bg-transparent">
+				<div class="card-header bg-transparent d-flex justify-content-between align-items-center">
 					<div class="btn btn-link btn-block font-weight-bold text-left fg-color-menu-option-configpanel" data-toggle="collapse" data-parent="#accordion"  href="#sesion" role="button" aria-expanded="false" aria-controls="sesion">Sesión</div>
+					<i class="fa fa-clock-o ml-2" aria-hidden="true"></i>
 				</div>
 				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="sesion">
 					<div class="sesion_time_caducidad pb-4 pt-4 card bg-transparent border-0">
@@ -526,8 +532,9 @@
 
 			<!-- Encuesta socioeconomica basica collapse -->
 			<div class="card bg-transparent border-0">
-				<div class="card-header bg-transparent">
+				<div class="card-header bg-transparent d-flex justify-content-between align-items-center">
 					<div class="btn btn-link btn-block font-weight-bold text-left fg-color-menu-option-configpanel" data-toggle="collapse" data-parent="#accordion"  href="#encuesta" role="button" aria-expanded="false" aria-controls="encuesta">Encuesta</div>
+					<i class="fa fa-money ml-2" aria-hidden="true"></i>
 				</div>
 				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="encuesta">
 					<div class="encuesta_time_caducidad pb-4 pt-4 card bg-transparent border-0">

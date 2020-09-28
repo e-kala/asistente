@@ -6,11 +6,20 @@
   $resultado_cuentas = $conexion->query($consulta_cuentas);
 ?>
 
-<div style="min-height: 100vh;">
-	<div class="balanceo container bgbalanceochange mt-4 pt-4" style="display: none;">
-	    <div class="">
-	      <div class="">
-	        <h1 class="text-center pb-2 pt-4 mt-3" id="exampleModalLabel">Balancear cuenta<i class="fa fa-credit-card-alt text-warning ml-3" aria-hidden="true"></i></h1>
+<?php
+	 if ($aside_hidden_status == "true"){
+?>
+		<div class="" style="">
+			<div  class="balanceo ml-4 mr-4 bgbalanceochange " style="display: none; min-height: 100vh;">
+	<?php } else {
+		?>
+		<div class="" style="min-height: 100vh;">
+				<div class="balanceo container bgbalanceochange " style="display: none;">
+		<?php
+	} ?>
+	    <div class="pt-2">
+	      <div class="pt-4">
+	        <h1 class="text-center pb-2 pt-4 " id="exampleModalLabel">Balancear cuenta<i class="fa fa-credit-card-alt text-warning ml-3" aria-hidden="true"></i></h1>
 	       
 	      </div>
 	      <div class="p-4">
