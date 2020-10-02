@@ -31,6 +31,9 @@
 
     <script type="text/javascript" src="./content/js/windows/aside.js"></script>
 
+    <!-- stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
+
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151751036-8"></script>

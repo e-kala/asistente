@@ -13,20 +13,33 @@
 	$prostexp = json_decode($status_account, TRUE);
 	$fechexpi = $prostexp["fechaExpiracion"];
 
-	$intent = \Stripe\SetupIntent::create([
-	  'customer' => $customer->id
-	]);
+	// echo $intent;
+
+	// $paymeth = \Stripe\PaymentMethod::all([
+	// 	  'customer' => $customer->id,
+	// 	  'type' => 'card',
+	// 	  "PAYMENT_METHOD_ID" => "oaimdoaisdmas"
+	// 	]);
+
+	// echo $paymeth;
+
+	// try {
+	//   \Stripe\PaymentIntent::create([
+	//     'amount' => 350,
+	//     'currency' => 'mxn',
+	//     'customer' => $customer->id,
+	//     'payment_method' => $paymeth->PAYMENT_METHOD_ID,
+	//     'off_session' => true,
+	//     'confirm' => true,
+	//   ]);
+	// } catch (\Stripe\Exception\CardException $e) {
+	//   // Error code will be authentication_required if authentication is needed
+	//   echo 'Error code is:' . $e->getError()->code;
+	//   $payment_intent_id = $e->getError()->payment_intent->id;
+	//   $payment_intent = \Stripe\PaymentIntent::retrieve($payment_intent_id);
+	// }
 	?>
 
-?>
-<input id="cardholder-name" type="text">
-<!-- placeholder for Elements -->
-<form id="setup-form" data-secret="<?= $intent->client_secret ?>">
-  <div id="card-element"></div>
-  <button id="card-button">
-    Save Card
-  </button>
-</form>
 <div class="container p-4 bg-transparent" id="bgpremiumchange" style="min-height: 100vh; display: none;">
 
 	<?php
@@ -86,7 +99,7 @@
 		</div>
 
 			<div class="pr-4 pb-4 pl-4 d-flex flex-wrap"> 
-				<button class="btn btn-success flex-grow-1 m-1 btn-lg">Obtener Premium <i class="fa fa-credit-card-alt" aria-hidden="true"></i></button>
+				<button class="btn btn-success flex-grow-1 m-1 btn-lg" data-toggle="collapse"  href="#getpremium" role="button" aria-expanded="false" aria-controls="getpremium">Obtener Premium <i class="fa fa-credit-card-alt" aria-hidden="true"></i></button>
 		<?php
 			//Si no hay fecha de expiracion definida y el estado de cuenta esta free entonces mostrar boton de activar prueba 3 meses
 
@@ -113,5 +126,68 @@
 		?>
 			</div>
 
+			<!-- placeholder for Elements -->
+			<div class="bg-light pl-4 pr-4 pb-4 pt-0 collapse"  id="getpremium">					
+				<form id="setup-form" class="p-4" data-secret="<?= $intent->client_secret ?>">
+					<h4>Nombre</h4>
+					<input class="border p-2 mb-3" id="cardholder-name" type="text">
+				  <div id="card-element" class="p-4"></div>
+				  <button id="card-button">
+				    Save Card
+				  </button>
+				   <div id="card-errors"></div>
+				</form>
+			</div>
+
 	</div>
+
+
+
+
+
+	<script type="text/javascript">
+		var style = {
+		  base: {
+		    color: "#32325d",
+		  }
+		};
+
+		var stripe = Stripe('pk_test_51HPLUALQLtZT0x6xy8EBznbAJlF8DSYuBv7ktUwP7FkxSxOu6jNVnr7YL7vvmPt6y61PwjZFCmjH471qP9TBb0U800BVdgkVLs');
+
+		var elements = stripe.elements();
+		var cardElement = elements.create('card');
+		cardElement.mount('#card-element');
+		// alert(20)
+
+		var cardholderName = document.getElementById('cardholder-name');
+		var cardButton = document.getElementById('card-button');
+		var clientSecret = document.getElementById("setup-form").getAttribute("data-secret")
+
+		cardButton.addEventListener('click', function(ev) {
+
+		  stripe.confirmCardSetup(
+		    clientSecret,
+		    {
+		      payment_method: {
+		        card: cardElement,
+		        billing_details: {
+		          name: cardholderName.value,
+		        },
+		      },
+		    }
+		  ).then(function(result) {
+		    if (result.error) {
+		    	alert("error")
+
+		      // Display error.message in your UI.
+		    } else {
+		    	alert("bien")
+		      // The setup has succeeded. Display a success message.
+		    }
+		  });
+		});
+
+		document.querySelector("form").onsubmit = () => false
+
+	</script>
 </div>

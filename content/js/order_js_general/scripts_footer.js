@@ -66,8 +66,8 @@ imgdragnot()
 
 function prueba_three_month(){
   const fecha = new Date()
-  const tmp = fecha.getMonth() + 4 //+ 3 months
-  const year = fecha.getFullYear()
+  let tmp = fecha.getMonth() + 4 //+ 3 months
+  let year = fecha.getFullYear()
   const day = fecha.getDate().toString().split("").length > 1 ? fecha.getDate() : "0" + fecha.getDate()
   if (tmp === 13){
     year += 1

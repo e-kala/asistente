@@ -33,20 +33,34 @@
           $aside_hidden_status = "true";
         }
     }
-   //include 'content/php/usr/usr_cnfg.php';
+   // include 'content/php/usr/usr_cnfg.php';
 
    
-   // require_once('vendor/autoload.php');
+   require_once('vendor/autoload.php');
 
-   // \Stripe\Stripe::setApiKey('sk_test_51HPLUALQLtZT0x6xvjlzM0REVB0u9ugnrzGU1L5oYuWz6s9y0jJg0zAp4tTfTgARBigA7FLY7jJI3qwtrPZyoxRP00f3DACczd');
 
-   // $customer = \Stripe\Customer::create();
+   \Stripe\Stripe::setApiKey('sk_test_51HPLUALQLtZT0x6xvjlzM0REVB0u9ugnrzGU1L5oYuWz6s9y0jJg0zAp4tTfTgARBigA7FLY7jJI3qwtrPZyoxRP00f3DACczd');
 
-   // $intent = \Stripe\SetupIntent::create([
-   //    'customer' => $customer->id
-   // ]);
+   $customer = \Stripe\Customer::create();
+
+   // echo $customer;
+
+   // $intent = \Stripe\PaymentIntent::create([
+   //    'amount' => 1099,
+   //    'currency' => 'usd',
+   //    'customer' => $customer->id,
+   //  ]);
+
+   // echo $intent;
+
+   $intent = \Stripe\SetupIntent::create([
+      'customer' => $customer->id
+    ]);
+
+   echo $intent;
 
 ?>
+
 
 <!doctype html>
 <html lang="es">
@@ -58,7 +72,7 @@
     <noscript>Al parecer no tienes activado Javascript. Javascript es esencial para el funcionamiento de este sitio. Necesitas activarlo</noscript>
       <!-- Second W Marquee -->
       <div id="criptowidget" class="p-3 overflow" style="display: none;">
-        <div class="tradingview-widget-container">
+       <!--  <div class="tradingview-widget-container">
           <div class="tradingview-widget-container__widget"></div>
           <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
           {
@@ -81,7 +95,7 @@
           "locale": "es"
         }
           </script>
-        </div>
+        </div> -->
       </div>
 
       <div class="contain" align="center">
@@ -188,7 +202,7 @@
                   include 'content/php/navbar.php';
                   if ($aside_hidden_status === "false"){
                     include 'content/php/modulos/movimientos/ingresos/ingresos.php';   
-                  } else {
+                  } else { 
                     echo "<div class='containhome'>";
                     if ($movil == 0) { //Desktop
                         echo "<div class='sectionhome' style='margin-right:-20px; margin-left:-2px; padding-top:0px;'>";
@@ -286,5 +300,3 @@
 
    </body>
 </html>
-
-
