@@ -32,6 +32,8 @@
         } else {
           $aside_hidden_status = "true";
         }
+
+
     }
    // include 'content/php/usr/usr_cnfg.php';
 
@@ -40,24 +42,6 @@
 
 
    \Stripe\Stripe::setApiKey('sk_test_51HPLUALQLtZT0x6xvjlzM0REVB0u9ugnrzGU1L5oYuWz6s9y0jJg0zAp4tTfTgARBigA7FLY7jJI3qwtrPZyoxRP00f3DACczd');
-
-   $customer = \Stripe\Customer::create();
-
-   // echo $customer;
-
-   // $intent = \Stripe\PaymentIntent::create([
-   //    'amount' => 1099,
-   //    'currency' => 'usd',
-   //    'customer' => $customer->id,
-   //  ]);
-
-   // echo $intent;
-
-   $intent = \Stripe\SetupIntent::create([
-      'customer' => $customer->id
-    ]);
-
-   echo $intent;
 
 ?>
 

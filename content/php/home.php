@@ -11,18 +11,22 @@
 		$fila = $cnf_result->fetch_object();
 		
 		$status_account = $fila->privilegios;
-		
 		try{
 			$json_state_acc = json_decode($status_account, TRUE);
 			if (isset($json_state_acc["fechaExpiracion"])){
 				if ($json_state_acc["fechaExpiracion"] !== "" && $json_state_acc["fechaExpiracion"] !== null){
 					if ("20".$fechaActual > $json_state_acc["fechaExpiracion"]){
 						//Expirado, actualizar el modo prueba de premium a free
-						$sql = "UPDATE usuarios SET privilegios = 'free_prueba_usada' WHERE nombre_usuario='$usuario'";
-						$res = mysqli_query($conexion, $sql);
-						if ($res){
-							$conexion->close();
-						} 
+						
+						echo '<script>window.location.href = "?action=premium#mp"; </script>';
+						
+						// $sql = "UPDATE usuarios SET privilegios = 'free_prueba_usada' WHERE nombre_usuario='$usuario'";
+						// $res = mysqli_query($conexion, $sql);
+
+						// if ($res){
+						// 	$conexion->close();
+						// }  else {
+						// }
 					} 
 				}
 			}
