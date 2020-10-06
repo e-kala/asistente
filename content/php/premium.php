@@ -1,10 +1,13 @@
 <?php
 
+	//Clave real
 	$stripe = new \Stripe\StripeClient(
-    'sk_test_51HPLUALQLtZT0x6xvjlzM0REVB0u9ugnrzGU1L5oYuWz6s9y0jJg0zAp4tTfTgARBigA7FLY7jJI3qwtrPZyoxRP00f3DACczd'
+    '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'
+
+    // sk_test_51HPLUALQLtZT0x6xvjlzM0REVB0u9ugnrzGU1L5oYuWz6s9y0jJg0zAp4tTfTgARBigA7FLY7jJI3qwtrPZyoxRP00f3DACczd
   );
 
-	$monto_mxn = 1000;
+	$monto_mxn = 32000; // 320 mxn - 15$
 
 
 	if (isset($_SESSION['user'])){
@@ -105,12 +108,12 @@
 					    'confirm' => true,
 					  ]);
 
+
 					  if ($pain->status == "succeeded"){
 					  	echo "<div class='alert alert-success font-weight-bold'><h2>¡Su pago se ha procesado con éxito ! Ahora dispone de cuenta premium indefinida <i class='fa fa-check-circle ml-2' aria-hidden='true'></i></h2></div>";
 					  	//cambiar estado de cliente stripe a solvente
 					  	$define_solvent_status = "UPDATE stripe set status='solvente' WHERE usuario_card ='$usuario' AND email_card='$email'";
 					  	$update_status_to_solvent = $conexion->query($define_solvent_status);
-
 					  	$change_to_premium_eternum = "UPDATE usuarios set privilegios='premium' WHERE nombre_usuario ='$usuario' AND correo_usuario='$email'";
 					  	$change_to_premium_eternum_q = $conexion->query($change_to_premium_eternum);
 					  }
@@ -160,9 +163,12 @@
 	
 	<div class="card mb-2 bgpremiumchange">
 		<div class="card-header bg-transparent">
-			<h4>Premium <i class="fa fa-star text-warning" aria-hidden="true"></i></h4>
+			<h4>Premium<i class="fa fa-star ml-2 text-warning" aria-hidden="true"></i></h4>
 		</div>
 		<div class="card-body bg-transparent">
+			<div class="col flex-grow-1">
+				<img src="./content/img/premiumpubli2.1.png" class="col" >
+			</div>
 			<ul class="list-group list-group-flush">
 				<li class="list-group-item bg-transparent">
 					Gráficos interactivos para las finanzas
@@ -385,7 +391,6 @@
 			  }).show()
 			}
 		}
-
 
 		if (document.querySelector("form") !== undefined && document.querySelector("form") !== null){
 			document.querySelector("form").onsubmit = () => false

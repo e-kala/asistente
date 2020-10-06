@@ -13,7 +13,7 @@
 			<div class="card bg-transparent border-0">
 				<div class="card-header bg-transparent d-flex justify-content-between align-items-center">
 					<div class="btn btn-link btn-block font-weight-bold text-left fg-color-menu-option-configpanel" data-toggle="collapse"  href="#cuenta" role="button" aria-expanded="false" aria-controls="cuenta">Cuenta</div>
-					<i class="fa fa-user-circle ml-2" aria-hidden="true"></i>
+					<i class="fa fa-2x text-primary fa-user-circle ml-2" aria-hidden="true"></i>
 				</div>
 				<div class="card-body bg-transparent collapse show p-0 " data-parent="#accordion" id="cuenta">
 					<div class="personal-data card bg-transparent border-0">
@@ -265,7 +265,7 @@
 			<div class="card bg-transparent border-0">
 				<div class="card-header bg-transparent d-flex justify-content-between align-items-center">
 					<div class="btn btn-link btn-block font-weight-bold text-left fg-color-menu-option-configpanel" data-toggle="collapse"  href="#asistente" role="button" aria-expanded="false" aria-controls="asistente">Asistente</div>
-					<i class="fa fa-smile-o ml-2" aria-hidden="true"></i>
+					<i class="fa fa-2x text-primary fa-smile-o ml-2" aria-hidden="true"></i>
 				</div>
 				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="asistente">
 					<div class="personal-data card bg-transparent border-0 pb-4">
@@ -288,67 +288,67 @@
 								<img id="pjalird" src="./content/img/iconos/alirdhappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
-								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Buer <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Buer <i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
 								<img id="pjbuer" src="./content/img/iconos/bauhappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
-								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Mosaich <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Mosaich <i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
 								<img id="pjmosaich" src="./content/img/iconos/mosaichappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
-								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Panwit <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Panwit <i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
 								<img id="pjpanwit" src="./content/img/iconos/panwithappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
-								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Yuno <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Yuno <i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
 								<img id="pjyuno" src="./content/img/iconos/yunohappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
-								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Mary <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Mary <i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
 								<img id="pjmary" src="./content/img/iconos/maryhappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
-								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Toni <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Toni <i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
 								<img id="pjplutoni" src="./content/img/iconos/plutonihappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
-								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Raw <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Raw <i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
 								<img id="pjraw" src="./content/img/iconos/rawhappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
-								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Simga <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Simga <i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
 								<img id="pjsimga" src="./content/img/iconos/simgahappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
-								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Bromo <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Bromo <i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
 								<img id="pjbromo" src="./content/img/iconos/bromohappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
-								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Vurb <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Vurb <i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
 								<img id="pjvurb" src="./content/img/iconos/vurbhappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
-								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Palie <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Palie <i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
 								<img id="pjpalie" src="./content/img/iconos/paliehappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
-								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Jaino <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Jaino <i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
 								<img id="pjjaino" src="./content/img/iconos/jainohappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
-								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Komobit <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Komobit <i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
 								<img id="pjkomobit" src="./content/img/iconos/komobithappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
-								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Pacmin <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Pacmin <i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
 								<img id="pjpacman" src="./content/img/iconos/pacmanhappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
-								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Dyn <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Dyn <i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
 								<img id="pjdyn" src="./content/img/iconos/dynhappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 							<div class="conj_pj d-flex flex-column buer">
-								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Grenmo <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
+								<label class="badge labelbadgepremi  badge-pill bg-transparent border border-warning p-2 font-weight-bold m-2"> Grenmo <i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i> </label>
 								<img id="pjgrenmo" src="./content/img/iconos/grenmohappy.gif" class="pj m-1 mt-0" style="border-radius: 100%; cursor:pointer;" width="100px" height="100px">
 							</div>
 						</div>
@@ -360,7 +360,7 @@
 			<div class="card bg-transparent border-0">
 				<div class="card-header bg-transparent d-flex justify-content-between align-items-center">
 					<div class="btn btn-link btn-block font-weight-bold text-left fg-color-menu-option-configpanel" data-toggle="collapse"  href="#interfaz" role="button" aria-expanded="false" aria-controls="interfaz">Interfaz</div>
-					<i class="fa fa-th-large ml-2" aria-hidden="true"></i>
+					<i class="fa fa-2x text-primary fa-th-large ml-2" aria-hidden="true"></i>
 				</div>
 				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="interfaz">
 					<h4 class="m-4 pt-4 mb-0 text-center">Mostrar elementos</h4>
@@ -377,7 +377,7 @@
 			<div class="card bg-transparent border-0">
 				<div class="card-header bg-transparent d-flex justify-content-between align-items-center">
 					<div class="btn btn-link btn-block font-weight-bold text-left fg-color-menu-option-configpanel" data-toggle="collapse" data-parent="#accordion"  href="#balancetime" role="button" aria-expanded="false" aria-controls="balancetime">Filtro de balances</div>
-					<i class="fa fa-filter ml-2" aria-hidden="true"></i>
+					<i class="fa fa-2x text-primary fa-filter ml-2" aria-hidden="true"></i>
 				</div>
 				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="balancetime">
 					<div class="time-mostrar-balance pb-4 card bg-transparent border-0">
@@ -405,13 +405,13 @@
 			<div class="card bg-transparent border-0">
 				<div class="card-header bg-transparent d-flex justify-content-between align-items-center">
 					<div class="btn btn-link btn-block font-weight-bold text-left fg-color-menu-option-configpanel" data-toggle="collapse" data-parent="#accordion"  href="#apariencia" role="button" aria-expanded="false" aria-controls="apariencia">Apariencia</div>
-					<i class="fa fa-picture-o ml-2" aria-hidden="true"></i>
+					<i class="fa fa-2x text-primary fa-picture-o ml-2" aria-hidden="true"></i>
 				</div>
 				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="apariencia">
 					<div class="apariencia pb-4 card bg-transparent border-0 d-flex flex-column">
 						<h4 class="m-4 pt-4 text-center"> Personalizar estilo </h4>
 						<div class="d-flex flex-wrap justify-content-center transparencia-div">
-							<h4 class="m-4 pl-4 text-center"> Transparencia <i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i></h4>
+							<h4 class="m-4 pl-4 text-center"> Transparencia <i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i></h4>
 							<input class="flex-grow-1 ml-4 mr-4" min="0" max="1" type="range" name="slide_transparency" step="0.1" id="slide_transparency" style="cursor:pointer;">
 							<span id="value_slide_transparency" class="p-4 mr-4"></span>
 						</div>
@@ -505,7 +505,7 @@
 							</div>
 						</div>
 						<div class="p-3 loadimagecl position-relative" style="overflow: hidden;">
-							<i class="fa fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i>
+							<i class="fa fa-2x text-primary fa-star ml-2 text-warning" aria-hidden="true" title="Premium"></i>
 							<input type="file" id="loadimage" value="jeje" placeholder="jeje" name="loadimage">
 						</div>
 					</div>
@@ -516,7 +516,7 @@
 			<div class="card bg-transparent border-0">
 				<div class="card-header bg-transparent d-flex justify-content-between align-items-center">
 					<div class="btn btn-link btn-block font-weight-bold text-left fg-color-menu-option-configpanel" data-toggle="collapse" data-parent="#accordion"  href="#sesion" role="button" aria-expanded="false" aria-controls="sesion">Sesión</div>
-					<i class="fa fa-clock-o ml-2" aria-hidden="true"></i>
+					<i class="fa fa-2x text-primary fa-clock-o ml-2" aria-hidden="true"></i>
 				</div>
 				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="sesion">
 					<div class="sesion_time_caducidad pb-4 pt-4 card bg-transparent border-0">
@@ -534,7 +534,7 @@
 			<div class="card bg-transparent border-0">
 				<div class="card-header bg-transparent d-flex justify-content-between align-items-center">
 					<div class="btn btn-link btn-block font-weight-bold text-left fg-color-menu-option-configpanel" data-toggle="collapse" data-parent="#accordion"  href="#encuesta" role="button" aria-expanded="false" aria-controls="encuesta">Encuesta</div>
-					<i class="fa fa-money ml-2" aria-hidden="true"></i>
+					<i class="fa fa-2x text-primary fa-money ml-2" aria-hidden="true"></i>
 				</div>
 				<div class="card-body bg-transparent collapse p-0 " data-parent="#accordion" id="encuesta">
 					<div class="encuesta_time_caducidad pb-4 pt-4 card bg-transparent border-0">

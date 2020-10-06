@@ -40,8 +40,12 @@
    
    require_once('vendor/autoload.php');
 
+   //Clave real
+   \Stripe\Stripe::setApiKey('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');
 
-   \Stripe\Stripe::setApiKey('sk_test_51HPLUALQLtZT0x6xvjlzM0REVB0u9ugnrzGU1L5oYuWz6s9y0jJg0zAp4tTfTgARBigA7FLY7jJI3qwtrPZyoxRP00f3DACczd');
+   // sk_test_51HPLUALQLtZT0x6xvjlzM0REVB0u9ugnrzGU1L5oYuWz6s9y0jJg0zAp4tTfTgARBigA7FLY7jJI3qwtrPZyoxRP00f3DACczd
+
+   
 
 ?>
 
@@ -56,7 +60,7 @@
     <noscript>Al parecer no tienes activado Javascript. Javascript es esencial para el funcionamiento de este sitio. Necesitas activarlo</noscript>
       <!-- Second W Marquee -->
       <div id="criptowidget" class="p-3 overflow" style="display: none;">
-       <!--  <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container">
           <div class="tradingview-widget-container__widget"></div>
           <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
           {
@@ -79,7 +83,7 @@
           "locale": "es"
         }
           </script>
-        </div> -->
+        </div>
       </div>
 
       <div class="contain" align="center">
