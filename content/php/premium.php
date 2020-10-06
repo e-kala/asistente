@@ -285,7 +285,9 @@
 		var cardButton = document.getElementById('card-button');
 
 		if (cardButton !== null && cardButton !== undefined){
-			var stripe = Stripe('pk_test_51HPLUALQLtZT0x6xy8EBznbAJlF8DSYuBv7ktUwP7FkxSxOu6jNVnr7YL7vvmPt6y61PwjZFCmjH471qP9TBb0U800BVdgkVLs');
+			var stripe = Stripe('pk_live_51HPLUALQLtZT0x6x5ZwgTQlgBtCAo8Z0lY3DQVcJZW5Nfnql6mQdVGKwZ3ioz2Q6zgNKALYeHtkH3GnkpNwXPKao00FYdOYFhD');//CLAVE REAL API 
+
+			// pk_test_51HPLUALQLtZT0x6xy8EBznbAJlF8DSYuBv7ktUwP7FkxSxOu6jNVnr7YL7vvmPt6y61PwjZFCmjH471qP9TBb0U800BVdgkVLs
 
 			var elements = stripe.elements();
 			var cardElement = elements.create('card');
