@@ -49,5 +49,5 @@
 
 <?php 
     include "./content/php/consults_info/query_config_to_init.php"; 
-    include "./content/php/usr/save_sessions.php";
+    include "./content/php/usr/plus_points.php";
  ?>

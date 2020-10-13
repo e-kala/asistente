@@ -16,16 +16,12 @@
 		$init_query = $conexion->query($query_session);
 
 		$fila = $init_query->fetch_object();
-		//Registrar cada inicio de sesion con la hora en la que se inicia en el dia
-		$sesion_de_hoy = "INSERT INTO sesiones(sesion_usuario, inicio_sesion_fecha, inicio_sesion_hora) VALUES('$usuario', '$fechaActual', '$horaActual')";
-		$save_session = $conexion->query($sesion_de_hoy);
 
-		//si no existe registro de sesion del dia, registrar
+
+		//si no existe registro de sesion del dia, registrar puntos
 		if ($fila !== null){
 			// echo "La sesion del dia ya se encuentra registrada";
 		} else {
-
-
 			//Dar 10 puntos por dia solo si se inicia sesion
 			$consulta_cnf = "SELECT * FROM usuarios WHERE nombre_usuario = '$usuario'";
 			$cnf_result = $conexion->query($consulta_cnf);
