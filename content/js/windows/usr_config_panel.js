@@ -279,107 +279,114 @@ get_files()
 
 //Enviar configuración del usuario
 function send_config(){
-	encuesta()
-	if (bg.match(/content\/usuarios\/\w+\//gim) && files === ""){
-		bg = bg.replace(`content/usuarios/${alma_config[0].usuario}/`, "")
-	}
+	try{
+		encuesta()
+		if (bg.match(/content\/usuarios\/\w+\//gim) && files === ""){
+			bg = bg.replace(`content/usuarios/${alma_config[0].usuario}/`, "")
+		}
 
-	$.post("./content/php/usr/update_cnfg.php", {
-		usuario: alma_config[0].usuario,
-		mode: bg_session !== "" ? bg_session : alma_config[1].mode,
-		transparency: transparency !== "" && transparency !== null ? transparency : alma_config[1].transparency,
-		background: bg,
-		pj_change: pj !== "" ? pj : alma_config[1].pj_change,
-		pj_hidden: personaje_hidden,
-		aside_hidden: panelizquierdo_hidden,
-		caducidad: caducidad !== "" ? caducidad : alma_config[1].caducidad,
-		time_bal: time !== "" ? time : "hour",
-		ingreso_minimo_mensual: ingreso_minimo_mensual !== "" ? ingreso_minimo_mensual : alma_config[1].ingreso_minimo_mensual,
-		constanciasaludable: alma_config[1].constanciasaludable !== "null"  ? alma_config[1].constanciasaludable : "null",
-        buenafortuna: alma_config[1].buenafortuna !== "null" ? alma_config[1].buenafortuna : "null",
-        elorganizador: alma_config[1].elorganizador !== "null" ? alma_config[1].elorganizador : "null",
-        excelenciafinanciera: alma_config[1].excelenciafinanciera !== "null" ? alma_config[1].excelenciafinanciera : "null",
-        crecimientoexponencial: alma_config[1].crecimientoexponencial !== "null" ? alma_config[1].crecimientoexponencial : "null",
-        crecimientosuperior: alma_config[1].crecimientosuperior !== "null" ? alma_config[1].crecimientosuperior : "null",
-        huracandedinero: alma_config[1].huracandedinero !== "null" ? alma_config[1].huracandedinero : "null",
-        usuarioactivo: alma_config[1].usuarioactivo !== "null" ? alma_config[1].usuarioactivo : "null",
-        premioinactividad: alma_config[1].premioinactividad !== "null" ? alma_config[1].premioinactividad : "null",
-        gastadorjunior: alma_config[1].gastadorjunior !== "null" ? alma_config[1].gastadorjunior : "null",
-        gastadorsenior: alma_config[1].gastadorsenior !== "null" ? alma_config[1].gastadorsenior : "null",
-        gastadorcompulsivo: alma_config[1].gastadorcompulsivo !== "null"  ? alma_config[1].gastadorcompulsivo : "null",
-        sombreromagico: alma_config[1].sombreromagico !== "null" ? alma_config[1].sombreromagico : "null",
-        reservadepoderi: alma_config[1].reservadepoderi !== "null" ? alma_config[1].reservadepoderi : "null",
-        reservadepoderii: alma_config[1].reservadepoderii !== "null" ? alma_config[1].reservadepoderii : "null"
-	}).done(function(d){
-		if (d.match(/\<success\>/gim)){
-			$("#save-changes-config").notify("Sus cambios han sido guardados", {position:"left", className:"success"});
 
-		} 
-	})
+		$.post("./content/php/usr/update_cnfg.php", {
+			usuario: alma_config[0].usuario,
+			mode: bg_session !== "" ? bg_session : alma_config[1].mode,
+			transparency: transparency !== "" && transparency !== null ? transparency : alma_config[1].transparency,
+			background: bg,
+			pj_change: pj !== "" ? pj : alma_config[1].pj_change,
+			pj_hidden: personaje_hidden,
+			aside_hidden: panelizquierdo_hidden,
+			caducidad: caducidad !== "" ? caducidad : alma_config[1].caducidad,
+			time_bal: time !== "" ? time : "hour",
+			ingreso_minimo_mensual: ingreso_minimo_mensual !== "" ? ingreso_minimo_mensual : alma_config[1].ingreso_minimo_mensual,
+			constanciasaludable: alma_config[1].constanciasaludable !== "null"  ? alma_config[1].constanciasaludable : "null",
+	        buenafortuna: alma_config[1].buenafortuna !== "null" ? alma_config[1].buenafortuna : "null",
+	        elorganizador: alma_config[1].elorganizador !== "null" ? alma_config[1].elorganizador : "null",
+	        excelenciafinanciera: alma_config[1].excelenciafinanciera !== "null" ? alma_config[1].excelenciafinanciera : "null",
+	        crecimientoexponencial: alma_config[1].crecimientoexponencial !== "null" ? alma_config[1].crecimientoexponencial : "null",
+	        crecimientosuperior: alma_config[1].crecimientosuperior !== "null" ? alma_config[1].crecimientosuperior : "null",
+	        huracandedinero: alma_config[1].huracandedinero !== "null" ? alma_config[1].huracandedinero : "null",
+	        usuarioactivo: alma_config[1].usuarioactivo !== "null" ? alma_config[1].usuarioactivo : "null",
+	        premioinactividad: alma_config[1].premioinactividad !== "null" ? alma_config[1].premioinactividad : "null",
+	        gastadorjunior: alma_config[1].gastadorjunior !== "null" ? alma_config[1].gastadorjunior : "null",
+	        gastadorsenior: alma_config[1].gastadorsenior !== "null" ? alma_config[1].gastadorsenior : "null",
+	        gastadorcompulsivo: alma_config[1].gastadorcompulsivo !== "null"  ? alma_config[1].gastadorcompulsivo : "null",
+	        sombreromagico: alma_config[1].sombreromagico !== "null" ? alma_config[1].sombreromagico : "null",
+	        reservadepoderi: alma_config[1].reservadepoderi !== "null" ? alma_config[1].reservadepoderi : "null",
+	        reservadepoderii: alma_config[1].reservadepoderii !== "null" ? alma_config[1].reservadepoderii : "null",
+	        points: alma_config[1].points
+		}).done(function(d){
+			if (d.match(/\<success\>/gim)){
+				$("#save-changes-config").notify("Sus cambios han sido guardados", {position:"left", className:"success"});
 
-	if (files !== "" && bg === "" && imagen_to_save !== ""){
-		let formData = new FormData();
-		formData.append("usuario", alma_config[0].usuario)
-  		formData.append("nameimg", files[0]);
-  		formData.append("send", true)
+			} 
+		})
 
-  		$.ajax({ //Guardado oficial
-		   url: "./content/php/consults_info/load_config_img.php",
-		   type: "POST",
-		   data: formData,
-		   processData: false,
-		   contentType: false,
-		   success: function(ruta){
-		   	 document.body.style.background = `url(./content/usuarios/${alma_config[0].usuario}/img/${ruta})`
-		   	 document.body.style.backgroundSize = "cover"
-			 document.body.style.backgroundPosition = "center center"
-		  	 document.body.style.backgroundAttachment = "fixed"
-		  	 rutaedit = ruta.replace(`/content/usuarios/${alma_config[0].usuario}/`,"")
-		  	 rutaedit = rutaedit.replace("\r\n","")
-		  	 bg = rutaedit
-		  	 // console.log(rutaedit, "rutaedit", "jasoxxxdasodimasodm")
-		  	 
-		  	 if (rutaedit.match(/(\<br\>|\<br\s\/\>|\<b\>Notice\<\/b\>|undefined)/gim) === null){ //Si no hay ningun problema
-			  	 $.post("./content/php/usr/update_cnfg.php", {
-					usuario: alma_config[0].usuario,
-					mode: bg_session !== "" ? bg_session : alma_config[1].mode,
-					transparency: transparency !== "" && transparency !== null ? transparency : alma_config[1].transparency,
-					background: "img/"+imagen_to_save,
-					pj_change: pj !== "" ? pj : alma_config[1].pj_change,
-					pj_hidden: personaje_hidden,
-					aside_hidden: panelizquierdo_hidden,
-					caducidad: caducidad !== "" ? caducidad : alma_config[1].caducidad,
-					time_bal: time !== "" ? time : "hour",
-					ingreso_minismo_mensual: ingreso_minimo_mensual !== "" ? ingreso_minimo_mensual : alma_config[1].ingreso_minimo_mensual,
-					constanciasaludable: alma_config[1].constanciasaludable !== "null"  ? alma_config[1].constanciasaludable : "null",
-			        buenafortuna: alma_config[1].buenafortuna !== "null" ? alma_config[1].buenafortuna : "null",
-			        elorganizador: alma_config[1].elorganizador !== "null" ? alma_config[1].elorganizador : "null",
-			        excelenciafinanciera: alma_config[1].excelenciafinanciera !== "null" ? alma_config[1].excelenciafinanciera : "null",
-			        crecimientoexponencial: alma_config[1].crecimientoexponencial !== "null" ? alma_config[1].crecimientoexponencial : "null",
-			        crecimientosuperior: alma_config[1].crecimientosuperior !== "null" ? alma_config[1].crecimientosuperior : "null",
-			        huracandedinero: alma_config[1].huracandedinero !== "null" ? alma_config[1].huracandedinero : "null",
-			        usuarioactivo: alma_config[1].usuarioactivo !== "null" ? alma_config[1].usuarioactivo : "null",
-			        premioinactividad: alma_config[1].premioinactividad !== "null" ? alma_config[1].premioinactividad : "null",
-			        gastadorjunior: alma_config[1].gastadorjunior !== "null" ? alma_config[1].gastadorjunior : "null",
-			        gastadorsenior: alma_config[1].gastadorsenior !== "null" ? alma_config[1].gastadorsenior : "null",
-			        gastadorcompulsivo: alma_config[1].gastadorcompulsivo !== "null"  ? alma_config[1].gastadorcompulsivo : "null",
-			        sombreromagico: alma_config[1].sombreromagico !== "null" ? alma_config[1].sombreromagico : "null",
-			        reservadepoderi: alma_config[1].reservadepoderi !== "null" ? alma_config[1].reservadepoderi : "null",
-			        reservadepoderii: alma_config[1].reservadepoderii !== "null" ? alma_config[1].reservadepoderii : "null"
-				}).done(function(d){
-					// console.log(d,"iiiiiiiiiii", rutaedit, "gggggggggggggggggg")
-					$("#save-changes-config").notify("Sus cambios han sido guardados", {position:"left", className:"success"});
-				})
-		  	 } else {
-		  	 	$("#save-changes-config").notify("Al parecer ha habido un error al guardar, intente nuevamente", { position: "left"}, "error");
-		  	 }
+		if (files !== "" && bg === "" && imagen_to_save !== ""){
+			let formData = new FormData();
+			formData.append("usuario", alma_config[0].usuario)
+	  		formData.append("nameimg", files[0]);
+	  		formData.append("send", true)
+
+	  		$.ajax({ //Guardado oficial
+			   url: "./content/php/consults_info/load_config_img.php",
+			   type: "POST",
+			   data: formData,
+			   processData: false,
+			   contentType: false,
+			   success: function(ruta){
+			   	 document.body.style.background = `url(./content/usuarios/${alma_config[0].usuario}/img/${ruta})`
+			   	 document.body.style.backgroundSize = "cover"
+				 document.body.style.backgroundPosition = "center center"
+			  	 document.body.style.backgroundAttachment = "fixed"
+			  	 rutaedit = ruta.replace(`/content/usuarios/${alma_config[0].usuario}/`,"")
+			  	 rutaedit = rutaedit.replace("\r\n","")
+			  	 bg = rutaedit
+			  	 // console.log(rutaedit, "rutaedit", "jasoxxxdasodimasodm")
+			  	 
+			  	 if (rutaedit.match(/(\<br\>|\<br\s\/\>|\<b\>Notice\<\/b\>|undefined)/gim) === null){ //Si no hay ningun problema
+				  	 $.post("./content/php/usr/update_cnfg.php", {
+						usuario: alma_config[0].usuario,
+						mode: bg_session !== "" ? bg_session : alma_config[1].mode,
+						transparency: transparency !== "" && transparency !== null ? transparency : alma_config[1].transparency,
+						background: "img/"+imagen_to_save,
+						pj_change: pj !== "" ? pj : alma_config[1].pj_change,
+						pj_hidden: personaje_hidden,
+						aside_hidden: panelizquierdo_hidden,
+						caducidad: caducidad !== "" ? caducidad : alma_config[1].caducidad,
+						time_bal: time !== "" ? time : "hour",
+						ingreso_minismo_mensual: ingreso_minimo_mensual !== "" ? ingreso_minimo_mensual : alma_config[1].ingreso_minimo_mensual,
+						constanciasaludable: alma_config[1].constanciasaludable !== "null"  ? alma_config[1].constanciasaludable : "null",
+				        buenafortuna: alma_config[1].buenafortuna !== "null" ? alma_config[1].buenafortuna : "null",
+				        elorganizador: alma_config[1].elorganizador !== "null" ? alma_config[1].elorganizador : "null",
+				        excelenciafinanciera: alma_config[1].excelenciafinanciera !== "null" ? alma_config[1].excelenciafinanciera : "null",
+				        crecimientoexponencial: alma_config[1].crecimientoexponencial !== "null" ? alma_config[1].crecimientoexponencial : "null",
+				        crecimientosuperior: alma_config[1].crecimientosuperior !== "null" ? alma_config[1].crecimientosuperior : "null",
+				        huracandedinero: alma_config[1].huracandedinero !== "null" ? alma_config[1].huracandedinero : "null",
+				        usuarioactivo: alma_config[1].usuarioactivo !== "null" ? alma_config[1].usuarioactivo : "null",
+				        premioinactividad: alma_config[1].premioinactividad !== "null" ? alma_config[1].premioinactividad : "null",
+				        gastadorjunior: alma_config[1].gastadorjunior !== "null" ? alma_config[1].gastadorjunior : "null",
+				        gastadorsenior: alma_config[1].gastadorsenior !== "null" ? alma_config[1].gastadorsenior : "null",
+				        gastadorcompulsivo: alma_config[1].gastadorcompulsivo !== "null"  ? alma_config[1].gastadorcompulsivo : "null",
+				        sombreromagico: alma_config[1].sombreromagico !== "null" ? alma_config[1].sombreromagico : "null",
+				        reservadepoderi: alma_config[1].reservadepoderi !== "null" ? alma_config[1].reservadepoderi : "null",
+				        reservadepoderii: alma_config[1].reservadepoderii !== "null" ? alma_config[1].reservadepoderii : "null",
+				        points: alma_config[1].points
+					}).done(function(d){
+						// console.log(d,"iiiiiiiiiii", rutaedit, "gggggggggggggggggg")
+						$("#save-changes-config").notify("Sus cambios han sido guardados", {position:"left", className:"success"});
+					})
+			  	 } else {
+			  	 	$("#save-changes-config").notify("Al parecer ha habido un error al guardar, intente nuevamente", { position: "left"}, "error");
+			  	 }
+			
+			   },
+			   error: function(jqXHR, textStatus, errorMessage) {
+			       console.log(errorMessage); // Optional
+			   }
+			});	
+
+		}
+	} catch (_){
 		
-		   },
-		   error: function(jqXHR, textStatus, errorMessage) {
-		       console.log(errorMessage); // Optional
-		   }
-		});	
-
 	}
 }
 

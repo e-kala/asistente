@@ -1328,6 +1328,7 @@ function Aside(username){
 	
 	const header = document.createElement("div")
 	header.setAttribute("align", "center")
+	header.setAttribute("id", "header-aside")
 	header.className = "card-header position-relative d-flex flex-column justify-content-center align-items-center align-content-center"	
 
 	const h1 = document.createElement("h4")
@@ -1782,7 +1783,25 @@ function Aside(username){
 		menuaside.appendChild(boton_conversor)
 	}
 
+	//score leaves
+	const divpoints = document.createElement("div")
+	divpoints.setAttribute("id","span-points")
+	const nunspanpoints = document.createElement("span")
+	nunspanpoints.setAttribute("id","nun-point")
+	nunspanpoints.className = "ml-1"
+
+	divpoints.className = "font-weight-bold d-flex justify-content-center align-items-center"
+	$.post("./content/php/consults_info/get_points.php",{usuario:window.config[0].usuario,email:window.config[0].email}).done(function(response){
+		divpoints.innerHTML = "Hojas:"
+		divpoints.appendChild(nunspanpoints)
+		nunspanpoints.innerHTML = response !== "" && response !== undefined && response !== null ? response : 0
+		console.log(response)  
+		divpoints.innerHTML += '<img class="" src="./content/img/leaves.png" width="40px"/>' ;
+	})
+
+
 	if (body !== undefined) {
+		body.appendChild(divpoints)
 		body.appendChild(menuaside)
 	}
 	document.body.appendChild(panel_widgets)

@@ -240,8 +240,8 @@ functions = [
         gastadorcompulsivo: alma_config[1].gastadorcompulsivo !== "null"  ? alma_config[1].gastadorcompulsivo : "null",
         sombreromagico: alma_config[1].sombreromagico !== "null" ? alma_config[1].sombreromagico : "null",
         reservadepoderi: alma_config[1].reservadepoderi !== "null" ? alma_config[1].reservadepoderi : "null",
-        reservadepoderii: alma_config[1].reservadepoderii !== "null" ? alma_config[1].reservadepoderii : "null"
-
+        reservadepoderii: alma_config[1].reservadepoderii !== "null" ? alma_config[1].reservadepoderii : "null",
+        points: alma_config[1].points !== "null" ? alma_config[1].points : "null"
       }).done(function(e){
         // console.log(e,"actualizado")
       })

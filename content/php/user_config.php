@@ -547,8 +547,6 @@
 				</div>
 			</div>
 		</div>
-
-
 		<div class="card-footer text-right">
 			<button class="btn btn-success" id="save-changes-config">
 				Guardar cambios

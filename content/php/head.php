@@ -47,4 +47,7 @@
    
 
 
-    <?php include "./content/php/consults_info/query_config_to_init.php"; ?>
+<?php 
+    include "./content/php/consults_info/query_config_to_init.php"; 
+    include "./content/php/usr/save_sessions.php";
+ ?>

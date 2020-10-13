@@ -4,12 +4,13 @@
 
 	$fechaActual = date('y-m-d');
 
+
 	if (isset($_SESSION['user'])){
 		$usuario = $_SESSION['user'];
 		$consulta_cnf = "SELECT * FROM usuarios WHERE nombre_usuario = '$usuario'";
 		$cnf_result = $conexion->query($consulta_cnf);
 		$fila = $cnf_result->fetch_object();
-		
+		$config = $fila->usr_config;
 		$status_account = $fila->privilegios;
 		try{
 			$json_state_acc = json_decode($status_account, TRUE);
@@ -33,6 +34,9 @@
 		} catch(Exception $e){
 
 		}
+
+
+		// include "./content/php/usr/update_points.php"; 
 	}
 
 ?>

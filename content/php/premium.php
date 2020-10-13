@@ -70,7 +70,7 @@
 
 	//Recuperar tarjeta registrada para cuando sea momento de pagar en el futuro
 	$paymethod = \Stripe\PaymentMethod::all([
-	  'customer' => $clientStripeId,
+	  'customer' => $clientStripeId, //id de la tarjeta guardada para poder usarla
 	  'type' => 'card',
 	]);
 
@@ -272,8 +272,6 @@
 
 </div>
 
-
-
 	<script type="text/javascript">
 		var style = {
 		  base: {
@@ -297,9 +295,7 @@
 
 			cardButton.addEventListener('click', function(ev) {
 				//Save data card
-				$.post("./content/php/consults_info/save_card_id.php", {id_card:""}).done(function(r){
-					console.log(r)
-				})
+
 
 			  stripe.confirmCardSetup(
 			    clientSecret,
@@ -312,10 +308,15 @@
 			      },
 			    }
 			  ).then(function(result) {
+			  	console.log(result)
 			    if (result.error) {
 			    	$("#card-button").notify("Error", "error");
 			      // Display error.message in your UI.
 			    } else {
+
+					 document.getElementById("loadingg").style.display = "block"
+					 document.getElementById("loadingg").classList.add("z-index-50")
+
 					$("#card-button").notify("Datos de tarjeta guardados", "success");
 
 					const fecha = new Date()
@@ -343,6 +344,7 @@
 				      }).done(function(e){
 				        if (e.match(/success/gim)){
 				        	setTimeout(function(){
+				        		// document.getElementById("loadingg").style.display = "none"
 				          		window.location.reload(false)
 				        	},1000)
 				        }

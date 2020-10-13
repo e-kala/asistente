@@ -14,6 +14,7 @@
 		$aside_hidden = $_POST['aside_hidden'];
 		$caducidad = $_POST['caducidad'];
 		$ingreso_minimo_mensual = $_POST['ingreso_minimo_mensual'];
+		$points = $_POST['points'];
 
 		$constanciasaludable = $_POST["constanciasaludable"];
         $buenafortuna = $_POST["buenafortuna"];
@@ -42,6 +43,7 @@
 		$set["aside_hidden"] = $aside_hidden;
 		$set["caducidad"] = $caducidad;
 		$set["ingreso_minimo_mensual"] = $ingreso_minimo_mensual;
+		$set["points"] = $points;
 
 		if (isset($constanciasaludable)){
 			$set["constanciasaludable"] = $constanciasaludable;
