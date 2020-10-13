@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-10-2020 a las 21:27:09
+-- Tiempo de generación: 12-10-2020 a las 20:12:55
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -92,7 +92,7 @@ CREATE TABLE `gastos` (
 --
 
 INSERT INTO `gastos` (`id_gasto`, `usuario_gasto`, `cantidad_gasto`, `categoria_gasto`, `descripcion_gasto`, `cuenta_gasto`, `fecha_gasto`) VALUES
-(1, 'darkatsji', '3.00', 'sksk', 'g', 'one   ', '2020-09-19'),
+(1, 'darkatsji', '3.00', 'dasjdajsdas', 'g', 'one    ', '2020-09-19'),
 (2, 'darkatsji', '200.00', 'jjjjjjjjjjjjjjjjjjjjjjjj', 'g', 'three    ', '2020-09-19'),
 (3, 'darkatsji', '395.00', 'Balanceo', 'Balanceo', 'four ', '2020-09-19'),
 (4, 'darkatsji', '310.00', 'g', 'g', 'one ', '2020-09-27');
@@ -190,6 +190,26 @@ INSERT INTO `pagos` (`id_pagos`, `nombre_pagos`, `monto_pagos`, `fecha_a_pagar`,
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `sesiones`
+--
+
+CREATE TABLE `sesiones` (
+  `id` int(255) NOT NULL,
+  `sesion_usuario` varchar(555) NOT NULL,
+  `inicio_sesion_fecha` date NOT NULL,
+  `inicio_sesion_hora` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `sesiones`
+--
+
+INSERT INTO `sesiones` (`id`, `sesion_usuario`, `inicio_sesion_fecha`, `inicio_sesion_hora`) VALUES
+(6, 'darkatsji', '2020-10-12', '10:38:00');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `stripe`
 --
 
@@ -207,7 +227,7 @@ CREATE TABLE `stripe` (
 --
 
 INSERT INTO `stripe` (`id`, `stripe_id_client`, `client_secret`, `usuario_card`, `email_card`, `status`) VALUES
-(28, 'cus_I8FwgDTTKUHL2c', 'seti_1HXzQuLQLtZT0x6x3rKA0W6l_secret_I8FwpaZ3EzaqM7uyMWUVWo0DjlBxK8x', 'darkatsji', 'darkatsji', 'solvente');
+(40, 'cus_IByREDBvvg5Egy', 'seti_1HbaUaLQLtZT0x6x42naZwHw_secret_IByR9MIcsi4u3o7x2ZvZYlR4diVYAoZ', 'darkatsji', 'darkatsji', 'pendiente');
 
 -- --------------------------------------------------------
 
@@ -262,11 +282,13 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo_usuario`, `pass_usuario`, `privilegios`, `usr_config`) VALUES
 (2, 'admin', 'admin@demo.com', 'root', 'admin', '0'),
 (4, 'Eka', 'caiman.mistico@gmail.com', 'abcfedghi', 'normal', '{\"mode\":\"dark\",\"background\":\"14.gif\",\"time_bal\":\"4\"}'),
-(5, 'darkatsji', 'darkatsji', 'abc', 'premium', '{\"mode\":\"dark\",\"background\":\"3/8.png\",\"time_bal\":\"5\",\"transparency\":\"1\",\"pj_change\":\"./content/img/iconos/bromohappy.gif\",\"pj_hidden\":\"true\",\"aside_hidden\":\"true\",\"caducidad\":\"32\",\"ingreso_minimo_mensual\":\"1000\",\"constanciasaludable\":\"true\",\"buenafortuna\":\"true\",\"excelenciafinanciera\":\"true\",\"crecimientoexponencial\":\"true\",\"crecimientosuperior\":\"true\",\"huracandedinero\":\"true\",\"gastadorcompulsivo\":\"true\"}'),
+(5, 'darkatsji', 'darkatsji', 'abc', '{\"state\":\"premium\",\"fechaExpiracion\":\"2021-01-12\"}', '{\"mode\":\"light\",\"background\":\"2/15.png\",\"time_bal\":\"5\",\"transparency\":\"1\",\"pj_change\":\"./content/img/iconos/facehappy.gif\",\"pj_hidden\":\"true\",\"aside_hidden\":\"true\",\"caducidad\":\"37\",\"ingreso_minimo_mensual\":\"1000\",\"points\":40}'),
 (6, 'wun', 'wun', 'adg', 'free', '{\"mode\":\"light\",\"background\":\"2/15.png\",\"time_bal\":\"5\",\"transparency\":\"1\",\"pj_change\":\"./content/img/iconos/facehappy.gif\",\"pj_hidden\":\"true\",\"aside_hidden\":\"true\",\"caducidad\":\"1\",\"ingreso_minimo_mensual\":\"1000\"}'),
 (7, 'donks', 'donks', 'abc', 'free', '{\"mode\":\"light\",\"background\":\"2/15.png\",\"transparency\":\"1\",\"time_bal\":\"5\",\"caducidad\":\"30\",\"aside_hidden\":\"true\",\"pj_change\":\"./content/img/iconos/facehappy.gif\",\"pj_hidden\":\"true\",\"ingreso_minimo_mensual\":\"1000\"}'),
 (8, 'engo', 'engo', 'abc', 'free', '{\"mode\":\"white\",\"background\":\"2/15.png\",\"time_bal\":\"5\",\"transparency\":\"1\",\"pj_change\":\"./content/img/iconos/facehappy.gif\",\"pj_hidden\":\"true\",\"aside_hidden\":\"true\",\"caducidad\":\"30\",\"ingreso_minimo_mensual\":\"1000\"}'),
-(9, 'darko', 'darko', 'adg', 'free', '{\"mode\":\"dark\",\"background\":\"2/15.png\",\"time_bal\":\"5\",\"transparency\":\"1\",\"pj_change\":\"./content/img/iconos/facehappy.gif\",\"pj_hidden\":\"true\",\"aside_hidden\":\"true\",\"caducidad\":\"30\",\"ingreso_minimo_mensual\":\"1000\"}');
+(9, 'darko', 'darko', 'adg', 'free', '{\"mode\":\"dark\",\"background\":\"2/15.png\",\"time_bal\":\"5\",\"transparency\":\"1\",\"pj_change\":\"./content/img/iconos/facehappy.gif\",\"pj_hidden\":\"true\",\"aside_hidden\":\"true\",\"caducidad\":\"30\",\"ingreso_minimo_mensual\":\"1000\"}'),
+(10, 'mi', 'mi', 'ade', 'free', '{\"mode\":\"light\",\"background\":\"2/15.png\",\"transparency\":\"1\",\"time_bal\":\"5\",\"caducidad\":\"30\",\"aside_hidden\":\"true\",\"pj_change\":\"./content/img/iconos/facehappy.gif\",\"pj_hidden\":\"true\",\"ingreso_minimo_mensual\":\"1000\"}'),
+(11, 'k', 'k', 'abc', 'free', '{\"mode\":\"dark\",\"background\":\"2/15.png\",\"time_bal\":\"5\",\"transparency\":\"1\",\"pj_change\":\"./content/img/iconos/facehappy.gif\",\"pj_hidden\":\"true\",\"aside_hidden\":\"true\",\"caducidad\":\"30\",\"ingreso_minimo_mensual\":\"1000\",\"points\":50}');
 
 --
 -- Índices para tablas volcadas
@@ -307,6 +329,12 @@ ALTER TABLE `logger`
 --
 ALTER TABLE `pagos`
   ADD PRIMARY KEY (`id_pagos`);
+
+--
+-- Indices de la tabla `sesiones`
+--
+ALTER TABLE `sesiones`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `stripe`
@@ -367,10 +395,16 @@ ALTER TABLE `pagos`
   MODIFY `id_pagos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT de la tabla `sesiones`
+--
+ALTER TABLE `sesiones`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT de la tabla `stripe`
 --
 ALTER TABLE `stripe`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `transferencias`
@@ -382,7 +416,7 @@ ALTER TABLE `transferencias`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
