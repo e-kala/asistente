@@ -291,6 +291,22 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo_usuario`, `pass_
 (11, 'k', 'k', 'abc', 'free', '{\"mode\":\"dark\",\"background\":\"2/15.png\",\"time_bal\":\"5\",\"transparency\":\"1\",\"pj_change\":\"./content/img/iconos/facehappy.gif\",\"pj_hidden\":\"true\",\"aside_hidden\":\"true\",\"caducidad\":\"30\",\"ingreso_minimo_mensual\":\"1000\",\"points\":50}');
 
 --
+-- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `deudas`
+--
+
+CREATE TABLE `deudas` (
+  `id_deuda` int(11) NOT NULL,
+  `usuario` int(11) NOT NULL,
+  `cuenta` varchar(100) NOT NULL,
+  `plazo_dias` int(11) NOT NULL,
+  `plazo_cantidad` double NOT NULL,
+  `cantidad_total` double NOT NULL,
+  `primer_pago` date
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -417,6 +433,14 @@ ALTER TABLE `transferencias`
 --
 ALTER TABLE `usuarios`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- Indices de la tabla `deudas`
+--
+ALTER TABLE `deudas`
+  ADD PRIMARY KEY (`id_deuda`),
+  ADD CONSTRAINT FOREIGN KEY (`usuario`) REFERENCES usuarios (id_usuario);
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
