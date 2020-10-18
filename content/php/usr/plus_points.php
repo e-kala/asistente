@@ -27,12 +27,20 @@
 			$cnf_result = $conexion->query($consulta_cnf);
 			$fila = $cnf_result->fetch_object();
 			$config = $fila->usr_config;	
+			$privilegios = $fila->privilegios;
 
-			$json = json_decode($config,true);
-			$json["points"] = $json["points"] + 10;
-			$jsone = json_encode($json,true);
+			$regexprivilegios = preg_match('/premium/i', $privilegios, $output_array,PREG_OFFSET_CAPTURE);
 
-			$update_points = $conexion->query("UPDATE usuarios set usr_config='$jsone' WHERE nombre_usuario='$usuario'");
+			//Solo si el modo premium esta activado se obtienen las hojas magicas
+			if ($regexprivilegios){
+				$json = json_decode($config,true);
+				$json["points"] = $json["points"] + 10;
+				$jsone = json_encode($json,true);
+
+				$update_points = $conexion->query("UPDATE usuarios set usr_config='$jsone' WHERE nombre_usuario='$usuario'");
+			} else {
+			}
+
 		}
 
 		// $puntaje = $fila->puntaje;

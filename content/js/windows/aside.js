@@ -885,7 +885,7 @@ function calender(){
 		let diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
 
 		let almadaysnames = [];
-		let fdm = new Date(year, dat_whole.getMonth(), -1)
+		let fdm = new Date(year, dat_whole.getMonth(), 7)
 		fdm = fdm.toString()
 		let y = 0;
 		if (fdm.match(/Wed/gim)){
@@ -1601,7 +1601,7 @@ function Aside(username){
 	const boton_calc = document.createElement("img")
 	boton_calc.setAttribute("src", "./content/img/iconos/calc.png")
 	boton_calc.setAttribute("width", "80px")
-	boton_calc.setAttribute("title", "Calculadora")
+	boton_calc.setAttribute("data-toggle", "popover-hover-btn-calculadora")		
 	boton_calc.className = "btnmenaside p-1 m-2  mt-0 btn btn-light"
 	boton_calc.ondragstart = function(){
 		return false
@@ -1627,7 +1627,7 @@ function Aside(username){
 	boton_calendario.ondragstart = function(){
 		return false
 	}
-	boton_calendario.setAttribute("title", "Mes actual")
+	boton_calendario.setAttribute("data-toggle", "popover-hover-btn-calendario")		
 	boton_calendario.style.userSelect = "none"
 	boton_calendario.onclick = function(){
 		if (!openedcalender){
@@ -1647,7 +1647,9 @@ function Aside(username){
 	boton_conversor.ondragstart = function(){
 		return false
 	}
-	boton_conversor.setAttribute("title", "Conversor de divisas")
+
+	boton_conversor.setAttribute("data-toggle", "popover-hover-btn-conversor")		
+
 	boton_conversor.style.userSelect = "none"
 	boton_conversor.onclick = function(){
 		if (!openedconversor){
@@ -1785,14 +1787,19 @@ function Aside(username){
 
 	//score leaves
 	const divpoints = document.createElement("div")
+
 	divpoints.setAttribute("id","span-points")
+	divpoints.setAttribute("data-toggle", "popover-hover-points")
+
+	
 	const nunspanpoints = document.createElement("span")
 	nunspanpoints.setAttribute("id","nun-point")
+		
 	nunspanpoints.className = "ml-1"
 
-	divpoints.className = "font-weight-bold d-flex justify-content-center align-items-center"
+	divpoints.className = "font-weight-bold d-flex justify-content-center outline-none align-items-center cursor-pointer badge-pill"
 	$.post("./content/php/consults_info/get_points.php",{usuario:window.config[0].usuario,email:window.config[0].email}).done(function(response){
-		divpoints.innerHTML = "Hojas:"
+		divpoints.innerHTML = "HM:"
 		divpoints.appendChild(nunspanpoints)
 		nunspanpoints.innerHTML = response !== "" && response !== undefined && response !== null ? response : 0
 		console.log(response)  

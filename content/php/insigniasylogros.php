@@ -12,6 +12,34 @@
 			$premioinactividad = $fila->usr_config;
 			$json_config = json_decode($premioinactividad, true);
 
+			$points = 0;
+			if (isset($json_config["points"])){
+				$points = $json_config["points"];
+			} else {
+				$points = 0;
+			}
+
+			if ($points >= 500){ //si se conecta por 50 dias
+				//ganar nueva insignia
+				$reservadepoderi = 1;
+			} else {
+				$reservadepoderi = 0;
+			}
+
+			if ($points >= 800){ //si se conecta por 80 dias
+				//ganar nueva insignia
+				$reservadepoderii = 1;
+			} else {
+				$reservadepoderii = 0;
+			}
+
+			if ($points >= 1000){ //si se conecta por 100 dias
+				//ganar nueva insignia
+				$sombreromagico = 1;
+			} else {
+				$sombreromagico = 0;
+			}
+
 
 			if (isset($json_config["premioinactividad"])){
 				if ($json_config["premioinactividad"]){
@@ -476,25 +504,75 @@
 			<div class="d-flex flex-wrap justify-content-between">
 				<div class="flex-grow-1 d-flex justify-content-center">
 					<div class="position-relative m-2    " >
+						<?php
+							if ($reservadepoderi != 1){ 
+
+						?>
 						<img src="./content/img/insignias/reservadepoderi.png" class="border border-danger border-bottom-0  rounded bg-dark " width="150px" height="155px" >
 						<br>
-						<div class="text-light p-4 font-weight-bold rounded" style="background: linear-gradient(to top left, #5FFF09,#3B8116);">Reserva de poder I <img src="./content/img/insignias/lock.png" class="ml-2 lock lock-reserva-poder-i" width="40px" ></div>
+						<div class="text-light p-4 font-weight-bold rounded" style="background: linear-gradient(to top left, #5FFF09,#3B8116);">Reserva de poder I<img src="./content/img/insignias/lock.png" class="ml-2 lock lock-reserva-poder-i" width="40px" >
+							<div class="p-1 badge-pill border mt-2">
+							+500 <img src="./content/img/leaves.png" width="40px">
+							</div>
+						</div>
+						<?php
+							} else { //toca
+						?>
+						<img src="./content/img/insignias/reservadepoderi.png" class="border border-warning border-bottom-0 rounded  bg-dark " width="150px" height="155px" >
+						<br>
+						<div class="text-light p-4 font-weight-bold rounded" style="background: linear-gradient(to top left, #F0FF00,#D59700);">Reserva de poder I <i class="fa fa-check-circle text-light ml-2" aria-hidden="true"></i></div>
+						<?php
+							}
+						?>
+
+					</div>
+				</div>
+				<div class="flex-grow-1 d-flex justify-content-center">
+					<div class="position-relative m-2" >
+						<?php
+							if ($reservadepoderii != 1){
+						?>
+							<img src="./content/img/insignias/reservadepoderii.png" class="border border-danger border-bottom-0  rounded bg-dark " width="150px" height="155px" >
+							<br>
+							<div class="text-light p-4 font-weight-bold rounded" style="background: linear-gradient(to top left, #B746FF,#571681);">Reserva de poder II <img src="./content/img/insignias/lock.png" class="ml-2 lock lock-reserva-poder-ii" width="40px" >
+								<div class="p-1 badge-pill border mt-2">
+								+800 <img src="./content/img/leaves.png" width="40px">
+								</div>
+							</div>
+							
+						<?php
+							} else {
+						?>
+							<img src="./content/img/insignias/reservadepoderii.png" class="border border-warning border-bottom-0  rounded bg-dark " width="150px" height="155px" >
+							<br>
+							<div class="text-light p-4 font-weight-bold rounded" style="background: linear-gradient(to top left, #F0FF00,#D59700);">Reserva de poder II <i class="fa fa-check-circle text-light ml-2" aria-hidden="true"></i></div>
+						<?php
+							}
+						?>
 					</div>
 				</div>
 				<div class="flex-grow-1 d-flex justify-content-center">
 					<div class="position-relative m-2    " >
-						
-						<img src="./content/img/insignias/reservadepoderii.png" class="border border-danger border-bottom-0  rounded bg-dark " width="150px" height="155px" >
-						<br>
-						<div class="text-light p-4 font-weight-bold rounded" style="background: linear-gradient(to top left, #B746FF,#571681);">Reserva de poder II <img src="./content/img/insignias/lock.png" class="ml-2 lock lock-reserva-poder-ii" width="40px" ></div>
-					</div>
-				</div>
-				<div class="flex-grow-1 d-flex justify-content-center">
-					<div class="position-relative m-2    " >
-						
-						<img src="./content/img/insignias/sombreromagico1.png" class="border border-danger border-bottom-0  rounded bg-dark " width="150px" height="155px" >
-						<br>
-						<div class="text-light p-4 font-weight-bold rounded" style="background: linear-gradient(to top left, #5C71FF,#141C57);">Sombrero mágico <img src="./content/img/insignias/lock.png" class="ml-2 lock lock-sombrero-magico" width="40px" ></div>
+						<?php
+							if ($sombreromagico != 1){
+
+						?>
+							<img src="./content/img/insignias/sombreromagico1.png" class="border border-danger border-bottom-0  rounded bg-dark " width="150px" height="155px" >
+							<br>
+							<div class="text-light p-4 font-weight-bold rounded" style="background: linear-gradient(to top left, #5C71FF,#141C57);">Sombrero mágico <img src="./content/img/insignias/lock.png" class="ml-2 lock lock-sombrero-magico" width="40px" >
+								<div class="p-1 badge-pill border mt-2">
+								+1000 <img src="./content/img/leaves.png" width="40px">
+								</div>
+							</div>
+						<?php
+							} else {
+						?>
+							<img src="./content/img/insignias/sombreromagico1.png" class="border border-warning border-bottom-0  rounded bg-dark " width="150px" height="155px" >
+							<br>
+							<div class="text-light p-4 font-weight-bold rounded" style="background: linear-gradient(to top left, #F0FF00,#D59700);">Sombrero mágico <i class="fa fa-check-circle text-light ml-2" aria-hidden="true"></i></div>
+						<?php
+							}
+						?>
 					</div>
 				</div>
 			</div>

@@ -584,3 +584,92 @@ obtener_mostrar_saldo_modales_ingreso_gasto()
 
 // init_config()
 // ----------------------------------------------------------------------------------------------------------------
+
+try{
+  $(function(){
+      $('[data-toggle="popover"]').popover()
+       // popovers initialization - on hover
+      $('[data-toggle="popover-hover-btn-conversor"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "Conversor de divisas"
+      });
+      $('[data-toggle="popover-hover-btn-calculadora"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "Calculadora"
+      });
+      $('[data-toggle="popover-hover-btn-calendario"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "Mes actual"
+      });
+
+      if (window.config[0].plan.match(/premium/gim)){
+        $('[data-toggle="popover-hover-points"]').popover({
+          html: true,
+          trigger: 'hover',
+          placement: 'bottom',
+          content: "<div class='text-center'>Gana hojas mágicas (HM) con tu actividad diaria, con ellas podrás desbloquear logros especiales</div>"
+        });
+      } else {
+        $('[data-toggle="popover-hover-points"]').popover({
+          html: true,
+          trigger: 'hover',
+          placement: 'bottom',
+          content: "<div class='text-center'>¡Activa el modo premium y gana hojas mágicas por tu actividad diaria!</div>"
+        });
+      }
+
+      $('[datatoggle="popover-hover-btn-ingreso"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "<div class='text-center'>Hacer nuevo ingreso</div>"
+      });
+
+      $('[datatoggle="popover-hover-btn-gasto"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "<div class='text-center'>Realizar un gasto</div>"
+      });
+
+      $('[data-toggle="popover-hover-btn-transferencias"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "<div class='text-center'>Transferir entre cuentas</div>"
+      });
+
+      $('[data-toggle="popover-hover-btn-registros"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "<div class='text-center'>Consultar registros</div>"
+      });
+
+      $('[data-toggle="popover-hover-btn-cuentas"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "<div class='text-center'>Gestor de cuentas</div>"
+      });
+
+      $('[data-toggle="popover-hover-btn-balanceo"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "<div class='text-center'>Balancear una cuenta</div>"
+      });
+
+  })
+}catch(_){
+  
+}
+
+
+

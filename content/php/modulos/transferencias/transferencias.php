@@ -29,7 +29,7 @@
 		  </div>
 		    <div class="d-flex flex-wrap justify-content-between  align-items-center align-content-center">
 		    	<div class="m-0 p-0 flex-grow-1">
-		    		<input id="cantidadTransferencia" style="" class="mt-4 mb-0" type="text" name="cantidad" placeholder="Cantidad">
+		    		<input id="cantidadTransferencia" style="" class="mt-4 mb-0 border-0 rounded outline-none" type="text" name="cantidad" placeholder="Cantidad">
 		    	</div>
 		    	<div class="m-0 p-0 flex-grow-1">
 			    	<button class="btn btn-success align-right mt-4  mb-0" id="registrar_transferencia" type="submit" data-html="true"  data-container="body" data-trigger="focus" data-toggle="popovertrans" data-placement="bottom" >Registrar </button>
