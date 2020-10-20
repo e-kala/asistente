@@ -235,6 +235,7 @@
 
                case 'quienes_somos':
                   echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
+                  include 'content/php/navbar.php';
                   include 'content/php/quienesSomos.php';
                break;
 
@@ -268,7 +269,15 @@
                      echo "<script>window.location.reload(false);</script>";
                   }
                break;   
+                 
                
+
+               case 'contacto':
+                  echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
+                  include 'content/php/navbar.php';
+                  include 'content/php/contacto.php';
+               break;
+
                default:
                   # code...
                   break;
