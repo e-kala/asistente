@@ -12,7 +12,7 @@
 				</div> -->
 				<div class="panel-log-reg m-0 col-md-3 d-flex align-items-center justify-content-center flex-wrap">
 					<a class="border rounded btn-link p-1 text-light flex-grow-1 m-1 login-btn" role="button" href="#">Iniciar Sesión</a>
-					<a class="rounded border-warning btn-link p-1 font-weight-bold text-light flex-grow-1 m-1 registro-btn goldglowbri" href="?action=registro" role="button" style="background: linear-gradient(to top, #FFEA12,#92882B);"  data-html="true"  data-container="body" data-toggle="popover" data-placement="bottom" data-content="<h3 class='text-success text-center'>¡Prueba premium 3 meses gratis <i class='fa fa-heart ml-1 text-danger' aria-hidden'true'></i>!</h3>">Registrarse </a>
+					<a class="rounded border-warning btn-link p-1 font-weight-bold text-light flex-grow-1 m-1 registro-btn goldglowbri" href="?action=registro" role="button" style="background: linear-gradient(to top, #FFEA12,#92882B);"  data-html="true"  data-container="body" data-toggle="popover" data-placement="bottom" data-content="<h3 class='text-success text-center'>¡Prueba premium 1 meses gratis <i class='fa fa-heart ml-1 text-danger' aria-hidden'true'></i>!</h3>">Registrarse </a>
 				</div>
 			</div>
 		</div>

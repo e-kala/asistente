@@ -320,7 +320,7 @@
 					$("#card-button").notify("Datos de tarjeta guardados", "success");
 
 					const fecha = new Date()
-					let tmp = fecha.getMonth() + 4 //+ 3 months
+					let tmp = fecha.getMonth() + 2 //+ 1 months
 					let year = fecha.getFullYear()
 					const day = fecha.getDate().toString().split("").length > 1 ? fecha.getDate() : "0" + fecha.getDate()
 					if (tmp === 13){

@@ -150,6 +150,11 @@
 			document.getElementById("bgpremiumchange").style.display = "block"
 		}
 
+		if (document.getElementsByClassName("bgtransferencias_ventana")[0] !== undefined && document.getElementsByClassName("bgtransferencias_ventana")[0] !== null){
+			document.getElementsByClassName("bgtransferencias_ventana")[0].style.display = "block"
+		}
+
+
 		//Loading config premium init general PPPPPPPPP1931820
 		try{
 			let plan_pri = JSON.parse(json[0].plan)
