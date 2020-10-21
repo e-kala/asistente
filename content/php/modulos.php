@@ -19,7 +19,9 @@ body{background: white;}
           <span class="colortextmodsprin">Información</span>
         </div>
        </h2>
-       <img src="./content/img/iconos/info.png" class="ml-2" width="30px">
+
+       <i class="fa fa-2x text-primary fa-question-circle" aria-hidden="true"></i>
+       <!-- <img src="./content/img/iconos/info.png" class="ml-2" width="30px"> -->
      </div>
        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="card-body">
@@ -37,7 +39,9 @@ body{background: white;}
           <span class="colortextmodsprin">Movimientos</span>
         </div>  
        </h2>
-       <img src="./content/img/iconos/configur.png" class="ml-2" width="30px">
+
+       <i class="fa fa-2x text-primary fa-paperclip" aria-hidden="true"></i>
+       <!-- <img src="./content/img/iconos/configur.png" class="ml-2" width="30px"> -->
      </div>
 
      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
@@ -51,8 +55,8 @@ body{background: white;}
               <!-- Ingreso/egreso/transferencia -->
               <!-- Boton de Ingreso In-->
                 <div class="btn-group dropdown m-1">
-                  <button type="button" class="btn btn-success" data-toggle="modal" 
-                          data-target="#ingresoModal" id="modalIngreso" title="Hacer nuevo ingreso"  >
+                  <button type="button" class="btn btn-success" data-toggle="modal" datatoggle="popover-hover-btn-ingreso" 
+                          data-target="#ingresoModal" id="modalIngreso">
                     Ingreso
                   </button>
                   <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,7 +73,7 @@ body{background: white;}
 
               <!-- Boton de Gasto In -->
                <div class="btn-group dropdown m-4">
-                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#gastoModal" id="modalGasto" title="Registrar gasto">
+                  <button type="button" class="btn btn-danger" data-toggle="modal"  datatoggle="popover-hover-btn-gasto"   data-target="#gastoModal" id="modalGasto" >
                     Gasto
                   </button>
                   <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -83,15 +87,15 @@ body{background: white;}
                   </div>
                 </div>
               <!-- Boton de Gasto End-->
-              <a class="btn btn-warning" href="?action=transferencias" role="button" title="Transferir entre cuentas">Transferencias</a>
+              <a class="btn btn-warning" href="?action=transferencias" role="button" data-toggle="popover-hover-btn-transferencias">Transferencias</a>
             </div>
             
         <!-- Sección de movimientos End -->
           <h4 class="p-3">Otros</h4>
-          <div class="btn-group" role="group" aria-label="Basic example">
-            <a class="btn btn-primary ml-3 mr-3 mt-0" href="?action=registros" role="button" title="Consultar registros">Registros</a>
-            <a class="btn btn-info ml-3 mr-3 mt-0" href="?action=cuentas" title="Gestor de cuentas" role="button">Cuentas</a>
-            <a class="btn btnbalanceo text-light ml-3 mr-3 mt-0" href="?action=balanceo" role="button" title="Balancear una cuenta">Balanceo</a>
+          <div class="flex-wrap" role="group" aria-label="Basic example">
+            <a class="btn btn-primary ml-3 mr-3 mt-0 mb-4" href="?action=registros" role="button" data-toggle="popover-hover-btn-registros">Registros</a>
+            <a class="btn btn-info ml-3 mr-3 mt-0 mb-4" href="?action=cuentas" data-toggle="popover-hover-btn-cuentas" role="button">Cuentas</a>
+            <a class="btn btnbalanceo text-light ml-3 mr-3 mt-0 mb-4" href="?action=balanceo" role="button" data-toggle="popover-hover-btn-balanceo">Balanceo</a>
           </div>
           
           <h4><br></h4><!--

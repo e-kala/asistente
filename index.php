@@ -1,19 +1,54 @@
 <?php 
 
-include 'content/php/conexion.php';
-// include 'content/php/inactividad.php'
-session_start(); 
+    function isMobile() {
+        return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+    }
 
-   // echo "<script>console.log('".$_SESSION['user']."')</script>";
-   //include 'content/php/usr/usr_cnfg.php';
+    $movil = isMobile();
+    
+
+    include 'content/php/conexion.php';
+
+// include 'content/php/inactividad.php'
+    session_start(); 
+
+   // echo $_SESSION['user'];
+    $conectar = new conexion();
+    $conexion = $conectar->conectar();
+
+    if(isset($_SESSION['user'])){
+        $usuario = $_SESSION['user'];
+        $consulta_cnf = "SELECT * FROM usuarios WHERE nombre_usuario = '$usuario'";
+        $cnf_result = $conexion->query($consulta_cnf);
+        $fila = $cnf_result->fetch_object();
+        
+        $status_account = $fila->privilegios;
+        $email = $fila->correo_usuario;
+        $data_cnf = $fila->usr_config;
+        $json_cnf = json_decode($data_cnf, true);
+
+        if (isset($json_cnf["aside_hidden"])){
+          $aside_hidden_status = $json_cnf["aside_hidden"];
+        } else {
+          $aside_hidden_status = "true";
+        }
+
+
+    }
+   // include 'content/php/usr/usr_cnfg.php';
 
    
    require_once('vendor/autoload.php');
 
-   \Stripe\Stripe::setApiKey('sk_test_51HPLUALQLtZT0x6xvjlzM0REVB0u9ugnrzGU1L5oYuWz6s9y0jJg0zAp4tTfTgARBigA7FLY7jJI3qwtrPZyoxRP00f3DACczd');
+   //Clave real
+   \Stripe\Stripe::setApiKey('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');
 
-   $customer = \Stripe\Customer::create();
+   // sk_test_51HPLUALQLtZT0x6xvjlzM0REVB0u9ugnrzGU1L5oYuWz6s9y0jJg0zAp4tTfTgARBigA7FLY7jJI3qwtrPZyoxRP00f3DACczd
+
+   
+
 ?>
+
 
 <!doctype html>
 <html lang="es">
@@ -94,7 +129,20 @@ session_start();
                case 'registros'://registros, ingresos y gastos
                   echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
-                  include 'content/php/registros.php';
+
+                  if ($aside_hidden_status === "false"){
+                    include 'content/php/registros.php';
+                  } else {
+                    echo "<div class='containhome'>";
+                    if ($movil == 0) { //Desktop
+                        echo "<div class='sectionhome' style='margin-right:-20px; margin-top:-23px; margin-left:-2px; padding-top:0px;'>";
+                    } else {
+                        echo "<div class='sectionhome'>";
+                    }
+                          include 'content/php/registros.php';
+                        echo "</div>";
+                    echo "</div>";
+                  }
                break;
 
                case 'configuracion':
@@ -106,25 +154,71 @@ session_start();
                case 'cuentas':
                   echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
-                  include 'content/php/modulos/cuentas/cuentas.php';
+                  if ($aside_hidden_status === "false"){
+                    include 'content/php/modulos/cuentas/cuentas.php';
+                  } else {
+                    echo "<div class='containhome'>";
+                        echo "<div class='sectionhome' style='margin-right:-20px; margin-left:-2px; padding-top:0px;'>";
+                        include 'content/php/modulos/cuentas/cuentas.php';
+                        echo "</div>";
+                    echo "</div>";
+                  }
                break;
 
                case 'balanceo':
                   echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
-                  include 'content/php/balancear.php';
+
+                  if ($aside_hidden_status === "false"){
+                     include 'content/php/balancear.php';
+                  } else {
+                    echo "<div class='containhome'>";
+                    if ($movil == 0) { //Desktop
+                        echo "<div class='sectionhome' style='margin-right:-20px; margin-left:-2px; padding-top:0px;'>";
+                    } else {
+                        echo "<div class='sectionhome'>";
+                    }
+                          include 'content/php/balancear.php';
+                    echo "</div>";
+                      echo "</div>";
+                  }
+
                break;
 
                case 'editar_ingresos': 
                   echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
-                  include 'content/php/modulos/movimientos/ingresos/ingresos.php';   
+                  if ($aside_hidden_status === "false"){
+                    include 'content/php/modulos/movimientos/ingresos/ingresos.php';   
+                  } else { 
+                    echo "<div class='containhome'>";
+                    if ($movil == 0) { //Desktop
+                        echo "<div class='sectionhome' style='margin-right:-20px; margin-left:-2px; padding-top:0px;'>";
+                    } else {
+                        echo "<div class='sectionhome'>";
+                    }
+                    include 'content/php/modulos/movimientos/ingresos/ingresos.php';   
+                    echo "</div>";
+                      echo "</div>";
+                  }
                break;
 
                case 'editar_gastos': 
                   echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
-                  include 'content/php/modulos/movimientos/gastos/gastos.php';   
+                  if ($aside_hidden_status === "false"){
+                    include 'content/php/modulos/movimientos/gastos/gastos.php'; 
+                  } else {
+                    echo "<div class='containhome'>";
+                    if ($movil == 0) { //Desktop
+                        echo "<div class='sectionhome' style='margin-right:-20px; margin-left:-2px; padding-top:0px;'>";
+                    } else {
+                        echo "<div class='sectionhome'>";
+                    }
+                    include 'content/php/modulos/movimientos/gastos/gastos.php'; 
+                    echo "</div>";
+                      echo "</div>";
+                  } 
                break;
 
                case 'premium': 
@@ -141,13 +235,27 @@ session_start();
 
                case 'quienes_somos':
                   echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
+                  include 'content/php/navbar.php';
                   include 'content/php/quienesSomos.php';
                break;
 
                case 'transferencias':
                    echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
                    include 'content/php/navbar.php';
-                    include 'content/php/modulos/transferencias/transferencias.php';   
+
+                   if ($aside_hidden_status === "false"){
+                      include 'content/php/modulos/transferencias/transferencias.php';   
+                   } else {
+                      echo "<div class='containhome'>";
+                      if ($movil == 0) { //Desktop
+                          echo "<div class='sectionhome' style='margin-right:-20px; margin-top:0px; margin-left:-2px; padding-top:0px;'>";
+                      } else {
+                          echo "<div class='sectionhome'>";
+                      }
+                      include 'content/php/modulos/transferencias/transferencias.php';   
+                        echo "</div>";
+                      echo "</div>";
+                   }
                break;
 
                case 'cerrar_sesion':
@@ -161,7 +269,15 @@ session_start();
                      echo "<script>window.location.reload(false);</script>";
                   }
                break;   
+                 
                
+
+               case 'contacto':
+                  echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
+                  include 'content/php/navbar.php';
+                  include 'content/php/contacto.php';
+               break;
+
                default:
                   # code...
                   break;
@@ -181,5 +297,3 @@ session_start();
 
    </body>
 </html>
-
-

@@ -23,6 +23,20 @@
 			$_SESSION['user'] = $usuario;
 			$_SESSION['tiempo'] = time();
 
+			//---------------------------- Registrar sesion-------
+			$fechaActual = date('y-m-d');
+			$ampm = date("a");
+			if ($ampm === "am"){
+				$horaActual = date('h') . ":" . date("i") .":00";
+			} else {
+				$horaActual = date('G') . ":" . date("i") .":00";
+			}
+
+			//Registrar cada inicio de sesion con la hora en la que se inicia en el dia
+			$sesion_de_hoy = "INSERT INTO sesiones(sesion_usuario, inicio_sesion_fecha, inicio_sesion_hora) VALUES('$usuario', '$fechaActual', '$horaActual')";
+			$save_session = $conexion->query($sesion_de_hoy);
+			//------------------------------------------------------
+
 			// header('location: ../../index.php');
 			echo "<welcome>";
 		}else{

@@ -10,6 +10,7 @@ let calcuresizemoving = false
 function resize_window_aside(aside){
 	let modss = document.getElementsByClassName("accordion")
 	let navbar = document.getElementsByClassName("navbar")[0]
+
 	if (navbar !== undefined && navbar !== null){
 		navbar.onpointerover = function(e){
 			document.body.style.cursor = ""
@@ -21,7 +22,9 @@ function resize_window_aside(aside){
 		return false
 	}
 
-	const asideicon = document.createElement("img")
+	const asideicon = document.createElement("div")
+	asideicon.innerHTML = '<i class="fa fa-bars fa-2x" aria-hidden="true"></i>'
+	asideicon.className = "p-2 text-primary"
 	asideicon.setAttribute("id", "asideicono")
 	asideicon.setAttribute("src","./content/img/iconos/asideicono.png")
 	asideicon.setAttribute("width", "50px")
@@ -70,158 +73,293 @@ function resize_window_aside(aside){
 	aside.appendChild(btnhideaside)
 	//-------------
 
-	if (window.screen.width >= 780){
-		document.body.onpointermove = function(e){
-			if (aside.style.display === "none"){ //show
-				if (window.config[1].aside_hidden == "true"){
-					if (aside.style.display === "none"){
-						asideicon.style.cursor = "grabbing"
-						asideicon.style.webkitCursor = "grabbing";
-					    asideicon.style.MozCursor = "grabbing";
-					    asideicon.style.msCursor = "grabbing";
-					    asideicon.style.oCursor = "grabbing";
+	// if (window.screen.width >= 780){
+	// 	document.body.onpointermove = function(e){
+	// 		if (aside.style.display === "none"){ //show
+	// 			if (window.config[1].aside_hidden == "true"){
+	// 				if (aside.style.display === "none"){
+	// 					asideicon.style.cursor = "grabbing"
+	// 					asideicon.style.webkitCursor = "grabbing";
+	// 				    asideicon.style.MozCursor = "grabbing";
+	// 				    asideicon.style.msCursor = "grabbing";
+	// 				    asideicon.style.oCursor = "grabbing";
 
-						asideicon.setAttribute("title", "Mostrar panel lateral")
+	// 					asideicon.setAttribute("title", "Mostrar panel lateral")
 					
-					}
-					aside.onpointerdown = function() {
-						return false
+	// 				}
+	// 				aside.onpointerdown = function() {
+	// 					return false
+	// 				}
+	// 			}
+
+	// 			if (asideicon !== undefined && asideicon !== null){
+	// 				asideicon.onpointerdown = function(o){
+	// 					if (modss[0] !== null && modss[0] !== undefined && window.config[1].aside_hidden == "true"){
+	// 						modss[0].className = "accordion pl-4 modulos"
+	// 					}
+	// 					if (window.config[1].aside_hidden == "true" && pase === false){
+							
+	// 						setTimeout(function(){
+	// 							asideicon.style.display = "none"
+	// 						},410)
+	// 						asideicon.animate([{
+	// 							transform:"translateX(0%)"},{
+	// 							transform:"translateX(-100%)"}],{duration:410, iterations:1})
+
+	// 						aside.style.display = "block"
+	// 						aside.style.webkitDisplay = "block"
+	// 					    aside.style.MozDisplay = "block";
+	// 					    aside.style.msDisplay = "block";
+	// 					    aside.style.oDisplay = "block";
+
+	// 						aside.style.opacity = "1"
+	// 						aside.style.webkitOpacity = "1";
+	// 						aside.style.MozOpacity = "1";
+	// 						aside.style.msOpacity = "1";
+	// 						aside.style.oOpacity = "1";
+
+	// 						aside.animate([{
+	// 							opacity:0,
+	// 							transform:"translateX(-10%)"
+	// 						},{
+	// 							opacity:1,
+	// 							transform:"translateX(0%)"
+	// 						}],{duration:400, iterations:1})
+	// 						pase = true
+	// 					} 
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+
+	// 	aside.onpointerout = function(e){
+	// 		btnhideaside.style.display = "none"
+	// 		btnhideaside.style.webkitDisplay = "none";
+	// 	    btnhideaside.style.MozDisplay = "none";
+	// 	    btnhideaside.style.msDisplay = "none";
+	// 	    btnhideaside.style.oDisplay = "none";
+	// 	}
+
+	// 	aside.onpointermove = function(e){ //Hide
+	// 		document.body.setAttribute("title", "")
+	// 		if (e.clientX > aside.clientWidth + 10 && pase){
+	// 			if (window.config[1].aside_hidden == "true"){
+	// 				if (aside.style.display === "block"){
+
+	// 					btnhideaside.setAttribute("title", "Ocultar panel lateral")
+	// 					btnhideaside.style.display = "block"
+	// 					btnhideaside.style.webkitDisplay = "block";
+	// 				    btnhideaside.style.MozDisplay = "block";
+	// 				    btnhideaside.style.msDisplay = "block";
+	// 				    btnhideaside.style.oDisplay = "block";
+
+	// 				    btnhideaside.style.cursor = "col-resize"
+	// 					btnhideaside.style.webkitCursor = "col-resize";
+	// 				    btnhideaside.style.MozCursor = "col-resize";
+	// 				    btnhideaside.style.msCursor = "col-resize";
+	// 				    btnhideaside.style.oCursor = "col-resize";
+	// 				}
+	// 			}
+	// 			btnhideaside.onpointerdown = function(o){
+	// 				if (window.config[1].aside_hidden == "true"){
+	// 					asideicon.style.display = "block"
+	// 					asideicon.style.webkitDisplay = "block";
+	// 				    asideicon.style.MozDisplay = "block";
+	// 				    asideicon.style.msDisplay = "block";
+	// 				    asideicon.style.oDisplay = "block";
+
+	// 					asideicon.animate([{
+	// 						transform:"translateX(-100%)"},{
+	// 						transform:"translateX(0%)"}],{duration:400, iterations:1})
+	// 				}
+	// 				if (modss[0] !== null && modss[0] !== undefined && window.config[1].aside_hidden == "true"){
+	// 					modss[0].className = "accordion modulos"
+	// 				}
+	// 				setTimeout(function(){
+	// 					aside.style.display = "none"
+	// 					aside.style.webkitDisplay = "none";
+	// 				    aside.style.MozDisplay = "none";
+	// 				    aside.style.msDisplay = "none";
+	// 				    aside.style.oDisplay = "none";
+
+	// 				},410)
+	// 				aside.animate([{
+	// 					opacity:1,
+	// 					transform:"translateX(0%)"
+	// 				},{
+	// 					opacity:0,
+	// 					transform:"translateX(-10%)"
+	// 				}],{duration:400, iterations:1})
+
+	// 				aside.style.opacity = "0"
+	// 				aside.style.webkitOpacity = "0";
+	// 			    aside.style.MozOpacity = "0";
+	// 			    aside.style.msOpacity = "0";
+	// 			    aside.style.oOpacity = "0";
+
+	// 				pase = false
+	// 			}
+	// 		} else {
+	// 			aside.setAttribute("title", "")
+	// 			document.body.style.cursor = ""
+	// 			aside.style.cursor = ""	
+	// 			aside.style.webkitCursor = "";
+	// 		    aside.style.MozCursor = "";
+	// 		    aside.style.msCursor = "";
+	// 		    aside.style.oCursor = "";
+
+	// 			aside.style.width = ""
+	// 			aside.style.webkitWidth = "";
+	// 		    aside.style.MozWidth = "";
+	// 		    aside.style.msWidth = "";
+	// 		    aside.style.oWidth = "";
+	// 		    btnhideaside.style.display = "none"
+	// 			btnhideaside.style.webkitDisplay = "none";
+	// 		    btnhideaside.style.MozDisplay = "none";
+	// 		    btnhideaside.style.msDisplay = "none";
+	// 		    btnhideaside.style.oDisplay = "none";
+
+	// 			aside.onpointerdown = function(){
+	// 				return false
+	// 			} 
+	// 		}	
+	// 	}
+
+
+		window.close_aside_icon = function(){
+			let checkcloasid = false
+			if (window.innerWidth >= 780){
+				if (document.getElementById("facloseaside") !== null && document.getElementById("facloseaside") !== undefined){
+					document.getElementById("facloseaside").style.display = "block"
+					if (!checkcloasid){
+						checkcloasid = true
+
+						document.getElementById("facloseaside").onclick = function(){
+							if (pase){
+								if (window.config[1].aside_hidden == "true"){
+									asideicon.animate([
+										{
+											opacity:0,
+											// transform:"translateX(-100%)"
+										},{
+											opacity:1,
+											// transform:"translateX(0%)"
+										}
+									],{duration:410, iterations:1})
+									    asideicon.style.display = "block"
+										asideicon.style.webkitDisplay = "block";
+									    asideicon.style.MozDisplay = "block";
+									    asideicon.style.msDisplay = "block";
+									    asideicon.style.oDisplay = "block";
+									// setTimeout(function(){
+										aside.style.display = "none"
+										aside.style.webkitDisplay = "none";
+									    aside.style.MozDisplay = "none";
+									    aside.style.msDisplay = "none";
+									    aside.style.oDisplay = "none";
+
+									    asideicon.style.cursor ="pointer"
+									// },400) //400 con efecto de movimient en mods
+								}
+
+									aside.style.opacity = "0"
+									aside.style.webkitOpacity = "0";
+									aside.style.MozOpacity = "0";
+									aside.style.msOpacity = "0";
+									aside.style.oOpacity = "0";
+
+									aside.style.Width = "0%"
+									aside.style.WebkitWidth = "0%";
+								    aside.style.MozWidth = "0%";
+								    aside.style.msWidth = "0%";
+								    aside.style.oWidth = "0%";
+
+							    aside.animate([{
+							    	opacity:1,
+							    	transform:"translateX(0%)"
+							    },{
+							    	opacity:0,
+							    	transform:"translateX(-10%)"
+							    }],{duration:400, iterations:1})
+
+							    // if (modss[0] !== undefined){
+								   //  modss[0].animate([{
+								   //  	transform:"translateX(0%)",
+								   //  	width: "100%"
+								   //  },{
+								   //  	transform:"translateX(-20%)",
+								   //  	width: "125%"
+								   //  }],{duration:410, iterations:1})
+							    // }
+
+							   
+							    pase = false
+							    asideicon.onpointerdown = function(){
+							    	if (pase === false){
+								    	if (modss[0] !== null && modss[0] !== undefined && window.config[1].aside_hidden == "true"){
+											modss[0].className = "accordion pl-4 modulos"
+										}
+											
+									
+
+										setTimeout(function(){
+											asideicon.style.display = "none"
+										},410)
+										asideicon.style.opacity = "1"
+										asideicon.style.webkitOpacity = "1";
+										asideicon.style.MozOpacity = "1";
+										asideicon.style.msOpacity = "1";
+										asideicon.style.oOpacity = "1";
+										asideicon.animate([
+											{
+												opacity:1,
+												transform:"scale(1)"
+												// transform:"translateX(-100%)"
+											},{
+												opacity:0,
+												transform:"scale(0)"
+												// transform:"translateX(0%)"
+											}
+										],{duration:410, iterations:1})
+										aside.style.display = "block"
+										aside.style.webkitDisplay = "block"
+									    aside.style.MozDisplay = "block";
+									    aside.style.msDisplay = "block";
+									    aside.style.oDisplay = "block";
+
+										aside.style.opacity = "1"
+										aside.style.webkitOpacity = "1";
+										aside.style.MozOpacity = "1";
+										aside.style.msOpacity = "1";
+										aside.style.oOpacity = "1";
+
+										aside.animate([{
+											opacity:0,
+											transform:"translateX(-10%)"
+										},{
+											opacity:1,
+											transform:"translateX(0%)"
+										}],{duration:400, iterations:1})
+										pase = true
+							    	}
+							    }
+							}
+
+
+						}
 					}
 				}
-
-				if (asideicon !== undefined && asideicon !== null){
-					asideicon.onpointerdown = function(o){
-						if (modss[0] !== null && modss[0] !== undefined && window.config[1].aside_hidden == "true"){
-							modss[0].className = "accordion pl-4 modulos"
-						}
-						if (window.config[1].aside_hidden == "true" && pase === false){
-							
-							setTimeout(function(){
-								asideicon.style.display = "none"
-							},410)
-							asideicon.animate([{
-								transform:"translateX(0%)"},{
-								transform:"translateX(-100%)"}],{duration:410, iterations:1})
-
-							aside.style.display = "block"
-							aside.style.webkitDisplay = "block"
-						    aside.style.MozDisplay = "block";
-						    aside.style.msDisplay = "block";
-						    aside.style.oDisplay = "block";
-
-							aside.style.opacity = "1"
-							aside.style.webkitOpacity = "1";
-							aside.style.MozOpacity = "1";
-							aside.style.msOpacity = "1";
-							aside.style.oOpacity = "1";
-
-							aside.animate([{
-								opacity:0,
-								transform:"translateX(-10%)"
-							},{
-								opacity:1,
-								transform:"translateX(0%)"
-							}],{duration:400, iterations:1})
-							pase = true
-						} 
-					}
+			} else {
+				if (document.getElementById("facloseaside") !== undefined && document.getElementById("facloseaside") !== null){
+					document.getElementById("facloseaside").style.display = "none"
 				}
 			}
 		}
 
-		aside.onpointerout = function(e){
-			btnhideaside.style.display = "none"
-			btnhideaside.style.webkitDisplay = "none";
-		    btnhideaside.style.MozDisplay = "none";
-		    btnhideaside.style.msDisplay = "none";
-		    btnhideaside.style.oDisplay = "none";
-		}
-
-		aside.onpointermove = function(e){ //Hide
-			document.body.setAttribute("title", "")
-			if (e.clientX > aside.clientWidth + 10 && pase){
-				if (window.config[1].aside_hidden == "true"){
-					if (aside.style.display === "block"){
-
-						btnhideaside.setAttribute("title", "Ocultar panel lateral")
-						btnhideaside.style.display = "block"
-						btnhideaside.style.webkitDisplay = "block";
-					    btnhideaside.style.MozDisplay = "block";
-					    btnhideaside.style.msDisplay = "block";
-					    btnhideaside.style.oDisplay = "block";
-
-					    btnhideaside.style.cursor = "col-resize"
-						btnhideaside.style.webkitCursor = "col-resize";
-					    btnhideaside.style.MozCursor = "col-resize";
-					    btnhideaside.style.msCursor = "col-resize";
-					    btnhideaside.style.oCursor = "col-resize";
-					}
-				}
-				btnhideaside.onpointerdown = function(o){
-					if (window.config[1].aside_hidden == "true"){
-						asideicon.style.display = "block"
-						asideicon.style.webkitDisplay = "block";
-					    asideicon.style.MozDisplay = "block";
-					    asideicon.style.msDisplay = "block";
-					    asideicon.style.oDisplay = "block";
-
-						asideicon.animate([{
-							transform:"translateX(-100%)"},{
-							transform:"translateX(0%)"}],{duration:400, iterations:1})
-					}
-					if (modss[0] !== null && modss[0] !== undefined && window.config[1].aside_hidden == "true"){
-						modss[0].className = "accordion modulos"
-					}
-					setTimeout(function(){
-						aside.style.display = "none"
-						aside.style.webkitDisplay = "none";
-					    aside.style.MozDisplay = "none";
-					    aside.style.msDisplay = "none";
-					    aside.style.oDisplay = "none";
-
-					},410)
-					aside.animate([{
-						opacity:1,
-						transform:"translateX(0%)"
-					},{
-						opacity:0,
-						transform:"translateX(-10%)"
-					}],{duration:400, iterations:1})
-
-					aside.style.opacity = "0"
-					aside.style.webkitOpacity = "0";
-				    aside.style.MozOpacity = "0";
-				    aside.style.msOpacity = "0";
-				    aside.style.oOpacity = "0";
-
-					pase = false
-				}
-			} else {
-				aside.setAttribute("title", "")
-				document.body.style.cursor = ""
-				aside.style.cursor = ""	
-				aside.style.webkitCursor = "";
-			    aside.style.MozCursor = "";
-			    aside.style.msCursor = "";
-			    aside.style.oCursor = "";
-
-				aside.style.width = ""
-				aside.style.webkitWidth = "";
-			    aside.style.MozWidth = "";
-			    aside.style.msWidth = "";
-			    aside.style.oWidth = "";
-			    btnhideaside.style.display = "none"
-				btnhideaside.style.webkitDisplay = "none";
-			    btnhideaside.style.MozDisplay = "none";
-			    btnhideaside.style.msDisplay = "none";
-			    btnhideaside.style.oDisplay = "none";
-
-				aside.onpointerdown = function(){
-					return false
-				} 
-			}	
-		}
-	}
+		$(function(){
+			window.close_aside_icon()
+		})
+	// }
 }
  
 function maction_window(state){
@@ -747,7 +885,7 @@ function calender(){
 		let diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
 
 		let almadaysnames = [];
-		let fdm = new Date(year, dat_whole.getMonth(), -1)
+		let fdm = new Date(year, dat_whole.getMonth(), 7)
 		fdm = fdm.toString()
 		let y = 0;
 		if (fdm.match(/Wed/gim)){
@@ -937,12 +1075,29 @@ function calender(){
 					time_bal: timeo !== "" ? timeo : "hour"
 				}).done(function(d){
 					d = JSON.parse(d)
-					document.getElementsByClassName("balactual")[0].innerHTML = `<span class='font-weight-bold'>Balance Real</span>: <span class='	font-weight-bold' style='color:${d.BalanceActual.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.BalanceActual+"</span>"
-					document.getElementsByClassName("baldeudas")[0].innerHTML = `<span class='font-weight-bold'>Deudas Acumuladas</span>: <span class='	font-weight-bold' style='color:${d.Baldeudas.toString().match(/\-/gim) ? "red" : "#0CC9D5"}'>$ ` + d.Baldeudas+"</span>"				
-					document.getElementsByClassName("togasfil")[0].innerHTML = `<span class='font-weight-bold'>Total Gastos</span>: <span class='font-weight-bold' style='color:red;'>$ ` + d.TotalGastosFiltro+"</span><br>"
-					document.getElementsByClassName("toinfil")[0].innerHTML = `<span class='font-weight-bold'>Total Ingresos</span>: <span class='font-weight-bold' style='color:${d.TotalIngresosFiltro.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.TotalIngresosFiltro+"</span><br>"
-					document.getElementsByClassName("bafis")[0].innerHTML = `<span class='font-weight-bold'>Flujo ${d.Statebalancefiltro}</span>: <span class='font-weight-bold' style='color:${d.BalanceFiltro.toString().match(/\-/gim) ? "red" : "#0CC9D5"}'>$ ` + d.BalanceFiltro + "</span"
-					document.getElementsByClassName("state_balanc")[0].innerHTML = d.Status
+					if (document.getElementsByClassName("balactual")[0] !== undefined){
+						document.getElementsByClassName("balactual")[0].innerHTML = `<span class='font-weight-bold'>Balance Real</span>: <span class='	font-weight-bold' style='color:${d.BalanceActual.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.BalanceActual+"</span>"
+					}
+
+					if (document.getElementsByClassName("baldeudas")[0] !== undefined){
+						document.getElementsByClassName("baldeudas")[0].innerHTML = `<span class='font-weight-bold'>Deudas Acumuladas</span>: <span class='	font-weight-bold' style='color:${d.Baldeudas.toString().match(/\-/gim) ? "red" : "#0CC9D5"}'>$ ` + d.Baldeudas+"</span>"				
+					}
+
+					if (document.getElementsByClassName("togasfil")[0] !== undefined){
+						document.getElementsByClassName("togasfil")[0].innerHTML = `<span class='font-weight-bold'>Total Gastos</span>: <span class='font-weight-bold' style='color:red;'>$ ` + d.TotalGastosFiltro+"</span><br>"
+					}
+
+					if (document.getElementsByClassName("toinfil")[0] !== undefined){
+						document.getElementsByClassName("toinfil")[0].innerHTML = `<span class='font-weight-bold'>Total Ingresos</span>: <span class='font-weight-bold' style='color:${d.TotalIngresosFiltro.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.TotalIngresosFiltro+"</span><br>"
+					}
+
+					if (document.getElementsByClassName("bafis")[0] !== undefined){
+						document.getElementsByClassName("bafis")[0].innerHTML = `<span class='font-weight-bold'>Flujo ${d.Statebalancefiltro}</span>: <span class='font-weight-bold' style='color:${d.BalanceFiltro.toString().match(/\-/gim) ? "red" : "#0CC9D5"}'>$ ` + d.BalanceFiltro + "</span"
+					}
+
+					if (document.getElementsByClassName("state_balanc")[0] !== undefined){
+						document.getElementsByClassName("state_balanc")[0].innerHTML = d.Status
+					}
 				})
 			}
 
@@ -994,12 +1149,29 @@ function calender(){
 				time_bal: alma_config[1].time_bal
 			}).done(function(d){
 				d = JSON.parse(d)
-				document.getElementsByClassName("balactual")[0].innerHTML = `<span class='font-weight-bold'>Balance Real</span>: <span class='	font-weight-bold' style='color:${d.BalanceActual.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.BalanceActual+"</span>"
-				document.getElementsByClassName("baldeudas")[0].innerHTML = `<span class='font-weight-bold'>Deudas Acumuladas</span>: <span class='	font-weight-bold' style='color:${d.Baldeudas.toString().match(/\-/gim) ? "red" : "#0CC9D5"}'>$ ` + d.Baldeudas+"</span>"				
-				document.getElementsByClassName("togasfil")[0].innerHTML = `<span class='font-weight-bold'>Total Gastos</span>: <span class='font-weight-bold' style='color:red;'>$ ` + d.TotalGastosFiltro+"</span><br>"
-				document.getElementsByClassName("toinfil")[0].innerHTML = `<span class='font-weight-bold'>Total Ingresos</span>: <span class='font-weight-bold' style='color:${d.TotalIngresosFiltro.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.TotalIngresosFiltro+"</span><br>"
-				document.getElementsByClassName("bafis")[0].innerHTML = `<span class='font-weight-bold'>Flujo ${d.Statebalancefiltro}</span>: <span class='font-weight-bold' style='color:${d.BalanceFiltro.toString().match(/\-/gim) ? "red" : "#0CC9D5"}'>$ ` + d.BalanceFiltro + "</span"
-				document.getElementsByClassName("state_balanc")[0].innerHTML = d.Status
+				if (document.getElementsByClassName("balactual")[0] !== undefined){
+					document.getElementsByClassName("balactual")[0].innerHTML = `<span class='font-weight-bold'>Balance Real</span>: <span class='	font-weight-bold' style='color:${d.BalanceActual.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.BalanceActual+"</span>"
+				}
+
+				if (document.getElementsByClassName("baldeudas")[0] !== undefined){
+					document.getElementsByClassName("baldeudas")[0].innerHTML = `<span class='font-weight-bold'>Deudas Acumuladas</span>: <span class='	font-weight-bold' style='color:${d.Baldeudas.toString().match(/\-/gim) ? "red" : "#0CC9D5"}'>$ ` + d.Baldeudas+"</span>"				
+				}
+
+				if (document.getElementsByClassName("togasfil")[0] !== undefined){
+					document.getElementsByClassName("togasfil")[0].innerHTML = `<span class='font-weight-bold'>Total Gastos</span>: <span class='font-weight-bold' style='color:red;'>$ ` + d.TotalGastosFiltro+"</span><br>"
+				}
+
+				if (document.getElementsByClassName("toinfil")[0] !== undefined){
+					document.getElementsByClassName("toinfil")[0].innerHTML = `<span class='font-weight-bold'>Total Ingresos</span>: <span class='font-weight-bold' style='color:${d.TotalIngresosFiltro.toString().match(/\-/gim) ? "red" : "#50d53a"}'>$ ` + d.TotalIngresosFiltro+"</span><br>"
+				}
+
+				if (document.getElementsByClassName("bafis")[0] !== undefined){
+					document.getElementsByClassName("bafis")[0].innerHTML = `<span class='font-weight-bold'>Flujo ${d.Statebalancefiltro}</span>: <span class='font-weight-bold' style='color:${d.BalanceFiltro.toString().match(/\-/gim) ? "red" : "#0CC9D5"}'>$ ` + d.BalanceFiltro + "</span"
+				}
+
+				if (document.getElementsByClassName("state_balanc")[0] !== undefined){
+					document.getElementsByClassName("state_balanc")[0].innerHTML = d.Status
+				}
 			})
 		}
 		
@@ -1150,15 +1322,17 @@ function Aside(username){
 	const containhome = document.getElementsByClassName("containhome")[0]
 	const contacal = document.createElement("div")
 	contacal.className += "contacalaside card asidechancolor bg-transparent"
+	contacal.innerHTML += '<i id="facloseaside" class="fa fa-times cursor-pointer float-right z-index-50 position-absolute right m-2 cursor-pointer" aria-hidden="true"></i>'
 
 	resize_window_aside(contacal)
 	
 	const header = document.createElement("div")
 	header.setAttribute("align", "center")
+	header.setAttribute("id", "header-aside")
 	header.className = "card-header position-relative d-flex flex-column justify-content-center align-items-center align-content-center"	
 
 	const h1 = document.createElement("h4")
-	h1.innerHTML = "Hola "+username
+	h1.innerHTML = "Hola "+username 
 	h1.className = "p-3"
 	if (header !== undefined) header.appendChild(h1)
 
@@ -1186,214 +1360,234 @@ function Aside(username){
 	// if (contacal !== undefined) contacal.appendChild(btn_notificacion)
 
 	let balcontent = document.getElementsByClassName("baldeudas_co")[0]
+	let balacmodalbalanceo = document.getElementById("balacmodalbalanceo")
 
-	if (balcontent !== undefined && balcontent !==null){
-		let confpj =  window.config[1].pj_change
+	function pjchan(balan){
 		const divnoti = document.createElement("span")
-		if (balcontent.textContent.match(/\-/gim)){
-			if (confpj !== "" && confpj !== null && confpj !== undefined){
-				if (confpj.match(/bau/gim)){
-					img.setAttribute("src","./content/img/iconos/bauangry.gif")
-				} else if (confpj.match(/face/gim)){
-					img.setAttribute("src","./content/img/iconos/faceangry.gif")
-				} else if (confpj.match(/mosaich/gim)){
-					img.setAttribute("src","./content/img/iconos/mosaicangry.gif")
-				} else if (confpj.match(/voot/gim)){
-					img.setAttribute("src","./content/img/iconos/vootangry.gif")
-				} else if (confpj.match(/zump/gim)){
-					img.setAttribute("src","./content/img/iconos/zumpangry.gif")
-				} else if (confpj.match(/alird/gim)){
-					img.setAttribute("src","./content/img/iconos/alirdangry.gif")
-				} else if (confpj.match(/panwit/gim)){
-					img.setAttribute("src","./content/img/iconos/panwitangry.gif")
-				} else if (confpj.match(/yuno/gim)){
-					img.setAttribute("src","./content/img/iconos/yunoangry.gif")
-				} else if (confpj.match(/raw/gim)){
-					img.setAttribute("src","./content/img/iconos/rawangry.gif")
-				} else if (confpj.match(/simga/gim)){
-					img.setAttribute("src","./content/img/iconos/simgaangry.gif")
-				} else if (confpj.match(/bromo/gim)){
-					img.setAttribute("src","./content/img/iconos/bromoangry.gif")
-					img.setAttribute("width", "70%")
-				} else if (confpj.match(/plutoni/gim)){
-					img.setAttribute("src","./content/img/iconos/plutoniangry.gif")
-				} else if (confpj.match(/vurb/gim)){
-					img.setAttribute("src","./content/img/iconos/vurbangry.gif")
-				} else if (confpj.match(/palie/gim)){
-					img.setAttribute("src","./content/img/iconos/palieangry.gif")
-				} else if (confpj.match(/jaino/gim)){
-					img.setAttribute("src","./content/img/iconos/jainoangry.gif")
-				} else if (confpj.match(/komobit/gim)){
-					img.setAttribute("src","./content/img/iconos/komobitangry.gif")
-				} else if (confpj.match(/mary/gim)){
-					img.setAttribute("src","./content/img/iconos/maryangry.gif")
-					img.setAttribute("width", "70%")
-				} else if (confpj.match(/pacman/gim)){
-					img.setAttribute("src","./content/img/iconos/pacmanangry.gif")
-				} else if (confpj.match(/dyn/gim)){
-					img.setAttribute("src","./content/img/iconos/dynangry.gif")
-				} else if (confpj.match(/grenmo/gim)){
-					img.setAttribute("src","./content/img/iconos/grenmoangry.gif")
+		let confpj =  window.config[1].pj_change
+		if (balan !== undefined){
+			if (balan.textContent.match(/\-/gim)){
+				if (confpj !== "" && confpj !== null && confpj !== undefined){
+					if (confpj.match(/bau/gim)){
+						img.setAttribute("src","./content/img/iconos/bauangry.gif")
+					} else if (confpj.match(/face/gim)){
+						img.setAttribute("src","./content/img/iconos/faceangry.gif")
+					} else if (confpj.match(/mosaich/gim)){
+						img.setAttribute("src","./content/img/iconos/mosaicangry.gif")
+					} else if (confpj.match(/voot/gim)){
+						img.setAttribute("src","./content/img/iconos/vootangry.gif")
+					} else if (confpj.match(/zump/gim)){
+						img.setAttribute("src","./content/img/iconos/zumpangry.gif")
+					} else if (confpj.match(/alird/gim)){
+						img.setAttribute("src","./content/img/iconos/alirdangry.gif")
+					} else if (confpj.match(/panwit/gim)){
+						img.setAttribute("src","./content/img/iconos/panwitangry.gif")
+					} else if (confpj.match(/yuno/gim)){
+						img.setAttribute("src","./content/img/iconos/yunoangry.gif")
+					} else if (confpj.match(/raw/gim)){
+						img.setAttribute("src","./content/img/iconos/rawangry.gif")
+					} else if (confpj.match(/simga/gim)){
+						img.setAttribute("src","./content/img/iconos/simgaangry.gif")
+					} else if (confpj.match(/bromo/gim)){
+						img.setAttribute("src","./content/img/iconos/bromoangry.gif")
+						img.setAttribute("width", "70%")
+					} else if (confpj.match(/plutoni/gim)){
+						img.setAttribute("src","./content/img/iconos/plutoniangry.gif")
+					} else if (confpj.match(/vurb/gim)){
+						img.setAttribute("src","./content/img/iconos/vurbangry.gif")
+					} else if (confpj.match(/palie/gim)){
+						img.setAttribute("src","./content/img/iconos/palieangry.gif")
+					} else if (confpj.match(/jaino/gim)){
+						img.setAttribute("src","./content/img/iconos/jainoangry.gif")
+					} else if (confpj.match(/komobit/gim)){
+						img.setAttribute("src","./content/img/iconos/komobitangry.gif")
+					} else if (confpj.match(/mary/gim)){
+						img.setAttribute("src","./content/img/iconos/maryangry.gif")
+						img.setAttribute("width", "70%")
+					} else if (confpj.match(/pacman/gim)){
+						img.setAttribute("src","./content/img/iconos/pacmanangry.gif")
+					} else if (confpj.match(/dyn/gim)){
+						img.setAttribute("src","./content/img/iconos/dynangry.gif")
+					} else if (confpj.match(/grenmo/gim)){
+						img.setAttribute("src","./content/img/iconos/grenmoangry.gif")
+					}
+				} else {
+					img.setAttribute("src", "./content/img/iconos/bauangry.gif")
 				}
-			} else {
-				img.setAttribute("src", "./content/img/iconos/bauangry.gif")
-			}
-			btn_notificacion.className = "p-4 m-2 alert-warning font-weight-bold text-center"
-			
-			btn_notificacion.style.wordWrap = "break-word"
-			btn_notificacion.style.overflowWrap = "break-word"
-			btn_notificacion.style.whiteSpace = "normal"
-			btn_notificacion.style.color = "#ff9834"
-			btn_notificacion.style.borderRadius = "100px"
-			btn_notificacion.style.zIndex = "200"
-			btn_notificacion.style.cursor = "pointer"
-			btn_notificacion.onpointerover = function(){
-				btn_notificacion.style.border = "1px solid #f35b5c"
-			}
-			btn_notificacion.onpointerout = function(){
-				btn_notificacion.style.border = "1px solid transparent"
-			}
-			btn_notificacion.innerHTML = "Actualmente posees deudas"
-			btn_notificacion.ondragstart = function(){
-				return false
-			}
-			btn_notificacion.style.userSelect = "none"
-			btn_notificacion.onclick = function(){
+				btn_notificacion.className = "p-4 m-2 alert-warning font-weight-bold text-center"
+				
+				btn_notificacion.style.wordWrap = "break-word"
+				btn_notificacion.style.overflowWrap = "break-word"
+				btn_notificacion.style.whiteSpace = "normal"
+				btn_notificacion.style.color = "#ff9834"
+				btn_notificacion.style.borderRadius = "100px"
+				btn_notificacion.style.zIndex = "200"
+				btn_notificacion.style.cursor = "pointer"
+				btn_notificacion.onpointerover = function(){
+					btn_notificacion.style.border = "1px solid #f35b5c"
+				}
+				btn_notificacion.onpointerout = function(){
+					btn_notificacion.style.border = "1px solid transparent"
+				}
+				btn_notificacion.innerHTML = "Actualmente posees deudas"
+				btn_notificacion.ondragstart = function(){
+					return false
+				}
+				btn_notificacion.style.userSelect = "none"
+				btn_notificacion.onclick = function(){
+					divnoti.style.display = "flex"
+					btn_notificacion.style.display = "none"
+				}
+
+				//Notify pj
+				// divnoti.setAttribute("src", "./content/img/iconos/notifi_danger.png")
+				divnoti.className = "m-3 notifypj  btn badge badge-danger  align-items-center justify-content-center"
+				divnoti.style.position = "absolute"
 				divnoti.style.display = "flex"
-				btn_notificacion.style.display = "none"
-			}
+				divnoti.style.top ="0"
+				divnoti.style.width = "40px"
+				divnoti.style.height = "40px"
+				divnoti.style.right = "-10px"
+				divnoti.setAttribute("title", "Tienes una notificación")
+				divnoti.innerHTML = "1"
+				divnoti.style.fontSize = "130%"
+				divnoti.ondragstart = function(){
+					return false
+				}
 
-			//Notify pj
-			// divnoti.setAttribute("src", "./content/img/iconos/notifi_danger.png")
-			divnoti.className = "m-3  btn badge badge-danger  align-items-center justify-content-center"
-			divnoti.style.position = "absolute"
-			divnoti.style.display = "flex"
-			divnoti.style.top ="0"
-			divnoti.style.width = "40px"
-			divnoti.style.height = "40px"
-			divnoti.style.right = "-10px"
-			divnoti.setAttribute("title", "Tienes una notificación")
-			divnoti.innerHTML = "1"
-			divnoti.style.fontSize = "130%"
-			divnoti.ondragstart = function(){
-				return false
-			}
+				divnoti.style.userSelect = "none"
+				divnoti.animate([{
+					boxShadow:" 0px 0px 0px #ff6666"
+				},{
+					boxShadow:" 0px 0px 20px red"
+				}],{duration:400, iterations:Infinity})
+				// divnoti.setAttribute("width", "36px")
+				divnoti.style.borderRadius ="100%"
+				divnoti.onclick = function(){
+					btn_notificacion.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+					btn_notificacion.style.display = "block"
+					divnoti.style.display = "none"
+				}
+				header.appendChild(btn_notificacion)
+				imgcontainer.appendChild(divnoti)
+			} else {
+				if (confpj !== "" && confpj !== null && confpj !== undefined){
+					if (confpj.match(/bau/gim)){
+						img.setAttribute("src",confpj)
+					} else if (confpj.match(/face/gim)){
+						img.setAttribute("src",confpj)
+					} else if (confpj.match(/mosaic/gim)){
+						img.setAttribute("src",confpj)
+					} else if (confpj.match(/voot/gim)){
+						img.setAttribute("src",confpj)
+					} else if (confpj.match(/zump/gim)){
+						img.setAttribute("src",confpj)
+					} else if (confpj.match(/alird/gim)){
+						img.setAttribute("src",confpj)
+					} else if (confpj.match(/panwit/gim)){
+						img.setAttribute("src",confpj)
+					} else if (confpj.match(/yuno/gim)){
+						img.setAttribute("src",confpj)
+					} else if (confpj.match(/raw/gim)){
+						img.setAttribute("src",confpj)
+					} else if (confpj.match(/simga/gim)){
+						img.setAttribute("src",confpj)
+					} else if (confpj.match(/bromo/gim)){
+						img.setAttribute("src",confpj)
+						img.setAttribute("width", "60%")
+					} else if (confpj.match(/plutoni/gim)){
+						img.setAttribute("src",confpj)
+					} else if (confpj.match(/vurb/gim)){
+						img.setAttribute("src",confpj)
+					} else if (confpj.match(/palie/gim)){
+						img.setAttribute("src",confpj)
+					} else if (confpj.match(/jaino/gim)){
+						img.setAttribute("src",confpj)
+					} else if (confpj.match(/komobit/gim)){
+						img.setAttribute("src",confpj)
+					} else if (confpj.match(/mary/gim)){
+						img.setAttribute("src",confpj)
+						img.setAttribute("width", "60%")
+					} else if (confpj.match(/pacman/gim)){
+						img.setAttribute("src",confpj)
+					} else if (confpj.match(/dyn/gim)){
+						img.setAttribute("src",confpj)
+					} else if (confpj.match(/grenmo/gim)){
+						img.setAttribute("src",confpj)
+					}
+				} else {
+					img.setAttribute("src","./content/img/iconos/facehappy.gif")
+				}
 
-			divnoti.style.userSelect = "none"
-			divnoti.animate([{
-				boxShadow:" 0px 0px 0px #ff6666"
-			},{
-				boxShadow:" 0px 0px 20px red"
-			}],{duration:400, iterations:Infinity})
-			// divnoti.setAttribute("width", "36px")
-			divnoti.style.borderRadius ="100%"
-			divnoti.onclick = function(){
-				btn_notificacion.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
-				btn_notificacion.style.display = "block"
-				divnoti.style.display = "none"
+				btn_notificacion.className = "p-4 m-2 alert-success font-weight-bold text-center"
+				
+				btn_notificacion.style.wordWrap = "break-word"
+				btn_notificacion.style.overflowWrap = "break-word"
+				btn_notificacion.style.whiteSpace = "normal"
+				btn_notificacion.style.color = "#358e1a"
+				btn_notificacion.style.borderRadius = "100px"
+				btn_notificacion.style.zIndex = "200"
+				btn_notificacion.style.cursor = "pointer"
+				btn_notificacion.onpointerover = function(){
+					btn_notificacion.style.border = "1px solid #358e1a"
+				}
+				btn_notificacion.onpointerout = function(){
+					btn_notificacion.style.border = "1px solid transparent"
+				}
+				btn_notificacion.innerHTML = "Un gusto saludarte"
+				btn_notificacion.ondragstart = function(){ 
+					return false
+				}
+				btn_notificacion.style.userSelect = "none"
+				btn_notificacion.onclick = function(){
+					divnoti.style.display = "flex"
+					btn_notificacion.style.display = "none"
+				}
+
+				//Notify pj
+				// divnoti.setAttribute("src", "./content/img/iconos/notifi_danger.png")
+				divnoti.className = "m-3  btn badge badge-primary  align-items-center justify-content-center"
+				divnoti.style.position = "absolute"
+				divnoti.style.display = "flex"
+				divnoti.style.top ="0"
+				divnoti.style.width = "40px"
+				divnoti.style.height = "40px"
+				divnoti.style.right = "-10px"
+				divnoti.setAttribute("title", "Tienes una notificación")
+				divnoti.innerHTML = "1"
+				divnoti.style.fontSize = "130%"
+				divnoti.ondragstart = function(){
+					return false
+				}
+				divnoti.style.userSelect = "none"
+				// divnoti.setAttribute("width", "36px")
+				divnoti.style.borderRadius ="100%"
+				divnoti.onclick = function(){
+					btn_notificacion.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+					btn_notificacion.style.display = "block"
+					divnoti.style.display = "none"
+				}
+				header.appendChild(btn_notificacion)
+				imgcontainer.appendChild(divnoti)
 			}
-			header.appendChild(btn_notificacion)
-			imgcontainer.appendChild(divnoti)
 		} else {
-			if (confpj !== "" && confpj !== null && confpj !== undefined){
-				if (confpj.match(/bau/gim)){
-					img.setAttribute("src",confpj)
-				} else if (confpj.match(/face/gim)){
-					img.setAttribute("src",confpj)
-				} else if (confpj.match(/mosaic/gim)){
-					img.setAttribute("src",confpj)
-				} else if (confpj.match(/voot/gim)){
-					img.setAttribute("src",confpj)
-				} else if (confpj.match(/zump/gim)){
-					img.setAttribute("src",confpj)
-				} else if (confpj.match(/alird/gim)){
-					img.setAttribute("src",confpj)
-				} else if (confpj.match(/panwit/gim)){
-					img.setAttribute("src",confpj)
-				} else if (confpj.match(/yuno/gim)){
-					img.setAttribute("src",confpj)
-				} else if (confpj.match(/raw/gim)){
-					img.setAttribute("src",confpj)
-				} else if (confpj.match(/simga/gim)){
-					img.setAttribute("src",confpj)
-				} else if (confpj.match(/bromo/gim)){
-					img.setAttribute("src",confpj)
-					img.setAttribute("width", "60%")
-				} else if (confpj.match(/plutoni/gim)){
-					img.setAttribute("src",confpj)
-				} else if (confpj.match(/vurb/gim)){
-					img.setAttribute("src",confpj)
-				} else if (confpj.match(/palie/gim)){
-					img.setAttribute("src",confpj)
-				} else if (confpj.match(/jaino/gim)){
-					img.setAttribute("src",confpj)
-				} else if (confpj.match(/komobit/gim)){
-					img.setAttribute("src",confpj)
-				} else if (confpj.match(/mary/gim)){
-					img.setAttribute("src",confpj)
-					img.setAttribute("width", "60%")
-				} else if (confpj.match(/pacman/gim)){
-					img.setAttribute("src",confpj)
-				} else if (confpj.match(/dyn/gim)){
-					img.setAttribute("src",confpj)
-				} else if (confpj.match(/grenmo/gim)){
-					img.setAttribute("src",confpj)
+			try{
+				if (window.config[1].pj_change !== undefined && window.config[1].pj_change !== null && window.config[1].pj_change !== ""){
+					img.setAttribute("src", window.config[1].pj_change)
 				}
-			} else {
-				img.setAttribute("src","./content/img/iconos/facehappy.gif")
-			}
+			} catch(_){
 
-			btn_notificacion.className = "p-4 m-2 alert-success font-weight-bold text-center"
-			
-			btn_notificacion.style.wordWrap = "break-word"
-			btn_notificacion.style.overflowWrap = "break-word"
-			btn_notificacion.style.whiteSpace = "normal"
-			btn_notificacion.style.color = "#358e1a"
-			btn_notificacion.style.borderRadius = "100px"
-			btn_notificacion.style.zIndex = "200"
-			btn_notificacion.style.cursor = "pointer"
-			btn_notificacion.onpointerover = function(){
-				btn_notificacion.style.border = "1px solid #358e1a"
 			}
-			btn_notificacion.onpointerout = function(){
-				btn_notificacion.style.border = "1px solid transparent"
-			}
-			btn_notificacion.innerHTML = "Un gusto saludarte"
-			btn_notificacion.ondragstart = function(){ 
-				return false
-			}
-			btn_notificacion.style.userSelect = "none"
-			btn_notificacion.onclick = function(){
-				divnoti.style.display = "flex"
-				btn_notificacion.style.display = "none"
-			}
-
-			//Notify pj
-			// divnoti.setAttribute("src", "./content/img/iconos/notifi_danger.png")
-			divnoti.className = "m-3  btn badge badge-primary  align-items-center justify-content-center"
-			divnoti.style.position = "absolute"
-			divnoti.style.display = "flex"
-			divnoti.style.top ="0"
-			divnoti.style.width = "40px"
-			divnoti.style.height = "40px"
-			divnoti.style.right = "-10px"
-			divnoti.setAttribute("title", "Tienes una notificación")
-			divnoti.innerHTML = "1"
-			divnoti.style.fontSize = "130%"
-			divnoti.ondragstart = function(){
-				return false
-			}
-			divnoti.style.userSelect = "none"
-			// divnoti.setAttribute("width", "36px")
-			divnoti.style.borderRadius ="100%"
-			divnoti.onclick = function(){
-				btn_notificacion.animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
-				btn_notificacion.style.display = "block"
-				divnoti.style.display = "none"
-			}
-			header.appendChild(btn_notificacion)
-			imgcontainer.appendChild(divnoti)
 		}
+	}
+	if (balcontent !== undefined && balcontent !==null){
+		pjchan(balcontent)
+	} else if (balacmodalbalanceo !== undefined && balacmodalbalanceo !== null){
+		setTimeout(function(){
+			pjchan(balacmodalbalanceo)
+		},1000)
+	} else {
+		pjchan()
 	}
 
 	const body = document.createElement("div")
@@ -1407,7 +1601,7 @@ function Aside(username){
 	const boton_calc = document.createElement("img")
 	boton_calc.setAttribute("src", "./content/img/iconos/calc.png")
 	boton_calc.setAttribute("width", "80px")
-	boton_calc.setAttribute("title", "Calculadora")
+	boton_calc.setAttribute("data-toggle", "popover-hover-btn-calculadora")		
 	boton_calc.className = "btnmenaside p-1 m-2  mt-0 btn btn-light"
 	boton_calc.ondragstart = function(){
 		return false
@@ -1433,7 +1627,7 @@ function Aside(username){
 	boton_calendario.ondragstart = function(){
 		return false
 	}
-	boton_calendario.setAttribute("title", "Mes actual")
+	boton_calendario.setAttribute("data-toggle", "popover-hover-btn-calendario")		
 	boton_calendario.style.userSelect = "none"
 	boton_calendario.onclick = function(){
 		if (!openedcalender){
@@ -1453,7 +1647,9 @@ function Aside(username){
 	boton_conversor.ondragstart = function(){
 		return false
 	}
-	boton_conversor.setAttribute("title", "Conversor de divisas")
+
+	boton_conversor.setAttribute("data-toggle", "popover-hover-btn-conversor")		
+
 	boton_conversor.style.userSelect = "none"
 	boton_conversor.onclick = function(){
 		if (!openedconversor){
@@ -1589,7 +1785,30 @@ function Aside(username){
 		menuaside.appendChild(boton_conversor)
 	}
 
+	//score leaves
+	const divpoints = document.createElement("div")
+
+	divpoints.setAttribute("id","span-points")
+	divpoints.setAttribute("data-toggle", "popover-hover-points")
+
+	
+	const nunspanpoints = document.createElement("span")
+	nunspanpoints.setAttribute("id","nun-point")
+		
+	nunspanpoints.className = "ml-1"
+
+	divpoints.className = "font-weight-bold d-flex justify-content-center outline-none align-items-center cursor-pointer badge-pill"
+	$.post("./content/php/consults_info/get_points.php",{usuario:window.config[0].usuario,email:window.config[0].email}).done(function(response){
+		divpoints.innerHTML = "HM:"
+		divpoints.appendChild(nunspanpoints)
+		nunspanpoints.innerHTML = response !== "" && response !== undefined && response !== null ? response : 0
+		console.log(response)  
+		divpoints.innerHTML += '<img class="" src="./content/img/leaves.png" width="40px"/>' ;
+	})
+
+
 	if (body !== undefined) {
+		body.appendChild(divpoints)
 		body.appendChild(menuaside)
 	}
 	document.body.appendChild(panel_widgets)

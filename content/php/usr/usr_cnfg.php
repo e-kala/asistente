@@ -150,6 +150,11 @@
 			document.getElementById("bgpremiumchange").style.display = "block"
 		}
 
+		if (document.getElementsByClassName("bgtransferencias_ventana")[0] !== undefined && document.getElementsByClassName("bgtransferencias_ventana")[0] !== null){
+			document.getElementsByClassName("bgtransferencias_ventana")[0].style.display = "block"
+		}
+
+
 		//Loading config premium init general PPPPPPPPP1931820
 		try{
 			let plan_pri = JSON.parse(json[0].plan)
@@ -170,15 +175,15 @@
 			if (json[1].background.match(/img/gim)===null){
 				document.body.style.background = `url(./content/img/fondos/${json[1].background})`
 			} else {
-				if (json[1].background.match(/asistente/gim)){
-					bg = json[1].background.replace("asistente/","")
+				if (json[1].background.match(/public_html/gim)){
+					bg = json[1].background.replace("public_html/","")
 				} else if (json[1].background.match(/img\/\w+\.(jpg|png|gif)/gim)){
 					bg = "content/usuarios/"+json[0].usuario+"/"+json[1].background
 				} else {
 					bg = "content/usuarios/"+json[0].usuario+"/"+json[1].background
 				}
 				bg = bg.replace("\r\n", "")
-				console.log(bg,"BGGGGG")
+				// console.log(bg,"BGGGGG")
 				document.body.style.background = `url(${bg})`
 			}
 			document.body.style.backgroundSize = "cover"

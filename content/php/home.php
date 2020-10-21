@@ -4,29 +4,39 @@
 
 	$fechaActual = date('y-m-d');
 
+
 	if (isset($_SESSION['user'])){
 		$usuario = $_SESSION['user'];
 		$consulta_cnf = "SELECT * FROM usuarios WHERE nombre_usuario = '$usuario'";
 		$cnf_result = $conexion->query($consulta_cnf);
 		$fila = $cnf_result->fetch_object();
-		
+		$config = $fila->usr_config;
 		$status_account = $fila->privilegios;
-		
 		try{
 			$json_state_acc = json_decode($status_account, TRUE);
-			if ($json_state_acc["fechaExpiracion"] !== "" && $json_state_acc["fechaExpiracion"] !== null){
-				if ("20".$fechaActual > $json_state_acc["fechaExpiracion"]){
-					//Expirado, actualizar el modo prueba de premium a free
-					$sql = "UPDATE usuarios SET privilegios = 'free_prueba_usada' WHERE nombre_usuario='$usuario'";
-					$res = mysqli_query($conexion, $sql);
-					if ($res){
-						$conexion->close();
+			if (isset($json_state_acc["fechaExpiracion"])){
+				if ($json_state_acc["fechaExpiracion"] !== "" && $json_state_acc["fechaExpiracion"] !== null){
+					if ("20".$fechaActual > $json_state_acc["fechaExpiracion"]){
+						//Expirado, actualizar el modo prueba de premium a free
+						
+						echo '<script>window.location.href = "?action=premium#mp"; </script>';
+						
+						// $sql = "UPDATE usuarios SET privilegios = 'free_prueba_usada' WHERE nombre_usuario='$usuario'";
+						// $res = mysqli_query($conexion, $sql);
+
+						// if ($res){
+						// 	$conexion->close();
+						// }  else {
+						// }
 					} 
-				} 
+				}
 			}
 		} catch(Exception $e){
 
 		}
+
+
+		// include "./content/php/usr/update_points.php"; 
 	}
 
 ?>

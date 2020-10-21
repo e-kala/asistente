@@ -9,8 +9,16 @@
 
 
 ?>
+<?php
+     if ($aside_hidden_status === "true"){
+?>
+<div class=" containeringasedi ml-4 mr-4 p-4" style="display: none; min-height: 100vh;">
+<?php } else {
+        ?>
 <div class="container containeringasedi p-4" style="display: none; min-height: 100vh;">
-    <div class="table-responsive p-4 ">
+<?php      
+} ?>
+    <div class="table-responsive p-4">
         <h4 class="pb-4 border-bottom border-secondary">Gastos <i class="fa fa-arrow-circle-down ml-2" style="color:red; -webkit-color:red;" aria-hidden="true"></i></h4>
         <table class="w-100 table-striped">
             <thead>
@@ -62,7 +70,7 @@
                                           <?php echo $fila->cantidad_gasto ?>    
                                     </td>
 
-                                    <td>
+                                    <td class="text-center">
                                         <a href="#editar" class="editarGasto" data-id="<?php echo $fila->id_gasto; ?>"
                                             data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil fa-lg"></i>
                                         </a>

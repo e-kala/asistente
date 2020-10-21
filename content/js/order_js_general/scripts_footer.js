@@ -66,8 +66,8 @@ imgdragnot()
 
 function prueba_three_month(){
   const fecha = new Date()
-  const tmp = fecha.getMonth() + 4 //+ 3 months
-  const year = fecha.getFullYear()
+  let tmp = fecha.getMonth() + 4 //+ 3 months
+  let year = fecha.getFullYear()
   const day = fecha.getDate().toString().split("").length > 1 ? fecha.getDate() : "0" + fecha.getDate()
   if (tmp === 13){
     year += 1
@@ -150,7 +150,8 @@ function dark(){
     }
 
     if (containeringasedi !== undefined && containeringasedi !== null){
-      containeringasedi.className = "container containeringasedi p-4 text-light"
+      containeringasedi.classList.add("text-light")
+      containeringasedi.classList.remove("text-dark")
       containeringasedi.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
       containeringasedi.style.webkitBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
       containeringasedi.style.MozBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`;
@@ -192,7 +193,8 @@ function dark(){
 
     //Transferencias
     if (bgtransferencias_ventana !== undefined && bgtransferencias_ventana !== null){
-        bgtransferencias_ventana.className = "p-4 mt-4 rounded bgtransferencias_ventana text-light"
+        bgtransferencias_ventana.classList.add("text-light")
+        bgtransferencias_ventana.classList.remove("text-dark")
         bgtransferencias_ventana.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
         bgtransferencias_ventana.style.webkitBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`
         bgtransferencias_ventana.style.MozBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`
@@ -218,7 +220,14 @@ function dark(){
       }
     }
 
-    registrosgasin.className = "p-4 m-4 text-white tered registrosgasin text-light text-white cotxtlight"
+    if (registrosgasin !== undefined && registrosgasin !== null){
+      registrosgasin.className = " p-4 m-4 text-white tered registrosgasin text-light text-white cotxtlight"
+      registrosgasin.style.background = `rgb(52,52,69,${alma_config[1].transparency}5)`
+      registrosgasin.style.webkitBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`
+      registrosgasin.style.MozBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`
+      registrosgasin.style.msBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`
+      registrosgasin.style.oBackground = `rgb(52,52,69,${alma_config[1].transparency}5)`
+    }
 }
 
 function light(){
@@ -259,7 +268,8 @@ function light(){
     }
 
     if (containeringasedi !== undefined && containeringasedi !== null){
-      containeringasedi.className = "container containeringasedi p-4 text-dark"
+      containeringasedi.classList.add("text-dark")
+      containeringasedi.classList.remove("text-light")
       containeringasedi.style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
       containeringasedi.style.webkitBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
       containeringasedi.style.MozBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
@@ -311,7 +321,8 @@ function light(){
 
     //Transferencias
     if (bgtransferencias_ventana !== undefined && bgtransferencias_ventana !== null){
-        bgtransferencias_ventana.className = "p-4 mt-4 rounded bgtransferencias_ventana text-dark"
+        bgtransferencias_ventana.classList.add("text-dark")
+        bgtransferencias_ventana.classList.remove("text-light")
         bgtransferencias_ventana.style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
         bgtransferencias_ventana.style.webkitBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
         bgtransferencias_ventana.style.MozBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
@@ -324,7 +335,7 @@ function light(){
       "light",
       ["card modsco text-dark flexbg",`rgb(255,255,255,${alma_config[1].transparency}5)`], 
       ["card boxes-in text-dark", `rgb(255,255,255,${alma_config[1].transparency}5)`],
-      ["p-4 m-4 tered registrosgasin lightinit text-dark cotxtdark", `rgb(255,255,255,${alma_config[1].transparency}5)`],
+      ["p-4 m-4 tered registrosgasin text-dark cotxtdark", `rgb(255,255,255,${alma_config[1].transparency}5)`],
       'text-center colorchangetxt text-dark',
       )
     for (let x = 0; x < colorchangetxt.length; x++){
@@ -337,8 +348,17 @@ function light(){
       }
     }
 
-    if (registrosgasin !== undefined) registrosgasin.className = "p-4 m-4 tered registrosgasin lightinit text-dark cotxtdark"
+    if (registrosgasin !== undefined) {
+      registrosgasin.className = "  p-4 m-4 tered registrosgasin  text-dark cotxtdark"
+      registrosgasin.style.background = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      registrosgasin.style.webkitBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      registrosgasin.style.MozBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      registrosgasin.style.msBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+      registrosgasin.style.oBackground = `rgb(255,255,255,${alma_config[1].transparency}5)`
+
+    }
 }
+
 
 
 function colorear_balances(){
@@ -479,8 +499,28 @@ function obtener_mostrar_saldo_modales_ingreso_gasto(){
           let balacmodalbalanceo = document.getElementById("balacmodalbalanceo")
           if (e.match(/-/gim)){
             balacmodalbalanceo.className = "font-weight-bold font-italic badge badge-danger"
+             //pj
+            if (document.getElementsByClassName("caras")[0] !== undefined && document.getElementsByClassName("caras")[0] !== null){
+                if (window.config[1].pj_change !== "" && window.config[1].pj_change !== undefined && window.config[1].pj_change !== null){
+                }
+                let pj = window.config[1].pj_change.replace("happy", "angry")
+                document.getElementsByClassName("caras")[0].setAttribute("src", pj)
+                document.getElementsByClassName("caras")[0].animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+                document.getElementsByClassName("notifypj")[0].style.display = "none"
+            }
+        
           } else {
             balacmodalbalanceo.className = "font-weight-bold font-italic badge badge-success"
+            //pj
+            if (document.getElementsByClassName("caras")[0] !== undefined && document.getElementsByClassName("caras")[0] !== null){
+                if (window.config[1].pj_change !== "" && window.config[1].pj_change !== undefined && window.config[1].pj_change !== null){
+                }
+                let pj = window.config[1].pj_change.replace("angry", "happy")
+                document.getElementsByClassName("caras")[0].setAttribute("src", pj)
+                document.getElementsByClassName("caras")[0].animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
+                document.getElementsByClassName("notifypj")[0].style.display = "none"
+            }
+        
           }
           balacmodalbalanceo.innerHTML = "$ " + e
         })
@@ -544,3 +584,92 @@ obtener_mostrar_saldo_modales_ingreso_gasto()
 
 // init_config()
 // ----------------------------------------------------------------------------------------------------------------
+
+try{
+  $(function(){
+      $('[data-toggle="popover"]').popover()
+       // popovers initialization - on hover
+      $('[data-toggle="popover-hover-btn-conversor"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "Conversor de divisas"
+      });
+      $('[data-toggle="popover-hover-btn-calculadora"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "Calculadora"
+      });
+      $('[data-toggle="popover-hover-btn-calendario"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "Mes actual"
+      });
+
+      if (window.config[0].plan.match(/premium/gim)){
+        $('[data-toggle="popover-hover-points"]').popover({
+          html: true,
+          trigger: 'hover',
+          placement: 'bottom',
+          content: "<div class='text-center'>Gana hojas mágicas (HM) con tu actividad diaria, con ellas podrás desbloquear logros especiales</div>"
+        });
+      } else {
+        $('[data-toggle="popover-hover-points"]').popover({
+          html: true,
+          trigger: 'hover',
+          placement: 'bottom',
+          content: "<div class='text-center'>¡Activa el modo premium y gana hojas mágicas por tu actividad diaria!</div>"
+        });
+      }
+
+      $('[datatoggle="popover-hover-btn-ingreso"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "<div class='text-center'>Hacer nuevo ingreso</div>"
+      });
+
+      $('[datatoggle="popover-hover-btn-gasto"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "<div class='text-center'>Realizar un gasto</div>"
+      });
+
+      $('[data-toggle="popover-hover-btn-transferencias"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "<div class='text-center'>Transferir entre cuentas</div>"
+      });
+
+      $('[data-toggle="popover-hover-btn-registros"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "<div class='text-center'>Consultar registros</div>"
+      });
+
+      $('[data-toggle="popover-hover-btn-cuentas"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "<div class='text-center'>Gestor de cuentas</div>"
+      });
+
+      $('[data-toggle="popover-hover-btn-balanceo"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "<div class='text-center'>Balancear una cuenta</div>"
+      });
+
+  })
+}catch(_){
+  
+}
+
+
+

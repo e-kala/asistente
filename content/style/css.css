@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans&display=swap');
+
+.quattrocentosans{
+	font-family: 'Quattrocento Sans', sans-serif;
+}
+
 body{
 	position: relative;
 	-moz-position: relative;

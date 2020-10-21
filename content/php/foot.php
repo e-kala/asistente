@@ -3,7 +3,9 @@
 	  <div class="card-body">
 	  	<div class="row text-center">
 			<div class="col-sm-4">
-				<p class="m-0">Contenido</p>
+				<!--<a href="#"> <i class="fa fa-twitter"></i></a>-->
+				<a href="https://www.instagram.com/bonsaiasistente/"><i class="fa fa-instagram"></i></a>
+				<a href="https://www.facebook.com/BonsaiAsistente"> <i class="fa fa-facebook"></i></a>
 			</div>  		
 			<div class="col-sm-4">
 				<p class="m-0">
@@ -12,14 +14,11 @@
 		                var f = new Date();
 		                document.write(f.getFullYear());
 		            </script> 
-	             	<a href="#">Asistente Bonsai</a>
+	             	<a href="#">Bonsái Asistente</a>
 	        	</p>
 			</div>  		
 			<div class="col-sm-4">
-				<a href="#"> <i class="fa fa-twitter"></i></a>
-				<a href="#"><i class="fa fa-instagram"></i></a>
-				<a href="#"> <i class="fa fa-facebook"></i></a>
-				<a href="#"> <i class="fa fa-email"></i></a>
+				<p class="m-0">contacto@bonsaiasistente.com</p>
 			</div>  		
 
 	  	</div>

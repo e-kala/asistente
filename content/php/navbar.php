@@ -19,10 +19,10 @@
 	        	<a class="cotextmennavtop btn btn-inherit" href="#">Educación Financiera<i class="fa fa-bar-chart ml-2 text-primary" aria-hidden="true"></i></a>
 		  	</li> -->
 		  	<li class="navbar-option-general-show-top m-2 flex-grow-1">
-	        	<a class="cotextmennavtop btn btn-inherit" href="#">¿Quiénes Somos?<i class="fa fa-globe ml-2 text-primary" aria-hidden="true"></i></a>
+	        	<a class="cotextmennavtop btn btn-inherit" href="?action=quienes_somos">¿Quiénes Somos?<i class="fa fa-globe ml-2 text-primary" aria-hidden="true"></i></a>
 		  	</li>
 			<li class="navbar-option-general-show-top m-2 flex-grow-1">
-		        <a class="cotextmennavtop btn btn-inherit" href="#">Contáctanos<i class="fa fa-bookmark ml-2 text-primary" aria-hidden="true"></i></a>
+		        <a class="cotextmennavtop btn btn-inherit" href="?action=contacto">Contáctanos<i class="fa fa-bookmark ml-2 text-primary" aria-hidden="true"></i></a>
 		  	</li>
 
 	    </ul>

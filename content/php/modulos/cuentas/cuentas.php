@@ -12,7 +12,17 @@
 ?>
 
 
-<div class="container containeringasedi p-4" style="display: none; min-height: 100vh;">
+
+<?php
+     if ($aside_hidden_status === "true"){
+?>
+<div class=" containeringasedi ml-4 mr-4 p-4" style="display: none; min-height: 100vh;">
+    <?php } else {
+        ?>
+<div class=" container containeringasedi p-4" style="display: none; min-height: 100vh;">
+
+    <?php      
+    } ?>
     <h1>Cuentas</h1>
     <div class="p-2 pb-4 mt-2 border-bottom d-flex justify-content-center" role="alert">
         
