@@ -189,6 +189,13 @@
     -o-width: 350px;
     -webkit-width: 350px;
 }
+.w-550px{
+    width: 700px;
+    -moz-width: 700px;
+    -ms-width: 700px;
+    -o-width: 700px;
+    -webkit-width: 700px;
+}
 
 .h-250px{
     height: 250px;

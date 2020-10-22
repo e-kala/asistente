@@ -29,6 +29,8 @@
 
 <script type="text/javascript" src="./content/js/redesign_responsive.js"></script>
 
+
+
 <script type="text/javascript" src="./content/js/order_js_general/scripts_footer.js"></script>
 
 <script type="text/javascript" src="./content/js/subirIngreso.js"></script>
@@ -58,6 +60,8 @@
           $('a[href="?action=home"]').addClass('active');
         }
     });
+
+    
 </script>
 
 

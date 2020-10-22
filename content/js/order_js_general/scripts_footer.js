@@ -608,21 +608,23 @@ try{
         content: "Mes actual"
       });
 
-      if (window.config[0].plan.match(/premium/gim)){
-        $('[data-toggle="popover-hover-points"]').popover({
-          html: true,
-          trigger: 'hover',
-          placement: 'bottom',
-          content: "<div class='text-center'>Gana hojas mágicas (HM) con tu actividad diaria, con ellas podrás desbloquear logros especiales</div>"
-        });
-      } else {
-        $('[data-toggle="popover-hover-points"]').popover({
-          html: true,
-          trigger: 'hover',
-          placement: 'bottom',
-          content: "<div class='text-center'>¡Activa el modo premium y gana hojas mágicas por tu actividad diaria!</div>"
-        });
-      }
+      try{
+        if (window.config[0].plan.match(/premium/gim)){
+          $('[data-toggle="popover-hover-points"]').popover({
+            html: true,
+            trigger: 'hover',
+            placement: 'bottom',
+            content: "<div class='text-center'>Gana hojas mágicas (HM) con tu actividad diaria, con ellas podrás desbloquear logros especiales</div>"
+          });
+        } else {
+          $('[data-toggle="popover-hover-points"]').popover({
+            html: true,
+            trigger: 'hover',
+            placement: 'bottom',
+            content: "<div class='text-center'>¡Activa el modo premium y gana hojas mágicas por tu actividad diaria!</div>"
+          });
+        }
+      } catch(_){}
 
       $('[datatoggle="popover-hover-btn-ingreso"]').popover({
         html: true,
@@ -670,6 +672,7 @@ try{
 }catch(_){
   
 }
+
 
 
 

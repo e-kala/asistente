@@ -1099,7 +1099,87 @@ main{
 }
 
 
+.foncompleimg0{
+	background: url("../img/foncomple0.png");
+	-moz-background: url("../img/foncomple0.png");
+	-ms-background: url("../img/foncomple0.png");
+	-o-background: url("../img/foncomple0.png");
+	-webkit-background: url("../img/foncomple0.png");
 
+	background-size: cover;
+	-moz-background-size:cover;
+	-ms-background-size:cover;
+	-o-background-size:cover;
+	-webkit-background-size:cover;
+
+	background-attachment: fixed;
+	-moz-background-attachment:fixed;
+	-ms-background-attachment:fixed;
+	-o-background-attachment:fixed;
+	-webkit-background-attachment:fixed;
+
+}
+
+.foncompleimg{
+	background: url("../img/foncomple.png");
+	-moz-background: url("../img/foncomple.png");
+	-ms-background: url("../img/foncomple.png");
+	-o-background: url("../img/foncomple.png");
+	-webkit-background: url("../img/foncomple.png");
+
+	background-size: cover;
+	-moz-background-size:cover;
+	-ms-background-size:cover;
+	-o-background-size:cover;
+	-webkit-background-size:cover;
+
+	background-attachment: fixed;
+	-moz-background-attachment:fixed;
+	-ms-background-attachment:fixed;
+	-o-background-attachment:fixed;
+	-webkit-background-attachment:fixed;
+
+}
+
+.foncompleimg2{
+	background: url("../img/foncomple2.png");
+	-moz-background: url("../img/foncomple2.png");
+	-ms-background: url("../img/foncomple2.png");
+	-o-background: url("../img/foncomple2.png");
+	-webkit-background: url("../img/foncomple2.png");
+
+	background-size: cover;
+	-moz-background-size:cover;
+	-ms-background-size:cover;
+	-o-background-size:cover;
+	-webkit-background-size:cover;
+
+	background-attachment: fixed;
+	-moz-background-attachment:fixed;
+	-ms-background-attachment:fixed;
+	-o-background-attachment:fixed;
+	-webkit-background-attachment:fixed;
+}
+
+.foncompleimg3{
+	background: url("../img/foncomple3.png");
+	-moz-background: url("../img/foncomple3.png");
+	-ms-background: url("../img/foncomple3.png");
+	-o-background: url("../img/foncomple3.png");
+	-webkit-background: url("../img/foncomple3.png");
+	
+	background-size: cover;
+	-moz-background-size:cover;
+	-ms-background-size:cover;
+	-o-background-size:cover;
+	-webkit-background-size:cover;
+
+	background-attachment: fixed;
+	-moz-background-attachment:fixed;
+	-ms-background-attachment:fixed;
+	-o-background-attachment:fixed;
+	-webkit-background-attachment:fixed;
+}
 
 
 
@@ -1115,12 +1195,22 @@ main{
 ::-webkit-scrollbar {
   width: 20px;
   background: #f2f2f2;
+  scroll-behavior: smooth;
+-moz-scroll-behavior: smooth;
+-ms-scroll-behavior: smooth;
+-o-scroll-behavior: smooth;
+-webkit-scroll-behavior: smooth;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
   /*box-shadow: inset 0 0 5px grey; */
   /*border-radius: 10px;*/
+  scroll-behavior: smooth;
+	-moz-scroll-behavior: smooth;
+	-ms-scroll-behavior: smooth;
+	-o-scroll-behavior: smooth;
+	-webkit-scroll-behavior: smooth;
 }
  
 /* Handle */
@@ -1128,10 +1218,20 @@ main{
   background: linear-gradient(to left top, #29733E, #8DD5A1); 
   /*background-color: #9F9F9F;*/
   border-radius: 10px;
+  scroll-behavior: smooth;
+	-moz-scroll-behavior: smooth;
+	-ms-scroll-behavior: smooth;
+	-o-scroll-behavior: smooth;
+	-webkit-scroll-behavior: smooth;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to left top, #29733E, #8DD5A1); 
   /*background-color: #9F9F9F;*/
+  scroll-behavior: smooth;
+	-moz-scroll-behavior: smooth;
+	-ms-scroll-behavior: smooth;
+	-o-scroll-behavior: smooth;
+	-webkit-scroll-behavior: smooth;
 }
