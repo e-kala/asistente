@@ -668,6 +668,8 @@ try{
         content: "<div class='text-center'>Balancear una cuenta</div>"
       });
 
+      
+
   })
 }catch(_){
   

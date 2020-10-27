@@ -47,7 +47,7 @@ body{background: white;}
      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
        <div class="card-body" align="center">
         <!-- opciones-->
-       <div class="" >
+       <div class="" id="movimientos">
         <!-- Sección de movimientos In -->
          <div class="">
             <h4 class="p-3">Movimientos</h4>
@@ -174,7 +174,7 @@ body{background: white;}
   if (window.location.href.toString().match(/informacion/gim)){
     collapseOne.className = "collapse show"
     collapseTwo.className = "collapse"
-  } else if (window.location.href.toString().match(/movimientos/gim)){
+  } else if (window.location.href.toString().match(/(movimientos|headingTwo)/gim)){
     collapseOne.className = "collapse"
     collapseTwo.className = "collapse show"
   }
@@ -188,8 +188,8 @@ body{background: white;}
 
   open_modul[0].onclick = () =>{
     movclick = false
-    if (window.location.href.match(/\#movimientos/gim)){
-      window.location.href = window.location.href.replace(/movimientos/gim, "informacion")
+    if (window.location.href.match(/(\#Movimientos|headingTwo)/gim)){
+      window.location.href = window.location.href.replace(/(Movimientos|headingTwo)/gim, "informacion")
     } else{
 
       if (!infoclick){
@@ -202,17 +202,34 @@ body{background: white;}
   }
 
   open_modul[1].onclick = () =>{
-    infoclick = false
-    if (window.location.href.match(/informacion/gim)){
-      window.location.href = window.location.href.replace(/informacion/gim, "movimientos")
-    } else {
-      if (!movclick){
-        if (window.location.href.match(/movimientos/gim) === null){
-          window.location.href += "#movimientos"
-          movclick = true
-        }  
+
+    if (window.screen.width > 400){
+      infoclick = false
+      // window.scrollTo(0,0)
+      if (window.location.href.match(/informacion/gim)){
+        window.location.href = window.location.href.replace(/informacion/gim, "movimientos")
+      } else {
+        if (!movclick){
+          if (window.location.href.match(/movimientos/gim) === null){
+            window.location.href += "#movimientos"
+            movclick = true
+          }  
+        }
       }
+    } else {
+      window.location.href = "#headingTwo"
+      if (window.location.href.match(/informacion/gim)){
+        window.location.href = window.location.href.replace("informacion", "headingTwo")
+      }  
+
+        
     }
   }
+
+  $(function(){
+    var scroll = new SmoothScroll('a[href="#headingTwo"]',{
+            speed: 1400
+          });
+  })
 
 </script>

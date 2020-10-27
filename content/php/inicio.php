@@ -210,7 +210,7 @@
 				const logpan = document.getElementById("logpan")
 				login_btn[0].onclick = () => {
 					window.scrollTo(0,0)
-					alert(10)
+					
 					logpan.style.display = "block"
 					logpan.animate([{
 						opacity:0
