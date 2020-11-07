@@ -165,6 +165,20 @@
                   }
                break;
 
+               case 'deudas':
+                  echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
+                  include 'content/php/navbar.php';
+                  if ($aside_hidden_status === "false"){
+                    include 'content/php/modulos/cuentas/cuentas.php';
+                  } else {
+                    echo "<div class='containhome'>";
+                        echo "<div class='sectionhome' style='margin-right:-20px; margin-left:-2px; padding-top:0px;'>";
+                        include 'content/php/modulos/cuentas/deudas.php';
+                        echo "</div>";
+                    echo "</div>";
+                  }
+               break;
+
                case 'balanceo':
                   echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';

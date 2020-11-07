@@ -96,6 +96,7 @@ body{background: white;}
             <a class="btn btn-primary ml-3 mr-3 mt-0 mb-4" href="?action=registros" role="button" data-toggle="popover-hover-btn-registros">Registros</a>
             <a class="btn btn-info ml-3 mr-3 mt-0 mb-4" href="?action=cuentas" data-toggle="popover-hover-btn-cuentas" role="button">Cuentas</a>
             <a class="btn btnbalanceo text-light ml-3 mr-3 mt-0 mb-4" href="?action=balanceo" role="button" data-toggle="popover-hover-btn-balanceo">Balanceo</a>
+            <a class="btn btn-info ml-3 mr-3 mt-0 mb-4" href="?action=deudas" data-toggle="popover-hover-btn-deudas" role="button">Adeudos</a>
           </div>
           
           <h4><br></h4><!--

@@ -668,6 +668,13 @@ try{
         content: "<div class='text-center'>Balancear una cuenta</div>"
       });
 
+      $('[data-toggle="popover-hover-btn-deudas"]').popover({
+        html: true,
+        trigger: 'hover',
+        placement: 'bottom',
+        content: "<div class='text-center'>Gestionar un adeudo</div>"
+      });
+
   })
 }catch(_){
   
