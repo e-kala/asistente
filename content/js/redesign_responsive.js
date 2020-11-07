@@ -519,14 +519,14 @@ function menu_header_top_adjust(screen){
 			container_screen_desktop.appendChild(menu_header_container)
 			for (let x = 0; x < cotextmennavtop_.length; x++){
 				if (modebg_to_nav === "dark"){
-		            cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-light"
+		            cotextmennavtop_[x].className = "cotextmennavtop btn d-flex justify-content-between align-content-center align-items-center btn-inherit font-weight-bold text-light"
 			    } else if (modebg_to_nav === "white") {
-			    	cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-dark"    
+			    	cotextmennavtop_[x].className = "cotextmennavtop btn d-flex justify-content-between align-content-center align-items-center btn-inherit font-weight-bold text-dark"    
 			    } else {
 			    	if (window.config[1].mode === "dark"){
-			            cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-light"
+			            cotextmennavtop_[x].className = "cotextmennavtop btn d-flex justify-content-between align-content-center align-items-center btn-inherit font-weight-bold text-light"
 				    } else {
-				    	cotextmennavtop_[x].className = "cotextmennavtop btn btn-inherit font-weight-bold text-dark"    
+				    	cotextmennavtop_[x].className = "cotextmennavtop btn d-flex justify-content-between align-content-center align-items-center btn-inherit font-weight-bold text-dark"    
 				    }
 			    }
 			}
