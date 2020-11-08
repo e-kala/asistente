@@ -113,7 +113,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Fecha del primer pago</label>
-                        <input type="text" class="form-control" name="nombre_cuenta">
+                        <input type="date" class="form-control" name="nombre_cuenta" id="adeudoCalendario">
                         <small id="emailHelp" class="form-text text-muted"></small>
                     </div>
                     <!--<div class="form-group">
