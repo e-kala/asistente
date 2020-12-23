@@ -98,22 +98,22 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Cantidad de días para el abono (dejar 0 si se desea mensual)</label>
-                        <input type="text" class="form-control" name="nombre_cuenta">
+                        <input type="text" class="form-control" name="dias_plazo">
                         <small id="emailHelp" class="form-text text-muted"></small>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Cantidad a abonar por plazo</label>
-                        <input type="text" class="form-control" name="nombre_cuenta">
+                        <input type="text" class="form-control" name="cantidad_plazo">
                         <small id="emailHelp" class="form-text text-muted"></small>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Cantidad a abonar total</label>
-                        <input type="text" class="form-control" name="nombre_cuenta">
+                        <input type="text" class="form-control" name="cantidad_total">
                         <small id="emailHelp" class="form-text text-muted"></small>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Fecha del primer pago</label>
-                        <input type="date" class="form-control" name="nombre_cuenta" id="adeudoCalendario">
+                        <input type="date" class="form-control" name="primer_pago" id="adeudoCalendario">
                         <small id="emailHelp" class="form-text text-muted"></small>
                     </div>
                     <!--<div class="form-group">

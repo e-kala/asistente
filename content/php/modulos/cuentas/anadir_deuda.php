@@ -11,10 +11,9 @@
         $dias_plazo = $_POST['dias_plazo'];
         $cantidad_plazo = $_POST['cantidad_plazo'];
         $cantidad_total = $_POST['cantidad_total'];
-        $primer_pago = $_POST['primer_pago'];
 
-        $sql = "INSERT INTO deudas(usuario, cuenta, plazo_dias, plazo_cantidad, cantidad_total, primer_pago)
-                VALUES('$usuario', '$nombre_cuenta', $dias_plazo, $cantidad_plazo, $cantidad_total, '$primer_pago')";
+        $sql = "INSERT INTO deudas(usuario, cuenta, plazo_dias, plazo_cantidad, cantidad_total, primer pago)
+                VALUES('$usuario', '$nombre_cuenta', '$dias_plazo', '$cantidad_plazo', '$cantidad_total', '$primer_pago')";
         $datos = utf8_encode($sql);
         //$result = mysqli_query($conexion, $datos);
         //echo $result;

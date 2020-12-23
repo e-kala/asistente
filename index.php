@@ -169,11 +169,11 @@
                   echo '<img src="./content/img/iconos/load3.gif" width="140px" id="loadingg">';
                   include 'content/php/navbar.php';
                   if ($aside_hidden_status === "false"){
-                    include 'content/php/modulos/cuentas/cuentas.php';
+                    include 'content/php/modulos/adeudos/deudas.php';
                   } else {
                     echo "<div class='containhome'>";
                         echo "<div class='sectionhome' style='margin-right:-20px; margin-left:-2px; padding-top:0px;'>";
-                        include 'content/php/modulos/cuentas/deudas.php';
+                        include 'content/php/modulos/adeudos/deudas.php';
                         echo "</div>";
                     echo "</div>";
                   }
