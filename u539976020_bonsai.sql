@@ -298,11 +298,12 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo_usuario`, `pass_
 
 CREATE TABLE `deudas` (
   `id_deuda` int(11) NOT NULL,
-  `usuario` int(11) NOT NULL,
-  `cuenta` varchar(100) NOT NULL,
+  `usuario` varchar(150) NOT NULL,
+  `cuenta` varchar(150) NOT NULL,
   `plazo_dias` int(11) NOT NULL,
   `plazo_cantidad` double NOT NULL,
   `cantidad_total` double NOT NULL,
+  `primer_pago` double NOT NULL DEFAULT 0,
   `primer_pago` date
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
