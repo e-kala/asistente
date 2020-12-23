@@ -303,7 +303,7 @@ CREATE TABLE `deudas` (
   `plazo_dias` int(11) NOT NULL,
   `plazo_cantidad` double NOT NULL,
   `cantidad_total` double NOT NULL,
-  `primer_pago` double NOT NULL DEFAULT 0,
+  `cantidad_pagada` double NOT NULL DEFAULT 0,
   `primer_pago` date
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
