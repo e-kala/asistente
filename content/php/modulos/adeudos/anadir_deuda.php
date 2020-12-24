@@ -7,7 +7,7 @@
 
         session_start();
         $usuario = $_SESSION['user'];
-        $nombre_cuenta = $_POST['nombre_cuenta'];
+        $nombre_cuenta = $_POST['cuenta'];
         $dias_plazo = $_POST['dias_plazo'];
         $cantidad_plazo = $_POST['cantidad_plazo'];
         $cantidad_total = $_POST['cantidad_total'];

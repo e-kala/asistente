@@ -885,7 +885,7 @@ function calender(){
 		let diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
 
 		let almadaysnames = [];
-		let fdm = new Date(year, dat_whole.getMonth(), 7)
+		let fdm = new Date(year, dat_whole.getMonth(), 6)
 		fdm = fdm.toString()
 		let y = 0;
 		if (fdm.match(/Wed/gim)){

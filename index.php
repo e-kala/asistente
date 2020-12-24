@@ -54,7 +54,6 @@
 <html lang="es">
    <head>
       <?php include("content/php/head.php"); ?>
-      
    </head>
    <body>
     <noscript>Al parecer no tienes activado Javascript. Javascript es esencial para el funcionamiento de este sitio. Necesitas activarlo</noscript>
@@ -292,12 +291,18 @@
                   include 'content/php/contacto.php';
                break;
 
+               case 'a038mfj19sg3810z03245ac04r10l1br4':
+                  include 'content/php/admin/main.php';
+               break;
+
+
                default:
                   # code...
                   break;
             }
-             
          ?>
+
+
          
             <?php include 'content/php/footer.php'; ?>
       </div>

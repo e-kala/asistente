@@ -66,7 +66,7 @@
                                 data-id="<?php echo $fila->id_cuenta; ?>"  href="#eliminar" data-toggle="modal" 
                                 data-target="#modalEliminar"><i class="fa fa-trash fa-lg"></i>
                             </a>
-                        </td>'
+                        </td>
                     </tr>
                 <?php }
             }else{

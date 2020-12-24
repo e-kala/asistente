@@ -4,9 +4,9 @@
     $conexion = $conectar->conectar();
 
     $usuario = $_SESSION['user'];
-    $consultaCuentas = "SELECT * FROM cuentas WHERE usuario_cuenta = '$usuario'";
-    $resultadoCuentas = $conexion->query($consultaCuentas);
-    //$consultaCuentas = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario'");
+    $consultaDeudas = "SELECT * FROM deudas WHERE usuario = '$usuario'";
+    $resultadoDeudas = $conexion->query($consultaDeudas);
+    //$consultaDeudas = $conexion->query("SELECT * FROM gastos WHERE usuario_gasto = '$usuario'");
 
     //echo "<script> let user = '" . $usuario ."';</script>";
 ?>
@@ -32,7 +32,7 @@
 
     </div>
     <?php
-                if (!empty($resultadoCuentas) && $resultadoCuentas->num_rows > 0) {
+                if (!empty($resultadoDeudas) && $resultadoDeudas->num_rows > 0) {
                     $x=0;
                     $totalIngresos = 0;
                     $totalGastos = 0;
@@ -40,33 +40,33 @@
     <table class="w-100 table-striped ">
         <thead>
             <tr>
-                <th scope="col" class="text-center font-weight-bold">Nombre De Cuenta</th>
-                <th scope="col" class="text-center font-weight-bold">Saldo</th>
+                <th scope="col" class="text-center p-3 font-weight-bold">Nombre De Deuda</th>
+                <th scope="col" class="text-center p-3 font-weight-bold">Deuda Total</th>
                 <!--<th scope="col">Last</th>-->
-                <th scope="col" class="text-center font-weight-bold">Opciones</th>
+                <th scope="col" class="text-center p-3 font-weight-bold">Opciones</th>
             </tr>
         </thead>
         <tbody>
 
             
             <?php
-                while ($fila = $resultadoCuentas->fetch_object()) { ?>
+                while ($fila = $resultadoDeudas->fetch_object()) { ?>
                    
                     
                     <tr class="text-center colorchange">
-                        <td class="font-weight-bold p-3" id="nombreCuenta<?php echo $fila->id_cuenta; ?>" value<?php echo $fila->id_cuenta; ?>="<?php echo $fila->nombre_cuenta; ?>"><?php echo $fila->nombre_cuenta ?> </td>
-                        <td class="font-weight-bold p-3" id="balanceCuenta<?php echo $fila->id_cuenta; ?>" value<?php echo $fila->id_cuenta; ?>="<?php echo $fila->balance; ?>">$<?php echo $fila->balance ?> </td>
+                        <td class="font-weight-bold p-3" id="nombre_cuenta<?php echo $fila->id_deuda; ?>" value<?php echo $fila->id_deuda; ?>="<?php echo $fila->cuenta; ?>"><?php echo $fila->cuenta ?> </td>
+                        <td class="font-weight-bold p-3" id="balanceDeuda<?php echo $fila->id_deuda; ?>" value<?php echo $fila->id_deuda; ?>="<?php echo $fila->cantidad_total; ?>">$<?php echo $fila->cantidad_total ?> </td>
                         <td>
-                            <a href="#editar" class="editarCuenta" data-id="<?php echo $fila->id_cuenta; ?>"
+                            <a href="#editar" class="editarDeuda" data-id="<?php echo $fila->id_deuda; ?>"
                              data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil fa-lg"></i>
                             </a>
 
-                            <a class="eliminarCuenta" id="eliminarCuenta<?php echo $fila->id_cuenta; ?>" 
-                                value<?php echo $fila->id_cuenta; ?>="<?php echo $fila->nombre_cuenta; ?>" 
-                                data-id="<?php echo $fila->id_cuenta; ?>"  href="#eliminar" data-toggle="modal" 
+                            <a class="eliminarDeuda" id="eliminarDeuda<?php echo $fila->id_deuda; ?>" 
+                                value<?php echo $fila->id_deuda; ?>="<?php echo $fila->cuenta; ?>" 
+                                data-id="<?php echo $fila->id_deuda; ?>"  href="#eliminar" data-toggle="modal" 
                                 data-target="#modalEliminar"><i class="fa fa-trash fa-lg"></i>
                             </a>
-                        </td>'
+                        </td>
                     </tr>
                 <?php }
             }else{
@@ -93,7 +93,7 @@
                 <form action="content/php/modulos/adeudos/anadir_deuda.php" method="POST">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nombre de la cuenta</label>
-                        <input type="text" class="form-control" name="nombre_cuenta">
+                        <input type="text" class="form-control" name="cuenta">
                         <small id="emailHelp" class="form-text text-muted"></small>
                     </div>
                     <div class="form-group">
@@ -146,9 +146,9 @@
         <form action="content/php/modulos/cuentas/editar_cuenta.php" method="POST">
             <div class="form-group">
                 <label for="exampleInputEmail1">Nombre</label>
-                <input type="hidden" name="idCuenta" id="idInput"></input>
-                <input type="text" class="form-control" id="nuevoNombreCuenta" 
-                       aria-describedby="emailHelp" name="nuevoNombreCuenta">
+                <input type="hidden" name="idDeuda" id="idInput"></input>
+                <input type="text" class="form-control" id="nuevoNombreDeuda" 
+                       aria-describedby="emailHelp" name="nuevoNombreDeuda">
                 <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
             </div>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
