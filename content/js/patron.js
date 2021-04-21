@@ -1592,6 +1592,10 @@ function Pattmo(container, config){
 							if (ver_pass.tryone === ver_pass.trytwo){
 								$.post( "./content/php/registro/registrando.php", { mail: dat_post.email, usuario: dat_post.usuario, pass: ver_pass.first_char_pass + ver_pass.trytwo})
 								  .done( function(dat){
+
+								  	console.log(dat, "kakakaka");
+
+
 								  	if (dat.match(/\<successfully\>/gim)){
 								  		if (document.getElementsByClassName("label_state")[0] !== null && document.getElementsByClassName("label_state")[0] !== undefined){
 
@@ -1603,12 +1607,16 @@ function Pattmo(container, config){
 								  		},1600)
 										boolMouseOver = false
 										tryNumber = 0
+								  	} else if (dat.match(/\<ya\-existe\>/gim)) {
+								  		document.getElementsByClassName("label_state")[0].style.color = "red"
+										document.getElementsByClassName("label_state")[0].innerHTML =  `Ya existe una cuenta con dicho correo electrónico`
 								  	}
 								  		
 									pass = "" //Reinicio de variable password para nuevo intento
 									// first_char_pass = ""
 									bfixAnActiveInput = false
 								  });
+								  	
 							} else {
 								if (document.getElementsByClassName("label_state")[0] !== null && document.getElementsByClassName("label_state")[0] !== undefined){
 									document.getElementsByClassName("label_state")[0].style.color = "red"
@@ -2185,6 +2193,8 @@ function Pattmo(container, config){
 			let count_try_for_signup = 0
 			let ver_pass = {}
 
+
+
 			document.querySelector("html").addEventListener("pointerup", function(){
 				if (config.config.showPasswordInConsole){
 					console.log(pass)
@@ -2216,6 +2226,7 @@ function Pattmo(container, config){
 							ver_pass.trytwo = pass
 							pass =""
 						}
+
 
 						if (count_try_for_signup === 2){
 							if (ver_pass.tryone === ver_pass.trytwo ){
@@ -2591,3 +2602,5 @@ if (window.location.href.match(/(registro|configuracion)/gim) === null){
 		root.style.right = "0"
 	}
 }
+
+

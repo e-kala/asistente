@@ -104,7 +104,7 @@
 		// console.log(json)
 		// console.log(jsonst)
 		alma_config = json !== undefined && json !== null && json !== "" ? json : []
-		Aside(json[0].usuario)
+		if (json[0] != undefined) Aside(json[0].usuario)
 
 		if (json[1].mode === "dark"){
 			dark()
@@ -164,11 +164,15 @@
 				}
 			} 
 		} catch(_){
-			if (json[0].plan.match(/premium/gim)){
-				if (document.getElementById("graficos") !== undefined && document.getElementById("graficos") !== null ){
-					document.getElementById("graficos").style.display = "block"
+			if (json[0] != undefined){
+				if (json[0].plan != undefined){
+					if (json[0].plan.match(/premium/gim)){
+						if (document.getElementById("graficos") !== undefined && document.getElementById("graficos") !== null ){
+							document.getElementById("graficos").style.display = "block"
+						}
+					} 
 				}
-			} 
+			}
 		}
 
 		if (json[1].background !== "" && json[1].background !== undefined){

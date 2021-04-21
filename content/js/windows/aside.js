@@ -1364,7 +1364,7 @@ function Aside(username){
 
 	function pjchan(balan){
 		const divnoti = document.createElement("span")
-		let confpj =  window.config[1].pj_change
+		let confpj = window.config != undefined ?  window.config[1].pj_change : ""
 		if (balan !== undefined){
 			if (balan.textContent.match(/\-/gim)){
 				if (confpj !== "" && confpj !== null && confpj !== undefined){
@@ -1798,19 +1798,25 @@ function Aside(username){
 	nunspanpoints.className = "ml-1"
 
 	divpoints.className = "font-weight-bold d-flex justify-content-center outline-none align-items-center cursor-pointer badge-pill"
-	$.post("./content/php/consults_info/get_points.php",{usuario:window.config[0].usuario,email:window.config[0].email}).done(function(response){
-		divpoints.innerHTML = "HM:"
-		divpoints.appendChild(nunspanpoints)
-		nunspanpoints.innerHTML = response !== "" && response !== undefined && response !== null ? response : 0
-		console.log(response)  
-		divpoints.innerHTML += '<img class="" src="./content/img/leaves.png" width="40px"/>' ;
-	})
+	
 
+	if (window.config != undefined){
+		$.post("./content/php/consults_info/get_points.php",{usuario:window.config[0].usuario,email:window.config[0].email}).done(function(response){
+			divpoints.innerHTML = "HM:"
+			divpoints.appendChild(nunspanpoints)
+			nunspanpoints.innerHTML = response !== "" && response !== undefined && response !== null ? response : 0
+			console.log(response)  
+			divpoints.innerHTML += '<img class="" src="./content/img/leaves.png" width="40px"/>' ;
+		})
+
+		
+	}
 
 	if (body !== undefined) {
 		body.appendChild(divpoints)
 		body.appendChild(menuaside)
 	}
+
 	document.body.appendChild(panel_widgets)
 
 	if (contacal !== undefined) {
