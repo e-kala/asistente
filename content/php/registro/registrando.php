@@ -38,3 +38,26 @@
     }
 
 ?>
+
+
+
+
+
+
+
+<!-- 
+
+Melchor andreani Días, Ana Rodríguez, Victor Alfredo prieto, Juan Fermín, José Manuel Rodríguez, Roberto brasini mesapesa , Gustavo Osorio, Annelis Rodríguez flores, Juan agola manuitt 
+
+Roberto brasini mesapesa
+Y el suarrendo a: Juan agola manuitt, Gustavo Osorio y Simón Carpio. Nosotros no recibimos ni un bolivar
+
+
+-->
+
+
+<form>
+    <textarea id="Destino"></textarea>
+    <input type="text" placeholder="Inserte una url de Youtube">
+    <button id="botonInsertar">Insertar</button>
+</form>

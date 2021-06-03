@@ -1162,11 +1162,11 @@ main{
 }
 
 .foncompleimg3{
-	background: url("../img/foncomple3.png");
-	-moz-background: url("../img/foncomple3.png");
-	-ms-background: url("../img/foncomple3.png");
-	-o-background: url("../img/foncomple3.png");
-	-webkit-background: url("../img/foncomple3.png");
+	background: url("../img/foncomple4.png");
+	-moz-background: url("../img/foncomple4.png");
+	-ms-background: url("../img/foncomple4.png");
+	-o-background: url("../img/foncomple4.png");
+	-webkit-background: url("../img/foncomple4.png");
 	
 	background-size: cover;
 	-moz-background-size:cover;
@@ -1174,11 +1174,11 @@ main{
 	-o-background-size:cover;
 	-webkit-background-size:cover;
 
-	background-attachment: fixed;
+	/*background-attachment: fixed;
 	-moz-background-attachment:fixed;
 	-ms-background-attachment:fixed;
 	-o-background-attachment:fixed;
-	-webkit-background-attachment:fixed;
+	-webkit-background-attachment:fixed;*/
 }
 
 

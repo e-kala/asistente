@@ -49,6 +49,12 @@ body{
 
 }
 
+ /*background: url(../img/fondoplan5.1.png);
+-moz-background: url(../img/fondoplan5.1.png);
+-ms-background: url(../img/fondoplan5.1.png);
+-o-background: url(../img/fondoplan5.1.png);
+-webkit-background: url(../img/fondoplan5.1.png);*/
+
 .backgpais{
 	 background: url(../img/fondoplan5.1.png);
 	-moz-background: url(../img/fondoplan5.1.png);
@@ -74,7 +80,191 @@ body{
     -o-background-position: center center;
     -webkit-background-position: center center;
 
-    min-height: 100vh;
+    transition: ease all 0.5s;
+	-moz-transition: ease all 0.5s;
+    -ms-transition: ease all 0.5s;
+    -o-transition: ease all 0.5s;
+    -webkit-transition: ease all 0.5s;
+
+}
+
+.backgpais2{
+	transition: ease all 0.5s;
+	-moz-transition: ease all 0.5s;
+    -ms-transition: ease all 0.5s;
+    -o-transition: ease all 0.5s;
+    -webkit-transition: ease all 0.5s;
+
+	 background: url(../img/fondoplanborroso.gif);
+	-moz-background: url(../img/fondoplanborroso.gif);
+    -ms-background: url(../img/fondoplanborroso.gif);
+    -o-background: url(../img/fondoplanborroso.gif);
+    -webkit-background: url(../img/fondoplanborroso.gif);
+
+
+	/*background: linear-gradient(to top right, #301349, #10a391);*/
+
+	background-size: cover;
+	-moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+
+	background-repeat: no-repeat;
+	-moz-background-repeat: no-repeat;
+    -ms-background-repeat: no-repeat;
+    -o-background-repeat: no-repeat;
+    -webkit-background-repeat: no-repeat;
+
+	background-position: center center;
+	-moz-background-position: center center;
+    -ms-background-position: center center;
+    -o-background-position: center center;
+    -webkit-background-position: center center;
+
+}
+
+.backgpais3{
+	transition: ease all 2s;
+	-moz-transition: ease all 2s;
+    -ms-transition: ease all 2s;
+    -o-transition: ease all 2s;
+    -webkit-transition: ease all 2s;
+
+	 background: url(../img/fondoplanborrosodark2.png);
+	-moz-background: url(../img/fondoplanborrosodark2.png);
+    -ms-background: url(../img/fondoplanborrosodark2.png);
+    -o-background: url(../img/fondoplanborrosodark2.png);
+    -webkit-background: url(../img/fondoplanborrosodark2.png);
+
+
+	/*background: linear-gradient(to top right, #301349, #10a391);*/
+
+	background-size: cover;
+	-moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+
+	background-repeat: no-repeat;
+	-moz-background-repeat: no-repeat;
+    -ms-background-repeat: no-repeat;
+    -o-background-repeat: no-repeat;
+    -webkit-background-repeat: no-repeat;
+
+	background-position: center center;
+	-moz-background-position: center center;
+    -ms-background-position: center center;
+    -o-background-position: center center;
+    -webkit-background-position: center center;
+
+}
+
+.backgpais4{
+	transition: ease all 2s;
+	-moz-transition: ease all 2s;
+    -ms-transition: ease all 2s;
+    -o-transition: ease all 2s;
+    -webkit-transition: ease all 2s;
+
+/*	 background: url(../img/fondoplanborrosodark2.png);
+	-moz-background: url(../img/fondoplanborrosodark2.png);
+    -ms-background: url(../img/fondoplanborrosodark2.png);
+    -o-background: url(../img/fondoplanborrosodark2.png);
+    -webkit-background: url(../img/fondoplanborrosodark2.png);
+*/
+
+	background: linear-gradient(to top, #55069A, #823FBD);
+
+	background-size: cover;
+	-moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+
+	background-repeat: no-repeat;
+	-moz-background-repeat: no-repeat;
+    -ms-background-repeat: no-repeat;
+    -o-background-repeat: no-repeat;
+    -webkit-background-repeat: no-repeat;
+
+	background-position: center center;
+	-moz-background-position: center center;
+    -ms-background-position: center center;
+    -o-background-position: center center;
+    -webkit-background-position: center center;
+
+}
+
+.playbtn{
+	transition: ease all 2s;
+	-moz-transition: ease all 2s;
+    -ms-transition: ease all 2s;
+    -o-transition: ease all 2s;
+    -webkit-transition: ease all 2s;
+
+	 background: url(../img/play.png);
+	-moz-background: url(../img/play.png);
+    -ms-background: url(../img/play.png);
+    -o-background: url(../img/play.png);
+    -webkit-background: url(../img/play.png);
+
+
+	/*background: linear-gradient(to top right, #301349, #10a391);*/
+
+	background-size: cover;
+	-moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+
+	background-repeat: no-repeat;
+	-moz-background-repeat: no-repeat;
+    -ms-background-repeat: no-repeat;
+    -o-background-repeat: no-repeat;
+    -webkit-background-repeat: no-repeat;
+
+	background-position: center center;
+	-moz-background-position: center center;
+    -ms-background-position: center center;
+    -o-background-position: center center;
+    -webkit-background-position: center center;
+
+}
+
+.playbtn:hover{
+	transition: ease all 2s;
+	-moz-transition: ease all 2s;
+    -ms-transition: ease all 2s;
+    -o-transition: ease all 2s;
+    -webkit-transition: ease all 2s;
+
+	 background: url(../img/playhover.png);
+	-moz-background: url(../img/playhover.png);
+    -ms-background: url(../img/playhover.png);
+    -o-background: url(../img/playhover.png);
+    -webkit-background: url(../img/playhover.png);
+
+
+	/*background: linear-gradient(to top right, #301349, #10a391);*/
+
+	background-size: cover;
+	-moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+
+	background-repeat: no-repeat;
+	-moz-background-repeat: no-repeat;
+    -ms-background-repeat: no-repeat;
+    -o-background-repeat: no-repeat;
+    -webkit-background-repeat: no-repeat;
+
+	background-position: center center;
+	-moz-background-position: center center;
+    -ms-background-position: center center;
+    -o-background-position: center center;
+    -webkit-background-position: center center;
 }
 
 .header_inicio{
@@ -612,6 +802,20 @@ body{
     -webkit-background-position: center center;
 }
 
+.playbuto{
+	border-radius: 100%; 
+	padding: 20px; 
+}
+
+#playbuto:hover{
+	 background: url(../img/fondoplanborroso.png);
+	-moz-background: url(../img/fondoplanborroso.png);
+    -ms-background: url(../img/fondoplanborroso.png);
+    -o-background: url(../img/fondoplanborroso.png);
+    -webkit-background: url(../img/fondoplanborroso.png);
+
+}
+
  /*-----------------------------------------------------*/
 @media all and (min-width: 50px){
 	#pattern{
@@ -730,9 +934,24 @@ body{
 
 }
 
+#btnplay{
+	display: none;
+}
+#btnplayresadj{
+	display: none;
+}
+
 
 
 @media all and (min-width: 700px){
+	#btnplay{
+		display: block;
+	}
+	#btnplayresadj{
+		display: block;
+	}
+
+	
 	#pattern{
 		width: 300px; height: 300px;
 		padding: 20px;

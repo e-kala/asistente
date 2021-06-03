@@ -28,10 +28,10 @@
 									<h4 class="font-weight-bold">Correo electrónico:</h4> <span class="p-2 m-2" id="type_email_config"></span>
 								</span>
 							</div>
-							<div id="patte">
+							<!-- <div id="patte">
 								<h4 class="mt-4 mb-0 pb-0">Contraseña</h4>
-							</div>
-							<script type="text/javascript" src="./content/js/pattern_imitate.js"></script>
+							</div> -->
+							<!-- <script type="text/javascript" src="./content/js/pattern_imitate.js"></script> -->
 						</div>
 						<div>
 						<div class="patternconfigupdatepass position-fixed" style="display: none;">
