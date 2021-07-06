@@ -1,7 +1,6 @@
 <div class=" inicio-container ">
 	<div>
-		<!-- //background hdr here-->
-		<div class="container-fluid wow fadeInUp " style="background: #203B8D;">
+		<div class="container-fluid header_inicio wow fadeInUp ">
 			<div class="row">
 				<div class="headerinit col-md-6 d-flex align-content-center align-items-center">
 					<img src="./content/img/logo19.1_mini.png" width="50px" height="60px" class="p-2">
@@ -10,6 +9,7 @@
 				<!-- <div class=" text-center state_init_mainpage_label">
 					<h2>Iniciar Sesión</h2>
 				</div> -->
+
 				<div class="panel-log-reg m-0 col-md-6 d-flex align-items-center justify-content-center flex-wrap">
 					
 					<a href="#acercade" class="border m-2 p-1 btn-link rounded  flex-grow-1 text-light">Acerca de</a>
@@ -20,7 +20,9 @@
 				</div>
 			</div>
 		</div>
-		<div id="logpan" style="display: none;" align="center">			
+
+		<div id="logpan" style="display: none;" align="center">
+			<p>hoadf</p>
 			<div id="root" class=" p-3 text-center" align="center" > 
 			</div>
 			<div class="init-wayses d-flex justify-content-end">
@@ -30,55 +32,9 @@
 		<div class="divbgmain">
 		</div>
 
-		<!-- //Carrousel -->
-
-		<!-- (103,237,228) -->
-		<div style="background:rgb(176,232,240); 	" class="fluid-container">
-			<div id="carouselExampleCaptions" style="min-height: 100vh;" class="carousel slide d-md-block " data-ride="carousel" align="center">
-				<ol class="carousel-indicators">
-					<li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-					<li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-	
-
-					<li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-				</ol>
-				<div style="min-height: 100vh;" class="d-flex flex-column justify-content-center align-items-center align-content-center">
-					<div class="carousel-inner">
-					<div class="carousel-item active">
-					<img src="content/img/carousel/1.2.png" class="d-block w-70" alt="...">
-					<div class="carousel-caption d-none d-md-block" style="color: #461f08;">
-						<h5 class="text-dark font-italic">Variedad de funciones</h5>
-						<p class="text-dark font-italic">Con Bonsái registra y administra el movimiento de tu dinero</p>
-					</div>
-					</div>
-					<div class="carousel-item">
-					<img src="content/img/carousel/2.1.png" class="d-block w-70" alt="...">
-					<div class="carousel-caption d-none d-md-block"  style="color: #461f08;">
-						<h5 class="text-dark font-italic">Claridad visual</h5>
-						<p class="text-dark font-italic">Mira tus últimos movimientos en el inicio</p>
-					</div>
-					</div>
-					<div class="carousel-item">
-					<img src="content/img/carousel/3.1.png" class="d-block w-30" alt="...">
-					<div class="carousel-caption d-none d-md-block"  style="color: #461f08;">
-						<h5 class="text-dark font-italic">¡Gana insignias!</h5>
-						<p class="text-dark font-italic">Los buenos hábitos te fortalecen y te recompenzan</p>
-					</div>
-					</div>
-				</div>
-				</div>
-				<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
-			</div>
-		</div>
 		<!-- bodyfond -->
- 		<div id="bodyfonlogreg" style="min-height: 100vh; z-index: 5000;" class="backgpaiso backgpais  container-fluid align-items-center position-relative d-none justify-content-center flex-column">
+ 		<div style="min-height: 100vh;" class="backgpaiso backgpais  container-fluid align-items-center position-relative d-flex justify-content-center">
+
  			<div id="cajacenmain" style="background: linear-gradient(to top, transparent, rgb(255,255,255,0.60)); border-radius: 40px; -webkit-border-radius:40px; -moz-border-radius:40px; -o-border-radius:40px; -ms-border-radius:40px;" class="p-4 d-flex cenmovemainpageatract1 position-relative transition-m3s" > 		
  				
 				<div id="btnplayresadj"  class=" p-4 position-relative" style="border-radius: 40px; -webkit-border-radius:40px; -moz-border-radius:40px; -o-border-radius:40px; -ms-border-radius:40px; ">
@@ -92,12 +48,8 @@
  				</div>	
 					<!-- </div> -->
 				</div>
+
 				<div id="fathforms" style="" class="">
-					<div id="menquitinprese" class="d-flex flex-wrap justify-content-between">
-		 				<a id="volversuperpulog" role="button" class=" text-secondary flex-grow-1 m-1">Volver |</a>
-		 				<a id="loginchan2" class=" text-secondary flex-grow-1 m-1" role="button">Iniciar Sesión |</a>
-						<a id="signupchan2" class=" text-secondary flex-grow-1 m-1" role="button">Registrarse </a>
-		 			</div>
 					<div id="formlogpa">
 						<h2 class="m-0 text-dark">Iniciar Sesión</h2>	
 						<form id="formlog" class="p-4 d-flex flex-column">
@@ -115,15 +67,65 @@
 							<input id="password1r" type="password" placeholder="Contraseña" class="border-0 mb-3 p-3 rounded w-70" name="">
 							<input id="password2r" type="password" placeholder="Repetir Contraseña" class="border-0 mb-3 p-3 rounded w-70" name="">
 							<button id="registrarr" class="btn btn-success btn-lg text-white">Registrar</button>
+
 			
 						</form>
 					</div>
 				</div>
  			</div>
 		</div>
+	
+
+		<!-- Demos -->
+		<div class="bg-white">
+			<div class="container p-3">
+				<!-- <div class="row" align="center"> -->
+					<div id="quideflexdems1" class="d-flex flex-wrap justify-content-center align-items-center align-content-center text-justify pb-4 pt-4" >
+						<div class="position-relative">
+							<img src="./content/img/demo3.png"class="m-4 p-4 " width="300px">
+							<img src="./content/img/demo4.png" style="top:0; left: 0; transform: translate(10%, 20%);" class="m-4  position-absolute p-4 " width="300px">
+						</div>
+						 <h4 class="m-2 col-xs-12 text-secondary">Personaliza el modo de vista de tu entorno como mejor prefieras
+						 </h4>
+					</div>
+				<!-- </div> -->
+			</div>
+		</div>
+
+		<div class=" position-relative" style="background: #143754;">
+			<div class="container p-3" >
+				<!-- <div class="row" align="center"> -->
+					<div id="quideflexdems2" class="d-flex flex-wrap justify-content-center align-items-center align-content-center text-justify pb-4 pt-4">
+						 <h4 class="m-2 col-xs-12 text-white">Elije el personaje que más te guste para darle vida a tu asistente
+						 </h4>
+						<div class="position-relative">
+						 <img src="./content/img/demo5pj.png"class="m-4 p-4" width="300px">
+						  
+						</div>
+					</div>
+				<!-- </div> -->
+			</div>
+		</div>
+
+
+		<div class="" style="background: linear-gradient(to bottom, #A4D6FF, white);">
+			<div class="container p-3">
+				<div class="row">
+					<div id="quideflexdems3" class="d-flex flex-wrap justify-content-center align-items-center align-content-center text-justify pb-4 pt-4" >
+						<div class="position-relative">
+						 <img src="./content/img/demo6tools.png"class="m-4 p-4 " width="300px">
+						  
+						</div>
+						 <h4 class="m-2 pl-3 pr-3 pb-3 col-xs-12 text-secondary">Herramientas de administración, gestión de tiempo, conversión monetaria, y más</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	
 
 		<!-- Acerca de -->
-		<div class="bg-white p-4">
+		<div class="bg-white">
 			<div style="min-height: 50vh;" class=" container  bg-white fadeInUp d-flex flex-column justify-content-center align-items-center align-content-center" id="acercade">
 				<div style="min-height: 100%;" class="row rounded bg-white box-shadow-simple m-4">
 					<div class="col-lg-12 p-4">
@@ -141,50 +143,7 @@
 			</div>
 		</div>
 		
-	
-		<!-- Demos -->
-		<div class="bg-white">
-			<div class="container p-3">
-				<!-- <div class="row" align="center"> -->
-					<div id="quideflexdems1" class="d-flex flex-wrap justify-content-center align-items-center align-content-center text-justify pb-4 pt-4" >
-						<div class="position-relative">
-							<img src="./content/img/demo3.png"class="m-4 p-4 " width="300px">
-							<img src="./content/img/demo4.png" style="top:0; left: 0; transform: translate(10%, 20%);" class="m-4  position-absolute p-4 " width="300px">
-						</div>
-						 <h4 class="m-2 col-xs-12 text-secondary">Personaliza el modo de vista de tu entorno como mejor prefieras
-						 </h4>
-					</div>
-				<!-- </div> -->
-			</div>
-		</div>
-		<div class=" position-relative" style="background: #143754;">
-			<div class="container p-3" >
-				<!-- <div class="row" align="center"> -->
-					<div id="quideflexdems2" class="d-flex flex-wrap justify-content-center align-items-center align-content-center text-justify pb-4 pt-4">
-						 <h4 class="m-2 col-xs-12 text-white">Elije el personaje que más te guste para darle vida a tu asistente
-						 </h4>
-						<div class="position-relative">
-						 <img src="./content/img/demo5pj.png"class="m-4 p-4" width="300px">
-						  
-						</div>
-					</div>
-				<!-- </div> -->
-			</div>
-		</div>
-		<div class="" style="background: linear-gradient(to bottom, #A4D6FF, white);">
-			<div class="container p-3">
-				<div class="row">
-					<div id="quideflexdems3" class="d-flex flex-wrap justify-content-center align-items-center align-content-center text-justify pb-4 pt-4" >
-						<div class="position-relative">
-						 <img src="./content/img/demo6tools.png"class="m-4 p-4 " width="300px">
-						  
-						</div>
-						 <h4 class="m-2 pl-3 pr-3 pb-3 col-xs-12 text-secondary">Herramientas de administración, gestión de tiempo, conversión monetaria, y más</h4>
-					</div>
-				</div>
-			</div>
-		</div>
-	
+
 		<!-- footerini -->
 		<div class="bg-white">
 			<div class="container p-4">
@@ -209,6 +168,7 @@
 				</div>
 			</div>
 		</div>
+
 		<!-- Quienes somos -->
 		<div class="foncompleimg3 position-relative"  style="padding-top: 150px;">
 			<div style="z-index: 200;" class="container-fluid" id="quienessomos">
@@ -245,7 +205,12 @@
 				</div>
 			</div>
 		</div>
+
 		
+
+
+
+
 		<!-- Footend -->
 		<div class="container-fluid p-3 text-light" style="background: #39565F; border-top: 4px solid white;">
 			<div class="bg-transparent border-0 p-3 row">
@@ -255,15 +220,21 @@
 				</div>
 			</div>
 		</div>
+
+
 		<script type="text/javascript">
 				document.getElementById("formlog").onsubmit = function(e){
 					e.preventDefault()
 					return false
 				}
+
+
 				//show actual year
 				let fecha = new Date()
 				let año = fecha.getFullYear();
 				document.getElementById("yeartimer").innerHTML = año
+
+
 				// const login_btn = document.getElementsByClassName("login-btn")
 				// const logpan = document.getElementById("logpan")
 				// login_btn[0].onclick = () => {
@@ -286,6 +257,8 @@
 				// 	}],{duration:1000, iterations:1})	
 				// }
 				logpan.ondblclick = () => logpan.style.display = "none"
+
+
 				if (window.innerWidth <= 600){
 					
 					for (let x = 0; x < document.getElementsByClassName("imademos").length; x++){
@@ -293,33 +266,45 @@
 						document.getElementsByClassName("imademos")[0].setAttribute("height", "100%")
 					}
 				} else {
+
 				}
+
+
 				function presentationAnim(){
 					const cenmovemainpageatract1 = document.getElementsByClassName("cenmovemainpageatract1")[0]
+
 					$( document ).ready(function() {
 						cenmovemainpageatract1.style.display = ""
 					});
+
 					
+
 					const congenmainpage = document.getElementsByClassName("backgpaiso")[0]
 					//boton play
 					const btnplay = document.getElementById("btnplay")
 					// congenmainpage.style.opacity= 0	
 					// cenmovemainpageatract1.style.opacity=0
 					// congenmainpage.classList.add("backgpais2")
+
 					let booloncebodback = false
 					let clickPlay = false
 					btnplay.onpointerenter = function(){
+
 						congenmainpage.classList.add("backgpais2")
 						congenmainpage.classList.remove("backgpais")
+
 						if (!booloncebodback){
 							document.body.classList.add("backgpais")
 							booloncebodback = true
 						}
 						document.getElementById("destanimbur").style.display = ""
 					}
+
+
 					btnplay.onpointerleave = function(){
 						btnplay.setAttribute("src", "./content/img/play.png")
 						btnplay.classList.add("playbtn")
+
 						if (clickPlay === false){
 							congenmainpage.classList.remove("backgpais2")
 							congenmainpage.classList.add("backgpais")
@@ -327,19 +312,22 @@
 						}
 						document.getElementById("destanimbur").style.display = "none"
 					}
+
 					btnplay.onpointerdown = function(){
-						document.getElementById("menquitinprese").classList.remove("d-flex")
-						document.getElementById("menquitinprese").classList.add("d-none")
+
 						//Box 1
 						clickPlay = true
 						const b1 = document.createElement("div")
 						b1.setAttribute("id", "b1")
 						b1.classList.add("p-4", "m-4", "text-dark", "font-weight-bold", "d-flex", "align-items-center", "align-content-center", "justify-content-center")
 						// b1.style.background = "linear-gradient(to top, transparent, rgb(255,255,255,0.50))"
+
 						
+
 						function typeWrite(text, timeGeneral, timePointsSign, color, colorShadow, root){
 							let count = 0;
 							let mess = text.replace(/\s/gim, "_").split("")
+
 							let interval = setInterval(()=>{
 								let colorFinal = color
 								let newDiv = document.createElement("div")
@@ -375,28 +363,40 @@
 								}	
 							})
 						}
+
 						let co1genanim = "white"
 						let co2genanim = "green"
+
 						let imageCarga = document.createElement("img")
 						imageCarga.setAttribute("src", "./content/img/iconos/load3.gif")
 						imageCarga.setAttribute("width", "10%")
 						imageCarga.style.top = "-120px"
 						imageCarga.style.margin = "auto"
+
+
+
+
 						congenmainpage.appendChild(imageCarga)
+
+
+
 						
 						setTimeout(function(){
 							imageCarga.remove()
 							typeWrite("¿Quieres organizar tu dinero?", 190, 0, co1genanim, co2genanim, b1)
+
 							let img1 = document.createElement("img")
 							let img2 = document.createElement("img")
 							let img3 = document.createElement("img")
 							let img4 = document.createElement("img")
+
 							img1.setAttribute("src", "./content/img/cubesluz.png")
 							img1.setAttribute("width", "20%")
 							img1.style.top = "30px"
 							img1.style.margin = "auto"
 							img1.style.position = "absolute"
 							img1.animate([{opacity:0},{opacity:1}],{duration:1000, iterations:1})
+
 							congenmainpage.appendChild(img1)
 							//Message2
 							setTimeout(function(){
@@ -415,6 +415,7 @@
 							//Message3
 							setTimeout(function(){
 								img2.remove()
+
 								img3.setAttribute("src", "./content/img/bonwhite.png")
 								img3.setAttribute("width", "10%")
 								img3.style.top = "130px"
@@ -425,6 +426,8 @@
 								b1.innerHTML = ""
 								typeWrite("¡Siembra para el futuro!", 190, 0, co1genanim, co2genanim, b1)
 							},12000)
+
+
 							//Message4
 							setTimeout(function(){
 								img3.remove()
@@ -438,25 +441,36 @@
 								b1.innerHTML = ""
 								typeWrite("¡Construye un plan ahora mismo!", 190, 0, co1genanim, co2genanim, b1)
 							},18000)
+
+
 							//Message5
 							setTimeout(function(){
 								img4.remove()
-								document.getElementById("menquitinprese").classList.add("d-flex")
-								document.getElementById("menquitinprese").classList.remove("d-none")
 								b1.innerHTML = ""
 								cenmovemainpageatract1.style.opacity = "1"
 								cenmovemainpageatract1.animate([{opacity:0},{opacity:1}],{duration:1000, iterations:1})
+
 								cenmovemainpageatract1.style.display = ""
 								cenmovemainpageatract1.classList.add("d-flex")
+
 								//Background
 								congenmainpage.classList.remove("backgpais3")
 								congenmainpage.classList.add("backgpais")
 							},24000)
+
+
+
 						},5000)
+
+
+
+
 						b1.style.transform = "scale(1.3)"
+
 						b1.style.position = "absolute"
 						// b1.style.fontSize = "15px"
 						b1.style.height = "25vh"
+
 						b1.animate([{
 							// transform:"scale(0.5)",
 							// left:"0px",
@@ -466,21 +480,35 @@
 							// left:b1.style.left,
 							opacity:1
 						}],{duration:500, iterations:1})
+
+
+
 						congenmainpage.appendChild(b1)
+
 					
+
+
 						cenmovemainpageatract1.style.display = "none"
 						cenmovemainpageatract1.classList.remove("d-flex")
+
 						//Background
 						congenmainpage.classList.add("backgpais3")
 						congenmainpage.classList.remove("backgpais")
+
+
 					}
+
 					
 				}
+
+
 				presentationAnim()
+
 				function quideflexdems(resolution){
 					const quideflexdems1 = document.getElementById("quideflexdems1")
 					const quideflexdems2 = document.getElementById("quideflexdems2")
 					const quideflexdems3 = document.getElementById("quideflexdems3")
+
 					
 					if (window.innerWidth <= 1300){
 						quideflexdems1.classList.add("flex-wrap")
@@ -491,9 +519,13 @@
 							// quideflexdems2.classList.remove("flex-wrap")
 							// quideflexdems3.classList.remove("flex-wrap")
 					}
+
 				}
+
 				// quideflexdems()
 				
+
+
 				$(function () {
 				  $('[data-toggle="popover"]').popover("show")
 					
@@ -504,6 +536,7 @@
 						speed: 900
 					});
 				})
+
 				/*
 				function rare(destiny){
 					for (let x = 0; x < 5; x++){
@@ -511,14 +544,20 @@
 						div.className = "racubs bg-transparent position-absolute w-50px h-50px transition-m3s margin-auto left top bottom right "
 						div.style.padding = Math.random()* 10 + "px"
 						// div.style.borderTop = "0.1px solid "+ 	`white`
+
+
 						// div.style.borderTop = "none"
 						// div.style.borderBottom = "none"
+
+
 						destiny.appendChild(div)
 					}
+
 					function recursive(){
 						for (let x = 0; x < document.getElementsByClassName("racubs").length; x++){
 							document.getElementsByClassName("racubs")[x].style.left = Math.random() * 40 + "px"
 							document.getElementsByClassName("racubs")[x].style.left = Math.random() * 40 + "px"
+
 							document.getElementsByClassName("racubs")[x].style.opacity = 0
 							document.getElementsByClassName("racubs")[x].style.borderTop = "3px solid " + `rgb(200,0,${Math.random()*255})`
 							document.getElementsByClassName("racubs")[x].animate([{
@@ -532,9 +571,11 @@
 								transform:`skew(${["-", "+"].sort(()=>Math.random()- 0.5)[0] + Math.random()* 20}deg) rotate(-200deg) scale(${Math.random()*1})`
 							}],{duration:1000, iterations:1})
 						}
+
 						
 						setTimeout(recursive,1500)
 					}
+
 					recursive()
 				}
 				rare(document.getElementById("destanimbur"))
@@ -545,10 +586,3 @@
 		<script type="text/javascript" src="./content/js/login.js"></script>
 	</div>
 </div>
-<!-- 
- 1.- Crear boton de start (para iniciar recorrido animacion)
- 2.- Al presionar botom debe oscurecerse todo hasta cierto grado y aparecer elementos e informacion en pantalla escribiendose
- 
-Conexiones registradas (De las alcanzadas a ver)
-12:05 p.m del viernes 14-05-21 
- -->

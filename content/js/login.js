@@ -24,6 +24,43 @@ document.getElementById("access").onpointerdown = function(){
 //Signupchan Loginchan
 
 document.getElementById("loginchan").onpointerdown = function(){
+	document.getElementById("bodyfonlogreg").classList.add("top", "left", "right", "bottom", "margin-auto", "position-fixed")
+	document.getElementById("bodyfonlogreg").animate([{
+		opacity:0
+	},{
+		opacity:1
+	}],{duration:1000, iterations:1})
+	document.getElementById("bodyfonlogreg").classList.remove("d-none")
+	document.getElementById("bodyfonlogreg").classList.add("d-flex")
+	document.body.style.overflow = 'hidden';
+
+	document.getElementById("cajacenmain").style.opacity = 0
+	// document.getElementById("cajacenmain").animate([{opacity:1},{opacity:0}],{duration:1000, iterations:1})
+
+	let imageCarga = document.createElement("img")
+	imageCarga.setAttribute("src", "./content/img/iconos/load3.gif")
+	imageCarga.className = "position-absolute top left right bottom margin-auto"
+	imageCarga.setAttribute("width", "10%")
+	imageCarga.style.top = "-120px"
+	imageCarga.style.margin = "auto"
+
+	const congenmainpage = document.getElementsByClassName("backgpaiso")[0]
+	congenmainpage.appendChild(imageCarga)
+
+	document.getElementById("menquitinprese").style.opacity = "0"
+	
+	setTimeout(function(){
+		document.getElementById("menquitinprese").style.opacity = "1"
+		imageCarga.remove()
+		document.getElementById("formlogpa").style.display = ""
+		document.getElementById("formsignpa").style.display = "none"
+		document.getElementById("cajacenmain").style.opacity = 1
+		document.getElementById("cajacenmain").animate([{opacity:0, transform:"transitionX(-20%)"},{opacity:1, transform:"transitionX(0%)"}],{duration:1000, iterations:1})
+		
+	},1600)
+}
+
+document.getElementById("loginchan2").onpointerdown = function(){
 	document.getElementById("cajacenmain").style.opacity = 0
 	document.getElementById("cajacenmain").animate([{opacity:1},{opacity:0}],{duration:1000, iterations:1})
 
@@ -49,6 +86,43 @@ document.getElementById("loginchan").onpointerdown = function(){
 
 //Signupchan
 document.getElementById("signupchan").onpointerdown = function(){
+	document.getElementById("bodyfonlogreg").classList.add("top", "left", "right", "bottom", "margin-auto", "position-fixed")
+	document.getElementById("bodyfonlogreg").animate([{
+		opacity:0
+	},{
+		opacity:1
+	}],{duration:1000, iterations:1})
+	document.getElementById("bodyfonlogreg").classList.remove("d-none")
+	document.getElementById("bodyfonlogreg").classList.add("d-flex")
+	document.body.style.overflow = 'hidden';
+
+
+	document.getElementById("cajacenmain").style.opacity = 0
+	// document.getElementById("cajacenmain").animate([{opacity:1},{opacity:0}],{duration:1000, iterations:1})
+
+	let imageCarga = document.createElement("img")
+	imageCarga.className = "position-absolute top left right bottom margin-auto"
+	imageCarga.setAttribute("src", "./content/img/iconos/load3.gif")
+	imageCarga.setAttribute("width", "10%")
+	imageCarga.style.top = "-120px"
+	imageCarga.style.margin = "auto"
+
+	const congenmainpage = document.getElementsByClassName("backgpaiso")[0]
+	congenmainpage.appendChild(imageCarga)
+	
+	
+	setTimeout(function(){
+		imageCarga.remove()
+		document.getElementById("formsignpa").style.display = ""
+		document.getElementById("formlogpa").style.display = "none"
+		document.getElementById("cajacenmain").style.opacity = 1
+		document.getElementById("cajacenmain").animate([{opacity:0, transform:"transitionX(-20%)"},{opacity:1, transform:"transitionX(0%)"}],{duration:1000, iterations:1})
+		
+	},1600)
+}
+
+document.getElementById("signupchan2").onpointerdown = function(){
+
 	document.getElementById("cajacenmain").style.opacity = 0
 	document.getElementById("cajacenmain").animate([{opacity:1},{opacity:0}],{duration:1000, iterations:1})
 
@@ -73,6 +147,12 @@ document.getElementById("signupchan").onpointerdown = function(){
 	},1600)
 }
 
+
+document.getElementById("volversuperpulog").onpointerdown = function(){
+	document.getElementById("bodyfonlogreg").classList.remove("d-flex", "top", "left", "right", "bottom", "margin-auto", "position-fixed")
+	document.getElementById("bodyfonlogreg").classList.add("d-none")
+	document.body.style.overflow = 'visible';
+}
 
 //Signup //Funcion de registrar
 document.getElementById("registrarr").onsubmit = function(e){

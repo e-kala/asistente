@@ -9,7 +9,7 @@
 
     include 'content/php/conexion.php';
 
-// include 'content/php/inactividad.php'
+   // include 'content/php/inactividad.php'
     session_start(); 
 
    // echo $_SESSION['user'];
@@ -102,6 +102,7 @@
             }else{
                $action = "inicio";
             }
+            
             switch ($action) {
 
                case 'inicio':
@@ -300,11 +301,8 @@
                   # code...
                   break;
             }
-         ?>
-
-
-         
-            <?php include 'content/php/footer.php'; ?>
+         ?>    
+         <?php include 'content/php/footer.php'; ?>
       </div>
 
         <!-- Firts W -->
