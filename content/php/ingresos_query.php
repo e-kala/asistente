@@ -57,6 +57,10 @@
 
 	if ($time_filter_balance === "5"){ // 2 meses atrás
 		$month_before = $mesActual - 2; // 2 meses atrás
+
+		//convertir cadena a valor numerico
+		$month_before = date('m', strtotime($month_before)); 
+
 		$dias_total = getMonthDays($month_before, $añoActual); //Dias totales dle mes anterior
 		$number_day_refer = ($dias_total + $diaActual) - $dias_total; //Total de dias del mes anterior mas los dias que lleva el mes actual menos 21, o sea menos 3 semanas
 		$fecha_deseada_atras = $añoActual . "-" . $month_before . "-" . $number_day_refer; //Actividad desde hace 1 mes atrás

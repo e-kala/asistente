@@ -9,7 +9,6 @@
 
 	$monto_mxn = 32000; // 320 mxn - 15$
 
-
 	if (isset($_SESSION['user'])){
 		$conectar = new conexion();
 		$conexion = $conectar->conectar();
@@ -347,6 +346,7 @@
 				        		// document.getElementById("loadingg").style.display = "none"
 				          		window.location.reload(false)
 				        	},1000)
+				        	
 				        }
 				      })
 			      // The setup has succeeded. Display a success message.

@@ -18,7 +18,7 @@
 				if ($json_state_acc["fechaExpiracion"] !== "" && $json_state_acc["fechaExpiracion"] !== null){
 					if ("20".$fechaActual > $json_state_acc["fechaExpiracion"]){
 						//Expirado, actualizar el modo prueba de premium a free
-						
+						// 2022-01-312021-01-12
 						echo '<script>window.location.href = "?action=premium#mp"; </script>';
 						
 						// $sql = "UPDATE usuarios SET privilegios = 'free_prueba_usada' WHERE nombre_usuario='$usuario'";

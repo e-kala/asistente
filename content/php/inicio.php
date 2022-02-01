@@ -33,7 +33,7 @@
 		<!-- //Carrousel -->
 
 		<!-- (103,237,228) -->
-		<div style="background:rgb(176,232,240); 	" class="fluid-container">
+		<div style="background:rgb(176,232,240);" id="imacarousprin" class="fluid-container">
 			<div id="carouselExampleCaptions" style="min-height: 100vh;" class="carousel slide d-md-block " data-ride="carousel" align="center">
 				<ol class="carousel-indicators">
 					<li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -45,7 +45,7 @@
 				<div style="min-height: 100vh;" class="d-flex flex-column justify-content-center align-items-center align-content-center">
 					<div class="carousel-inner">
 					<div class="carousel-item active">
-					<img src="content/img/carousel/1.2.png" class="d-block w-70" alt="...">
+					<img src="content/img/carousel/1.5.png" class="d-block w-70" alt="...">
 					<div class="carousel-caption d-none d-md-block" style="color: #461f08;">
 						<h5 class="text-dark font-italic">Variedad de funciones</h5>
 						<p class="text-dark font-italic">Con Bonsái registra y administra el movimiento de tu dinero</p>
@@ -493,6 +493,12 @@
 					}
 				}
 				// quideflexdems()
+
+				if (window.innerWidth <= 700){
+					document.getElementById("imacarousprin").style.display = "none"
+				} else {
+					document.getElementById("imacarousprin").style.display = ""
+				}
 				
 				$(function () {
 				  $('[data-toggle="popover"]').popover("show")
