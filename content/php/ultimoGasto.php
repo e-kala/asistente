@@ -11,8 +11,15 @@
 
 
 
-    $mysqli = new mysqli("localhost", "u539976020_bonsai", ":i9i^Q|N>8w", "u539976020_bonsai");
-
+    // try {
+        //datos oficiales de bonsai, si no se activa, no trabajara con la db correspondiente a los datos de la version oficial
+        // $mysqli = new mysqli("localhost", "u539976020_bonsai", ":i9i^Q|N>8w", "u539976020_bonsai");
+    // } catch (Exception $e) {
+        //datos de prueba de la db de prueba
+        $mysqli = new mysqli("localhost", "u108360402_bonsai", ":i9i^Q|N>8w", "u108360402_bonsai");   
+    // }
+    
+    
     if($mysqli->connect_errno){
         $arrRes=array("error"=>"Connection Failed: " . $mysqli->connect_error);
     }else{

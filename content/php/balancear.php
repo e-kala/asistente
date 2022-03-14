@@ -59,6 +59,7 @@
 	          </form>
 	      </div>
 	      <div class="pb-4 pl-4 pr-4 pt-0">
+			  <?php //Este botón se conecta con el js ubicado en: content/js/subirBalance.js para enviar los datos ?>
 	        <button id="subirBalanceo" type="button" class="btn btn-primary mb-4">Guardar Cambios</button>
 	      </div>
 	    </div>

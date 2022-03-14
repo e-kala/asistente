@@ -98,22 +98,42 @@
 		 				<a id="loginchan2" class=" text-secondary flex-grow-1 m-1" role="button">Iniciar Sesión |</a>
 						<a id="signupchan2" class=" text-secondary flex-grow-1 m-1" role="button">Registrarse </a>
 		 			</div>
+
+		 			<!-- login -->
 					<div id="formlogpa">
-						<h2 class="m-0 text-dark">Iniciar Sesión</h2>	
-						<form id="formlog" class="p-4 d-flex flex-column">
-							<input id="namemail" type="text" placeholder="Usuario / Email" class="border-0 mb-3 p-3 rounded w-70" name="">
-							<input id="password" type="password" placeholder="Contraseña" class="border-0 mb-3 p-3 rounded w-70" name="">
-							<button id="access" class="btn btn-success btn-lg text-white">Iniciar</button>
-						</form>
+						<!-- recovery -->
+			 			<form id="formrecovery" style="display: none;">
+			 				<div class="d-flex flex-column m-4">
+				 				<h5>Por favor introduce tu correo electrónico</h5>
+				 				<input id="inputrecopass" type="text" placeholder="email" class="mb-2 mt-2" name="" required>
+				 				<input value="Enviar" type="button" id="sendemapass" class="btn btn-success">
+				 				<div class="" id="notiferecovconten" style="display: none;">
+				 					<div class="alert alert-success" id="notiferecov"></div>
+				 					<div id="counter" class="text-right text-white font-weight-bold"></div>
+
+
+				 				</div>
+			 				</div>
+			 			</form>
+			 			<div id="logformdivin">
+							<h2 class="m-0 text-dark">Iniciar Sesión</h2>	
+							<form id="formlog" class="p-4 d-flex flex-column">
+								<input id="namemail" type="text" placeholder="Usuario / Email" class="border-0 mb-3 p-3 rounded w-70" name="" required>
+								<input id="password" type="password" placeholder="Contraseña" class="border-0 mb-3 p-3 rounded w-70" name="" required>
+								<button id="access" class="btn btn-success btn-lg text-white">Iniciar</button>
+								<button class="btn btn-link text-white" id="recoverypass">Olvidé mi contraseña</button>
+							</form>
+			 			</div>
 					</div>
+					<!-- sign up -->
 					<div id="formsignpa" style="display: none;">
 						<h2 class="m-0 text-dark">Registro</h2>	
 						<div class="text-danger font-italic mt-3 mb-0" style="display: none; width: 180px;" id="labelsignno"></div>
 						<form id="formsignn" class="p-4 d-flex flex-column">
-							<input id="usernamer" type="text" placeholder="Username" class="border-0 mb-3 ml-0 mr-0 mt-0 p-3 rounded w-70" name="">
-							<input id="emailr" type="text" placeholder="Email" class="border-0 mb-3 p-3 rounded w-70" name="">
-							<input id="password1r" type="password" placeholder="Contraseña" class="border-0 mb-3 p-3 rounded w-70" name="">
-							<input id="password2r" type="password" placeholder="Repetir Contraseña" class="border-0 mb-3 p-3 rounded w-70" name="">
+							<input id="usernamer" type="text" placeholder="Username" class="border-0 mb-3 ml-0 mr-0 mt-0 p-3 rounded w-70" name="" required>
+							<input id="emailr" type="text" placeholder="Email" class="border-0 mb-3 p-3 rounded w-70" name="" required>
+							<input id="password1r" type="password" placeholder="Contraseña" class="border-0 mb-3 p-3 rounded w-70" name="" required>
+							<input id="password2r" type="password" placeholder="Repetir Contraseña" class="border-0 mb-3 p-3 rounded w-70" name="" required>
 							<button id="registrarr" class="btn btn-success btn-lg text-white">Registrar</button>
 			
 						</form>

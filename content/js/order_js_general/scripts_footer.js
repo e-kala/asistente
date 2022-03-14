@@ -506,7 +506,9 @@ function obtener_mostrar_saldo_modales_ingreso_gasto(){
                 let pj = window.config[1].pj_change.replace("happy", "angry")
                 document.getElementsByClassName("caras")[0].setAttribute("src", pj)
                 document.getElementsByClassName("caras")[0].animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
-                document.getElementsByClassName("notifypj")[0].style.display = "none"
+                if (document.getElementsByClassName("notifypj")[0] != undefined){
+                  document.getElementsByClassName("notifypj")[0].style.display = "none"
+                }
             }
         
           } else {
@@ -518,7 +520,9 @@ function obtener_mostrar_saldo_modales_ingreso_gasto(){
                 let pj = window.config[1].pj_change.replace("angry", "happy")
                 document.getElementsByClassName("caras")[0].setAttribute("src", pj)
                 document.getElementsByClassName("caras")[0].animate([{opacity:0},{opacity:1}],{duration:400, iterations:1})
-                document.getElementsByClassName("notifypj")[0].style.display = "none"
+                if (document.getElementsByClassName("notifypj")[0] != undefined){
+                  document.getElementsByClassName("notifypj")[0].style.display = "none"
+                }
             }
         
           }

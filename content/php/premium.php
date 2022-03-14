@@ -110,6 +110,9 @@
 
 					  if ($pain->status == "succeeded"){
 					  	echo "<div class='alert alert-success font-weight-bold'><h2>¡Su pago se ha procesado con éxito ! Ahora dispone de cuenta premium indefinida <i class='fa fa-check-circle ml-2' aria-hidden='true'></i></h2></div>";
+
+					  	echo "<script>setTimeout(function(){ window.location.reload(false) }, 1500)</script>";
+					  	
 					  	//cambiar estado de cliente stripe a solvente
 					  	$define_solvent_status = "UPDATE stripe set status='solvente' WHERE usuario_card ='$usuario' AND email_card='$email'";
 					  	$update_status_to_solvent = $conexion->query($define_solvent_status);
